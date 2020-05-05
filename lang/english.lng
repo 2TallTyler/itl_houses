@@ -1,0 +1,32 @@
+##grflangid 0x01
+
+STR_GRF_NAME						:Improved Town Layouts
+STR_GRF_DESC						:{}{ORANGE}Reworked default houses.{}{}{BLACK}Downtowns defined by passenger service, sprawling suburbs, historic preservation, and more.{}{}Starts in 1700. Compatible with all base graphic sets.{}{}{SILVER}Visit website for instructions.{}{}{BLACK}Coded by 2TallTyler.{}License: GPL v3
+STR_WEBSITE							:https://github.com/2TallTyler/pocketwatch_towns
+
+STR_NAME_HISTORIC_CHURCH				:Historic Church
+STR_NAME_OLD_CHURCH						:Church
+STR_NAME_MODERN_CHURCH					:Church
+STR_NAME_NEOMOORISH_CHURCH				:Neo-Moorish Church
+STR_NAME_OLD_STADIUM					:Stadium
+STR_NAME_NEW_STADIUM					:Modern Stadium
+STR_NAME_CINEMA							:Cinema
+STR_NAME_THEATRE						:Theatre
+STR_NAME_HOTEL							:Hotel
+STR_NAME_MARKET							:Market
+STR_NAME_WAREHOUSE						:Warehouse
+STR_NAME_STATUE							:Statue
+STR_NAME_FOUNTAIN						:Fountain
+STR_NAME_HOUSES							:Houses
+STR_NAME_TOWNHOUSES						:Town Houses
+STR_NAME_SHOP							:Shop
+STR_NAME_PARK							:Park
+STR_NAME_TALL_OFFICE_BLOCK				:Tall Office Block
+STR_NAME_LARGE_OFFICE_BLOCK				:Large Office Block
+STR_NAME_OFFICE_BLOCK					:Office Block
+STR_NAME_SHOPS_AND_OFFICES				:Shops and offices
+STR_NAME_OFFICES						:Offices
+STR_NAME_CAPSULE_TOWER					:Nakagin Capsule Tower
+STR_NAME_FLATS							:Flats
+STR_NAME_SMALL_FLATS					:Small block of flats
+STR_NAME_COTTAGES						:Cottages

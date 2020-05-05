@@ -1,0 +1,1634 @@
+grf {
+	grfid: "TT\03\01";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESC);
+	version: 1;
+	min_compatible_version: 0;
+	url: string(STR_WEBSITE);
+}
+
+
+cargotable {
+	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD
+}
+
+/* Graphics */
+
+// Houses
+spritelayout houses1 {
+ground	 {sprite: 1499;}
+building {sprite:1500;}}
+spritelayout houses2 {
+ground 	 {sprite: 1574;}
+building {sprite:1575;}}
+spritelayout houses3 {
+ground	 {sprite: 1517;}
+building {sprite:1518;}}
+spritelayout houses4 {
+ground	 {sprite: 1511;}
+building {sprite:1512;}}
+
+// Town Houses
+spritelayout townhouses1 {
+ground	 {sprite: 1505;}
+building {sprite: 1506;}}
+spritelayout townhouses2 {
+ground	 {sprite: 1447;}
+building {sprite: 1446;}}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_townhouses) {
+1: townhouses1;
+1: townhouses2;
+}
+
+// Old Church
+spritelayout sprite_church {
+	ground	 {sprite: 1437;}
+	building {sprite: 1436;}}
+
+// Modern Church 1
+spritelayout sprite_modern_church_1 {
+	ground	 {sprite: 4462;}
+	building {sprite: 4465;}}
+	
+// Modern Church 2
+spritelayout sprite_modern_church_2 {
+	ground	 {sprite: 1420;}
+	building {sprite: 4461;}}
+	
+// Neo-Moorish Church
+spritelayout sprite_neomoorish_church {
+	ground	 {sprite: 1420;}
+	building {sprite: 4604;}}
+
+// Old Stadium
+spritelayout sprite_old_stadium_N {
+	ground	 {sprite: 1479 ;}
+	building {sprite: 1483;}}
+spritelayout sprite_old_stadium_E {
+	ground	 {sprite: 1480 ;}
+	building {sprite: 1484;}}
+spritelayout sprite_old_stadium_W {
+	ground	 {sprite: 1481 ;}
+	building {sprite: 1485;}}
+spritelayout sprite_old_stadium_S {
+	ground	 {sprite: 1482 ;}
+	building {sprite: 1486;}}
+
+// New Stadium
+spritelayout sprite_new_stadium_N {
+	ground	 {sprite: 1554 ;}
+	building {sprite: 1558;}}
+spritelayout sprite_new_stadium_E {
+	ground	 {sprite: 1555 ;}
+	building {sprite: 1559;}}
+spritelayout sprite_new_stadium_W {
+	ground	 {sprite: 1556 ;}
+	building {sprite: 1560;}}
+spritelayout sprite_new_stadium_S {
+	ground	 {sprite: 1557 ;}
+	building {sprite: 1561;}}
+	
+// Shopping Center
+spritelayout sprite_shopping_mall_N {
+	ground	 {sprite: 1420 ;}
+	building {sprite: 4412;}
+	childsprite {sprite: 4411;
+				 yoffset: 6;
+				 xoffset: 31;
+	}}
+spritelayout sprite_shopping_mall_E {
+	ground	 {sprite: 1420 ;}
+	building {sprite: 4413;}
+	childsprite {sprite: 4414;
+				 xoffset: 31;
+	}}
+spritelayout sprite_shopping_mall_W {
+	ground	 {sprite: 1420 ;}
+	building {sprite: 4415;	}
+	childsprite {sprite: 4416;
+				 yoffset: 1;
+				 xoffset: 31;
+	}}
+spritelayout sprite_shopping_mall_S {
+	ground	 {sprite: 1420 ;}
+	building {sprite: 4417;}
+	}
+
+// Hotel
+spritelayout sprite_hotel_N {
+	ground	 {sprite: 1420;}
+	building {sprite: 1450;}
+}
+
+spritelayout sprite_hotel_E {
+	ground	 {sprite: 1420;}
+	building {sprite: 1453;}
+}
+
+// Cinema
+spritelayout sprite_cinema {
+	ground	 {sprite: 4404;}
+	building {sprite: 4405;}
+}
+
+//Theatre
+spritelayout sprite_theatre {
+	ground	 {sprite: 1552;}
+	building {sprite: 1553;}
+}
+
+//Warehouse
+spritelayout sprite_warehouse {
+	ground	 {sprite: 1420;}
+	building {sprite: 1475;}
+}
+
+// Fountain
+spritelayout sprite_fountain {
+	ground	 {sprite: 1420 ;}
+	building {
+		sprite: 1455;
+		yoffset: 3;
+		xoffset: 3;
+		}}
+
+// Statue
+spritelayout sprite_statue {
+	ground	 {sprite: 1420 ;}
+	building {
+		sprite: 1454;
+		yoffset: 5;
+		xoffset: 6;
+		}}
+
+// Shop
+spritelayout sprite_shop {
+	ground	 {sprite: 4418;}
+	building {sprite: 4426;}}
+
+// Park, Pond
+spritelayout sprite_park_pond {
+	ground	 {sprite: 3981;}
+	building {sprite: 1456;}}
+
+// Park, Alley
+spritelayout sprite_park_alley {
+	ground	 {sprite: 3981;}
+	building {sprite: 1457;}}
+
+// Tall office block, spiral staircase
+spritelayout sprite_tall_office_block_19 {
+	ground	 {sprite: 1424;}
+	building {sprite: 1425;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+// Tall office block, 00
+spritelayout sprite_tall_office_block_00 {
+	ground	 {sprite: 1550;}
+	building {sprite: 1551;}}
+
+// Tall office block, 28
+spritelayout sprite_tall_office_block_28 {
+	ground	 {sprite: 1534;}
+	building {sprite: 1535;}}
+
+// Large office block, with elevator
+spritelayout sprite_large_office_block {
+	ground	 {sprite: 1420;}
+	building {sprite: 1442;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+// Office block 01
+spritelayout sprite_office_block_01 {
+	ground	 {sprite: 1429;}
+	building {sprite: 1428;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+	
+// Office block 13
+spritelayout sprite_office_block_13 {
+	ground	 {sprite: 1420;}
+	building {sprite: 1460;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+// Shops and offices 30 - modern bulge
+spritelayout sprite_shops_and_offices_30 {
+	ground	 {sprite: 1544;}
+	building {sprite: 1545;}}
+	
+// Office tube
+spritelayout sprite_office_tube {
+	ground	 {sprite: 1564;}
+	building {sprite: 1565;}}
+	
+// Capsule tower
+spritelayout sprite_capsule_tower {
+	ground	 {sprite: 1420;}
+	building {sprite: 1472;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+// Small Flats 2
+spritelayout sprite_small_flats {
+	ground	 {sprite: 1433;}
+	building {sprite: 1432;}}
+
+// Flats 1
+spritelayout sprite_flats_1 {
+	ground	 {sprite: 1528;}
+	building {sprite: 1529;}}
+	
+// Flats 2
+spritelayout sprite_flats_2 {
+	ground	 {sprite: 1522;}
+	building {sprite: 1523;}}
+	
+spritelayout sprite_tall_office_block_52 {
+	ground	 {sprite:4442;}
+	building {sprite:4445;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_tall_office_block_50 {
+	ground		{sprite:4483;}
+	building	{sprite:4484;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_tall_office_block_54 {
+	ground		{sprite:4434;}
+	building	{sprite:4437;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_tall_office_block_74_N {
+	ground	 {sprite:4485;}
+	building {sprite:4491;}}
+spritelayout sprite_tall_office_block_74_W {
+	ground		{sprite:4486;}
+	building	{sprite:4492;}}
+
+spritelayout sprite_flats_44 {
+	ground		{sprite:4418;}
+	building	{sprite:4422;}}
+
+spritelayout sprite_shops_and_offices_64 {
+	ground		{sprite:1420;}
+	building	{sprite:4470;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_houses_62 {
+ground		{sprite:1566;}
+building	{sprite:1567;}}
+
+spritelayout sprite_tall_office_block_87_N {
+	ground		{sprite:1420;}
+	building	{sprite:4618;}}
+spritelayout sprite_tall_office_block_87_W {
+	ground		{sprite:1420;}
+	building	{sprite:4619;}}
+
+spritelayout sprite_tall_office_block_90 {
+	ground		{sprite:1420;}
+	building	{sprite:4625;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+	
+spritelayout sprite_flats_82 {
+	ground		{sprite:1420;}
+	building	{sprite:4610;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_flats_85 {
+	ground		{sprite:1420;}
+	building	{sprite:4613;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_warehouse_89 {
+	ground		{sprite:1420;}
+	building	{sprite:4622;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_shops_and_offices_29 {
+	ground		{sprite:1536;}
+	building	{sprite:1537;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout  sprite_shops_and_offices_14 {
+	ground		{sprite:1420;}
+	building	{sprite:1466;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_shops_and_offices_15a {
+	ground		{sprite:1420;}
+	building	{sprite:1463;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_shops_and_offices_15b {
+	ground		{sprite:1538;}
+	building	{sprite:1539;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_shops_and_offices_16 {
+	ground		{sprite:1420;}
+	building	{sprite:1469;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_old_houses_1 {
+	ground		{sprite:1487;}
+	building	{sprite:1488;}}
+
+spritelayout sprite_old_houses_2 {
+	ground		{sprite:1493;}
+	building	{sprite:1494;}}
+
+spritelayout sprite_old_houses_3 {
+	ground		{sprite:1491;}
+	building	{sprite:1492;}}
+
+spritelayout sprite_old_houses_4 {
+	ground		{sprite:1489;}
+	building	{sprite:1490;}}
+
+spritelayout sprite_cottages {
+	ground		{sprite:1495;}
+	building	{sprite:1496;}}
+
+/* Construction Checks */
+
+/* Building Classes
+
+Class 0
+Buildings in class: House, Mall, Warehouse, Fountain, Statue
+
+Class 1
+Parks cannot be within 2 tiles of another park
+
+Class 2
+Skyscrapers/office towers can only build within 5 tiles of another skyscraper/office towers
+Buildings in class: skyscrapers, office towers
+
+Class 3
+Historic shops and Historic Church (which sets if city has preservation or not)
+
+Class 4
+Old houses (must be within 2 tiles of another old house, to prevent sparse town growth with house limit)
+
+*/
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_houses_any) {
+1: houses1;
+1: houses4;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_houses_SW) {
+1: houses1;
+1: houses4;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_houses_SE) {
+1: houses1;
+2: houses2;
+2: houses3;
+1: houses4;
+1: sprite_houses_62;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_flats) {
+8: sprite_flats_1;
+8: sprite_flats_2;
+4: sprite_flats_44; //small brown flats
+1: sprite_flats_82; //blue balconies
+1: sprite_flats_85; //big boxes
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_shops_and_offices_15) {
+1: sprite_shops_and_offices_15a;
+1: sprite_shops_and_offices_15b;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_old_houses) {
+1:	sprite_old_houses_1;
+1:	sprite_old_houses_2;
+1:	sprite_old_houses_3;
+1:	sprite_old_houses_4;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_warehouse) {
+4:	sprite_warehouse;
+1:	sprite_warehouse_89;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_colour_offices) {
+1:	return PALETTE_CC_DARK_BLUE;
+1:	return PALETTE_CC_GREY;
+1:	return PALETTE_CC_BROWN;
+1:	return PALETTE_CC_MAUVE;
+1:	return PALETTE_CC_WHITE;
+1:	return PALETTE_CC_DARK_GREEN;
+}
+
+random_switch (FEAT_HOUSES,SELF, random_colour_masonry) {
+1:	return PALETTE_STRUCT_CONCRETE;
+1:	return PALETTE_STRUCT_WHITE;
+1:	return PALETTE_STRUCT_BROWN;
+1:	return PALETTE_USE_DEFAULT;
+}
+
+// House Sprite Orientation
+switch(FEAT_HOUSES,SELF, house_sprite_orientation_SE, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: random_sprite_houses_SE; random_sprite_houses_any;}
+switch(FEAT_HOUSES,SELF, house_sprite_orientation_SW, nearby_tile_class(1,0)) {TILE_CLASS_ROAD: random_sprite_houses_SW; house_sprite_orientation_SE;}
+switch(FEAT_HOUSES,SELF, house_sprite_sloped, nearby_tile_slope(0,0)) {0: house_sprite_orientation_SW; random_sprite_houses_any;}
+
+// Road is SE of tile (Cinema)
+switch(FEAT_HOUSES,SELF, if_road_SE, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: return 1; return 0;}
+
+// Road is SW of tile (Hotel, Theatre)
+switch(FEAT_HOUSES,SELF, if_road_SW, nearby_tile_class(1,0)) {TILE_CLASS_ROAD: return 1; return 0;}
+
+// Distance check: Hotel cannot build within 4 tiles of another Hotel
+switch(FEAT_HOUSES,SELF, distance_hotel_6_hotel, nearest_house_matching_criterion(12, SEARCH_HOUSE_BY_TYPE)) {0: if_road_SW; return 0;}
+
+// Distance check: Cinema cannot build within 4 tiles of another Cinema
+switch(FEAT_HOUSES,SELF, distance_cinema_4_cinema, nearest_house_matching_criterion(10, SEARCH_HOUSE_BY_TYPE)) {0: if_road_SE; return 0;}
+
+// Distance check: Theatre cannot build within 4 tiles of another Theatre
+switch(FEAT_HOUSES,SELF, distance_theatre_4_theatre, nearest_house_matching_criterion(10, SEARCH_HOUSE_BY_TYPE)) {0: if_road_SW; return 0;}
+
+// Distance check: Within 4 tiles
+switch(FEAT_HOUSES,SELF, distance_same_id_within_4, nearest_house_matching_criterion(4, SEARCH_HOUSE_BY_TYPE)) {0: return 1; return 0;}
+
+// Distance check: Cannot build within distance 2 of same class (House, Mall, Warehouse, Park)
+switch(FEAT_HOUSES,SELF, distance_same_class_within_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
+
+// Distance check: Must build within distance 2 of same class (high-rises). No need to cluster if first in town.
+switch(FEAT_HOUSES,SELF, distance_first_in_town, same_class_count_town) {0: return 1; return 0;}
+switch(FEAT_HOUSES,SELF, distance_same_class_cluster_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: distance_first_in_town; return 1;}
+
+// Service check: Cannot demolish if PASS accepted last month
+switch(FEAT_HOUSES,SELF, pass_service_check, cargo_accepted_nearby_last_month(PASS)) {1: return 1; return 0;}
+
+// Service check: Stadiums cannot be demolished if FOOD, BEER, or PASS accepted last month
+switch(FEAT_HOUSES,SELF, stadium_food_service_check, cargo_accepted_nearby_last_month(FOOD)) {1: return 1; pass_service_check;}
+switch(FEAT_HOUSES,SELF, stadium_beer_service_check, cargo_accepted_nearby_last_month(BEER)) {1: return 1; stadium_food_service_check;}
+
+// Service check: Cannot demolish if GOOD accepted last month
+switch(FEAT_HOUSES,SELF, goods_service_check, cargo_accepted_nearby_last_month(GOOD)) {1: return 1; return 0;}
+switch(FEAT_HOUSES,SELF, food_service_check, cargo_accepted_nearby_last_month(FOOD)) {1: return 1; goods_service_check;}
+
+// Service check: Offices only build when PASS accepted last month, and in cluster distance 2
+// switch(FEAT_HOUSES,SELF, mail_service_check_offices, cargo_accepted_nearby_last_month(MAIL)) {1: distance_same_class_cluster_2; return 0;}
+switch(FEAT_HOUSES,SELF, pass_service_check_offices, cargo_accepted_nearby_last_month(PASS)) {1: distance_same_class_cluster_2; return 0;}
+
+// Unique check: Only one in town, must have road SW
+switch(FEAT_HOUSES,SELF, unique_building_town_road_SW, same_house_count_town) {0: if_road_SW; return 0;}
+switch(FEAT_HOUSES,SELF, unique_building_town_road_SE, same_house_count_town) {0: if_road_SE; return 0;}
+
+
+// Construction check for enough residential population to build post-1945 office buildings
+switch(FEAT_HOUSES,SELF, modern_office_pop_check, 
+[
+	// Add up population of residential buildings
+	STORE_TEMP( 
+	(other_house_count_town(25)*12)+ // Cottages
+	(other_house_count_town(24)*15)+ // Old houses
+	(other_house_count_town(108)*13)+ // Pre-1945 Houses
+	(other_house_count_town(26)*13)+ // Houses
+	(other_house_count_town(109)*30)+ // Pre-1945 Townhouses
+	(other_house_count_town(06)*30)+ // Townhouses
+	(other_house_count_town(27)*100)+ // Flats
+	(other_house_count_town(02)*40) // Small flats
+	, 1),
+	
+	// Calculate minimum population needed to construct this building
+	STORE_TEMP(other_class_count_town(3) * 300, 2),		// population already used by older buildings
+	STORE_TEMP((1 + same_class_count_town) * 1000, 3), 	// minimum population needed for this building
+	STORE_TEMP(LOAD_TEMP(2) + LOAD_TEMP(3), 4),
+
+	LOAD_TEMP(1) > LOAD_TEMP(4),						// Check if population is greater than minimum population needed
+	]){1: pass_service_check_offices; return 0;}		// If true, proceed to passenger service check, else don't allow construction
+
+// Construction check for enough residential population to build pre-1945 office buildings
+switch(FEAT_HOUSES,SELF, old_office_pop_check, 
+	[ 
+	// Add up population of residential buildings
+	STORE_TEMP( 
+	(other_house_count_town(25)*12)+ // Cottages
+	(other_house_count_town(24)*15)+ // Old houses
+	(other_house_count_town(108)*13)+ // Pre-1945 Houses
+	(other_house_count_town(26)*13)+ // Houses
+	(other_house_count_town(109)*30)+ // Pre-1945 Townhouses
+	(other_house_count_town(06)*30)+ // Townhouses
+	(other_house_count_town(27)*100)+ // Flats
+	(other_house_count_town(02)*40) // Small flats
+	, 1),
+	
+	// Calculate minimum population needed to construct this building
+	STORE_TEMP((1 + same_class_count_town) * 300, 2),	// Calculate minimum population needed for this building
+	LOAD_TEMP(1) > LOAD_TEMP(2),						// Check if population is greater than minimum population needed
+	]){1: pass_service_check_offices; return 0;}		// If true, proceed to passenger service check, else don't allow construction
+
+// Unique check: Only one in world, must follow office building rules
+switch(FEAT_HOUSES,PARENT, pop_over_30k, population) {0 .. 30000: return 0; pass_service_check_offices;}
+switch(FEAT_HOUSES,SELF, unique_worldwide, same_house_count_map) {0: pop_over_30k; return 0;}
+
+// Preservation check for historic buildings
+random_switch(FEAT_HOUSES,SELF, random_preservation) {1: return 1; 7: return 0;}
+switch(FEAT_HOUSES,SELF, preservation3, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 0; return 1;}
+switch(FEAT_HOUSES,SELF, preservation2, other_house_count_town(38)) {1: preservation3; random_preservation;}
+switch(FEAT_HOUSES,SELF, preservation1, current_year) {0 .. 1945: return 0; preservation2;}
+
+// Preservation check for fountain or statue next to historic buildings
+switch(FEAT_HOUSES, SELF, protection_historic_square, nearby_tile_class(0,-1)) {3: return 1; return 0;}
+
+/* Buildings */
+
+// Houses
+item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
+	property {
+		substitute				:26;
+		name					:string(STR_NAME_HOUSES);
+		override				:26;
+		population				:13;
+		mail_multiplier			:8;
+		accepted_cargos			:[[PASS, 3],[MAIL, 1]];
+		local_authority_impact	:75;
+		removal_cost_multiplier	:71;
+		probability				:4;
+		years_available			:[1945,9999];
+		minimum_lifetime		:2;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:0;
+		}
+	graphics {
+		default					:house_sprite_sloped;
+		
+	}
+}
+
+item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
+	property {
+		substitute				:26;
+		name					:string(STR_NAME_HOUSES);
+		override				:26;
+		population				:13;
+		mail_multiplier			:8;
+		accepted_cargos			:[[PASS, 3],[MAIL, 1],[COAL, 1]];
+		local_authority_impact	:75;
+		removal_cost_multiplier	:71;
+		probability				:4;
+		years_available			:[1850,1950];
+		minimum_lifetime		:2;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:0;
+		}
+	graphics {
+		default					:house_sprite_sloped;
+		
+	}
+}
+
+// Townhouses
+item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
+	property {
+		substitute				:06;
+		name					:string(STR_NAME_TOWNHOUSES);
+		override				:06;
+		population				:30;
+		mail_multiplier			:12;
+		accepted_cargos			:[[PASS, 4],[MAIL, 2]];
+		local_authority_impact	:80;
+		removal_cost_multiplier	:80;
+		probability				:1;
+		years_available			:[1945,9999];
+		minimum_lifetime		:2;
+		availability_mask		:[bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		default					:random_sprite_townhouses;
+		
+	}
+}
+
+item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
+	property {
+		substitute				:06;
+		name					:string(STR_NAME_TOWNHOUSES);
+		override				:06;
+		population				:30;
+		mail_multiplier			:12;
+		accepted_cargos			:[[PASS, 4],[MAIL, 2],[COAL, 2]];
+		local_authority_impact	:80;
+		removal_cost_multiplier	:80;
+		probability				:1;
+		years_available			:[1850,1950];
+		minimum_lifetime		:2;
+		availability_mask		:[bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		default					:random_sprite_townhouses;
+		
+	}
+}
+
+// Flats
+item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
+	property {
+		substitute				:27;
+		name					:string(STR_NAME_FLATS);
+		override				:27;
+		population				:100;
+		mail_multiplier			:35;
+		accepted_cargos			:[[PASS, 8],[MAIL, 2]];
+		local_authority_impact	:100;
+		removal_cost_multiplier	:135;
+		probability				:2;
+		years_available			:[1945,9999];
+		minimum_lifetime		:2;
+		availability_mask		:[bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		default					:random_sprite_flats;
+		construction_check		:pass_service_check;
+	}
+}
+
+// Small Flats
+item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
+	property {
+		substitute				:02;
+		name					:string(STR_NAME_SMALL_FLATS);
+		override				:02;
+		population				:40;
+		mail_multiplier			:20;
+		accepted_cargos			:[[PASS, 8],[MAIL, 3]];
+		local_authority_impact	:90;
+		removal_cost_multiplier	:100;
+		probability				:2;
+		years_available			:[1945,9999];
+		minimum_lifetime		:4;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		default					:sprite_small_flats;
+		construction_check		:pass_service_check;
+	}
+}
+
+// Historic District Church
+item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
+	property {
+		substitute				:03;
+		name					:string(STR_NAME_HISTORIC_CHURCH);
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED, HOUSE_FLAG_CHURCH, HOUSE_FLAG_PROTECTED);
+		population				:5;
+		mail_multiplier			:2;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:90;
+		probability				:4;
+		years_available			:[1700,9999];
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), ALL_CLIMATES];
+		}
+	graphics {
+		default					:sprite_church;
+		construction_check		:if_road_SE;
+	}
+}
+
+// Old Church
+item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
+	property {
+		substitute				:03;
+		name					:string(STR_NAME_OLD_CHURCH);
+		override				:03;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED,HOUSE_FLAG_CHURCH);
+		population				:5;
+		mail_multiplier			:2;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:90;
+		probability				:6;
+		years_available			:[1700,9999];
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), ALL_CLIMATES];
+		}
+	graphics {
+		default					:sprite_church;
+		construction_check		:unique_building_town_road_SE;
+		protection				:random_preservation;
+	}
+}
+
+// Modern Church 1
+item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
+	property {
+		substitute				:60;
+		name					:string(STR_NAME_MODERN_CHURCH);
+		override				:60;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:6;
+		mail_multiplier			:2;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:85;
+		probability				:1;
+		years_available			:[1960,9999];
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		default					:sprite_modern_church_1;
+		construction_check		:unique_building_town_road_SE;
+		protection				:random_preservation;
+	}
+}
+
+// Modern Church 2
+item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
+	property {
+		substitute				:58;
+		name					:string(STR_NAME_MODERN_CHURCH);
+		override				:58;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:8;
+		mail_multiplier			:2;
+		accepted_cargos			:[[PASS, 3],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:85;
+		probability				:1;
+		years_available			:[1970,9999];
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		default					:sprite_modern_church_2;
+		construction_check		:unique_building_town_road_SW;
+		protection				:random_preservation;
+	}
+}
+
+// Neo-Moorish Church
+item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
+	property {
+		substitute				:83;
+		name					:string(STR_NAME_NEOMOORISH_CHURCH);
+		override				:83;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:8;
+		mail_multiplier			:2;
+		accepted_cargos			:[[PASS, 3],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:85;
+		probability				:1;
+		years_available			:[1850,1940];
+		availability_mask		:[bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		default					:sprite_neomoorish_church;
+		construction_check		:unique_building_town_road_SW;
+		protection				:random_preservation;
+	}
+}
+
+// Old Stadium
+item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
+	property {
+		substitute				:20;
+		name					:string(STR_NAME_OLD_STADIUM);
+		override				:20;
+		building_flags			:bitmask(HOUSE_FLAG_STADIUM);
+		population				:65;
+		mail_multiplier			:5;
+		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
+		local_authority_impact	:300;
+		removal_cost_multiplier	:250;
+		probability				:8;
+		years_available			:[1850,9999];
+		minimum_lifetime		:10;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		graphics_north			:sprite_old_stadium_N;
+		graphics_east			:sprite_old_stadium_E;
+		graphics_west			:sprite_old_stadium_W;
+		graphics_south			:sprite_old_stadium_S;
+		protection				:stadium_beer_service_check;
+	}
+}
+
+// Modern Stadium
+item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
+	property {
+		substitute				:32;
+		name					:string(STR_NAME_NEW_STADIUM);
+		override				:32;
+		building_flags			:bitmask(HOUSE_FLAG_STADIUM);
+		population				:255;
+		mail_multiplier			:5;
+		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
+		local_authority_impact	:300;
+		removal_cost_multiplier	:250;
+		probability				:3;
+		years_available			:[1958,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		graphics_north			:sprite_new_stadium_N;
+		graphics_east			:sprite_new_stadium_E;
+		graphics_west			:sprite_new_stadium_W;
+		graphics_south			:sprite_new_stadium_S;
+		protection				:stadium_beer_service_check;
+	}
+}
+
+// Hotel
+item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
+	property {
+		substitute				:07;
+		name					:string(STR_NAME_HOTEL);
+		override				:07;
+		population				:140;
+		mail_multiplier			:22;
+		accepted_cargos			:[[PASS, 6],[MAIL, 2]];
+		local_authority_impact	:150;
+		removal_cost_multiplier	:180;
+		probability				:4;
+		years_available			:[1900,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		graphics_north			:sprite_hotel_N;
+		graphics_east			:sprite_hotel_E;
+		construction_check		:distance_hotel_6_hotel;
+		protection				:pass_service_check;
+	}
+}
+
+// Cinema
+item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
+	property {
+		substitute				:39;
+		name					:string(STR_NAME_CINEMA);
+		override				:39;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:35;
+		mail_multiplier			:23;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:210;
+		probability				:8;
+		years_available			:[1945,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		default					:sprite_cinema;
+		construction_check		:distance_cinema_4_cinema;
+	}
+}
+
+// Theatre
+item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
+	property {
+		substitute				:31;
+		name					:string(STR_NAME_THEATRE);
+		override				:31;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:35;
+		mail_multiplier			:23;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:220;
+		probability				:8;
+		years_available			:[1900,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES];
+		}
+	graphics {
+		default					:sprite_theatre;
+		construction_check		:distance_theatre_4_theatre;
+	}
+}
+
+
+// Shopping Mall
+item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
+	property {
+		substitute				:40;
+		name					:string(STR_NAME_MARKET);
+		override				:40;
+		population				:180;
+		mail_multiplier			:5;
+		accepted_cargos			:[[PASS, 8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
+		local_authority_impact	:300;
+		removal_cost_multiplier	:250;
+		probability				:1;
+		years_available			:[1900,9999];
+		minimum_lifetime		:3;
+		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES];
+		building_class			:0;
+		}
+	graphics {
+		graphics_north			:sprite_shopping_mall_N;
+		graphics_east			:sprite_shopping_mall_E;
+		graphics_west			:sprite_shopping_mall_W;
+		graphics_south			:sprite_shopping_mall_S;
+		construction_check		:distance_same_class_within_2;
+		protection				:food_service_check;
+	}
+}
+
+// Warehouse
+item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:18;
+		name					:string(STR_NAME_WAREHOUSE);
+		override				:18;
+		population				:6;
+		mail_multiplier			:10;
+		accepted_cargos			:[[MAIL, 3],[GOOD, 8]];
+		local_authority_impact	:110;
+		removal_cost_multiplier	:145;
+		probability				:1;
+		years_available			:[1930,9999];
+		minimum_lifetime		:4;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:0;
+	}
+	graphics {
+		default					:random_sprite_warehouse;
+		construction_check		:distance_same_class_within_2;
+		protection				:goods_service_check;
+	}
+}
+
+// Fountain
+item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:10;
+		name					:string(STR_NAME_FOUNTAIN);
+		override				:10;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:0;
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 2]];
+		local_authority_impact	:50;
+		removal_cost_multiplier	:65;
+		probability				:1;
+		years_available			:[1700,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:0;
+	}
+	graphics {
+		default					:sprite_fountain;
+		construction_check		:distance_same_class_within_2;
+		protection				:protection_historic_square;
+	}
+}
+
+// Statue
+item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:09;
+		name					:string(STR_NAME_STATUE);
+		override				:09;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:0;
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 2]];
+		local_authority_impact	:50;
+		removal_cost_multiplier	:65;
+		probability				:1;
+		years_available			:[1700,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:0;
+	}
+	graphics {
+		default					:sprite_statue;
+		construction_check		:distance_same_class_within_2;
+		protection				:protection_historic_square;
+	}
+}
+
+// Stores (SubArctic)
+item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:46;
+		name					:string(STR_NAME_SHOP);
+		override				:46;
+		population				:25;
+		mail_multiplier			:20;
+		accepted_cargos			:[[PASS, 2], [GOOD, 8],[FOOD, 8],[BEER, 8]];
+		local_authority_impact	:80;
+		removal_cost_multiplier	:100;
+		probability				:2;
+		years_available			:[1940,9999];
+		minimum_lifetime		:2;
+		availability_mask		:[bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB), ALL_CLIMATES];
+		building_class			:0;
+	}
+	graphics {
+		default					:sprite_shop;
+		construction_check		:distance_same_id_within_4;
+		protection				:food_service_check;
+	}
+}
+
+item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:11;
+		name					:string(STR_NAME_PARK);
+		override				:11;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:2;
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 2]];
+		local_authority_impact	:75;
+		removal_cost_multiplier	:60;
+		probability				:1;
+		years_available			:[1700,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES];
+		building_class			:1;
+	}
+	graphics {
+		default					:sprite_park_pond;
+		construction_check		:distance_same_class_within_2;
+	}
+}
+
+item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:12;
+		name					:string(STR_NAME_PARK);
+		override				:12;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:2;
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 2]];
+		local_authority_impact	:75;
+		removal_cost_multiplier	:60;
+		probability				:2;
+		years_available			:[1700,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES];
+		building_class			:1;
+	}
+	graphics {
+		default					:sprite_park_alley;
+		construction_check		:distance_same_class_within_2;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:19;
+		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
+		override				:19;
+		population				:110;
+		mail_multiplier			:55;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:110;
+		removal_cost_multiplier	:155;
+		probability				:1;
+		years_available			:[1952,9999];
+		minimum_lifetime		:8;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_19;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_masonry;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:00;
+		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
+		override				:00;
+		population				:187;
+		mail_multiplier			:70;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:140;
+		removal_cost_multiplier	:150;
+		probability				:1;
+		years_available			:[1950,9999];
+		minimum_lifetime		:8;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_00;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:28;
+		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
+		override				:28;
+		population				:170;
+		mail_multiplier			:50;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:170;
+		removal_cost_multiplier	:145;
+		probability				:1;
+		years_available			:[1963,9999];
+		minimum_lifetime		:8;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_28;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:04;
+		name					:string(STR_NAME_LARGE_OFFICE_BLOCK);
+		override				:04;
+		building_flags			:bitmask(HOUSE_FLAG_ANIMATE);
+		population				:220;
+		mail_multiplier			:85;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:160;
+		removal_cost_multiplier	:160;
+		probability				:1;
+		years_available			:[1960,9999];
+		minimum_lifetime		:8;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_large_office_block;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:01;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:01;
+		population				:85;
+		mail_multiplier			:55;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:130;
+		removal_cost_multiplier	:140;
+		probability				:1;
+		years_available			:[1951,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_office_block_01;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_masonry;
+	}
+}
+
+item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:13;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:13;
+		population				:150;
+		mail_multiplier			:65;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:110;
+		removal_cost_multiplier	:130;
+		probability				:1;
+		years_available			:[1955,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_office_block_13;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_masonry;
+	}
+}
+
+item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:30;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:30;
+		population				:180;
+		mail_multiplier			:64;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, -8]];
+		local_authority_impact	:180;
+		removal_cost_multiplier	:155;
+		probability				:1;
+		years_available			:[1973,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_shops_and_offices_30;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_office_tube, 36, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:36;
+		name					:string(STR_NAME_OFFICES);
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
+		override				:36;
+		population				:140;
+		mail_multiplier			:65;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:250;
+		removal_cost_multiplier	:170;
+		probability				:1;
+		years_available			:[2000,9999];
+		minimum_lifetime		:50;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_office_tube;
+		construction_check		:unique_worldwide;
+	}
+}
+
+item(FEAT_HOUSES, item_capsule_tower, 17, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:17;
+		name					:string(STR_NAME_CAPSULE_TOWER);
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
+		override				:17;
+		population				:130;
+		mail_multiplier			:50;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:150;
+		removal_cost_multiplier	:200;
+		probability				:1;
+		years_available			:[1972,9999];
+		minimum_lifetime		:50;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_capsule_tower;
+		construction_check		:unique_worldwide;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:52;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:52;
+		population				:170;
+		mail_multiplier			:70;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:130;
+		removal_cost_multiplier	:170;
+		probability				:1;
+		years_available			:[1970,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_52;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:50;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:50;
+		population				:135;
+		mail_multiplier			:60;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:120;
+		removal_cost_multiplier	:150;
+		probability				:1;
+		years_available			:[1966,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_50;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:54;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:54;
+		population				:210;
+		mail_multiplier			:80;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:140;
+		removal_cost_multiplier	:200;
+		probability				:1;
+		years_available			:[1974,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_54;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:54;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:54;
+		population				:210;
+		mail_multiplier			:80;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:140;
+		removal_cost_multiplier	:200;
+		probability				:1;
+		years_available			:[1974,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_54;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_90, 90, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:90;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:90;
+		population				:180;
+		mail_multiplier			:90;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:150;
+		removal_cost_multiplier	:180;
+		probability				:1;
+		years_available			:[1993,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_90;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+// Tall Office Building (2 tiles)
+item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
+	property {
+		substitute				:74;
+		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
+		override				:74;
+		population				:250;
+		mail_multiplier			:60;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:200;
+		removal_cost_multiplier	:140;
+		probability				:2;
+		years_available			:[1967,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+		}
+	graphics {
+		graphics_north			:sprite_tall_office_block_74_N;
+		graphics_west			:sprite_tall_office_block_74_W;
+		construction_check		:modern_office_pop_check;
+	}
+}
+
+// Tall Office Building (2 tiles)
+item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
+	property {
+		substitute				:87;
+		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
+		override				:87;
+		population				:250;
+		mail_multiplier			:80;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		local_authority_impact	:140;
+		removal_cost_multiplier	:190;
+		probability				:2;
+		years_available			:[1970,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:2;
+		}
+	graphics {
+		graphics_north			:sprite_tall_office_block_87_N;
+		graphics_west			:sprite_tall_office_block_87_W;
+		construction_check		:modern_office_pop_check;
+	}
+}
+
+/* Historic Buildings */
+
+item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:25;
+		name					:string(STR_NAME_COTTAGES);
+		override				:25;
+		population				:12;
+		mail_multiplier			:7;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2],[COAL, 1],[WOOD, 1]];
+		local_authority_impact	:60;
+		removal_cost_multiplier	:60;
+		probability				:1;
+		years_available			:[1700,1900];
+		minimum_lifetime		:2;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:4;
+	}
+	graphics {
+		default					:sprite_cottages;
+		
+	}
+}
+
+item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:24;
+		name					:string(STR_NAME_HOUSES);
+		override				:24;
+		population				:15;
+		mail_multiplier			:6;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2],[COAL, 2],[WOOD, 2]];
+		local_authority_impact	:75;
+		removal_cost_multiplier	:70;
+		probability				:1;
+		years_available			:[1700,1880];
+		minimum_lifetime		:2;
+		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES];
+		building_class			:4;
+	}
+	graphics {
+		default					:random_sprite_old_houses;
+		
+	}
+}
+
+item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:64;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:64;
+		population				:90;
+		mail_multiplier			:45;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
+		local_authority_impact	:110;
+		removal_cost_multiplier	:140;
+		probability				:1;
+		years_available			:[1840,1945];
+		minimum_lifetime		:10;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:3;
+	}
+	graphics {
+		default					:sprite_shops_and_offices_64;
+		construction_check		:old_office_pop_check;
+		colour					:random_colour_masonry;
+		protection				:preservation1;
+	}
+}
+
+item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:29;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:29;
+		population				:100;
+		mail_multiplier			:40;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
+		local_authority_impact	:135;
+		removal_cost_multiplier	:132;
+		probability				:1;
+		years_available			:[1850,1945];
+		minimum_lifetime		:10;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:3;
+	}
+	graphics {
+		default					:sprite_shops_and_offices_29;
+		construction_check		:old_office_pop_check;
+		colour					:random_colour_masonry;
+		protection				:preservation1;
+	}
+}
+
+item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:14;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:14;
+		population				:95;
+		mail_multiplier			:48;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
+		local_authority_impact	:100;
+		removal_cost_multiplier	:110;
+		probability				:2;
+		years_available			:[1700,1945];
+		minimum_lifetime		:10;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:3;
+	}
+	graphics {
+		default					:sprite_shops_and_offices_14;
+		construction_check		:old_office_pop_check;
+		colour					:random_colour_masonry;
+		protection				:preservation1;
+	}
+}
+
+item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:15;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:15;
+		population				:95;
+		mail_multiplier			:48;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
+		local_authority_impact	:100;
+		removal_cost_multiplier	:105;
+		probability				:2;
+		years_available			:[1750,1945];
+		minimum_lifetime		:10;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:3;
+	}
+	graphics {
+		default					:random_sprite_shops_and_offices_15;
+		construction_check		:old_office_pop_check;
+		colour					:random_colour_masonry;
+		protection				:preservation1;
+	}
+}
+
+item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:16;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:16;
+		population				:95;
+		mail_multiplier			:48;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
+		local_authority_impact	:100;
+		removal_cost_multiplier	:107;
+		probability				:1;
+		years_available			:[1860,1945];
+		minimum_lifetime		:10;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
+		building_class			:3;
+	}
+	graphics {
+		default					:sprite_shops_and_offices_16;
+		construction_check		:old_office_pop_check;
+		colour					:random_colour_masonry;
+		protection				:preservation1;
+	}
+}
