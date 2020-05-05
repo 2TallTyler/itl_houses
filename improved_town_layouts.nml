@@ -509,8 +509,8 @@ random_switch(FEAT_HOUSES,SELF, random_60)
 1:	return 0;
 }
 
-switch(FEAT_HOUSES,PARENT, new_stadium_prob, population) {0 .. 2000: return 0; 2001 .. 4000: random_30; 4001 .. 8000: random_60; return 1;}
-switch(FEAT_HOUSES,PARENT, old_stadium_prob, population) {0 .. 1000: return 0; 1001 .. 2000: random_30; 2001 .. 5000: random_60; return 1;}
+switch(FEAT_HOUSES,PARENT, new_stadium_prob, population) {0 .. 2000: return 0; 2001 .. 4000: random_30; 4001 .. 8000: random_60; unique_building_town;}
+switch(FEAT_HOUSES,PARENT, old_stadium_prob, population) {0 .. 1000: return 0; 1001 .. 2000: random_30; 2001 .. 5000: random_60; unique_building_town;}
 
 // Construction check for enough residential population to build post-1945 office buildings
 switch(FEAT_HOUSES,SELF, modern_office_pop_check, 
@@ -821,7 +821,6 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		substitute				:20;
 		name					:string(STR_NAME_OLD_STADIUM);
 		override				:20;
-		building_flags			:bitmask(HOUSE_FLAG_STADIUM);
 		population				:65;
 		mail_multiplier			:5;
 		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
@@ -848,7 +847,6 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		substitute				:32;
 		name					:string(STR_NAME_NEW_STADIUM);
 		override				:32;
-		building_flags			:bitmask(HOUSE_FLAG_STADIUM);
 		population				:255;
 		mail_multiplier			:5;
 		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
