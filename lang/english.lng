@@ -2,7 +2,7 @@
 
 STR_GRF_NAME						:Improved Town Layouts
 STR_GRF_DESC						:{ORANGE}Default houses, new rules.{}{}{BLACK}Downtowns defined by passenger service, sprawling suburbs, historic preservation, and more.{}{}Starts in 1700. Works with all base graphic sets. {SILVER}Incompatible with other NewGRF houses.{}{}{ORANGE}Visit website for instructions.{}{}{BLACK}Coded by 2TallTyler.{}License: GPL v3
-STR_WEBSITE							:https://github.com/2TallTyler/improved_town_layouts
+STR_WEBSITE							:https://github.com/2TallTyler/improved_town_layouts/blob/master/README.md
 
 STR_NAME_HISTORIC_CHURCH				:Historic Church
 STR_NAME_OLD_CHURCH						:Church
