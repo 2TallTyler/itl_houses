@@ -23,6 +23,6 @@
 
 ### 1.10
 "More Junk Mail"
-- Residential buildings no longer send a silly amount of mail
+- Residential buildings now send a minimal amount of mail
 - Commercial buildings send slightly more mail
 - Mail acceptance is unchanged
