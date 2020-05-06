@@ -500,8 +500,8 @@ switch(FEAT_HOUSES,SELF, unique_building_town, same_house_count_town) {0: return
 
 
 // Population check for stadiums
-switch(FEAT_HOUSES,PARENT, new_stadium_prob, population) {0 .. 10000: return 0; unique_building_town;}
-switch(FEAT_HOUSES,PARENT, old_stadium_prob, population) {0 .. 1000: return 0; unique_building_town;}
+switch(FEAT_HOUSES,PARENT, pop_check_10000, population) {0 .. 10000: return 0; unique_building_town;}
+switch(FEAT_HOUSES,PARENT, pop_check_1000, population) {0 .. 1000: return 0; unique_building_town;}
 
 // Construction check for enough residential population to build post-1945 office buildings
 switch(FEAT_HOUSES,SELF, modern_office_pop_check, 
@@ -827,7 +827,7 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		graphics_east			:sprite_old_stadium_E;
 		graphics_west			:sprite_old_stadium_W;
 		graphics_south			:sprite_old_stadium_S;
-		construction_check		:old_stadium_prob;
+		construction_check		:pop_check_1000;
 		protection				:stadium_beer_service_check;
 	}
 }
@@ -853,7 +853,7 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		graphics_east			:sprite_new_stadium_E;
 		graphics_west			:sprite_new_stadium_W;
 		graphics_south			:sprite_new_stadium_S;
-		construction_check		:new_stadium_prob;
+		construction_check		:pop_check_10000;
 		protection				:stadium_beer_service_check;
 	}
 }
