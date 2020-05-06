@@ -26,7 +26,7 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Stadiums accept Food and Alcohol (if FIRS is enabled) and will be protected if either of these cargos, or passengers, was delivered last month. The Modern Stadium also generates quite a lot more passenger traffic.
 - Hotel protected if receiving Passengers
 - Shopping Mall, Stores now accept Food and Goods and will be protected if either cargo was delivered last month
-Warehouse protected if receiving Goods
+- Warehouse protected if receiving Goods
 
 ### Some buildings only grow when provided with passenger service
 - Flats, Offices, and Shops and Offices only appear within the coverage of a station which accepted passengers last month
