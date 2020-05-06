@@ -76,6 +76,3 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 ## Limitations / Not in Scope
 -  This set is intended for the Temperate climate. It does not include snow-aware sprites for any buildings.
 - Buildings do not have construction stages. The sprites exist but they need manual coding. I’ll add them if someone can convince me it’s worth the several hours mucking about in the sprite aligner and code.
-
-## To Do
-- This set is designed with original TTD graphics in mind. It works with all other base graphics sets, including OpenGFX, aBase, zBase, and NightGFX, although there are some noisy pixels in pre-1945 buildings in OpenGFX due to building recolors. Does anyone know if it’s possible for a NewGRF to check which graphics set is being used?
