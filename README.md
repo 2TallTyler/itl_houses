@@ -51,6 +51,12 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Some churches are Historic Churches. In these towns, Shops and Offices built before 1945 will be protected from demolition if they are within 2 tiles of another historic Shops and Offices or the church itself. This creates a historic downtown area as seen in many real cities
 - Towns with regular churches won’t create historic downtown districts, but Churches and pre-1945 Shops and Offices have a 1/8 chance of being randomly preserved
 
+### More junk mail
+- Residential buildings no longer send a silly amount of mail
+  - You'll still get postcards from Grandma
+- Commercial buildings send slightly more mail
+- Mail acceptance is unchanged
+
 ### Zoning improves building placement
 - Shops and Offices only appear within 2 tiles of another Shops and Offices, simulating a commercial district
 - Pre- and post-1945 buildings cluster independently, allowing separate Old Town and New Town areas

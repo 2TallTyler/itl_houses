@@ -17,3 +17,6 @@
   - Towns can now have both types of stadiums
 - Town buildings no longer accept ECS Tourists
   - This was improperly implemented and needs revision.
+- Revised mail cargo scheme
+  - Commercial building (offices) production boosted slightly
+  - Residential building production decreased to near-zero (not completely; you'll still get letters from grandma)
