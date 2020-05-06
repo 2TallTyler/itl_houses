@@ -2,14 +2,14 @@ grf {
 	grfid: "TT\03\01";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
-	version: 2;
+	version: 3;
 	min_compatible_version: 0;
 	url: string(STR_WEBSITE);
 }
 
 
 cargotable {
-	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, TOUR
+	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD
 }
 
 /* Graphics */
@@ -372,7 +372,7 @@ spritelayout sprite_cottages {
 /* Building Classes
 
 Class 0
-Buildings in class: House, Mall, Warehouse, Fountain, Statue
+Buildings in class: House, Market, Warehouse, Fountain, Statue
 
 Class 1
 Parks cannot be within 2 tiles of another park
@@ -468,11 +468,11 @@ switch(FEAT_HOUSES,SELF, distance_cinema_4_cinema, nearest_house_matching_criter
 // Distance check: Theatre cannot build within 4 tiles of another Theatre
 switch(FEAT_HOUSES,SELF, distance_theatre_4_theatre, nearest_house_matching_criterion(10, SEARCH_HOUSE_BY_TYPE)) {0: if_road_SW; return 0;}
 
-// Distance check: Within 4 tiles
-switch(FEAT_HOUSES,SELF, distance_same_id_within_4, nearest_house_matching_criterion(4, SEARCH_HOUSE_BY_TYPE)) {0: return 1; return 0;}
-
-// Distance check: Cannot build within distance 2 of same class (House, Mall, Warehouse, Park)
+// Distance check: Cannot build within distance 2 of same class (House, Market, Warehouse, Park)
 switch(FEAT_HOUSES,SELF, distance_same_class_within_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
+
+// Distance check: Cannot build within distance 4 of same class (House, Market, Warehouse, Park)
+switch(FEAT_HOUSES,SELF, distance_same_class_within_4, nearest_house_matching_criterion(4, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
 
 // Distance check: Must build within distance 2 of same class (high-rises). No need to cluster if first in town.
 switch(FEAT_HOUSES,SELF, distance_first_in_town, same_class_count_town) {0: return 1; return 0;}
@@ -497,6 +497,11 @@ switch(FEAT_HOUSES,SELF, pass_service_check_offices, cargo_accepted_nearby_last_
 switch(FEAT_HOUSES,SELF, unique_building_town_road_SW, same_house_count_town) {0: if_road_SW; return 0;}
 switch(FEAT_HOUSES,SELF, unique_building_town_road_SE, same_house_count_town) {0: if_road_SE; return 0;}
 switch(FEAT_HOUSES,SELF, unique_building_town, same_house_count_town) {0: return 1; return 0;}
+
+
+// Population check for stadiums
+switch(FEAT_HOUSES,PARENT, new_stadium_prob, population) {0 .. 10000: return 0; unique_building_town;}
+switch(FEAT_HOUSES,PARENT, old_stadium_prob, population) {0 .. 1000: return 0; unique_building_town;}
 
 // Construction check for enough residential population to build post-1945 office buildings
 switch(FEAT_HOUSES,SELF, modern_office_pop_check, 
@@ -696,7 +701,7 @@ item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED, HOUSE_FLAG_CHURCH, HOUSE_FLAG_PROTECTED);
 		population				:5;
 		mail_multiplier			:2;
-		accepted_cargos			:[[PASS, 2],[MAIL, 2],[TOUR, 8]];
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
 		local_authority_impact	:230;
 		removal_cost_multiplier	:90;
 		probability				:4;
@@ -718,7 +723,7 @@ item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED,HOUSE_FLAG_CHURCH);
 		population				:5;
 		mail_multiplier			:2;
-		accepted_cargos			:[[PASS, 2],[MAIL, 2],[TOUR, 8]];
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
 		local_authority_impact	:230;
 		removal_cost_multiplier	:90;
 		probability				:6;
@@ -787,7 +792,7 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:8;
 		mail_multiplier			:2;
-		accepted_cargos			:[[PASS, 3],[MAIL, 2],[TOUR, 8]];
+		accepted_cargos			:[[PASS, 3],[MAIL, 2]];
 		local_authority_impact	:230;
 		removal_cost_multiplier	:85;
 		probability				:1;
@@ -807,13 +812,12 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		substitute				:20;
 		name					:string(STR_NAME_OLD_STADIUM);
 		override				:20;
-		building_flags			:bitmask(HOUSE_FLAG_STADIUM);
 		population				:65;
-		mail_multiplier			:5;
-		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8],[TOUR, 8]];
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
 		local_authority_impact	:300;
 		removal_cost_multiplier	:250;
-		probability				:8;
+		probability				:4;
 		years_available			:[1800,9999];
 		minimum_lifetime		:10;
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
@@ -823,6 +827,7 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		graphics_east			:sprite_old_stadium_E;
 		graphics_west			:sprite_old_stadium_W;
 		graphics_south			:sprite_old_stadium_S;
+		construction_check		:old_stadium_prob;
 		protection				:stadium_beer_service_check;
 	}
 }
@@ -830,16 +835,15 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 // Modern Stadium
 item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 	property {
-		substitute				:32;
+		substitute				:40;
 		name					:string(STR_NAME_NEW_STADIUM);
 		override				:32;
-		building_flags			:bitmask(HOUSE_FLAG_STADIUM);
 		population				:255;
-		mail_multiplier			:5;
-		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8],[TOUR, 8]];
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
 		local_authority_impact	:300;
 		removal_cost_multiplier	:250;
-		probability				:3;
+		probability				:4;
 		years_available			:[1958,9999];
 		minimum_lifetime		:20;
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
@@ -849,6 +853,7 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		graphics_east			:sprite_new_stadium_E;
 		graphics_west			:sprite_new_stadium_W;
 		graphics_south			:sprite_new_stadium_S;
+		construction_check		:new_stadium_prob;
 		protection				:stadium_beer_service_check;
 	}
 }
@@ -861,7 +866,7 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 		override				:07;
 		population				:140;
 		mail_multiplier			:22;
-		accepted_cargos			:[[PASS, 6],[MAIL, 2],[TOUR, 8]];
+		accepted_cargos			:[[PASS, 6],[MAIL, 2]];
 		local_authority_impact	:150;
 		removal_cost_multiplier	:180;
 		probability				:4;
@@ -909,7 +914,7 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:35;
 		mail_multiplier			:23;
-		accepted_cargos			:[[PASS, 2],[MAIL, 2],[TOUR, 8]];
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
 		local_authority_impact	:230;
 		removal_cost_multiplier	:220;
 		probability				:8;
@@ -924,7 +929,7 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 }
 
 
-// Shopping Mall
+// Market
 item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 	property {
 		substitute				:40;
@@ -946,7 +951,7 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		graphics_east			:sprite_shopping_mall_E;
 		graphics_west			:sprite_shopping_mall_W;
 		graphics_south			:sprite_shopping_mall_S;
-		construction_check		:distance_same_class_within_2;
+		construction_check		:distance_same_class_within_4;
 		protection				:food_service_check;
 	}
 }
@@ -1102,7 +1107,7 @@ item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 		override				:19;
 		population				:110;
 		mail_multiplier			:55;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:110;
 		removal_cost_multiplier	:155;
 		probability				:1;
@@ -1125,7 +1130,7 @@ item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
 		override				:00;
 		population				:187;
 		mail_multiplier			:70;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:140;
 		removal_cost_multiplier	:150;
 		probability				:1;
@@ -1148,7 +1153,7 @@ item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
 		override				:28;
 		population				:170;
 		mail_multiplier			:50;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:170;
 		removal_cost_multiplier	:145;
 		probability				:1;
@@ -1172,7 +1177,7 @@ item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
 		building_flags			:bitmask(HOUSE_FLAG_ANIMATE);
 		population				:220;
 		mail_multiplier			:85;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:160;
 		removal_cost_multiplier	:160;
 		probability				:1;
@@ -1195,7 +1200,7 @@ item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
 		override				:01;
 		population				:85;
 		mail_multiplier			:55;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:130;
 		removal_cost_multiplier	:140;
 		probability				:1;
@@ -1218,7 +1223,7 @@ item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
 		override				:13;
 		population				:150;
 		mail_multiplier			:65;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:110;
 		removal_cost_multiplier	:130;
 		probability				:1;
@@ -1241,7 +1246,7 @@ item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
 		override				:30;
 		population				:180;
 		mail_multiplier			:64;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
 		local_authority_impact	:180;
 		removal_cost_multiplier	:155;
 		probability				:1;
@@ -1288,7 +1293,7 @@ item(FEAT_HOUSES, item_capsule_tower, 17, HOUSE_SIZE_1X1) {
 		override				:17;
 		population				:130;
 		mail_multiplier			:50;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[TOUR, 8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:150;
 		removal_cost_multiplier	:200;
 		probability				:1;
@@ -1311,7 +1316,7 @@ item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
 		override				:52;
 		population				:170;
 		mail_multiplier			:70;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:130;
 		removal_cost_multiplier	:170;
 		probability				:1;
@@ -1334,7 +1339,7 @@ item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
 		override				:50;
 		population				:135;
 		mail_multiplier			:60;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:120;
 		removal_cost_multiplier	:150;
 		probability				:1;
@@ -1357,7 +1362,7 @@ item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 		override				:54;
 		population				:210;
 		mail_multiplier			:80;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:140;
 		removal_cost_multiplier	:200;
 		probability				:1;
@@ -1380,7 +1385,7 @@ item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 		override				:54;
 		population				:210;
 		mail_multiplier			:80;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:140;
 		removal_cost_multiplier	:200;
 		probability				:1;
@@ -1427,7 +1432,7 @@ item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
 		override				:74;
 		population				:250;
 		mail_multiplier			:60;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:200;
 		removal_cost_multiplier	:140;
 		probability				:2;
@@ -1451,7 +1456,7 @@ item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
 		override				:87;
 		population				:250;
 		mail_multiplier			:80;
-		accepted_cargos			:[[PASS, 8],[MAIL,8],[COAL, -8]];
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:140;
 		removal_cost_multiplier	:190;
 		probability				:2;

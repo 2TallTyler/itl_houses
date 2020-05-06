@@ -3,7 +3,7 @@
 ## Overview
 
 - Visual improvements to building placement, zoning, and clustering, as early as 1700
-- Towns grow around your transit network. High-density residential and commercial buildings only appear where passenger service is provided.
+- Towns grow around your transit network. High-density residential and commercial buildings only appear where passenger and/or mail service is provided.
 - Office buildings need residential buildings to house their workers. Town sprawl is suburbs, not skyscrapers.
 - Landmark buildings and districts persist through decades and lend character to your city. When a landmark building is receiving cargo, it won’t disappear and break your network.
 - Expanded cargo deliveries with FIRS and ECS compatibility: Deliver food and goods to shops and markets, alcohol to stadiums, and wood or coal to heat pre-1945 buildings.
@@ -26,14 +26,17 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Stadiums accept Food and Alcohol (if FIRS is enabled) and will be protected if either of these cargos, or passengers, was delivered last month. The Modern Stadium also generates quite a lot more passenger traffic.
 - Hotel protected if receiving Passengers
 - Shopping Mall, Stores now accept Food and Goods and will be protected if either cargo was delivered last month
-Warehouse protected if receiving Goods
+- Warehouse protected if receiving Goods
 
-### Some buildings only grow when provided with passenger service
+### High-density buildings need population and service
 - Flats, Offices, and Shops and Offices only appear within the coverage of a station which accepted passengers last month
   - Transit Oriented Development, baby!
 - Towns need sufficient residential neighborhoods for their workers before office buildings will appear.
   - Pre-1945 buildings need housing for 300 people per building and post-1945 buildings need 1000
   - Housing is calculated based on the sum of the actual population of residential buildings, unchanged from default and listed on the [Wiki](https://newgrf-specs.tt-wiki.net/wiki/NML:List_of_default_house_properties)
+  - Stadiums also need a minimum population
+    - Old stadium: 1,000 population
+	- Modern stadium (available 1958): 10,000 population
 
 ### Start as early as 1700
 - Introduction dates range from 1700 to 2000, allowing a slow progression over time
