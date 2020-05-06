@@ -11,10 +11,12 @@
   - ~~Future update will let these buildings generate tourists, once I figure out the cargo_production callback.~~
 
 ### 1.02
-- Default houses are now overridden in all climates.
 - Added population requirements for stadiums
   - Old stadium has a minimum of 1,000 people
   - Modern stadium has a minimum of 10,000 people
   - Towns can now have both types of stadiums
 - Town buildings no longer accept ECS Tourists
   - This was improperly implemented and needs revision.
+ 
+### 1.03
+- Default houses are now overridden in all climates.
