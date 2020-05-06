@@ -577,6 +577,9 @@ item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 		minimum_lifetime		:2;
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES];
 		building_class			:0;
+		
+		// Override all default houses
+		override:00;override:01;override:02;override:03;override:04;override:05;override:06;override:09;override:10;override:11;override:12;override:13;override:14;override:15;override:16;override:17;override:18;override:19;override:24;override:25;override:26;override:27;override:28;override:29;override:30;override:31;override:36;override:37;override:38;override:39;override:44;override:45;override:46;override:47;override:48;override:49;override:50;override:51;override:52;override:53;override:54;override:55;override:56;override:57;override:58;override:59;override:60;override:61;override:62;override:63;override:64;override:65;override:70;override:71;override:72;override:73;override:78;override:79;override:80;override:81;override:82;override:83;override:84;override:85;override:86;override:89;override:90;override:91;override:92;override:93;override:94;override:95;override:96;override:97;override:98;override:101;override:102;override:103;override:104;override:105;override:106;override:107;override:108;override:109;
 		}
 	graphics {
 		default					:house_sprite_sloped;
