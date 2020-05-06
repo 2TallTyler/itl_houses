@@ -17,6 +17,12 @@
   - Towns can now have both types of stadiums
 - Town buildings no longer accept ECS Tourists
   - This was improperly implemented and needs revision.
-- Revised mail cargo scheme
-  - Commercial building (offices) production boosted slightly
-  - Residential building production decreased to near-zero (not completely; you'll still get letters from grandma)
+ 
+### 1.03
+- Default houses are now overridden in all climates.
+
+### 1.10
+More Junk Mail
+- Residential buildings no longer send a silly amount of mail
+- Commercial buildings send slightly more mail
+- Mail acceptance is unchanged
