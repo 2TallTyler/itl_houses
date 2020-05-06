@@ -74,7 +74,7 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Recolors of Shops and Offices buildings add visual variety, with more muted/realistic colors than in default towns
 
 ## Limitations / Not in Scope
--  This set is intended for the Temperate climate. It does not include snow-aware sprites for any buildings and does not replace many sub-arctic or sub-tropical buildings which will still appear.
+-  This set is intended for the Temperate climate. It does not include snow-aware sprites for any buildings.
 - Buildings do not have construction stages. The sprites exist but they need manual coding. I’ll add them if someone can convince me it’s worth the several hours mucking about in the sprite aligner and code.
 
 ## To Do
