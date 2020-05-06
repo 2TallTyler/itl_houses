@@ -12,8 +12,8 @@
 
 ### 1.02
 - Added population requirements for stadiums
-  - Old stadium has a minimum of 1,000 people, and then gets more likely at 2,000 and 5,000 population.
-  - Modern stadium has a minimum of 2,000 people, and then gets more likely at 4,000 and 8,000 population.
+  - Old stadium has a minimum of 1,000 people
+  - Modern stadium has a minimum of 10,000 people
   - Towns can now have both types of stadiums
 - Town buildings no longer accept ECS Tourists
   - This was improperly implemented and needs revision.

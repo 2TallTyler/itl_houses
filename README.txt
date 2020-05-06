@@ -31,9 +31,13 @@ Warehouse protected if receiving Goods
 ### Some buildings only grow when provided with passenger service
 - Flats, Offices, and Shops and Offices only appear within the coverage of a station which accepted passengers last month
   - Transit Oriented Development, baby!
-- Towns need sufficient residential neighborhoods for their workers before office buildings will appear.
+
+### Towns need sufficient residential neighborhoods for their workers before office buildings will appear.
   - Pre-1945 buildings need housing for 300 people per building and post-1945 buildings need 1000
   - Housing is calculated based on the sum of the actual population of residential buildings, unchanged from default and listed on the [Wiki](https://newgrf-specs.tt-wiki.net/wiki/NML:List_of_default_house_properties)
+  - Stadiums also need a minimum population
+    - Old stadium: 1,000 population
+	- Modern stadium (available 1958): 10,000 population
 
 ### Start as early as 1700
 - Introduction dates range from 1700 to 2000, allowing a slow progression over time
