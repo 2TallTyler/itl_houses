@@ -22,7 +22,7 @@
 - Default houses are now overridden in all climates.
 
 ### 1.10
-More Junk Mail
+"More Junk Mail"
 - Residential buildings no longer send a silly amount of mail
 - Commercial buildings send slightly more mail
 - Mail acceptance is unchanged
