@@ -28,11 +28,10 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Shopping Mall, Stores now accept Food and Goods and will be protected if either cargo was delivered last month
 - Warehouse protected if receiving Goods
 
-### Some buildings only grow when provided with passenger service
+### High-density buildings need population and service
 - Flats, Offices, and Shops and Offices only appear within the coverage of a station which accepted passengers last month
   - Transit Oriented Development, baby!
-
-### Towns need sufficient residential neighborhoods for their workers before office buildings will appear.
+- Towns need sufficient residential neighborhoods for their workers before office buildings will appear.
   - Pre-1945 buildings need housing for 300 people per building and post-1945 buildings need 1000
   - Housing is calculated based on the sum of the actual population of residential buildings, unchanged from default and listed on the [Wiki](https://newgrf-specs.tt-wiki.net/wiki/NML:List_of_default_house_properties)
   - Stadiums also need a minimum population
