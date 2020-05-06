@@ -52,7 +52,7 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Towns with regular churches won’t create historic downtown districts, but Churches and pre-1945 Shops and Offices have a 1/8 chance of being randomly preserved
 
 ### More junk mail
-- Residential buildings no longer send a silly amount of mail
+- Residential buildings now send a minimal amount of mail
   - You'll still get postcards from Grandma
 - Commercial buildings send slightly more mail
 - Mail acceptance is unchanged
