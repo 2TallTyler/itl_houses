@@ -26,7 +26,8 @@
 - Change: Residential buildings no longer build next to office buildings
   - Makes office districts more concentrated
   - Town Houses and Houses: within 2 tiles
-  - Small Flats: within 1 tile
+  - Small Flats: within 1 tile if passenger service provided
+  - Small Flats: no restriction if no passenger service provided, to avoid gaps on the perimeter of office districts
 - Change: Small Flats now available in town centres
 - Change: Swapped some Flats, Small Flats, and Town House sprites around
   - Flats are now high-density housing, Small Flats are medium-density requiring passenger service, Town Houses are low density (but allowed in town centres), and Houses are low-density and not allowed in town centres
