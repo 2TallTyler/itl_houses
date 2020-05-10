@@ -20,3 +20,24 @@
  
 ### 1.03
 - Default houses are now overridden in all climates.
+
+### 1.0.4
+- Change: Modern office buildings now need ~600 residential population per building, down from 1,000
+- Change: Residential buildings no longer build next to office buildings
+  - Makes office districts more concentrated
+  - Town Houses and Houses: within 2 tiles
+  - Small Flats: within 1 tile
+- Change: Small Flats now available in town centres
+- Change: Swapped some Flats, Small Flats, and Town House sprites around
+  - Flats are now high-density housing, Small Flats are medium-density requiring passenger service, Town Houses are low density (but allowed in town centres), and Houses are low-density and not allowed in town centres
+- Change: Tube-style office building no longer spawns
+  - Still available in savegames, but won't build new
+  - Reason? I think it looks silly
+- Change: Markets spawn more often
+  - No longer restricted by location away from houses
+  - One market allowed per town
+- Fix: All buildings now appear above snowline in Sub-Arctic climate
+  - An error now appears in the NewGRF window warning players that this set does not support snow sprites
+- Fix: Market building no longer appears to hover or flicker
+- Fix: Cinema and Theatre buildings now match their ground tiles when using aBase
+- Fix: Version numbering now uses 0.0.0 style instead of 0.00
