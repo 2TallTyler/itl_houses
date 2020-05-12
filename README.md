@@ -24,7 +24,7 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Longer Minimum Lifespans keep towns from churning through buildings
 - Major destinations become actually useful with new service needs and protection from redevelopment
 - Stadiums accept Food and Alcohol (if FIRS is enabled) and will be protected if either of these cargos, or passengers, was delivered last month. The Modern Stadium also generates quite a lot more passenger traffic.
-- Hotel protected if receiving Passengers
+- Hotel, Museum, Resort, University, and Courthouse protected if receiving Passengers
 - Shopping Mall, Stores now accept Food and Goods and will be protected if either cargo was delivered last month
 - Warehouse protected if receiving Goods
 

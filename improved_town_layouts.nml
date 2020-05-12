@@ -5,6 +5,22 @@ grf {
 	version: 4;
 	min_compatible_version: 4;
 	url: string(STR_WEBSITE);
+
+param 0 {
+  extra_bank {
+   name: string(STR_PARAM_NAME_EXTRA_BANK);
+   desc: string(STR_PARAM_DESC_EXTRA_BANK);
+   type: bool;
+   def_value: 0;
+   }}
+   
+param 1 {
+  extra_hotel {
+   name: string(STR_PARAM_NAME_EXTRA_HOTEL);
+   desc: string(STR_PARAM_DESC_EXTRA_HOTEL);
+   def_value: 0;
+   type: bool;
+   }}
 }
 
 if (climate == CLIMATE_ARCTIC)
@@ -359,6 +375,34 @@ spritelayout sprite_cottages {
 
 spritelayout sprite_empty_square {
 	ground		{sprite:1420;}}
+	
+spritelayout sprite_university_n {
+	ground		{sprite:2182;}
+	building	{sprite:2180;}}
+	
+spritelayout sprite_university_w {
+	ground		{sprite:2183;}
+	building	{sprite:2181;}}
+
+spritelayout sprite_courthouse_n {
+	ground		{sprite:2184;}
+	building	{sprite:2186;}}
+
+spritelayout sprite_courthouse_w {
+	ground		{sprite:2185;}
+	building	{sprite:2187;}}
+
+spritelayout sprite_museum {
+	ground		{sprite:1420;}
+	building	{sprite:1478;}}	
+
+spritelayout sprite_spa_n {
+	ground		{sprite:1420;}
+	building	{sprite:4475;}}
+
+spritelayout sprite_spa_e {
+	ground		{sprite:1420;}
+	building	{sprite:4476;}}
 
 /* Construction Checks */
 
@@ -450,17 +494,6 @@ switch(FEAT_HOUSES,SELF, house_sprite_orientation_SE, nearby_tile_class(0,1)) {T
 switch(FEAT_HOUSES,SELF, house_sprite_orientation_SW, nearby_tile_class(1,0)) {TILE_CLASS_ROAD: random_sprite_houses_SW; house_sprite_orientation_SE;}
 switch(FEAT_HOUSES,SELF, house_sprite_sloped, nearby_tile_slope(0,0)) {0: house_sprite_orientation_SW; random_sprite_houses_any;}
 
-// Must build next to office building
-
-switch(FEAT_HOUSES,SELF, office_plaza_8, nearby_tile_house_class(-1,-1)){258: return 1;return 0;}
-switch(FEAT_HOUSES,SELF, office_plaza_7, nearby_tile_house_class(-1,1)) {258: return 1;office_plaza_8;}
-switch(FEAT_HOUSES,SELF, office_plaza_6, nearby_tile_house_class(-1,0)) {258: return 1;office_plaza_7;}
-switch(FEAT_HOUSES,SELF, office_plaza_5, nearby_tile_house_class(1,-1))	{258: return 1;office_plaza_6;}
-switch(FEAT_HOUSES,SELF, office_plaza_4, nearby_tile_house_class(1,1))	{258: return 1;office_plaza_5;}
-switch(FEAT_HOUSES,SELF, office_plaza_3, nearby_tile_house_class(1,0))	{258: return 1;office_plaza_4;}
-switch(FEAT_HOUSES,SELF, office_plaza_2, nearby_tile_house_class(0,-1))	{258: return 1;office_plaza_3;}
-switch(FEAT_HOUSES,SELF, office_plaza_1, nearby_tile_house_class(0,1))	{258: return 1;office_plaza_2;}
-
 // Cannot build next to office building (class 2)
 
 switch(FEAT_HOUSES,SELF, office_gap, cargo_accepted_nearby_last_month(PASS)) {1: return 0; return 1;}
@@ -546,7 +579,6 @@ switch(FEAT_HOUSES,SELF, goods_service_check, cargo_accepted_nearby_last_month(G
 switch(FEAT_HOUSES,SELF, food_service_check, cargo_accepted_nearby_last_month(FOOD)) {1: return 1; goods_service_check;}
 
 // Service check: Offices only build when PASS accepted last month, and in cluster distance 2
-// switch(FEAT_HOUSES,SELF, mail_service_check_offices, cargo_accepted_nearby_last_month(MAIL)) {1: distance_same_class_cluster_2; return 0;}
 switch(FEAT_HOUSES,SELF, pass_service_check_offices, cargo_accepted_nearby_last_month(PASS)) {1: distance_same_class_cluster_2; return 0;}
 
 // Unique check: Only one in town, must have road SW
@@ -558,6 +590,12 @@ switch(FEAT_HOUSES,SELF, unique_building_town, same_house_count_town) {0: return
 switch(FEAT_HOUSES,PARENT, new_stadium_prob, population) {0 .. 10000: return 0; unique_building_town;}
 switch(FEAT_HOUSES,PARENT, old_stadium_prob, population) {0 .. 1000: return 0; unique_building_town;}
 
+// Road check for University and Courthouse
+switch(FEAT_HOUSES,SELF, if_road_SE_university, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: new_stadium_prob; return 0;}
+
+// Coast check for Museum
+switch(FEAT_HOUSES,SELF, check_museum_shore_SE, nearby_tile_is_water(0,1)) {1: new_stadium_prob; return 0;}
+
 // Construction check for enough residential population to build post-1945 office buildings
 switch(FEAT_HOUSES,SELF, modern_office_pop_check, 
 [
@@ -565,12 +603,12 @@ switch(FEAT_HOUSES,SELF, modern_office_pop_check,
 	STORE_TEMP( 
 	(other_house_count_town(25)*1)+ // Cottages
 	(other_house_count_town(24)*1)+ // Old houses
-	(other_house_count_town(108)*1)+ // Pre-1945 Houses
-	(other_house_count_town(26)*1)+ // Houses
+	(other_house_count_town(108)*2)+ // Pre-1945 Houses
+	(other_house_count_town(26)*2)+ // Houses
 	(other_house_count_town(109)*3)+ // Pre-1945 Townhouses
 	(other_house_count_town(06)*3)+ // Townhouses
 	(other_house_count_town(27)*10)+ // Flats
-	(other_house_count_town(02)*4) // Small flats
+	(other_house_count_town(02)*5) // Small flats
 	, 1),
 	
 	// Calculate minimum population needed to construct this building
@@ -588,8 +626,8 @@ switch(FEAT_HOUSES,SELF, old_office_pop_check,
 	STORE_TEMP( 
 	(other_house_count_town(25)*1)+ // Cottages
 	(other_house_count_town(24)*1)+ // Old houses
-	(other_house_count_town(108)*1)+ // Pre-1945 Houses
-	(other_house_count_town(26)*1)+ // Houses
+	(other_house_count_town(108)*2)+ // Pre-1945 Houses
+	(other_house_count_town(26)*2)+ // Houses
 	(other_house_count_town(109)*3)+ // Pre-1945 Townhouses
 	(other_house_count_town(06)*3)+ // Townhouses
 	(other_house_count_town(27)*10)+ // Flats
@@ -637,7 +675,7 @@ item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 		building_class			:0;
 		
 		// Override all default houses
-		override:00;override:01;override:02;override:03;override:04;override:05;override:06;override:09;override:10;override:11;override:12;override:13;override:14;override:15;override:16;override:17;override:18;override:19;override:24;override:25;override:26;override:27;override:28;override:29;override:30;override:31;override:36;override:37;override:38;override:39;override:44;override:45;override:46;override:47;override:48;override:49;override:50;override:51;override:52;override:53;override:54;override:55;override:56;override:57;override:58;override:59;override:60;override:61;override:62;override:63;override:64;override:65;override:70;override:71;override:72;override:73;override:78;override:79;override:80;override:81;override:82;override:83;override:84;override:85;override:86;override:89;override:90;override:91;override:92;override:93;override:94;override:95;override:96;override:97;override:98;override:101;override:102;override:103;override:104;override:105;override:106;override:107;override:108;override:109;
+		override:00;override:01;override:02;override:03;override:04;override:05;override:06;override:09;override:10;override:11;override:12;override:13;override:14;override:15;override:16;override:17;override:18;override:19;override:24;override:25;override:26;override:27;override:28;override:29;override:30;override:31;override:36;override:37;override:38;override:39;override:44;override:45;override:46;override:47;override:48;override:49;override:50;override:51;override:52;override:53;override:54;override:55;override:56;override:57;override:58;override:59;override:60;override:61;override:62;override:63;override:64;override:65;override:70;override:71;override:72;override:73;override:78;override:79;override:80;override:81;override:82;override:83;override:84;override:85;override:86;override:89;override:90;override:91;override:92;override:93;override:94;override:95;override:96;override:97;override:98;override:101;override:102;
 		}
 	graphics {
 		default					:house_sprite_sloped;
@@ -992,30 +1030,6 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 		construction_check		:distance_theatre_4_theatre;
 	}
 }
-
-// Empty square (for office districts)
-/*
-item(FEAT_HOUSES, item_empty_square, 107, HOUSE_SIZE_1X1){
-	property {
-		substitute				:10;
-		name					:string(STR_NAME_SQUARE);
-		override				:10;
-		population				:0;
-		mail_multiplier			:0;
-		accepted_cargos			:[[PASS, 2]];
-		local_authority_impact	:0;
-		removal_cost_multiplier	:0;
-		probability				:1;
-		years_available			:[1945,9999];
-		minimum_lifetime		:0;
-		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-	}
-	graphics {
-		default					:sprite_empty_square;
-		construction_check		:office_plaza_1;
-		destruction				:flats_office_space_1;
-	}
-}*/
 
 // Market
 item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
@@ -1725,4 +1739,101 @@ item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) {
 		colour					:random_colour_masonry;
 		protection				:preservation1;
 	}
+}
+
+item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
+	property {
+		substitute				:16;
+		name					:string(STR_NAME_MUSEUM);
+		override				:16;
+		population				:255;
+		mail_multiplier			:20;
+		accepted_cargos			:[[PASS, 8],[MAIL, 4]];
+		local_authority_impact	:250;
+		removal_cost_multiplier	:200;
+		probability				:1;
+		years_available			:[1950,9999];
+		minimum_lifetime		:10;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+	}
+	graphics {
+		default					:sprite_museum;
+		construction_check		:check_museum_shore_SE;
+		protection				:pass_service_check;
+	}
+}
+
+if (extra_bank == 1) {
+
+item(FEAT_HOUSES, item_courthouse, 104, HOUSE_SIZE_2X1){
+	property {
+		substitute				:74;
+		name					:string(STR_NAME_COURTHOUSE);
+		override				:74;
+		population				:65;
+		mail_multiplier			:70;
+		accepted_cargos			:[[PASS, 8],[MAIL, 8]];
+		local_authority_impact	:300;
+		removal_cost_multiplier	:250;
+		probability				:1;
+		years_available			:[1850,9999];
+		minimum_lifetime		:100;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+	}
+	graphics {
+		graphics_north			:sprite_courthouse_n;
+		graphics_west			:sprite_courthouse_w;
+		construction_check		:if_road_SE_university;
+		protection				:pass_service_check;
+	}
+}
+
+item(FEAT_HOUSES, item_university, 106, HOUSE_SIZE_2X1){
+	property {
+		substitute				:74;
+		name					:string(STR_NAME_UNIVERSITY);
+		override				:74;
+		population				:255;
+		mail_multiplier			:70;
+		accepted_cargos			:[[PASS, 8],[MAIL, 8]];
+		local_authority_impact	:300;
+		removal_cost_multiplier	:250;
+		probability				:1;
+		years_available			:[1700,9999];
+		minimum_lifetime		:100;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+	}
+	graphics {
+		graphics_north			:sprite_university_n;
+		graphics_west			:sprite_university_w;
+		construction_check		:if_road_SE_university;
+		protection				:pass_service_check;
+	}
+}
+}
+
+if (extra_hotel == 1) {
+
+item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
+	property {
+		substitute				:07;
+		name					:string(STR_NAME_SPA);
+		override				:07;
+		population				:85;
+		mail_multiplier			:30;
+		accepted_cargos			:[[PASS, 8],[MAIL, 4]];
+		local_authority_impact	:200;
+		removal_cost_multiplier	:150;
+		probability				:1;
+		years_available			:[1880,9999];
+		minimum_lifetime		:10;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+	}
+	graphics {
+		graphics_north			:sprite_spa_n;
+		graphics_east			:sprite_spa_e;
+		construction_check		:distance_hotel_6_hotel;
+		protection				:pass_service_check;
+	}
+}
 }
