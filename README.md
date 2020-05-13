@@ -17,7 +17,17 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 ## Definitions
 - Protection: If a building is protected, the town will not demolish it to build a different building. Does not affect player bulldozing.
 - Station receiving service: Some buildings will only appear, or will be protected, if they are within the coverage area of a station receiving Passenger or Mail service. Technically speaking, this measures whether the station accepted that cargo last month.
-
+- Landmarks: Buildings which encourage specific transport and/or are a visual landmark in your city
+  -Stadiums (old and modern)
+  -Neo-Moorish church
+  -Historic church
+  -Market (2x2 Shopping Centre sprite)
+  -Hotel (temperate)
+  -Museum*
+  -Courthouse*
+  -Spa*
+  -[Nakagin capsule tower](https://en.wikipedia.org/wiki/Nakagin_Capsule_Tower) - limit 1 per map
+  * denotes building which must be enabled in parameters
 ## Features
 
 ### Towns don’t excessively cycle through buildings
@@ -68,9 +78,6 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
   - 2 tiles: Park, Statue, Fountain
   - 10 tiles: Cinema, Theatre
   - 12 tiles: Hotel
-- Unique buildings are now suitably rare (1 per map)
-  - [Nakagin capsule tower](https://en.wikipedia.org/wiki/Nakagin_Capsule_Tower)
-  - Ugly tube tower
 - Recolors of Shops and Offices buildings add visual variety, with more muted/realistic colors than in default towns
 
 ## Limitations / Not in Scope
