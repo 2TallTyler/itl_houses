@@ -27,7 +27,7 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
   - Courthouse*
   - Spa*
   - [Nakagin capsule tower](https://en.wikipedia.org/wiki/Nakagin_Capsule_Tower) - limit 1 per map
-  * denotes building which must be enabled in parameters
+Note: asterick denotes building which must be enabled in parameters
 ## Features
 
 ### Towns don’t excessively cycle through buildings
