@@ -1,16 +1,16 @@
 ##grflangid 0x01
 
-STR_GRF_NAME						:Improved Town Layouts
-STR_GRF_DESC						:{ORANGE}Default houses, new rules.{}{}{BLACK}Downtowns defined by passenger service, sprawling suburbs, historic preservation, and more.{}{}Starts in 1700. Works with all base graphic sets. {SILVER}Incompatible with other NewGRF houses.{}{}{ORANGE}Visit website for instructions.{}{}{BLACK}Coded by 2TallTyler.{}License: GPL v3
+STR_GRF_NAME						:{TITLE} {VERSION}
+STR_GRF_DESC						:{ORANGE}Default houses, new rules.{}{}{BLACK}Downtowns defined by passenger service, sprawling suburbs, historic preservation, and more.{}{}Starts in 1700. Works with all base graphic sets. {SILVER}Incompatible with other NewGRF houses.{}{}{ORANGE}Visit website for instructions.{}{}{BLACK}Coded by 2TallTyler.
 STR_WEBSITE							:https://github.com/2TallTyler/improved_town_layouts/blob/master/README.md
 
 ERROR_REQUIRE_TEMPERATE					:Improved Town Layouts is designed for Temperate climate. Buildings do not have snow sprites.
 
 STR_PARAM_NAME_EXTRA_BANK				:Reuse Bank sprites
-STR_PARAM_DESC_EXTRA_BANK				:Add Bank sprites as University (temperate) and Courthouse (sub-tropic/sub-tropical). Not Recommended only if using an industry set without banks. 
+STR_PARAM_DESC_EXTRA_BANK				:Add Bank sprites as University (temperate bank) and Courthouse (sub-arctic bank).{}{}Not recommended if playing with an industry set that includes banks. 
 
 STR_PARAM_NAME_EXTRA_HOTEL				:Use FIRS Hotel sprites
-STR_PARAM_DESC_EXTRA_HOTEL				:Adds sub-arctic Hotel sprite as a Spa. Not recommended if playing with FIRS, which also uses this sprite.
+STR_PARAM_DESC_EXTRA_HOTEL				:Adds sub-arctic Hotel sprite as a Spa. {}{}Not recommended if playing with FIRS, which also uses this sprite.
 
 STR_NAME_HISTORIC_CHURCH				:Historic Church
 STR_NAME_OLD_CHURCH						:Church
