@@ -225,11 +225,6 @@ spritelayout sprite_office_block_13 {
 spritelayout sprite_shops_and_offices_30 {
 	ground	 {sprite: 1544;}
 	building {sprite: 1545;}}
-
-// Office tube
-spritelayout sprite_office_tube {
-	ground	 {sprite: 1564;}
-	building {sprite: 1565;}}
 	
 // Capsule tower
 spritelayout sprite_capsule_tower {
@@ -1361,29 +1356,6 @@ item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
 		default					:sprite_shops_and_offices_30;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
-	}
-}
-
-item(FEAT_HOUSES, item_office_tube, 36, HOUSE_SIZE_1X1) {
-	property {
-		substitute				:36;
-		name					:string(STR_NAME_OFFICES);
-		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
-		override				:36;
-		population				:140;
-		mail_multiplier			:65;
-		accepted_cargos			:[[PASS, 8],[MAIL,8]];
-		local_authority_impact	:250;
-		removal_cost_multiplier	:170;
-		probability				:1;
-		years_available			:[2000,9999];
-		minimum_lifetime		:50;
-		availability_mask		:[0,0];
-		building_class			:2;
-	}
-	graphics {
-		default					:sprite_office_tube;
-		construction_check		:unique_worldwide;
 	}
 }
 
