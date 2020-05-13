@@ -5,7 +5,7 @@
 - Visual improvements to building placement, zoning, and clustering, as early as 1700
 - Towns grow around your transit network. High-density residential and commercial buildings only appear where passenger and/or mail service is provided.
 - Office buildings need residential buildings to house their workers. Town sprawl is suburbs, not skyscrapers.
-- Landmark buildings and districts persist through decades and lend character to your city. When a landmark building is receiving cargo, it won’t disappear and break your network.
+- Landmarks and districts persist through decades and lend character to your city. When a landmark building is receiving cargo, it won’t disappear and break your network.
 - Expanded cargo deliveries with FIRS and ECS compatibility: Deliver food and goods to shops and markets, alcohol to stadiums, and wood or coal to heat pre-1945 buildings.
 - Uses only base game sprites, so visually compatible with any base graphics set including Original TTD, OpenGFX, aBase, zBase, and NightGFX.
 
