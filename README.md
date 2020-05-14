@@ -76,7 +76,7 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Distinctive buildings don’t appear near each other
   - 2 tiles: Park, Statue, Fountain
   - 10 tiles: Cinema, Theatre
-  - 12 tiles: Hotel, Spa
+  - 30 tiles: Hotel, Spa
     - Only build in cities
 - Recolors of Shops and Offices buildings add visual variety, with more muted/realistic colors than in default towns
 
