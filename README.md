@@ -19,10 +19,10 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Station receiving service: Some buildings will only appear, or will be protected, if they are within the coverage area of a station receiving Passenger or Mail service. Technically speaking, this measures whether the station accepted that cargo last month.
 - Landmarks: Buildings which encourage specific transport and/or are a visual landmark in your city. Asterick denotes building which must be enabled in parameters.
   - Stadiums (old and modern)
-  - Neo-Moorish church
   - Historic church
   - Market (2x2 Shopping Centre sprite)
   - Hotel (temperate)
+  - Neo-Moorish church*
   - Museum*
   - Courthouse*
   - Spa*

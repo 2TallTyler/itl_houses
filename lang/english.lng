@@ -6,11 +6,17 @@ STR_WEBSITE							:https://github.com/2TallTyler/improved_town_layouts/blob/mast
 
 ERROR_REQUIRE_TEMPERATE					:Improved Town Layouts is designed for Temperate climate. Buildings do not have snow sprites.
 
-STR_PARAM_NAME_EXTRA_BANK				:Reuse Bank sprites
-STR_PARAM_DESC_EXTRA_BANK				:Add Bank sprites as University (temperate bank) and Courthouse (sub-arctic bank).{}{}Not recommended if playing with an industry set that includes banks. 
+STR_PARAM_NAME_EXTRA_BANK				:Use Bank sprites
+STR_PARAM_DESC_EXTRA_BANK				:Adds the Bank sprites as a {SILVER}University{BLACK} (temperate bank sprite) and a {SILVER}Courthouse{BLACK} (sub-arctic bank sprite).{}{}{ORANGE}Not recommended{BLACK} if playing with an industry set that includes banks. 
 
 STR_PARAM_NAME_EXTRA_HOTEL				:Use FIRS Hotel sprites
-STR_PARAM_DESC_EXTRA_HOTEL				:Adds sub-arctic Hotel sprite as a Spa. {}{}Not recommended if playing with FIRS, which also uses this sprite.
+STR_PARAM_DESC_EXTRA_HOTEL				:Adds the sub-arctic Hotel sprite as a {SILVER}Spa{BLACK}. {}{}{ORANGE}Not recommended{BLACK} if playing with FIRS, which also uses this sprite.
+
+STR_PARAM_NAME_EXTRA_TROPIC				:Use sub-tropical sprites
+STR_PARAM_DESC_EXTRA_TROPIC				:Adds the sub-tropical Church sprite as an additional {SILVER}Church{BLACK} type. Adds one of the Flats sprites as a random sprite of the {SILVER}Warehouse{BLACK}.
+
+STR_PARAM_NAME_IMPROVED_MAIL			:Improved Mail
+STR_PARAM_DESC_IMPROVED_MAIL			:Residential buildings produce almost no mail. Commercial buildings produce slightly more.{}{}{SILVER}Asymmetric cargo distribution{BLACK} for mail recommended.
 
 STR_NAME_HISTORIC_CHURCH				:Historic Church
 STR_NAME_OLD_CHURCH						:Church

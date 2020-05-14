@@ -23,8 +23,12 @@
 
 ### 1.1.0
 *Not savegame compatible.*
+- Feature: Improved Mail changes residential buildings to produce nearly no mail, while slightly increasing mail from commercial buildings
 - Add: Option to reuse Bank (both temperate and sub-arctic/sub-tropical) and sub-arctic Hotel sprites as University, Courthouse, and Spa, respectively. Must be activated in Parameters to avoid conflicts with industries which use the same sprites (Banks in vanilla industry, Hotel in FIRS).
 - Add: Museum, which builds overlooking water to the southwest
+- Add: Parameter to enable/disable sub-tropical sprites (default = disable)
+  - Neo-Moorish Church
+  - Concrete warehouse
 - Change: Modern office buildings now need ~600 residential population per building, down from 1,000
 - Change: Residential buildings no longer build next to office buildings
   - Makes office districts more concentrated

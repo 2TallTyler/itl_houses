@@ -21,6 +21,23 @@ param 1 {
    def_value: 0;
    type: bool;
    }}
+
+param 2 {
+  extra_tropic {
+   name: string(STR_PARAM_NAME_EXTRA_TROPIC);
+   desc: string(STR_PARAM_DESC_EXTRA_TROPIC);
+   def_value: 0;
+   type: bool;
+   }} 
+
+param 3 {
+  improved_mail {
+   name: string(STR_PARAM_NAME_IMPROVED_MAIL);
+   desc: string(STR_PARAM_DESC_IMPROVED_MAIL);
+   def_value: 1;
+   type: bool;
+   }}   
+
 }
 
 if (climate == CLIMATE_ARCTIC)
@@ -659,7 +676,7 @@ item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 		name					:string(STR_NAME_HOUSES);
 		override				:26;
 		population				:13;
-		mail_multiplier			:8;
+		mail_multiplier			:(improved_mail == 1) ? 1 : 8;
 		accepted_cargos			:[[PASS, 3],[MAIL, 1]];
 		local_authority_impact	:75;
 		removal_cost_multiplier	:71;
@@ -684,7 +701,7 @@ item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
 		name					:string(STR_NAME_HOUSES);
 		override				:26;
 		population				:13;
-		mail_multiplier			:8;
+		mail_multiplier			:(improved_mail == 1) ? 1 : 8;
 		accepted_cargos			:[[PASS, 3],[MAIL, 1],[COAL, 1]];
 		local_authority_impact	:75;
 		removal_cost_multiplier	:71;
@@ -707,7 +724,7 @@ item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
 		name					:string(STR_NAME_TOWNHOUSES);
 		override				:06;
 		population				:30;
-		mail_multiplier			:12;
+		mail_multiplier			:(improved_mail == 1) ? 1 : 12;
 		accepted_cargos			:[[PASS, 4],[MAIL, 2]];
 		local_authority_impact	:80;
 		removal_cost_multiplier	:80;
@@ -728,7 +745,7 @@ item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
 		name					:string(STR_NAME_TOWNHOUSES);
 		override				:06;
 		population				:30;
-		mail_multiplier			:12;
+		mail_multiplier			:(improved_mail == 1) ? 1 : 12;
 		accepted_cargos			:[[PASS, 4],[MAIL, 2],[COAL, 2]];
 		local_authority_impact	:80;
 		removal_cost_multiplier	:80;
@@ -750,7 +767,7 @@ item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 		name					:string(STR_NAME_FLATS);
 		override				:27;
 		population				:100;
-		mail_multiplier			:35;
+		mail_multiplier			:(improved_mail == 1) ? 3 : 35;
 		accepted_cargos			:[[PASS, 8],[MAIL, 2]];
 		local_authority_impact	:100;
 		removal_cost_multiplier	:135;
@@ -772,7 +789,7 @@ item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 		name					:string(STR_NAME_SMALL_FLATS);
 		override				:02;
 		population				:40;
-		mail_multiplier			:20;
+		mail_multiplier			:(improved_mail == 1) ? 2 : 20;
 		accepted_cargos			:[[PASS, 8],[MAIL, 3]];
 		local_authority_impact	:90;
 		removal_cost_multiplier	:100;
@@ -878,6 +895,7 @@ item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 }
 
 // Neo-Moorish Church
+if (extra_tropic == 1){
 item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 	property {
 		substitute				:83;
@@ -890,7 +908,7 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 		local_authority_impact	:230;
 		removal_cost_multiplier	:85;
 		probability				:1;
-		years_available			:[1850,1940];
+		years_available			:[1850,1900];
 		availability_mask		:[bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		}
 	graphics {
@@ -898,7 +916,7 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 		construction_check		:unique_building_town_road_SW;
 		protection				:random_preservation;
 	}
-}
+}}
 
 // Old Stadium
 item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
@@ -963,7 +981,7 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 		override				:68;
 		
 		population				:140;
-		mail_multiplier			:22;
+		mail_multiplier			:(improved_mail == 1) ? 4 : 22;
 		accepted_cargos			:[[PASS, 6],[MAIL, 2]];
 		local_authority_impact	:150;
 		removal_cost_multiplier	:180;
@@ -988,7 +1006,7 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 		override				:39;
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:35;
-		mail_multiplier			:23;
+		mail_multiplier			:(improved_mail == 1) ? 4 : 23;
 		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
 		local_authority_impact	:230;
 		removal_cost_multiplier	:210;
@@ -1011,7 +1029,7 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 		override				:31;
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:35;
-		mail_multiplier			:23;
+		mail_multiplier			:(improved_mail == 1) ? 8 : 23;
 		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
 		local_authority_impact	:230;
 		removal_cost_multiplier	:220;
@@ -1033,7 +1051,7 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		name					:string(STR_NAME_MARKET);
 		override				:40;
 		population				:180;
-		mail_multiplier			:5;
+		mail_multiplier			:(improved_mail == 1) ? 10 : 5;
 		accepted_cargos			:[[PASS, 8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
 		local_authority_impact	:300;
 		removal_cost_multiplier	:250;
@@ -1054,13 +1072,15 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 }
 
 // Warehouse
+
+if (extra_tropic == 1){
 item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:18;
 		name					:string(STR_NAME_WAREHOUSE);
 		override				:18;
 		population				:6;
-		mail_multiplier			:10;
+		mail_multiplier			:(improved_mail == 1) ? 100 : 10;
 		accepted_cargos			:[[MAIL, 3],[GOOD, 8]];
 		local_authority_impact	:110;
 		removal_cost_multiplier	:145;
@@ -1075,7 +1095,30 @@ item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 		construction_check		:distance_same_class_within_2;
 		protection				:goods_service_check;
 	}
+}} else {
+item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:18;
+		name					:string(STR_NAME_WAREHOUSE);
+		override				:18;
+		population				:6;
+		mail_multiplier			:(improved_mail == 1) ? 100 : 10;
+		accepted_cargos			:[[MAIL, 3],[GOOD, 8]];
+		local_authority_impact	:110;
+		removal_cost_multiplier	:145;
+		probability				:1;
+		years_available			:[1930,9999];
+		minimum_lifetime		:4;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:0;
+	}
+	graphics {
+		default					:sprite_warehouse;
+		construction_check		:distance_same_class_within_2;
+		protection				:goods_service_check;
+	}}
 }
+
 
 // Fountain
 item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
@@ -1134,7 +1177,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_SHOP);
 		override				:46;
 		population				:25;
-		mail_multiplier			:20;
+		mail_multiplier			:(improved_mail == 1) ? 4 : 20;
 		accepted_cargos			:[[PASS, 2], [GOOD, 8],[FOOD, 8],[BEER, 8]];
 		local_authority_impact	:80;
 		removal_cost_multiplier	:100;
@@ -1203,7 +1246,7 @@ item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
 		override				:19;
 		population				:110;
-		mail_multiplier			:55;
+		mail_multiplier			:(improved_mail == 1) ? 65 : 55;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:110;
 		removal_cost_multiplier	:155;
@@ -1226,7 +1269,7 @@ item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
 		override				:00;
 		population				:187;
-		mail_multiplier			:70;
+		mail_multiplier			:(improved_mail == 1) ? 80 : 70;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:140;
 		removal_cost_multiplier	:150;
@@ -1249,7 +1292,7 @@ item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
 		override				:28;
 		population				:170;
-		mail_multiplier			:50;
+		mail_multiplier			:(improved_mail == 1) ? 60 : 50;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:170;
 		removal_cost_multiplier	:145;
@@ -1273,7 +1316,7 @@ item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
 		override				:04;
 		building_flags			:bitmask(HOUSE_FLAG_ANIMATE);
 		population				:220;
-		mail_multiplier			:85;
+		mail_multiplier			:(improved_mail == 1) ? 95 : 85;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:160;
 		removal_cost_multiplier	:160;
@@ -1296,7 +1339,7 @@ item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_OFFICE_BLOCK);
 		override				:01;
 		population				:85;
-		mail_multiplier			:55;
+		mail_multiplier			:(improved_mail == 1) ? 65 : 55;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:130;
 		removal_cost_multiplier	:140;
@@ -1319,7 +1362,7 @@ item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_OFFICE_BLOCK);
 		override				:13;
 		population				:150;
-		mail_multiplier			:65;
+		mail_multiplier			:(improved_mail == 1) ? 75 : 65;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:110;
 		removal_cost_multiplier	:130;
@@ -1342,7 +1385,7 @@ item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
 		override				:30;
 		population				:180;
-		mail_multiplier			:64;
+		mail_multiplier			:(improved_mail == 1) ? 74 : 64;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
 		local_authority_impact	:180;
 		removal_cost_multiplier	:155;
@@ -1366,7 +1409,7 @@ item(FEAT_HOUSES, item_capsule_tower, 17, HOUSE_SIZE_1X1) {
 		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		override				:17;
 		population				:130;
-		mail_multiplier			:50;
+		mail_multiplier			:(improved_mail == 1) ? 60 : 50;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:150;
 		removal_cost_multiplier	:200;
@@ -1389,7 +1432,7 @@ item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_OFFICE_BLOCK);
 		override				:52;
 		population				:170;
-		mail_multiplier			:70;
+		mail_multiplier			:(improved_mail == 1) ? 80 : 70;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:130;
 		removal_cost_multiplier	:170;
@@ -1412,7 +1455,7 @@ item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_OFFICE_BLOCK);
 		override				:50;
 		population				:135;
-		mail_multiplier			:60;
+		mail_multiplier			:(improved_mail == 1) ? 70 : 60;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:120;
 		removal_cost_multiplier	:150;
@@ -1435,7 +1478,7 @@ item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_OFFICE_BLOCK);
 		override				:54;
 		population				:210;
-		mail_multiplier			:80;
+		mail_multiplier			:(improved_mail == 1) ? 90 : 80;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:140;
 		removal_cost_multiplier	:200;
@@ -1458,7 +1501,7 @@ item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_OFFICE_BLOCK);
 		override				:54;
 		population				:210;
-		mail_multiplier			:80;
+		mail_multiplier			:(improved_mail == 1) ? 90 : 80;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:140;
 		removal_cost_multiplier	:200;
@@ -1481,7 +1524,7 @@ item(FEAT_HOUSES, item_tall_office_block_90, 90, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_OFFICE_BLOCK);
 		override				:90;
 		population				:180;
-		mail_multiplier			:90;
+		mail_multiplier			:(improved_mail == 1) ? 100 : 90;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:150;
 		removal_cost_multiplier	:180;
@@ -1506,7 +1549,7 @@ item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
 		override				:74;
 		override				:76;
 		population				:250;
-		mail_multiplier			:60;
+		mail_multiplier			:(improved_mail == 1) ? 70 : 60;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:200;
 		removal_cost_multiplier	:140;
@@ -1530,7 +1573,7 @@ item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
 		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
 		override				:87;
 		population				:250;
-		mail_multiplier			:80;
+		mail_multiplier			:(improved_mail == 1) ? 90 : 80;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
 		local_authority_impact	:140;
 		removal_cost_multiplier	:190;
@@ -1555,7 +1598,7 @@ item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_COTTAGES);
 		override				:25;
 		population				:12;
-		mail_multiplier			:7;
+		mail_multiplier			:(improved_mail == 1) ? 1 : 7;
 		accepted_cargos			:[[PASS, 2],[MAIL, 2],[COAL, 1],[WOOD, 1]];
 		local_authority_impact	:60;
 		removal_cost_multiplier	:60;
@@ -1577,7 +1620,7 @@ item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 		name					:string(STR_NAME_HOUSES);
 		override				:24;
 		population				:15;
-		mail_multiplier			:6;
+		mail_multiplier			:(improved_mail == 1) ? 1 : 6;
 		accepted_cargos			:[[PASS, 2],[MAIL, 2],[COAL, 2],[WOOD, 2]];
 		local_authority_impact	:75;
 		removal_cost_multiplier	:70;
@@ -1792,7 +1835,7 @@ item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
 		name					:string(STR_NAME_SPA);
 		override				:07;
 		population				:85;
-		mail_multiplier			:30;
+		mail_multiplier			:(improved_mail == 1) ? 4 : 30;
 		accepted_cargos			:[[PASS, 8],[MAIL, 4]];
 		local_authority_impact	:200;
 		removal_cost_multiplier	:150;
