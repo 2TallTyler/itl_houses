@@ -30,6 +30,7 @@
   - Neo-Moorish Church
   - Concrete warehouse
 - Change: Modern office buildings now need ~600 residential population per building, down from 1,000
+- Change: Hotels and Spas only build in cities
 - Change: Residential buildings no longer build next to office buildings
   - Makes office districts more concentrated
   - Town Houses and Houses: within 2 tiles
