@@ -5,7 +5,7 @@
 - Visual improvements to building placement, zoning, and clustering, as early as 1700
 - Towns grow around your transit network. High-density residential and commercial buildings only appear where passenger and/or mail service is provided.
 - Office buildings need residential buildings to house their workers. Town sprawl is suburbs, not skyscrapers.
-- Landmark buildings and districts persist through decades and lend character to your city. When a landmark building is receiving cargo, it won’t disappear and break your network.
+- Landmarks and districts persist through decades and lend character to your city. When a landmark building is receiving cargo, it won’t disappear and break your network.
 - Expanded cargo deliveries with FIRS and ECS compatibility: Deliver food and goods to shops and markets, alcohol to stadiums, and wood or coal to heat pre-1945 buildings.
 - Uses only base game sprites, so visually compatible with any base graphics set including Original TTD, OpenGFX, aBase, zBase, and NightGFX.
 
@@ -17,14 +17,23 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 ## Definitions
 - Protection: If a building is protected, the town will not demolish it to build a different building. Does not affect player bulldozing.
 - Station receiving service: Some buildings will only appear, or will be protected, if they are within the coverage area of a station receiving Passenger or Mail service. Technically speaking, this measures whether the station accepted that cargo last month.
-
+- Landmarks: Buildings which encourage specific transport and/or are a visual landmark in your city. Asterick denotes building which must be enabled in parameters.
+  - Stadiums (old and modern)
+  - Historic church
+  - Market (2x2 Shopping Centre sprite)
+  - Hotel (temperate)
+  - Neo-Moorish church*
+  - Museum*
+  - Courthouse*
+  - Spa*
+  - [Nakagin capsule tower](https://en.wikipedia.org/wiki/Nakagin_Capsule_Tower) — limit 1 per map
 ## Features
 
 ### Towns don’t excessively cycle through buildings
 - Longer Minimum Lifespans keep towns from churning through buildings
 - Major destinations become actually useful with new service needs and protection from redevelopment
 - Stadiums accept Food and Alcohol (if FIRS is enabled) and will be protected if either of these cargos, or passengers, was delivered last month. The Modern Stadium also generates quite a lot more passenger traffic.
-- Hotel protected if receiving Passengers
+- Hotel, Museum, Resort, University, and Courthouse protected if receiving Passengers
 - Shopping Mall, Stores now accept Food and Goods and will be protected if either cargo was delivered last month
 - Warehouse protected if receiving Goods
 
@@ -67,10 +76,8 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Distinctive buildings don’t appear near each other
   - 2 tiles: Park, Statue, Fountain
   - 10 tiles: Cinema, Theatre
-  - 12 tiles: Hotel
-- Unique buildings are now suitably rare (1 per map)
-  - [Nakagin capsule tower](https://en.wikipedia.org/wiki/Nakagin_Capsule_Tower)
-  - Ugly tube tower
+  - 30 tiles: Hotel, Spa
+    - Only build in cities
 - Recolors of Shops and Offices buildings add visual variety, with more muted/realistic colors than in default towns
 
 ## Limitations / Not in Scope

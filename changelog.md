@@ -20,3 +20,33 @@
  
 ### 1.03
 - Default houses are now overridden in all climates.
+
+### 1.1.0
+*Not savegame compatible.*
+- Feature: Improved Mail changes residential buildings to produce nearly no mail, while slightly increasing mail from commercial buildings
+- Add: Option to reuse Bank (both temperate and sub-arctic/sub-tropical) and sub-arctic Hotel sprites as University, Courthouse, and Spa, respectively. Must be activated in Parameters to avoid conflicts with industries which use the same sprites (Banks in vanilla industry, Hotel in FIRS).
+- Add: Museum, which builds overlooking water to the southwest
+- Add: Parameter to enable/disable sub-tropical sprites (default = disable)
+  - Neo-Moorish Church
+  - Concrete warehouse
+- Change: Modern office buildings now need ~600 residential population per building, down from 1,000
+- Change: Hotels and Spas only build in cities
+- Change: Residential buildings no longer build next to office buildings
+  - Makes office districts more concentrated
+  - Town Houses and Houses: within 2 tiles
+  - Small Flats: within 1 tile if passenger service provided
+  - Small Flats: no restriction if no passenger service provided, to avoid gaps on the perimeter of office districts
+- Change: Small Flats now available in town centres
+- Change: Swapped some Flats, Small Flats, and Town House sprites around
+  - Flats are now high-density housing, Small Flats are medium-density requiring passenger service, Town Houses are low density (but allowed in town centres), and Houses are low-density and not allowed in town centres
+- Change: Tube-style office building no longer spawns
+  - Still available in savegames, but won't build new
+  - Reason? I think it looks silly
+- Change: Markets spawn more often
+  - No longer restricted by location away from houses
+  - One market allowed per town
+- Fix: All buildings now appear above snowline in Sub-Arctic climate
+  - An error now appears in the NewGRF window warning players that this set does not support snow sprites
+- Fix: Market building no longer appears to hover or flicker
+- Fix: Cinema and Theatre buildings now match their ground tiles when using aBase
+- Fix: Version numbering now uses 0.0.0 style instead of 0.00
