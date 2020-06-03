@@ -1,0 +1,365 @@
+// Begin Graphics
+
+// Houses
+spritelayout houses1 {
+ground	 {sprite: 1499;}
+building {sprite:1500;}}
+spritelayout houses2 {
+ground 	 {sprite: 1574;}
+building {sprite:1575;}}
+spritelayout houses3 {
+ground	 {sprite: 1517;}
+building {sprite:1518;}}
+spritelayout houses4 {
+ground	 {sprite: 1511;}
+building {sprite:1512;}}
+
+// Town Houses
+spritelayout townhouses1 {
+ground	 {sprite: 1505;}
+building {sprite: 1506;}}
+spritelayout townhouses2 {
+ground	 {sprite: 1447;}
+building {sprite: 1446;}}
+
+// Old Church
+spritelayout sprite_church {
+	ground	 {sprite: 1437;}
+	building {sprite: 1436;}}
+
+// Modern Church 1
+spritelayout sprite_modern_church_1 {
+	ground	 {sprite: 4462;}
+	building {sprite: 4465;}}
+	
+// Modern Church 2
+spritelayout sprite_modern_church_2 {
+	ground	 {sprite: 1420;}
+	building {sprite: 4461;}}
+	
+// Neo-Moorish Church
+spritelayout sprite_neomoorish_church {
+	ground	 {sprite: 1420;}
+	building {sprite: 4604;}}
+
+// Old Stadium
+spritelayout sprite_old_stadium_N {
+	ground	 {sprite: 1479 ;}
+	building {sprite: 1483;}}
+spritelayout sprite_old_stadium_E {
+	ground	 {sprite: 1480 ;}
+	building {sprite: 1484;}}
+spritelayout sprite_old_stadium_W {
+	ground	 {sprite: 1481 ;}
+	building {sprite: 1485;}}
+spritelayout sprite_old_stadium_S {
+	ground	 {sprite: 1482 ;}
+	building {sprite: 1486;}}
+
+// New Stadium
+spritelayout sprite_new_stadium_N {
+	ground	 {sprite: 1554 ;}
+	building {sprite: 1558;}}
+spritelayout sprite_new_stadium_E {
+	ground	 {sprite: 1555 ;}
+	building {sprite: 1559;}}
+spritelayout sprite_new_stadium_W {
+	ground	 {sprite: 1556 ;}
+	building {sprite: 1560;}}
+spritelayout sprite_new_stadium_S {
+	ground	 {sprite: 1557 ;}
+	building {sprite: 1561;}}
+	
+// Shopping Center
+spritelayout sprite_shopping_mall_N {
+	ground	 {sprite: 4411;}
+	building {sprite: 4412;}}
+spritelayout sprite_shopping_mall_E {
+	ground	 {sprite: 4413;}
+	building {sprite: 4414;}}
+spritelayout sprite_shopping_mall_W {
+	ground	 {sprite: 4415 ;}
+	building {sprite: 4416;	}}
+spritelayout sprite_shopping_mall_S {
+	ground	 {sprite: 4417;}
+	}
+
+// Hotel
+spritelayout sprite_hotel_N {
+	ground	 {sprite: 1420;}
+	building {sprite: 1450;}
+}
+
+spritelayout sprite_hotel_E {
+	ground	 {sprite: 1420;}
+	building {sprite: 1453;}
+}
+
+// Cinema
+spritelayout sprite_cinema {
+	ground	 {sprite: 1420;}
+	building {sprite: 4405;}
+}
+
+//Theatre
+spritelayout sprite_theatre {
+	ground	 {sprite: 1420;}
+	building {sprite: 1553;}
+}
+
+//Warehouse
+spritelayout sprite_warehouse {
+	ground	 {sprite: 1420;}
+	building {sprite: 1475;}
+}
+
+// Fountain
+spritelayout sprite_fountain {
+	ground	 {sprite: 1420 ;}
+	building {
+		sprite: 1455;
+		yoffset: 3;
+		xoffset: 3;
+		}}
+
+// Statue
+spritelayout sprite_statue {
+	ground	 {sprite: 1420 ;}
+	building {
+		sprite: 1454;
+		yoffset: 5;
+		xoffset: 6;
+		}}
+
+// Shop
+spritelayout sprite_shop {
+	ground	 {sprite: 4418;}
+	building {sprite: 4426;}}
+
+// Park, Pond
+spritelayout sprite_park_pond {
+	ground	 {sprite: 3981;}
+	building {sprite: 1456;}}
+
+// Park, Alley
+spritelayout sprite_park_alley {
+	ground	 {sprite: 3981;}
+	building {sprite: 1457;}}
+
+// Tall office block, spiral staircase
+spritelayout sprite_tall_office_block_19 {
+	ground	 {sprite: 1424;}
+	building {sprite: 1425;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+// Tall office block, 00
+spritelayout sprite_tall_office_block_00 {
+	ground	 {sprite: 1550;}
+	building {sprite: 1551;}}
+
+// Tall office block, 28
+spritelayout sprite_tall_office_block_28 {
+	ground	 {sprite: 1534;}
+	building {sprite: 1535;}}
+
+// Large office block, with elevator
+spritelayout sprite_large_office_block {
+	ground	 {sprite: 1420;}
+	building {sprite: 1442;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+// Office block 01
+spritelayout sprite_office_block_01 {
+	ground	 {sprite: 1429;}
+	building {sprite: 1428;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+	
+// Office block 13
+spritelayout sprite_office_block_13 {
+	ground	 {sprite: 1420;}
+	building {sprite: 1460;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+// Shops and offices 30 - modern bulge
+spritelayout sprite_shops_and_offices_30 {
+	ground	 {sprite: 1544;}
+	building {sprite: 1545;}}
+	
+// Capsule tower
+spritelayout sprite_capsule_tower {
+	ground	 {sprite: 1420;}
+	building {sprite: 1472;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+// Small Flats 2
+spritelayout sprite_small_flats {
+	ground	 {sprite: 1433;}
+	building {sprite: 1432;}}
+
+// Flats 1
+spritelayout sprite_flats_1 {
+	ground	 {sprite: 1528;}
+	building {sprite: 1529;}}
+	
+// Flats 2
+spritelayout sprite_small_flats_2 {
+	ground	 {sprite: 1522;}
+	building {sprite: 1523;}}
+	
+spritelayout sprite_tall_office_block_52 {
+	ground	 {sprite:4442;}
+	building {sprite:4445;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_tall_office_block_50 {
+	ground		{sprite:4483;}
+	building	{sprite:4484;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_tall_office_block_54 {
+	ground		{sprite:4434;}
+	building	{sprite:4437;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_tall_office_block_74_N {
+	ground	 {sprite:4485;}
+	building {sprite:4491;}}
+spritelayout sprite_tall_office_block_74_W {
+	ground		{sprite:4486;}
+	building	{sprite:4492;}}
+
+spritelayout sprite_small_flats_44 {
+	ground		{sprite:4418;}
+	building	{sprite:4422;}}
+
+spritelayout sprite_shops_and_offices_64 {
+	ground		{sprite:1420;}
+	building	{sprite:4470;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_houses_62 {
+ground		{sprite:1566;}
+building	{sprite:1567;}}
+
+spritelayout sprite_tall_office_block_87_N {
+	ground		{sprite:1420;}
+	building	{sprite:4618;}}
+spritelayout sprite_tall_office_block_87_W {
+	ground		{sprite:1420;}
+	building	{sprite:4619;}}
+
+spritelayout sprite_tall_office_block_90 {
+	ground		{sprite:1420;}
+	building	{sprite:4625;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+	
+spritelayout sprite_flats_82 {
+	ground		{sprite:1420;}
+	building	{sprite:4610;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_flats_85 {
+	ground		{sprite:1420;}
+	building	{sprite:4613;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_warehouse_89 {
+	ground		{sprite:1420;}
+	building	{sprite:4622;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_shops_and_offices_29 {
+	ground		{sprite:1536;}
+	building	{sprite:1537;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout  sprite_shops_and_offices_14 {
+	ground		{sprite:1420;}
+	building	{sprite:1466;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_shops_and_offices_15a {
+	ground		{sprite:1420;}
+	building	{sprite:1463;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_shops_and_offices_15b {
+	ground		{sprite:1538;}
+	building	{sprite:1539;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_shops_and_offices_16 {
+	ground		{sprite:1420;}
+	building	{sprite:1469;
+	recolour_mode: RECOLOUR_REMAP;
+ 	palette: PALETTE_USE_DEFAULT;}}
+
+spritelayout sprite_old_houses_1 {
+	ground		{sprite:1487;}
+	building	{sprite:1488;}}
+
+spritelayout sprite_old_houses_2 {
+	ground		{sprite:1493;}
+	building	{sprite:1494;}}
+
+spritelayout sprite_old_houses_3 {
+	ground		{sprite:1491;}
+	building	{sprite:1492;}}
+
+spritelayout sprite_old_houses_4 {
+	ground		{sprite:1489;}
+	building	{sprite:1490;}}
+
+spritelayout sprite_cottages {
+	ground		{sprite:1495;}
+	building	{sprite:1496;}}
+
+spritelayout sprite_empty_square {
+	ground		{sprite:1420;}}
+	
+spritelayout sprite_university_n {
+	ground		{sprite:2182;}
+	building	{sprite:2180;}}
+	
+spritelayout sprite_university_w {
+	ground		{sprite:2183;}
+	building	{sprite:2181;}}
+
+spritelayout sprite_courthouse_n {
+	ground		{sprite:2184;}
+	building	{sprite:2186;}}
+
+spritelayout sprite_courthouse_w {
+	ground		{sprite:2185;}
+	building	{sprite:2187;}}
+
+spritelayout sprite_museum {
+	ground		{sprite:1420;}
+	building	{sprite:1478;}}	
+
+spritelayout sprite_spa_n {
+	ground		{sprite:1420;}
+	building	{sprite:4475;}}
+
+spritelayout sprite_spa_e {
+	ground		{sprite:1420;}
+	building	{sprite:4476;}}
+
+// End Graphics

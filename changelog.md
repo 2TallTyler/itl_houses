@@ -49,5 +49,8 @@
   - An error now appears in the NewGRF window warning players that this set does not support snow sprites
 - Fix: Market building no longer appears to hover or flicker
 - Fix: Cinema and Theatre buildings now match their ground tiles when using aBase
-- Fix: Version numbering now uses 0.0.0 style instead of 0.00\
+- Fix: Version numbering now uses 0.0.0 style instead of 0.00
 - Fix: Version number now appended to NewGRF name in NewGRF window
+
+### 1.1.1
+- Change: Break up code from one huge NML file to several NML files for easier editing (no changes seen by the player)

@@ -1,0 +1,52 @@
+// Begin Header
+
+grf {
+	grfid: "TT\03\01";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESC);
+	version: 4;
+	min_compatible_version: 4;
+	url: string(STR_WEBSITE);
+
+param 0 {
+  extra_bank {
+   name: string(STR_PARAM_NAME_EXTRA_BANK);
+   desc: string(STR_PARAM_DESC_EXTRA_BANK);
+   type: bool;
+   def_value: 0;
+   }}
+   
+param 1 {
+  extra_hotel {
+   name: string(STR_PARAM_NAME_EXTRA_HOTEL);
+   desc: string(STR_PARAM_DESC_EXTRA_HOTEL);
+   def_value: 0;
+   type: bool;
+   }}
+
+param 2 {
+  extra_tropic {
+   name: string(STR_PARAM_NAME_EXTRA_TROPIC);
+   desc: string(STR_PARAM_DESC_EXTRA_TROPIC);
+   def_value: 0;
+   type: bool;
+   }} 
+
+param 3 {
+  improved_mail {
+   name: string(STR_PARAM_NAME_IMPROVED_MAIL);
+   desc: string(STR_PARAM_DESC_IMPROVED_MAIL);
+   def_value: 1;
+   type: bool;
+   }}   
+
+}
+
+if (climate == CLIMATE_ARCTIC)
+{error(WARNING, string(ERROR_REQUIRE_TEMPERATE));}
+
+cargotable {
+	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD
+}
+
+// End Header
