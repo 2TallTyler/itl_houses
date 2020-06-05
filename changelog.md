@@ -53,4 +53,7 @@
 - Fix: Version number now appended to NewGRF name in NewGRF window
 
 ### 1.1.1
-- Change: Break up code from one huge NML file to several NML files for easier editing (no changes seen by the player)
+- Add: Error message when trying to use Improved Town Layout with a version of OpenTTD which is too old (requires 1.10.0, JGR 0.34, or better)
+- Add: Makefile for code compilation
+- Change: Break up code from one huge NML file to several NML files for easier editing
+- Change: Organize file structure
