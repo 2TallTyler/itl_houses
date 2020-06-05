@@ -49,4 +49,8 @@ cargotable {
 	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD
 }
 
+if (version_openttd(1,10,0,28004) > openttd_version) {
+	error(FATAL, string(STR_ERROR_GAME_VERSION));
+}
+
 // End Header

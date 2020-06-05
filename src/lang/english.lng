@@ -6,6 +6,8 @@ STR_WEBSITE							:https://github.com/2TallTyler/improved_town_layouts/blob/mast
 
 ERROR_REQUIRE_TEMPERATE					:Improved Town Layouts is designed for Temperate climate. Buildings do not have snow sprites.
 
+STR_ERROR_GAME_VERSION					:Improved Town Layouts requires OpenTTD version 1.10.0, JGR version 0.34, or better
+
 STR_PARAM_NAME_EXTRA_BANK				:Use Bank sprites
 STR_PARAM_DESC_EXTRA_BANK				:Adds the Bank sprites as a {SILVER}University{BLACK} (temperate bank sprite) and a {SILVER}Courthouse{BLACK} (sub-arctic bank sprite).{}{}{ORANGE}Not recommended{BLACK} if playing with an industry set that includes banks. 
 
