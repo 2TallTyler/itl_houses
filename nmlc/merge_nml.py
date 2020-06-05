@@ -37,10 +37,10 @@ landmarks = codecs.open("src/landmarks.pnml",'r','utf8')
 sections.append(landmarks.read())
 landmarks.close()
 
-print("Python: Writing processed.nml")
+print("Python: Writing combined NML file")
 
 # create a new file on disk, which will have a name and be writable
-processed_nml_file = codecs.open('nmlc/processed.nml','w','utf8')
+processed_nml_file = codecs.open('nmlc/improved_town_layouts.nml','w','utf8')
 
 # write stuff into the file
 processed_nml_file.write('\n'.join(sections)) # join the list of templated stuff with newlines, and write to a file
