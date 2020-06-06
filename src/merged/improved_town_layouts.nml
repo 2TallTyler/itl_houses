@@ -581,6 +581,8 @@ switch(FEAT_HOUSES,SELF, distance_theatre_4_theatre, nearest_house_matching_crit
 // Distance check: Cannot build within distance 2 of same class (House, Market, Warehouse, Park)
 switch(FEAT_HOUSES,SELF, distance_same_class_within_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
 
+switch(FEAT_HOUSES,SELF, switch_park_flat_terrain, nearby_tile_slope(0,0)) {SLOPE_FLAT: distance_same_class_within_2; return 0;}
+
 switch(FEAT_HOUSES,SELF, distance_same_class_within_1, nearest_house_matching_criterion(1, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
 
 // Distance check: Cannot build within distance 4 of same class (House, Market, Warehouse, Park)
@@ -862,12 +864,6 @@ item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 }
 
 // End Residential
-
-// Begin Commercial Switches
-
-
-
-// End Commercial Switches
 
 // Begin Commercial Buildings
 
@@ -1669,7 +1665,6 @@ item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 		substitute				:10;
 		name					:string(STR_NAME_FOUNTAIN);
 		override				:10;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:0;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 2]];
@@ -1683,7 +1678,7 @@ item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default					:sprite_fountain;
-		construction_check		:distance_same_class_within_2;
+		construction_check		:switch_park_flat_terrain;
 		protection				:protection_historic_square;
 	}
 }
@@ -1694,7 +1689,6 @@ item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 		substitute				:09;
 		name					:string(STR_NAME_STATUE);
 		override				:09;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:0;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 2]];
@@ -1708,7 +1702,7 @@ item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default					:sprite_statue;
-		construction_check		:distance_same_class_within_2;
+		construction_check		:switch_park_flat_terrain;
 		protection				:protection_historic_square;
 	}
 }
@@ -1742,7 +1736,6 @@ item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 		substitute				:11;
 		name					:string(STR_NAME_PARK);
 		override				:11;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:2;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 2]];
@@ -1756,7 +1749,7 @@ item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default					:sprite_park_pond;
-		construction_check		:distance_same_class_within_2;
+		construction_check		:switch_park_flat_terrain;
 	}
 }
 
@@ -1765,7 +1758,6 @@ item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
 		substitute				:12;
 		name					:string(STR_NAME_PARK);
 		override				:12;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:2;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 2]];
@@ -1779,7 +1771,7 @@ item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default					:sprite_park_alley;
-		construction_check		:distance_same_class_within_2;
+		construction_check		:switch_park_flat_terrain;
 	}
 }
 
