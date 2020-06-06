@@ -43,7 +43,7 @@ param 3 {
 }
 
 if (climate == CLIMATE_ARCTIC)
-{error(WARNING, string(ERROR_REQUIRE_TEMPERATE));}
+{error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
 	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD
@@ -863,7 +863,13 @@ item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 
 // End Residential
 
-// Begin Commercial
+// Begin Commercial Switches
+
+
+
+// End Commercial Switches
+
+// Begin Commercial Buildings
 
 item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 	property {

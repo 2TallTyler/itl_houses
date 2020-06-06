@@ -1,4 +1,4 @@
-// Begin Commercial
+// Begin Commercial Buildings
 
 item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 	property {

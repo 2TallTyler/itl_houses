@@ -1,6 +1,6 @@
 # print statements aren't necessary, but they help see what the script is doing when it runs
 # print is helpful for 'wtf?' moments
-print("Python: Combining PNML files")
+print("Python: Combining NML files")
 
  # this module is a good way to handle working with files that might contain unicode (e.g. translations) 
 import codecs
@@ -8,32 +8,32 @@ import codecs
 sections = [] # create an empty list, we'll put strings in here then join them later
 
 # get the header file and append to a list
-header = codecs.open("src/header.pnml",'r','utf8')
+header = codecs.open("src/header.nml",'r','utf8')
 sections.append(header.read())
 header.close()
 
 # get the graphics file and append to a list
-graphics = codecs.open("src/graphics.pnml",'r','utf8')
+graphics = codecs.open("src/graphics.nml",'r','utf8')
 sections.append(graphics.read())
 graphics.close()
 
 # get the switches file and append to a list
-switches = codecs.open("src/switches.pnml",'r','utf8')
+switches = codecs.open("src/switches.nml",'r','utf8')
 sections.append(switches.read())
 switches.close()
 
 # get the residential file and append to a list
-residential = codecs.open("src/residential.pnml",'r','utf8')
+residential = codecs.open("src/residential.nml",'r','utf8')
 sections.append(residential.read())
 residential.close()
 
 # get the commercial file and append to a list
-commercial = codecs.open("src/commercial.pnml",'r','utf8')
+commercial = codecs.open("src/commercial.nml",'r','utf8')
 sections.append(commercial.read())
 commercial.close()
 
 # get the landmarks file and append to a list
-landmarks = codecs.open("src/landmarks.pnml",'r','utf8')
+landmarks = codecs.open("src/landmarks.nml",'r','utf8')
 sections.append(landmarks.read())
 landmarks.close()
 

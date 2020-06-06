@@ -4,7 +4,7 @@ STR_GRF_NAME						:{TITLE} {VERSION}
 STR_GRF_DESC						:{ORANGE}Default houses, new rules.{}{}{BLACK}Downtowns defined by passenger service, sprawling suburbs, historic preservation, and more.{}{}Starts in 1700. Works with all base graphic sets. {SILVER}Incompatible with other NewGRF houses.{}{}{ORANGE}Visit website for instructions.{}{}{BLACK}Coded by 2TallTyler.
 STR_WEBSITE							:https://github.com/2TallTyler/improved_town_layouts/blob/master/README.md
 
-ERROR_REQUIRE_TEMPERATE					:Improved Town Layouts is designed for Temperate climate. Buildings do not have snow sprites.
+STR_ERROR_REQUIRE_TEMPERATE					:Improved Town Layouts is designed for Temperate climate. Buildings do not have snow sprites.
 
 STR_ERROR_GAME_VERSION					:Improved Town Layouts requires OpenTTD version 1.10.0, JGR version 0.34, or better
 

@@ -43,7 +43,7 @@ param 3 {
 }
 
 if (climate == CLIMATE_ARCTIC)
-{error(WARNING, string(ERROR_REQUIRE_TEMPERATE));}
+{error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
 	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD
