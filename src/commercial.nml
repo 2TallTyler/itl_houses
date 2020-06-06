@@ -1,0 +1,475 @@
+// Begin Commercial Buildings
+
+item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:19;
+		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
+		override				:19;
+		population				:110;
+		mail_multiplier			:(improved_mail == 1) ? 65 : 55;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:110;
+		removal_cost_multiplier	:155;
+		probability				:1;
+		years_available			:[1952,9999];
+		minimum_lifetime		:8;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_19;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_masonry;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:00;
+		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
+		override				:00;
+		population				:187;
+		mail_multiplier			:(improved_mail == 1) ? 80 : 70;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:140;
+		removal_cost_multiplier	:150;
+		probability				:1;
+		years_available			:[1950,9999];
+		minimum_lifetime		:8;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_00;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:28;
+		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
+		override				:28;
+		population				:170;
+		mail_multiplier			:(improved_mail == 1) ? 60 : 50;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:170;
+		removal_cost_multiplier	:145;
+		probability				:1;
+		years_available			:[1963,9999];
+		minimum_lifetime		:8;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_28;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:04;
+		name					:string(STR_NAME_LARGE_OFFICE_BLOCK);
+		override				:04;
+		building_flags			:bitmask(HOUSE_FLAG_ANIMATE);
+		population				:220;
+		mail_multiplier			:(improved_mail == 1) ? 95 : 85;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:160;
+		removal_cost_multiplier	:160;
+		probability				:1;
+		years_available			:[1960,9999];
+		minimum_lifetime		:8;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_large_office_block;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:01;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:01;
+		population				:85;
+		mail_multiplier			:(improved_mail == 1) ? 65 : 55;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:130;
+		removal_cost_multiplier	:140;
+		probability				:1;
+		years_available			:[1951,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_office_block_01;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_masonry;
+	}
+}
+
+item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:13;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:13;
+		population				:150;
+		mail_multiplier			:(improved_mail == 1) ? 75 : 65;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:110;
+		removal_cost_multiplier	:130;
+		probability				:1;
+		years_available			:[1955,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_office_block_13;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_masonry;
+	}
+}
+
+item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:30;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:30;
+		population				:180;
+		mail_multiplier			:(improved_mail == 1) ? 74 : 64;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
+		local_authority_impact	:180;
+		removal_cost_multiplier	:155;
+		probability				:1;
+		years_available			:[1973,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_shops_and_offices_30;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_capsule_tower, 17, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:17;
+		name					:string(STR_NAME_CAPSULE_TOWER);
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
+		override				:17;
+		population				:130;
+		mail_multiplier			:(improved_mail == 1) ? 60 : 50;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:150;
+		removal_cost_multiplier	:200;
+		probability				:1;
+		years_available			:[1972,9999];
+		minimum_lifetime		:50;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_capsule_tower;
+		construction_check		:unique_worldwide;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:52;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:52;
+		population				:170;
+		mail_multiplier			:(improved_mail == 1) ? 80 : 70;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:130;
+		removal_cost_multiplier	:170;
+		probability				:1;
+		years_available			:[1970,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_52;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:50;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:50;
+		population				:135;
+		mail_multiplier			:(improved_mail == 1) ? 70 : 60;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:120;
+		removal_cost_multiplier	:150;
+		probability				:1;
+		years_available			:[1966,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_50;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:54;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:54;
+		population				:210;
+		mail_multiplier			:(improved_mail == 1) ? 90 : 80;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:140;
+		removal_cost_multiplier	:200;
+		probability				:1;
+		years_available			:[1974,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_54;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:54;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:54;
+		population				:210;
+		mail_multiplier			:(improved_mail == 1) ? 90 : 80;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:140;
+		removal_cost_multiplier	:200;
+		probability				:1;
+		years_available			:[1974,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_54;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_90, 90, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:90;
+		name					:string(STR_NAME_OFFICE_BLOCK);
+		override				:90;
+		population				:180;
+		mail_multiplier			:(improved_mail == 1) ? 100 : 90;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:150;
+		removal_cost_multiplier	:180;
+		probability				:1;
+		years_available			:[1993,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+	}
+	graphics {
+		default					:sprite_tall_office_block_90;
+		construction_check		:modern_office_pop_check;
+		colour					:random_colour_offices;
+	}
+}
+
+// Tall Office Building (2 tiles)
+item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
+	property {
+		substitute				:74;
+		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
+		override				:74;
+		override				:76;
+		population				:250;
+		mail_multiplier			:(improved_mail == 1) ? 70 : 60;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:200;
+		removal_cost_multiplier	:140;
+		probability				:2;
+		years_available			:[1967,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+		}
+	graphics {
+		graphics_north			:sprite_tall_office_block_74_N;
+		graphics_west			:sprite_tall_office_block_74_W;
+		construction_check		:if_road_SE_office;
+	}
+}
+
+// Tall Office Building (2 tiles)
+item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
+	property {
+		substitute				:87;
+		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
+		override				:87;
+		population				:250;
+		mail_multiplier			:(improved_mail == 1) ? 90 : 80;
+		accepted_cargos			:[[PASS, 8],[MAIL,8]];
+		local_authority_impact	:140;
+		removal_cost_multiplier	:190;
+		probability				:2;
+		years_available			:[1970,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:2;
+		}
+	graphics {
+		graphics_north			:sprite_tall_office_block_87_N;
+		graphics_west			:sprite_tall_office_block_87_W;
+		construction_check		:modern_office_pop_check;
+	}
+}
+
+/* Historic Buildings */
+
+item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:64;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:64;
+		population				:90;
+		mail_multiplier			:45;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
+		local_authority_impact	:110;
+		removal_cost_multiplier	:140;
+		probability				:1;
+		years_available			:[1840,1945];
+		minimum_lifetime		:10;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:3;
+	}
+	graphics {
+		default					:sprite_shops_and_offices_64;
+		construction_check		:old_office_pop_check;
+		colour					:random_colour_masonry;
+		protection				:preservation1;
+	}
+}
+
+item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:29;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:29;
+		population				:100;
+		mail_multiplier			:40;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
+		local_authority_impact	:135;
+		removal_cost_multiplier	:132;
+		probability				:1;
+		years_available			:[1850,1945];
+		minimum_lifetime		:10;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:3;
+	}
+	graphics {
+		default					:sprite_shops_and_offices_29;
+		construction_check		:old_office_pop_check;
+		colour					:random_colour_masonry;
+		protection				:preservation1;
+	}
+}
+
+item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:14;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:14;
+		population				:95;
+		mail_multiplier			:48;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
+		local_authority_impact	:100;
+		removal_cost_multiplier	:110;
+		probability				:2;
+		years_available			:[1700,1945];
+		minimum_lifetime		:10;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:3;
+	}
+	graphics {
+		default					:sprite_shops_and_offices_14;
+		construction_check		:old_office_pop_check;
+		colour					:random_colour_masonry;
+		protection				:preservation1;
+	}
+}
+
+item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:15;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:15;
+		population				:95;
+		mail_multiplier			:48;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
+		local_authority_impact	:100;
+		removal_cost_multiplier	:105;
+		probability				:2;
+		years_available			:[1750,1945];
+		minimum_lifetime		:10;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:3;
+	}
+	graphics {
+		default					:random_sprite_shops_and_offices_15;
+		construction_check		:old_office_pop_check;
+		colour					:random_colour_masonry;
+		protection				:preservation1;
+	}
+}
+
+item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:16;
+		name					:string(STR_NAME_SHOPS_AND_OFFICES);
+		override				:16;
+		population				:95;
+		mail_multiplier			:48;
+		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
+		local_authority_impact	:100;
+		removal_cost_multiplier	:107;
+		probability				:1;
+		years_available			:[1860,1945];
+		minimum_lifetime		:10;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:3;
+	}
+	graphics {
+		default					:sprite_shops_and_offices_16;
+		construction_check		:old_office_pop_check;
+		colour					:random_colour_masonry;
+		protection				:preservation1;
+	}
+}
+
+// End Commercial

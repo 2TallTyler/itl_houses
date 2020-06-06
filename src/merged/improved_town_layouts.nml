@@ -1,3 +1,5 @@
+// Begin Header
+
 grf {
 	grfid: "TT\03\01";
 	name: string(STR_GRF_NAME);
@@ -41,13 +43,19 @@ param 3 {
 }
 
 if (climate == CLIMATE_ARCTIC)
-{error(WARNING, string(ERROR_REQUIRE_TEMPERATE));}
+{error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
 	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD
 }
 
-/* Graphics */
+if (version_openttd(1,10,0,28004) > openttd_version) {
+	error(FATAL, string(STR_ERROR_GAME_VERSION));
+}
+
+// End Header
+
+// Begin Graphics
 
 // Houses
 spritelayout houses1 {
@@ -70,11 +78,6 @@ building {sprite: 1506;}}
 spritelayout townhouses2 {
 ground	 {sprite: 1447;}
 building {sprite: 1446;}}
-
-random_switch (FEAT_HOUSES, SELF, random_sprite_townhouses) {
-1: townhouses1;
-1: townhouses2;
-}
 
 // Old Church
 spritelayout sprite_church {
@@ -416,7 +419,9 @@ spritelayout sprite_spa_e {
 	ground		{sprite:1420;}
 	building	{sprite:4476;}}
 
-/* Construction Checks */
+// End Graphics
+
+// Begin Switches
 
 /* Building Classes
 
@@ -437,6 +442,11 @@ Class 4
 Old houses (must be within 2 tiles of another old house, to prevent sparse town growth with house limit)
 
 */
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_townhouses) {
+1: townhouses1;
+1: townhouses2;
+}
 
 random_switch (FEAT_HOUSES, SELF, random_sprite_houses_any) {
 1: houses1;
@@ -571,6 +581,8 @@ switch(FEAT_HOUSES,SELF, distance_theatre_4_theatre, nearest_house_matching_crit
 // Distance check: Cannot build within distance 2 of same class (House, Market, Warehouse, Park)
 switch(FEAT_HOUSES,SELF, distance_same_class_within_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
 
+switch(FEAT_HOUSES,SELF, switch_park_flat_terrain, nearby_tile_slope(0,0)) {SLOPE_FLAT: distance_same_class_within_2; return 0;}
+
 switch(FEAT_HOUSES,SELF, distance_same_class_within_1, nearest_house_matching_criterion(1, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
 
 // Distance check: Cannot build within distance 4 of same class (House, Market, Warehouse, Park)
@@ -668,7 +680,9 @@ switch(FEAT_HOUSES,SELF, preservation1, current_year) {0 .. 1945: return 0; pres
 // Preservation check for fountain or statue next to historic buildings
 switch(FEAT_HOUSES, SELF, protection_historic_square, nearby_tile_class(0,-1)) {3: return 1; return 0;}
 
-/* Buildings */
+// End Switches
+
+// Begin Residential
 
 // Houses
 item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
@@ -805,441 +819,53 @@ item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 	}
 }
 
-// Historic District Church
-item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
+item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
 	property {
-		substitute				:03;
-		name					:string(STR_NAME_HISTORIC_CHURCH);
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED, HOUSE_FLAG_CHURCH, HOUSE_FLAG_PROTECTED);
-		population				:5;
-		mail_multiplier			:2;
-		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
-		local_authority_impact	:230;
-		removal_cost_multiplier	:90;
-		probability				:4;
-		years_available			:[1700,9999];
-		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		default					:sprite_church;
-		construction_check		:if_road_SE;
-	}
-}
-
-// Old Church
-item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
-	property {
-		substitute				:03;
-		name					:string(STR_NAME_OLD_CHURCH);
-		override				:03;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED,HOUSE_FLAG_CHURCH);
-		population				:5;
-		mail_multiplier			:2;
-		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
-		local_authority_impact	:230;
-		removal_cost_multiplier	:90;
-		probability				:6;
-		years_available			:[1700,9999];
-		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		default					:sprite_church;
-		construction_check		:unique_building_town_road_SE;
-		protection				:random_preservation;
-	}
-}
-
-// Modern Church 1
-item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
-	property {
-		substitute				:60;
-		name					:string(STR_NAME_MODERN_CHURCH);
-		override				:60;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
-		population				:6;
-		mail_multiplier			:2;
-		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
-		local_authority_impact	:230;
-		removal_cost_multiplier	:85;
-		probability				:1;
-		years_available			:[1960,9999];
-		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		default					:sprite_modern_church_1;
-		construction_check		:unique_building_town_road_SE;
-		protection				:random_preservation;
-	}
-}
-
-// Modern Church 2
-item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
-	property {
-		substitute				:58;
-		name					:string(STR_NAME_MODERN_CHURCH);
-		override				:58;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
-		population				:8;
-		mail_multiplier			:2;
-		accepted_cargos			:[[PASS, 3],[MAIL, 2]];
-		local_authority_impact	:230;
-		removal_cost_multiplier	:85;
-		probability				:1;
-		years_available			:[1970,9999];
-		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		default					:sprite_modern_church_2;
-		construction_check		:unique_building_town_road_SW;
-		protection				:random_preservation;
-	}
-}
-
-// Neo-Moorish Church
-if (extra_tropic == 1){
-item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
-	property {
-		substitute				:83;
-		name					:string(STR_NAME_NEOMOORISH_CHURCH);
-		override				:83;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
-		population				:8;
-		mail_multiplier			:2;
-		accepted_cargos			:[[PASS, 3],[MAIL, 2]];
-		local_authority_impact	:230;
-		removal_cost_multiplier	:85;
-		probability				:1;
-		years_available			:[1850,1900];
-		availability_mask		:[bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		default					:sprite_neomoorish_church;
-		construction_check		:unique_building_town_road_SW;
-		protection				:random_preservation;
-	}
-}}
-
-// Old Stadium
-item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
-	property {
-		substitute				:20;
-		name					:string(STR_NAME_OLD_STADIUM);
-		override				:20;
-		population				:65;
-		mail_multiplier			:0;
-		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
-		local_authority_impact	:300;
-		removal_cost_multiplier	:250;
-		probability				:4;
-		years_available			:[1800,9999];
-		minimum_lifetime		:10;
-		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		graphics_north			:sprite_old_stadium_N;
-		graphics_east			:sprite_old_stadium_E;
-		graphics_west			:sprite_old_stadium_W;
-		graphics_south			:sprite_old_stadium_S;
-		construction_check		:old_stadium_prob;
-		protection				:stadium_beer_service_check;
-	}
-}
-
-// Modern Stadium
-item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
-	property {
-		substitute				:40;
-		name					:string(STR_NAME_NEW_STADIUM);
-		override				:32;
-		population				:255;
-		mail_multiplier			:0;
-		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
-		local_authority_impact	:300;
-		removal_cost_multiplier	:250;
-		probability				:4;
-		years_available			:[1958,9999];
-		minimum_lifetime		:20;
-		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		graphics_north			:sprite_new_stadium_N;
-		graphics_east			:sprite_new_stadium_E;
-		graphics_west			:sprite_new_stadium_W;
-		graphics_south			:sprite_new_stadium_S;
-		construction_check		:new_stadium_prob;
-		protection				:stadium_beer_service_check;
-	}
-}
-
-// Hotel
-item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
-	property {
-		substitute				:07;
-		name					:string(STR_NAME_HOTEL);
-		override				:07;
-		
-		override				:66;
-		override				:68;
-		
-		population				:140;
-		mail_multiplier			:(improved_mail == 1) ? 4 : 22;
-		accepted_cargos			:[[PASS, 6],[MAIL, 2]];
-		local_authority_impact	:150;
-		removal_cost_multiplier	:180;
-		probability				:4;
-		years_available			:[1900,9999];
-		minimum_lifetime		:20;
-		availability_mask		:[bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		graphics_north			:sprite_hotel_N;
-		graphics_east			:sprite_hotel_E;
-		construction_check		:hotel_check_1;
-		protection				:pass_service_check;
-	}
-}
-
-// Cinema
-item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
-	property {
-		substitute				:39;
-		name					:string(STR_NAME_CINEMA);
-		override				:39;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
-		population				:35;
-		mail_multiplier			:(improved_mail == 1) ? 4 : 23;
-		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
-		local_authority_impact	:230;
-		removal_cost_multiplier	:210;
-		probability				:1;
-		years_available			:[1945,9999];
-		minimum_lifetime		:20;
-		availability_mask		:[bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		default					:sprite_cinema;
-		construction_check		:distance_cinema_4_cinema;
-	}
-}
-
-// Theatre
-item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
-	property {
-		substitute				:31;
-		name					:string(STR_NAME_THEATRE);
-		override				:31;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
-		population				:35;
-		mail_multiplier			:(improved_mail == 1) ? 8 : 23;
-		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
-		local_authority_impact	:230;
-		removal_cost_multiplier	:220;
-		probability				:1;
-		years_available			:[1900,9999];
-		minimum_lifetime		:20;
-		availability_mask		:[bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		default					:sprite_theatre;
-		construction_check		:distance_theatre_4_theatre;
-	}
-}
-
-// Market
-item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
-	property {
-		substitute				:40;
-		name					:string(STR_NAME_MARKET);
-		override				:40;
-		population				:180;
-		mail_multiplier			:(improved_mail == 1) ? 10 : 5;
-		accepted_cargos			:[[PASS, 8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
-		local_authority_impact	:300;
-		removal_cost_multiplier	:250;
-		probability				:1;
-		years_available			:[1900,9999];
-		minimum_lifetime		:3;
-		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:0;
-		}
-	graphics {
-		graphics_north			:sprite_shopping_mall_N;
-		graphics_east			:sprite_shopping_mall_E;
-		graphics_west			:sprite_shopping_mall_W;
-		graphics_south			:sprite_shopping_mall_S;
-		construction_check		:unique_building_town;
-		protection				:food_service_check;
-	}
-}
-
-// Warehouse
-
-if (extra_tropic == 1){
-item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
-	property {
-		substitute				:18;
-		name					:string(STR_NAME_WAREHOUSE);
-		override				:18;
-		population				:6;
-		mail_multiplier			:(improved_mail == 1) ? 100 : 10;
-		accepted_cargos			:[[MAIL, 3],[GOOD, 8]];
-		local_authority_impact	:110;
-		removal_cost_multiplier	:145;
-		probability				:1;
-		years_available			:[1930,9999];
-		minimum_lifetime		:4;
-		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:0;
-	}
-	graphics {
-		default					:random_sprite_warehouse;
-		construction_check		:distance_same_class_within_2;
-		protection				:goods_service_check;
-	}
-}} else {
-item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
-	property {
-		substitute				:18;
-		name					:string(STR_NAME_WAREHOUSE);
-		override				:18;
-		population				:6;
-		mail_multiplier			:(improved_mail == 1) ? 100 : 10;
-		accepted_cargos			:[[MAIL, 3],[GOOD, 8]];
-		local_authority_impact	:110;
-		removal_cost_multiplier	:145;
-		probability				:1;
-		years_available			:[1930,9999];
-		minimum_lifetime		:4;
-		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:0;
-	}
-	graphics {
-		default					:sprite_warehouse;
-		construction_check		:distance_same_class_within_2;
-		protection				:goods_service_check;
-	}}
-}
-
-
-// Fountain
-item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
-	property {
-		substitute				:10;
-		name					:string(STR_NAME_FOUNTAIN);
-		override				:10;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
-		population				:0;
-		mail_multiplier			:0;
-		accepted_cargos			:[[PASS, 2]];
-		local_authority_impact	:50;
-		removal_cost_multiplier	:65;
-		probability				:1;
-		years_available			:[1700,9999];
-		minimum_lifetime		:20;
-		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:0;
-	}
-	graphics {
-		default					:sprite_fountain;
-		construction_check		:distance_same_class_within_2;
-		protection				:protection_historic_square;
-	}
-}
-
-// Statue
-item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
-	property {
-		substitute				:09;
-		name					:string(STR_NAME_STATUE);
-		override				:09;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
-		population				:0;
-		mail_multiplier			:0;
-		accepted_cargos			:[[PASS, 2]];
-		local_authority_impact	:50;
-		removal_cost_multiplier	:65;
-		probability				:1;
-		years_available			:[1700,9999];
-		minimum_lifetime		:20;
-		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:0;
-	}
-	graphics {
-		default					:sprite_statue;
-		construction_check		:distance_same_class_within_2;
-		protection				:protection_historic_square;
-	}
-}
-
-// Stores (SubArctic)
-item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
-	property {
-		substitute				:46;
-		name					:string(STR_NAME_SHOP);
-		override				:46;
-		population				:25;
-		mail_multiplier			:(improved_mail == 1) ? 4 : 20;
-		accepted_cargos			:[[PASS, 2], [GOOD, 8],[FOOD, 8],[BEER, 8]];
-		local_authority_impact	:80;
-		removal_cost_multiplier	:100;
-		probability				:15;
-		years_available			:[1700,9999];
-		minimum_lifetime		:5;
-		availability_mask		:[bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:0;
-	}
-	graphics {
-		default					:sprite_shop;
-		construction_check		:unique_building_town;
-		protection				:food_service_check;
-	}
-}
-
-item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
-	property {
-		substitute				:11;
-		name					:string(STR_NAME_PARK);
-		override				:11;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
-		population				:2;
-		mail_multiplier			:0;
-		accepted_cargos			:[[PASS, 2]];
-		local_authority_impact	:75;
+		substitute				:25;
+		name					:string(STR_NAME_COTTAGES);
+		override				:25;
+		population				:12;
+		mail_multiplier			:(improved_mail == 1) ? 1 : 7;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2],[COAL, 1],[WOOD, 1]];
+		local_authority_impact	:60;
 		removal_cost_multiplier	:60;
 		probability				:1;
-		years_available			:[1700,9999];
-		minimum_lifetime		:5;
-		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:1;
+		years_available			:[1700,1900];
+		minimum_lifetime		:2;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:4;
 	}
 	graphics {
-		default					:sprite_park_pond;
-		construction_check		:distance_same_class_within_2;
+		default					:sprite_cottages;
+		
 	}
 }
 
-item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
+item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 	property {
-		substitute				:12;
-		name					:string(STR_NAME_PARK);
-		override				:12;
-		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
-		population				:2;
-		mail_multiplier			:0;
-		accepted_cargos			:[[PASS, 2]];
+		substitute				:24;
+		name					:string(STR_NAME_HOUSES);
+		override				:24;
+		population				:15;
+		mail_multiplier			:(improved_mail == 1) ? 1 : 6;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2],[COAL, 2],[WOOD, 2]];
 		local_authority_impact	:75;
-		removal_cost_multiplier	:60;
-		probability				:2;
-		years_available			:[1700,9999];
-		minimum_lifetime		:5;
+		removal_cost_multiplier	:70;
+		probability				:1;
+		years_available			:[1700,1880];
+		minimum_lifetime		:2;
 		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:1;
+		building_class			:4;
 	}
 	graphics {
-		default					:sprite_park_alley;
-		construction_check		:distance_same_class_within_2;
+		default					:random_sprite_old_houses;
+		
 	}
 }
+
+// End Residential
+
+// Begin Commercial Buildings
 
 item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 	property {
@@ -1593,50 +1219,6 @@ item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
 
 /* Historic Buildings */
 
-item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
-	property {
-		substitute				:25;
-		name					:string(STR_NAME_COTTAGES);
-		override				:25;
-		population				:12;
-		mail_multiplier			:(improved_mail == 1) ? 1 : 7;
-		accepted_cargos			:[[PASS, 2],[MAIL, 2],[COAL, 1],[WOOD, 1]];
-		local_authority_impact	:60;
-		removal_cost_multiplier	:60;
-		probability				:1;
-		years_available			:[1700,1900];
-		minimum_lifetime		:2;
-		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:4;
-	}
-	graphics {
-		default					:sprite_cottages;
-		
-	}
-}
-
-item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
-	property {
-		substitute				:24;
-		name					:string(STR_NAME_HOUSES);
-		override				:24;
-		population				:15;
-		mail_multiplier			:(improved_mail == 1) ? 1 : 6;
-		accepted_cargos			:[[PASS, 2],[MAIL, 2],[COAL, 2],[WOOD, 2]];
-		local_authority_impact	:75;
-		removal_cost_multiplier	:70;
-		probability				:1;
-		years_available			:[1700,1880];
-		minimum_lifetime		:2;
-		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:4;
-	}
-	graphics {
-		default					:random_sprite_old_houses;
-		
-	}
-}
-
 item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:64;
@@ -1757,6 +1339,443 @@ item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) {
 	}
 }
 
+// End Commercial
+
+// Begin Landmarks
+
+// Historic District Church
+item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
+	property {
+		substitute				:03;
+		name					:string(STR_NAME_HISTORIC_CHURCH);
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED, HOUSE_FLAG_CHURCH, HOUSE_FLAG_PROTECTED);
+		population				:5;
+		mail_multiplier			:2;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:90;
+		probability				:4;
+		years_available			:[1700,9999];
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		default					:sprite_church;
+		construction_check		:if_road_SE;
+	}
+}
+
+// Old Church
+item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
+	property {
+		substitute				:03;
+		name					:string(STR_NAME_OLD_CHURCH);
+		override				:03;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED,HOUSE_FLAG_CHURCH);
+		population				:5;
+		mail_multiplier			:2;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:90;
+		probability				:6;
+		years_available			:[1700,9999];
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		default					:sprite_church;
+		construction_check		:unique_building_town_road_SE;
+		protection				:random_preservation;
+	}
+}
+
+// Modern Church 1
+item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
+	property {
+		substitute				:60;
+		name					:string(STR_NAME_MODERN_CHURCH);
+		override				:60;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:6;
+		mail_multiplier			:2;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:85;
+		probability				:1;
+		years_available			:[1960,9999];
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		default					:sprite_modern_church_1;
+		construction_check		:unique_building_town_road_SE;
+		protection				:random_preservation;
+	}
+}
+
+// Modern Church 2
+item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
+	property {
+		substitute				:58;
+		name					:string(STR_NAME_MODERN_CHURCH);
+		override				:58;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:8;
+		mail_multiplier			:2;
+		accepted_cargos			:[[PASS, 3],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:85;
+		probability				:1;
+		years_available			:[1970,9999];
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		default					:sprite_modern_church_2;
+		construction_check		:unique_building_town_road_SW;
+		protection				:random_preservation;
+	}
+}
+
+// Neo-Moorish Church
+if (extra_tropic == 1){
+item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
+	property {
+		substitute				:83;
+		name					:string(STR_NAME_NEOMOORISH_CHURCH);
+		override				:83;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:8;
+		mail_multiplier			:2;
+		accepted_cargos			:[[PASS, 3],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:85;
+		probability				:1;
+		years_available			:[1850,1900];
+		availability_mask		:[bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		default					:sprite_neomoorish_church;
+		construction_check		:unique_building_town_road_SW;
+		protection				:random_preservation;
+	}
+}}
+
+// Old Stadium
+item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
+	property {
+		substitute				:20;
+		name					:string(STR_NAME_OLD_STADIUM);
+		override				:20;
+		population				:65;
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
+		local_authority_impact	:300;
+		removal_cost_multiplier	:250;
+		probability				:4;
+		years_available			:[1800,9999];
+		minimum_lifetime		:10;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		graphics_north			:sprite_old_stadium_N;
+		graphics_east			:sprite_old_stadium_E;
+		graphics_west			:sprite_old_stadium_W;
+		graphics_south			:sprite_old_stadium_S;
+		construction_check		:old_stadium_prob;
+		protection				:stadium_beer_service_check;
+	}
+}
+
+// Modern Stadium
+item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
+	property {
+		substitute				:40;
+		name					:string(STR_NAME_NEW_STADIUM);
+		override				:32;
+		population				:255;
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
+		local_authority_impact	:300;
+		removal_cost_multiplier	:250;
+		probability				:4;
+		years_available			:[1958,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		graphics_north			:sprite_new_stadium_N;
+		graphics_east			:sprite_new_stadium_E;
+		graphics_west			:sprite_new_stadium_W;
+		graphics_south			:sprite_new_stadium_S;
+		construction_check		:new_stadium_prob;
+		protection				:stadium_beer_service_check;
+	}
+}
+
+// Hotel
+item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
+	property {
+		substitute				:07;
+		name					:string(STR_NAME_HOTEL);
+		override				:07;
+		
+		override				:66;
+		override				:68;
+		
+		population				:140;
+		mail_multiplier			:(improved_mail == 1) ? 4 : 22;
+		accepted_cargos			:[[PASS, 6],[MAIL, 2]];
+		local_authority_impact	:150;
+		removal_cost_multiplier	:180;
+		probability				:4;
+		years_available			:[1900,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		graphics_north			:sprite_hotel_N;
+		graphics_east			:sprite_hotel_E;
+		construction_check		:hotel_check_1;
+		protection				:pass_service_check;
+	}
+}
+
+// Cinema
+item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
+	property {
+		substitute				:39;
+		name					:string(STR_NAME_CINEMA);
+		override				:39;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:35;
+		mail_multiplier			:(improved_mail == 1) ? 4 : 23;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:210;
+		probability				:1;
+		years_available			:[1945,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		default					:sprite_cinema;
+		construction_check		:distance_cinema_4_cinema;
+	}
+}
+
+// Theatre
+item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
+	property {
+		substitute				:31;
+		name					:string(STR_NAME_THEATRE);
+		override				:31;
+		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
+		population				:35;
+		mail_multiplier			:(improved_mail == 1) ? 8 : 23;
+		accepted_cargos			:[[PASS, 2],[MAIL, 2]];
+		local_authority_impact	:230;
+		removal_cost_multiplier	:220;
+		probability				:1;
+		years_available			:[1900,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		default					:sprite_theatre;
+		construction_check		:distance_theatre_4_theatre;
+	}
+}
+
+// Market
+item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
+	property {
+		substitute				:40;
+		name					:string(STR_NAME_MARKET);
+		override				:40;
+		population				:180;
+		mail_multiplier			:(improved_mail == 1) ? 10 : 5;
+		accepted_cargos			:[[PASS, 8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
+		local_authority_impact	:300;
+		removal_cost_multiplier	:250;
+		probability				:1;
+		years_available			:[1900,9999];
+		minimum_lifetime		:3;
+		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:0;
+		}
+	graphics {
+		graphics_north			:sprite_shopping_mall_N;
+		graphics_east			:sprite_shopping_mall_E;
+		graphics_west			:sprite_shopping_mall_W;
+		graphics_south			:sprite_shopping_mall_S;
+		construction_check		:unique_building_town;
+		protection				:food_service_check;
+	}
+}
+
+// Warehouse
+
+if (extra_tropic == 1){
+item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:18;
+		name					:string(STR_NAME_WAREHOUSE);
+		override				:18;
+		population				:6;
+		mail_multiplier			:(improved_mail == 1) ? 100 : 10;
+		accepted_cargos			:[[MAIL, 3],[GOOD, 8]];
+		local_authority_impact	:110;
+		removal_cost_multiplier	:145;
+		probability				:1;
+		years_available			:[1930,9999];
+		minimum_lifetime		:4;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:0;
+	}
+	graphics {
+		default					:random_sprite_warehouse;
+		construction_check		:distance_same_class_within_2;
+		protection				:goods_service_check;
+	}
+}} else {
+item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:18;
+		name					:string(STR_NAME_WAREHOUSE);
+		override				:18;
+		population				:6;
+		mail_multiplier			:(improved_mail == 1) ? 100 : 10;
+		accepted_cargos			:[[MAIL, 3],[GOOD, 8]];
+		local_authority_impact	:110;
+		removal_cost_multiplier	:145;
+		probability				:1;
+		years_available			:[1930,9999];
+		minimum_lifetime		:4;
+		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:0;
+	}
+	graphics {
+		default					:sprite_warehouse;
+		construction_check		:distance_same_class_within_2;
+		protection				:goods_service_check;
+	}}
+}
+
+
+// Fountain
+item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:10;
+		name					:string(STR_NAME_FOUNTAIN);
+		override				:10;
+		population				:0;
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 2]];
+		local_authority_impact	:50;
+		removal_cost_multiplier	:65;
+		probability				:1;
+		years_available			:[1700,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:0;
+	}
+	graphics {
+		default					:sprite_fountain;
+		construction_check		:switch_park_flat_terrain;
+		protection				:protection_historic_square;
+	}
+}
+
+// Statue
+item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:09;
+		name					:string(STR_NAME_STATUE);
+		override				:09;
+		population				:0;
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 2]];
+		local_authority_impact	:50;
+		removal_cost_multiplier	:65;
+		probability				:1;
+		years_available			:[1700,9999];
+		minimum_lifetime		:20;
+		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:0;
+	}
+	graphics {
+		default					:sprite_statue;
+		construction_check		:switch_park_flat_terrain;
+		protection				:protection_historic_square;
+	}
+}
+
+// Stores (SubArctic)
+item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:46;
+		name					:string(STR_NAME_SHOP);
+		override				:46;
+		population				:25;
+		mail_multiplier			:(improved_mail == 1) ? 4 : 20;
+		accepted_cargos			:[[PASS, 2], [GOOD, 8],[FOOD, 8],[BEER, 8]];
+		local_authority_impact	:80;
+		removal_cost_multiplier	:100;
+		probability				:15;
+		years_available			:[1700,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:0;
+	}
+	graphics {
+		default					:sprite_shop;
+		construction_check		:unique_building_town;
+		protection				:food_service_check;
+	}
+}
+
+item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:11;
+		name					:string(STR_NAME_PARK);
+		override				:11;
+		population				:2;
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 2]];
+		local_authority_impact	:75;
+		removal_cost_multiplier	:60;
+		probability				:1;
+		years_available			:[1700,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:1;
+	}
+	graphics {
+		default					:sprite_park_pond;
+		construction_check		:switch_park_flat_terrain;
+	}
+}
+
+item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
+	property {
+		substitute				:12;
+		name					:string(STR_NAME_PARK);
+		override				:12;
+		population				:2;
+		mail_multiplier			:0;
+		accepted_cargos			:[[PASS, 2]];
+		local_authority_impact	:75;
+		removal_cost_multiplier	:60;
+		probability				:2;
+		years_available			:[1700,9999];
+		minimum_lifetime		:5;
+		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class			:1;
+	}
+	graphics {
+		default					:sprite_park_alley;
+		construction_check		:switch_park_flat_terrain;
+	}
+}
+
+
 item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 	property {
 		substitute				:16;
@@ -1853,3 +1872,5 @@ item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
 	}
 }
 }
+
+// End Landmarks

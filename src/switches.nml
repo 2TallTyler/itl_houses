@@ -1,0 +1,260 @@
+// Begin Switches
+
+/* Building Classes
+
+Class 0
+Buildings in class: House, Market, Warehouse, Fountain, Statue
+
+Class 1
+Parks cannot be within 2 tiles of another park
+
+Class 2
+Skyscrapers/office towers can only build within 5 tiles of another skyscraper/office towers
+Buildings in class: skyscrapers, office towers
+
+Class 3
+Historic shops and Historic Church (which sets if city has preservation or not)
+
+Class 4
+Old houses (must be within 2 tiles of another old house, to prevent sparse town growth with house limit)
+
+*/
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_townhouses) {
+1: townhouses1;
+1: townhouses2;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_houses_any) {
+1: houses1;
+1: houses4;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_houses_SW) {
+1: houses1;
+1: houses4;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_houses_SE) {
+1: houses1;
+2: houses2;
+2: houses3;
+1: houses4;
+1: sprite_houses_62;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_small_flats) {
+1: sprite_small_flats;
+1: sprite_small_flats_2;
+1: sprite_small_flats_44;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_flats) {
+3: sprite_flats_1;
+1: sprite_flats_82; //blue balconies
+1: sprite_flats_85; //big boxes
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_shops_and_offices_15) {
+1: sprite_shops_and_offices_15a;
+1: sprite_shops_and_offices_15b;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_old_houses) {
+1:	sprite_old_houses_1;
+1:	sprite_old_houses_2;
+1:	sprite_old_houses_3;
+1:	sprite_old_houses_4;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_warehouse) {
+4:	sprite_warehouse;
+1:	sprite_warehouse_89;
+}
+
+random_switch (FEAT_HOUSES, SELF, random_colour_offices) {
+1:	return PALETTE_CC_DARK_BLUE;
+1:	return PALETTE_CC_GREY;
+1:	return PALETTE_CC_BROWN;
+1:	return PALETTE_CC_MAUVE;
+1:	return PALETTE_CC_WHITE;
+1:	return PALETTE_CC_DARK_GREEN;
+}
+
+random_switch (FEAT_HOUSES,SELF, random_colour_masonry) {
+1:	return PALETTE_STRUCT_CONCRETE;
+1:	return PALETTE_STRUCT_WHITE;
+1:	return PALETTE_STRUCT_BROWN;
+1:	return PALETTE_USE_DEFAULT;
+}
+
+// House Sprite Orientation
+switch(FEAT_HOUSES,SELF, house_sprite_orientation_SE, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: random_sprite_houses_SE; random_sprite_houses_any;}
+switch(FEAT_HOUSES,SELF, house_sprite_orientation_SW, nearby_tile_class(1,0)) {TILE_CLASS_ROAD: random_sprite_houses_SW; house_sprite_orientation_SE;}
+switch(FEAT_HOUSES,SELF, house_sprite_sloped, nearby_tile_slope(0,0)) {0: house_sprite_orientation_SW; random_sprite_houses_any;}
+
+// Cannot build next to office building (class 2)
+
+switch(FEAT_HOUSES,SELF, office_gap, cargo_accepted_nearby_last_month(PASS)) {1: return 0; return 1;}
+switch(FEAT_HOUSES,SELF, small_flats_pass, cargo_accepted_nearby_last_month(PASS)) {1: return 1; return 0;}
+
+switch(FEAT_HOUSES,SELF, flats_office_space_8, nearby_tile_house_class(-1,-1)){258: office_gap; small_flats_pass;}
+switch(FEAT_HOUSES,SELF, flats_office_space_7, nearby_tile_house_class(-1,1)) {258: office_gap;flats_office_space_8;}
+switch(FEAT_HOUSES,SELF, flats_office_space_6, nearby_tile_house_class(-1,0)) {258: office_gap;flats_office_space_7;}
+switch(FEAT_HOUSES,SELF, flats_office_space_5, nearby_tile_house_class(1,-1))	{258: office_gap;flats_office_space_6;}
+switch(FEAT_HOUSES,SELF, flats_office_space_4, nearby_tile_house_class(1,1))	{258: office_gap;flats_office_space_5;}
+switch(FEAT_HOUSES,SELF, flats_office_space_3, nearby_tile_house_class(1,0))	{258: office_gap;flats_office_space_4;}
+switch(FEAT_HOUSES,SELF, flats_office_space_2, nearby_tile_house_class(0,-1))	{258: office_gap;flats_office_space_3;}
+switch(FEAT_HOUSES,SELF, flats_office_space_1, nearby_tile_house_class(0,1))	{258: office_gap;flats_office_space_2;}
+
+
+
+switch(FEAT_HOUSES,SELF, townhouse_office_space_24, nearby_tile_house_class(2,2))	{258: return 0;return 1;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_23, nearby_tile_house_class(2,1))	{258: return 0;townhouse_office_space_24;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_22, nearby_tile_house_class(2,0))	{258: return 0;townhouse_office_space_23;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_21, nearby_tile_house_class(2,-1))	{258: return 0;townhouse_office_space_22;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_20, nearby_tile_house_class(2,-2))	{258: return 0;townhouse_office_space_21;}
+
+switch(FEAT_HOUSES,SELF, townhouse_office_space_19, nearby_tile_house_class(1,-2))	{258: return 0;townhouse_office_space_20;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_18, nearby_tile_house_class(1,-2))	{258: return 0;townhouse_office_space_19;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_17, nearby_tile_house_class(0,-2))	{258: return 0;townhouse_office_space_18;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_16, nearby_tile_house_class(0,-2))	{258: return 0;townhouse_office_space_17;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_15, nearby_tile_house_class(-1,2))	{258: return 0;townhouse_office_space_16;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_14, nearby_tile_house_class(-1,-2))	{258: return 0;townhouse_office_space_15;}
+
+switch(FEAT_HOUSES,SELF, townhouse_office_space_13, nearby_tile_house_class(-2,2))	{258: return 0;townhouse_office_space_14;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_12, nearby_tile_house_class(-2,1))	{258: return 0;townhouse_office_space_13;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_11, nearby_tile_house_class(-2,0))	{258: return 0;townhouse_office_space_12;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_10, nearby_tile_house_class(-2,-1))	{258: return 0;townhouse_office_space_11;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_9, nearby_tile_house_class(-2,-2))	{258: return 0;townhouse_office_space_10;}
+
+switch(FEAT_HOUSES,SELF, townhouse_office_space_8, nearby_tile_house_class(-1,-1)){258: return 0;townhouse_office_space_9;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_7, nearby_tile_house_class(-1,1)) {258: return 0;townhouse_office_space_8;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_6, nearby_tile_house_class(-1,0)) {258: return 0;townhouse_office_space_7;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_5, nearby_tile_house_class(1,-1))	{258: return 0;townhouse_office_space_6;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_4, nearby_tile_house_class(1,1))	{258: return 0;townhouse_office_space_5;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_3, nearby_tile_house_class(1,0))	{258: return 0;townhouse_office_space_4;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_2, nearby_tile_house_class(0,-1))	{258: return 0;townhouse_office_space_3;}
+switch(FEAT_HOUSES,SELF, townhouse_office_space_1, nearby_tile_house_class(0,1))	{258: return 0;townhouse_office_space_2;}
+
+
+
+// Road is SE of tile (Cinema)
+switch(FEAT_HOUSES,SELF, if_road_SE, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: return 1; return 0;}
+
+// Road is SW of tile (Hotel, Theatre)
+switch(FEAT_HOUSES,SELF, if_road_SW, nearby_tile_class(1,0)) {TILE_CLASS_ROAD: return 1; return 0;}
+
+// Distance check: Hotel cannot build within 30 tiles of another Hotel
+switch(FEAT_HOUSES,PARENT, hotel_check_2, is_city) {1: if_road_SW; return 0;}
+switch(FEAT_HOUSES,SELF, hotel_check_1, nearest_house_matching_criterion(30, SEARCH_HOUSE_BY_TYPE)) {0: hotel_check_2; return 0;}
+
+// Distance check: Cinema cannot build within 4 tiles of another Cinema
+switch(FEAT_HOUSES,SELF, distance_cinema_4_cinema, nearest_house_matching_criterion(10, SEARCH_HOUSE_BY_TYPE)) {0: if_road_SE; return 0;}
+
+// Distance check: Theatre cannot build within 4 tiles of another Theatre
+switch(FEAT_HOUSES,SELF, distance_theatre_4_theatre, nearest_house_matching_criterion(10, SEARCH_HOUSE_BY_TYPE)) {0: if_road_SW; return 0;}
+
+// Distance check: Cannot build within distance 2 of same class (House, Market, Warehouse, Park)
+switch(FEAT_HOUSES,SELF, distance_same_class_within_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
+
+switch(FEAT_HOUSES,SELF, switch_park_flat_terrain, nearby_tile_slope(0,0)) {SLOPE_FLAT: distance_same_class_within_2; return 0;}
+
+switch(FEAT_HOUSES,SELF, distance_same_class_within_1, nearest_house_matching_criterion(1, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
+
+// Distance check: Cannot build within distance 4 of same class (House, Market, Warehouse, Park)
+switch(FEAT_HOUSES,SELF, distance_same_class_within_4, nearest_house_matching_criterion(4, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
+
+// Distance check: Must build within distance 2 of same class (high-rises). No need to cluster if first in town.
+switch(FEAT_HOUSES,SELF, distance_first_in_town, same_class_count_town) {0: return 1; return 0;}
+switch(FEAT_HOUSES,SELF, distance_same_class_cluster_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: distance_first_in_town; return 1;}
+
+// Service check: Cannot demolish if PASS accepted last month
+switch(FEAT_HOUSES,SELF, pass_service_check, cargo_accepted_nearby_last_month(PASS)) {1: return 1; return 0;}
+
+// Service check: Stadiums cannot be demolished if FOOD, BEER, or PASS accepted last month
+switch(FEAT_HOUSES,SELF, stadium_food_service_check, cargo_accepted_nearby_last_month(FOOD)) {1: return 1; pass_service_check;}
+switch(FEAT_HOUSES,SELF, stadium_beer_service_check, cargo_accepted_nearby_last_month(BEER)) {1: return 1; stadium_food_service_check;}
+
+// Service check: Cannot demolish if GOOD accepted last month
+switch(FEAT_HOUSES,SELF, goods_service_check, cargo_accepted_nearby_last_month(GOOD)) {1: return 1; return 0;}
+switch(FEAT_HOUSES,SELF, food_service_check, cargo_accepted_nearby_last_month(FOOD)) {1: return 1; goods_service_check;}
+
+// Service check: Offices only build when PASS accepted last month, and in cluster distance 2
+switch(FEAT_HOUSES,SELF, pass_service_check_offices, cargo_accepted_nearby_last_month(PASS)) {1: distance_same_class_cluster_2; return 0;}
+
+// Unique check: Only one in town, must have road SW
+switch(FEAT_HOUSES,SELF, unique_building_town_road_SW, same_house_count_town) {0: if_road_SW; return 0;}
+switch(FEAT_HOUSES,SELF, unique_building_town_road_SE, same_house_count_town) {0: if_road_SE; return 0;}
+switch(FEAT_HOUSES,SELF, unique_building_town, same_house_count_town) {0: return 1; return 0;}
+
+// Population check for stadiums
+switch(FEAT_HOUSES,PARENT, new_stadium_prob, population) {0 .. 10000: return 0; unique_building_town;}
+switch(FEAT_HOUSES,PARENT, old_stadium_prob, population) {0 .. 1000: return 0; unique_building_town;}
+
+// Road check for University and Courthouse
+switch(FEAT_HOUSES,SELF, if_road_SE_university, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: new_stadium_prob; return 0;}
+
+// Coast check for Museum
+switch(FEAT_HOUSES,SELF, check_museum_shore_SE, nearby_tile_is_water(0,1)) {1: new_stadium_prob; return 0;}
+
+// Construction check for enough residential population to build post-1945 office buildings
+switch(FEAT_HOUSES,SELF, modern_office_pop_check, 
+[
+	// Add up population of residential buildings
+	STORE_TEMP( 
+	(other_house_count_town(25)*1)+ // Cottages
+	(other_house_count_town(24)*1)+ // Old houses
+	(other_house_count_town(108)*2)+ // Pre-1945 Houses
+	(other_house_count_town(26)*2)+ // Houses
+	(other_house_count_town(109)*3)+ // Pre-1945 Townhouses
+	(other_house_count_town(06)*3)+ // Townhouses
+	(other_house_count_town(27)*10)+ // Flats
+	(other_house_count_town(02)*5) // Small flats
+	, 1),
+	
+	// Calculate minimum population needed to construct this building
+	STORE_TEMP(other_class_count_town(3) * 30, 2),		// population already used by older buildings
+	STORE_TEMP((1 + same_class_count_town) * 60, 3), 	// minimum population needed for this building
+	STORE_TEMP(LOAD_TEMP(2) + LOAD_TEMP(3), 4),
+
+	LOAD_TEMP(1) > LOAD_TEMP(4),						// Check if population is greater than minimum population needed
+	]){1: pass_service_check_offices; return 0;}		// If true, proceed to passenger service check, else don't allow construction
+
+// Construction check for enough residential population to build pre-1945 office buildings
+switch(FEAT_HOUSES,SELF, old_office_pop_check, 
+	[ 
+	// Add up population of residential buildings
+	STORE_TEMP( 
+	(other_house_count_town(25)*1)+ // Cottages
+	(other_house_count_town(24)*1)+ // Old houses
+	(other_house_count_town(108)*2)+ // Pre-1945 Houses
+	(other_house_count_town(26)*2)+ // Houses
+	(other_house_count_town(109)*3)+ // Pre-1945 Townhouses
+	(other_house_count_town(06)*3)+ // Townhouses
+	(other_house_count_town(27)*10)+ // Flats
+	(other_house_count_town(02)*4) // Small flats
+	, 1),
+	
+	// Calculate minimum population needed to construct this building
+	STORE_TEMP((1 + same_class_count_town) * 30, 2),	// Calculate minimum population needed for this building
+	LOAD_TEMP(1) > LOAD_TEMP(2),						// Check if population is greater than minimum population needed
+	]){1: pass_service_check_offices; return 0;}		// If true, proceed to passenger service check, else don't allow construction
+
+// Road is SE of tile (office)
+switch(FEAT_HOUSES,SELF, if_road_SE_office, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: modern_office_pop_check; return 0;}
+
+// Unique check: Only one in world, must follow office building rules
+switch(FEAT_HOUSES,PARENT, pop_over_30k, population) {0 .. 30000: return 0; pass_service_check_offices;}
+switch(FEAT_HOUSES,SELF, unique_worldwide, same_house_count_map) {0: pop_over_30k; return 0;}
+
+// Preservation check for historic buildings
+random_switch(FEAT_HOUSES,SELF, random_preservation) {1: return 1; 7: return 0;}
+switch(FEAT_HOUSES,SELF, preservation3, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 0; return 1;}
+switch(FEAT_HOUSES,SELF, preservation2, other_house_count_town(38)) {1: preservation3; random_preservation;}
+switch(FEAT_HOUSES,SELF, preservation1, current_year) {0 .. 1945: return 0; preservation2;}
+
+// Preservation check for fountain or statue next to historic buildings
+switch(FEAT_HOUSES, SELF, protection_historic_square, nearby_tile_class(0,-1)) {3: return 1; return 0;}
+
+// End Switches

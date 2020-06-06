@@ -8,6 +8,7 @@
 - Landmarks and districts persist through decades and lend character to your city. When a landmark building is receiving cargo, it won’t disappear and break your network.
 - Expanded cargo deliveries with FIRS and ECS compatibility: Deliver food and goods to shops and markets, alcohol to stadiums, and wood or coal to heat pre-1945 buildings.
 - Uses only base game sprites, so visually compatible with any base graphics set including Original TTD, OpenGFX, aBase, zBase, and NightGFX.
+- Requires OpenTTD version 1.10.0, JGR version 0.34, or better.
 
 ## Town Growth 101
 Town growth speed is unchanged from the base game. [Check the Wiki](https://wiki.openttd.org/Towns#Town_Growth) if you need a refresher.

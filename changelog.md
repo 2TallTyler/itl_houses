@@ -49,5 +49,12 @@
   - An error now appears in the NewGRF window warning players that this set does not support snow sprites
 - Fix: Market building no longer appears to hover or flicker
 - Fix: Cinema and Theatre buildings now match their ground tiles when using aBase
-- Fix: Version numbering now uses 0.0.0 style instead of 0.00\
+- Fix: Version numbering now uses 0.0.0 style instead of 0.00
 - Fix: Version number now appended to NewGRF name in NewGRF window
+
+### 1.1.1
+- Add: Error message when trying to use Improved Town Layout with a version of OpenTTD which is too old (requires 1.10.0, JGR 0.34, or better)
+- Add: Makefile for code compilation
+- Change: Break up code from one huge NML file to several NML files for easier editing
+- Change: Organize file structure
+- Fix: Land below parks, statues, and fountains can be lowered again (#4)
