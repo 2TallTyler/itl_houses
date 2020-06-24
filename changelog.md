@@ -58,3 +58,8 @@
 - Change: Break up code from one huge NML file to several NML files for easier editing
 - Change: Organize file structure
 - Fix: Land below parks, statues, and fountains can be lowered again (#4)
+
+### 1.1.2 beta
+- Add: Parameter to reduce population of early houses
+  - 1700-1850: 1/4 population
+  - 1850-1950: 1/2 population
