@@ -725,7 +725,7 @@ item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
 		override				:26;
 		population				:(param_improved_early_houses == 1) ? 6 : 13;
 		mail_multiplier			:(improved_mail == 1) ? 1 : 8;
-		accepted_cargos			:(param_improved_early_houses == 1) ? [[PASS, 3],[MAIL, 1],[COAL, 1]] : [];
+		accepted_cargos			:[[PASS, 3],[MAIL, 1],[COAL, 1]];
 		local_authority_impact	:75;
 		removal_cost_multiplier	:71;
 		probability				:4;
