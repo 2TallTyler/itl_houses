@@ -20,6 +20,9 @@ STR_PARAM_DESC_EXTRA_TROPIC				:Adds the sub-tropical Church sprite as an additi
 STR_PARAM_NAME_IMPROVED_MAIL			:Improved Mail
 STR_PARAM_DESC_IMPROVED_MAIL			:Residential buildings produce almost no mail. Commercial buildings produce slightly more.{}{}{SILVER}Asymmetric cargo distribution{BLACK} for mail recommended.
 
+STR_PARAM_NAME_IMPROVED_EARLY_HOUSES	:Improved Early Houses
+STR_PARAM_DESC_IMPROVED_EARLY_HOUSES	:Early houses have less population, for balance with smaller and slower early vehicles.{}{}* 1700-1850: 1/4 population{}* 1850-1950: 1/2 population
+
 STR_NAME_HISTORIC_CHURCH				:Historic Church
 STR_NAME_OLD_CHURCH						:Church
 STR_NAME_MODERN_CHURCH					:Church
