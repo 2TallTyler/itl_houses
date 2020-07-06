@@ -357,13 +357,13 @@ item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
 		substitute				:64;
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
 		override				:64;
-		population				:90;
+		population				:(param_improved_early_houses == 1) ? 45 : 90;
 		mail_multiplier			:45;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
 		local_authority_impact	:110;
 		removal_cost_multiplier	:140;
 		probability				:1;
-		years_available			:[1840,1945];
+		years_available			:[1840,1955];
 		minimum_lifetime		:10;
 		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:3;
@@ -372,7 +372,7 @@ item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
 		default					:sprite_shops_and_offices_64;
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
-		protection				:preservation1;
+		protection				:preservation_1955;
 	}
 }
 
@@ -381,13 +381,13 @@ item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
 		substitute				:29;
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
 		override				:29;
-		population				:100;
+		population				:(param_improved_early_houses == 1) ? 50 : 100;
 		mail_multiplier			:40;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
 		local_authority_impact	:135;
 		removal_cost_multiplier	:132;
 		probability				:1;
-		years_available			:[1850,1945];
+		years_available			:[1850,1955];
 		minimum_lifetime		:10;
 		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:3;
@@ -396,7 +396,7 @@ item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
 		default					:sprite_shops_and_offices_29;
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
-		protection				:preservation1;
+		protection				:preservation_1955;
 	}
 }
 
@@ -405,7 +405,7 @@ item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
 		substitute				:14;
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
 		override				:14;
-		population				:95;
+		population				:(param_improved_early_houses == 1) ? 30 : 95;
 		mail_multiplier			:48;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
 		local_authority_impact	:100;
@@ -420,7 +420,7 @@ item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
 		default					:sprite_shops_and_offices_14;
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
-		protection				:preservation1;
+		protection				:preservation_1945;
 	}
 }
 
@@ -429,13 +429,13 @@ item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
 		substitute				:15;
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
 		override				:15;
-		population				:95;
+		population				:(param_improved_early_houses == 1) ? 30 : 95;
 		mail_multiplier			:48;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
 		local_authority_impact	:100;
 		removal_cost_multiplier	:105;
 		probability				:2;
-		years_available			:[1750,1945];
+		years_available			:[1750,1960];
 		minimum_lifetime		:10;
 		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:3;
@@ -444,22 +444,22 @@ item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
 		default					:random_sprite_shops_and_offices_15;
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
-		protection				:preservation1;
+		protection				:preservation_1960;
 	}
 }
 
-item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) {
+item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) { // Colorful roof
 	property {
 		substitute				:16;
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
 		override				:16;
-		population				:95;
+		population				:(param_improved_early_houses == 1) ? 45 : 95;
 		mail_multiplier			:48;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
 		local_authority_impact	:100;
 		removal_cost_multiplier	:107;
 		probability				:1;
-		years_available			:[1860,1945];
+		years_available			:[1860,1955];
 		minimum_lifetime		:10;
 		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:3;
@@ -468,7 +468,7 @@ item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) {
 		default					:sprite_shops_and_offices_16;
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
-		protection				:preservation1;
+		protection				:preservation_1955;
 	}
 }
 
