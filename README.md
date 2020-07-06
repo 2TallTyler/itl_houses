@@ -42,15 +42,16 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Flats, Offices, and Shops and Offices only appear within the coverage of a station which accepted passengers last month
   - Transit Oriented Development, baby!
 - Towns need sufficient residential neighborhoods for their workers before office buildings will appear.
-  - Pre-1945 buildings need housing for 300 people per building and post-1945 buildings need 1000
-  - Housing is calculated based on the sum of the actual population of residential buildings, unchanged from default and listed on the [Wiki](https://newgrf-specs.tt-wiki.net/wiki/NML:List_of_default_house_properties)
   - Stadiums also need a minimum population
-    - Old stadium: 1,000 population
+    - Old stadium: 500 population (with Reduced Early Population)
 	- Modern stadium (available 1958): 10,000 population
 
 ### Start as early as 1700
 - Introduction dates range from 1700 to 2000, allowing a slow progression over time
-- Old buildings are phased out, with a hard switch from old to new Shops and Offices in 1945 as World War II ends
+- Old buildings are phased out gradually between 1945 and 1960
+- Early buildings have reduced population to allow older, slower vehicles to keep up with demand
+  - 1700-1850: 1/4 population
+  - 1850-1950: 1/2 population
 
 ### Pre-1945 buildings need fuel
 - 1700-1850: Coal and Wood* (*Residential buildings only)
@@ -58,7 +59,7 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - 1945-9999: none
 
 ### Historic Preservation keeps some buildings...but only in some cities
-- Some churches are Historic Churches. In these towns, Shops and Offices built before 1945 will be protected from demolition if they are within 2 tiles of another historic Shops and Offices or the church itself. This creates a historic downtown area as seen in many real cities
+- Some churches are Historic Churches. In these towns, prewar Shops and Offices will be protected from demolition if they are within 2 tiles of another historic Shops and Offices or the church itself. This creates a historic downtown area as seen in many real cities
 - Towns with regular churches won’t create historic downtown districts, but Churches and pre-1945 Shops and Offices have a 1/8 chance of being randomly preserved
 
 ### Zoning improves building placement
@@ -82,5 +83,5 @@ If you’re playing with an early start, I suggest using Slow town growth or tur
 - Recolors of Shops and Offices buildings add visual variety, with more muted/realistic colors than in default towns
 
 ## Limitations / Not in Scope
--  This set is intended for the Temperate climate. It does not include snow-aware sprites for any buildings.
-- Buildings do not have construction stages. The sprites exist but they need manual coding. I’ll add them if someone can convince me it’s worth the several hours mucking about in the sprite aligner and code.
+-  This set is intended for the Temperate climate. It does not include snow-aware sprites, because they do not exist for most buildings.
+- Buildings do not have construction stages. The sprites exist but they need coding. Feel free to add them and submit a pull request.
