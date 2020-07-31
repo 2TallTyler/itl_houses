@@ -65,3 +65,6 @@
   - 1850-1950: 1/2 population
 - Change: Population requirement for old stadium updated for reduced early population
 - Change: Availability end dates for prewar commercial buildings now staggered to make the shift to skyscrapers more organic
+
+### 1.1.3
+- Change: Goods/Food service protection checks both this month and last for accepted cargo (closes #12)

@@ -95,8 +95,8 @@ switch(FEAT_HOUSES,SELF, house_sprite_sloped, nearby_tile_slope(0,0)) {0: house_
 
 // Cannot build next to office building (class 2)
 
-switch(FEAT_HOUSES,SELF, office_gap, cargo_accepted_nearby_last_month(PASS)) {1: return 0; return 1;}
-switch(FEAT_HOUSES,SELF, small_flats_pass, cargo_accepted_nearby_last_month(PASS)) {1: return 1; return 0;}
+switch(FEAT_HOUSES,SELF, office_gap, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 0; return 1;}
+switch(FEAT_HOUSES,SELF, small_flats_pass, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 1; return 0;}
 
 switch(FEAT_HOUSES,SELF, flats_office_space_8, nearby_tile_house_class(-1,-1)){258: office_gap; small_flats_pass;}
 switch(FEAT_HOUSES,SELF, flats_office_space_7, nearby_tile_house_class(-1,1)) {258: office_gap;flats_office_space_8;}
@@ -170,18 +170,18 @@ switch(FEAT_HOUSES,SELF, distance_first_in_town, same_class_count_town) {0: retu
 switch(FEAT_HOUSES,SELF, distance_same_class_cluster_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: distance_first_in_town; return 1;}
 
 // Service check: Cannot demolish if PASS accepted last month
-switch(FEAT_HOUSES,SELF, pass_service_check, cargo_accepted_nearby_last_month(PASS)) {1: return 1; return 0;}
+switch(FEAT_HOUSES,SELF, pass_service_check, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 1; return 0;}
 
 // Service check: Stadiums cannot be demolished if FOOD, BEER, or PASS accepted last month
-switch(FEAT_HOUSES,SELF, stadium_food_service_check, cargo_accepted_nearby_last_month(FOOD)) {1: return 1; pass_service_check;}
-switch(FEAT_HOUSES,SELF, stadium_beer_service_check, cargo_accepted_nearby_last_month(BEER)) {1: return 1; stadium_food_service_check;}
+switch(FEAT_HOUSES,SELF, stadium_food_service_check, cargo_accepted_nearby_last_month(FOOD) == 1 || cargo_accepted_nearby_this_month(FOOD) == 1) {1: return 1; pass_service_check;}
+switch(FEAT_HOUSES,SELF, stadium_beer_service_check, cargo_accepted_nearby_last_month(BEER) == 1 || cargo_accepted_nearby_this_month(BEER) == 1) {1: return 1; stadium_food_service_check;}
 
 // Service check: Cannot demolish if GOOD accepted last month
-switch(FEAT_HOUSES,SELF, goods_service_check, cargo_accepted_nearby_last_month(GOOD)) {1: return 1; return 0;}
-switch(FEAT_HOUSES,SELF, food_service_check, cargo_accepted_nearby_last_month(FOOD)) {1: return 1; goods_service_check;}
+switch(FEAT_HOUSES,SELF, goods_service_check, cargo_accepted_nearby_last_month(GOOD) == 1 || cargo_accepted_nearby_this_month(GOOD) == 1) {1: return 1; return 0;}
+switch(FEAT_HOUSES,SELF, food_service_check, cargo_accepted_nearby_last_month(FOOD) == 1 || cargo_accepted_nearby_this_month(FOOD) == 1) {1: return 1; goods_service_check;}
 
 // Service check: Offices only build when PASS accepted last month, and in cluster distance 2
-switch(FEAT_HOUSES,SELF, pass_service_check_offices, cargo_accepted_nearby_last_month(PASS)) {1: distance_same_class_cluster_2; return 0;}
+switch(FEAT_HOUSES,SELF, pass_service_check_offices, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: distance_same_class_cluster_2; return 0;}
 
 // Unique check: Only one in town, must have road SW
 switch(FEAT_HOUSES,SELF, unique_building_town_road_SW, same_house_count_town) {0: if_road_SW; return 0;}
