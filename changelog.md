@@ -67,4 +67,4 @@
 - Change: Availability end dates for prewar commercial buildings now staggered to make the shift to skyscrapers more organic
 
 ### 1.1.3
-- Change: Goods/Food service protection checks both this month and last for accepted cargo (closes #12)
+- Change: Checks for cargos delivered last month (for construction or protection) now also checks this month, expanding the delivery window (closes #12)
