@@ -54,7 +54,7 @@ if (climate != CLIMATE_TEMPERATE)
 {error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
-	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD
+	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC,
 }
 
 if (version_openttd(1,10,0,28004) > openttd_version) {
