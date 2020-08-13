@@ -4,7 +4,7 @@ grf {
 	grfid: "TT\03\01";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
-	version: 4;
+	version: 7;
 	min_compatible_version: 4;
 	url: string(STR_WEBSITE);
 
@@ -38,11 +38,19 @@ param 3 {
    desc: string(STR_PARAM_DESC_IMPROVED_MAIL);
    def_value: 1;
    type: bool;
+   }}  
+   
+param 4 {
+  param_improved_early_houses {
+   name: string(STR_PARAM_NAME_IMPROVED_EARLY_HOUSES);
+   desc: string(STR_PARAM_DESC_IMPROVED_EARLY_HOUSES);
+   def_value: 1;
+   type: bool;
    }}   
 
 }
 
-if (climate == CLIMATE_ARCTIC)
+if (climate != CLIMATE_TEMPERATE)
 {error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
@@ -52,5 +60,7 @@ cargotable {
 if (version_openttd(1,10,0,28004) > openttd_version) {
 	error(FATAL, string(STR_ERROR_GAME_VERSION));
 }
+
+disable_item(FEAT_HOUSES, 0, 109);
 
 // End Header
