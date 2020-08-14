@@ -8,7 +8,7 @@ The parameter to enable recyclables, as well as the RCYC cargo definition, are i
 Improved Town Industries also has an error message in case Improved Town Layouts is not loaded or too old, or if OpenTTD is not 1.10.0 or better.
 
 No recyclables-related error messages are required or included in Improved Town Layouts (although there are a few other error messages in header.nml).
-
+*/
 
 /* Average monthly production of passengers or mail, based on vanilla population or mail_multiplier properties:
 
@@ -54,6 +54,15 @@ Population       Avg. passengers/month
 289 to 296       -->    37
 */
 
+/* Recycling production per month:
+
+- Residential: 							Min 1 ton, max 1/6 ton per person (rounded up)
+- Commercial (including landmarks):		Min 1 ton, max 1/4 ton per person (rounded up)
+
+*/
+
+
+
 /* Production loop, shared by all houses. Individual production rates stored in temporary registers in the functions below.*/
 switch (FEAT_HOUSES, SELF, switch_alt_production, getbits(extra_callback_info1, 0, 8)) {
 	0: (PASS * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(1);
@@ -70,6 +79,7 @@ switch (FEAT_HOUSES, SELF, switch_recycle_enabled, param["TT\04\01", 254] >= 8 &
 /* Production levels for each house are set below and stored in temporary registers, to be read by the production loop above. */
 
 /* Residential */
+/* Recycling = min 1, max 1/6 per person (rounded up) */
 
 /* House */
 switch (FEAT_HOUSES, SELF, switch_recycle_house, [STORE_TEMP(2, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
@@ -82,61 +92,64 @@ switch (FEAT_HOUSES, SELF, switch_recycle_old_house, [STORE_TEMP(1, 1), STORE_TE
 }
 
 /* Townhouses */
-switch (FEAT_HOUSES, SELF, switch_recycle_townhouses, [STORE_TEMP(4, 1), STORE_TEMP(1, 2), STORE_TEMP(2, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_townhouses, [STORE_TEMP(4, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Flats */
-switch (FEAT_HOUSES, SELF, switch_recycle_flats, [STORE_TEMP(13, 1), STORE_TEMP(4, 2), STORE_TEMP(8, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_flats, [STORE_TEMP(13, 1), STORE_TEMP(4, 2), STORE_TEMP(3, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Small Flats */
-switch (FEAT_HOUSES, SELF, switch_recycle_small_flats, [STORE_TEMP(5, 1), STORE_TEMP(2, 2), STORE_TEMP(3, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_small_flats, [STORE_TEMP(5, 1), STORE_TEMP(2, 2), STORE_TEMP(1, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Commercial */
+/* Recycling = min 1, max 1/4 per person (rounded up) */
 
-switch (FEAT_HOUSES, SELF, switch_recycle_office_19, [STORE_TEMP(14, 1), STORE_TEMP(9, 2), STORE_TEMP(8, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_office_19, [STORE_TEMP(14, 1), STORE_TEMP(9, 2), STORE_TEMP(4, 3), 1]) {
 	switch_recycle_enabled;
 }
 
-switch (FEAT_HOUSES, SELF, switch_recycle_office_00, [STORE_TEMP(24, 1), STORE_TEMP(10, 2), STORE_TEMP(14, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_office_00, [STORE_TEMP(24, 1), STORE_TEMP(10, 2), STORE_TEMP(6, 3), 1]) {
 	switch_recycle_enabled;
 }
 // offices 28, 30, 17 (capsule tower), 52, 50, 90 use the same stats as 00
 
-switch (FEAT_HOUSES, SELF, switch_recycle_office_04, [STORE_TEMP(28, 1), STORE_TEMP(12, 2), STORE_TEMP(18, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_office_04, [STORE_TEMP(28, 1), STORE_TEMP(12, 2), STORE_TEMP(7, 3), 1]) {
 	switch_recycle_enabled;
 }
 // offices 54, 74, 87, uses same stats as 04
 
-switch (FEAT_HOUSES, SELF, switch_recycle_office_01, [STORE_TEMP(11, 1), STORE_TEMP(9, 2), STORE_TEMP(8, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_office_01, [STORE_TEMP(11, 1), STORE_TEMP(9, 2), STORE_TEMP(3, 3), 1]) {
 	switch_recycle_enabled;
 }
 
-switch (FEAT_HOUSES, SELF, switch_recycle_office_13, [STORE_TEMP(19, 1), STORE_TEMP(10, 2), STORE_TEMP(12, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_office_13, [STORE_TEMP(19, 1), STORE_TEMP(10, 2), STORE_TEMP(6, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Historic Commercial */
+/* Recycling = min 1, max 1/4 per person (rounded up) */
 
-switch (FEAT_HOUSES, SELF, switch_recycle_historic_64, [STORE_TEMP(6, 1), STORE_TEMP(6, 2), STORE_TEMP(4, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_historic_64, [STORE_TEMP(6, 1), STORE_TEMP(6, 2), STORE_TEMP(1, 3), 1]) {
 	switch_recycle_enabled;
 }
 
-switch (FEAT_HOUSES, SELF, switch_recycle_historic_29, [STORE_TEMP(7, 1), STORE_TEMP(5, 2), STORE_TEMP(5, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_historic_29, [STORE_TEMP(7, 1), STORE_TEMP(5, 2), STORE_TEMP(1, 3), 1]) {
 	switch_recycle_enabled;
 }
 // historic 16 uses same stats as 29
 
-switch (FEAT_HOUSES, SELF, switch_recycle_historic_14, [STORE_TEMP(4, 1), STORE_TEMP(6, 2), STORE_TEMP(3, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_historic_14, [STORE_TEMP(4, 1), STORE_TEMP(6, 2), STORE_TEMP(1, 3), 1]) {
 	switch_recycle_enabled;
 }
 // historic 15 uses same stats as 14
 
 /* Landmarks */
+/* Recycling = min 1, max 1/4 per person (rounded up) */
 
 /* Churches */
 switch (FEAT_HOUSES, SELF, switch_recycle_churches, [STORE_TEMP(1, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
@@ -144,62 +157,62 @@ switch (FEAT_HOUSES, SELF, switch_recycle_churches, [STORE_TEMP(1, 1), STORE_TEM
 }
 
 /* Old Stadium */
-switch (FEAT_HOUSES, SELF, switch_recycle_old_stadium, [STORE_TEMP(9, 1), STORE_TEMP(0, 2), STORE_TEMP(10, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_old_stadium, [STORE_TEMP(9, 1), STORE_TEMP(0, 2), STORE_TEMP(3, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* New Stadium */
-switch (FEAT_HOUSES, SELF, switch_recycle_new_stadium, [STORE_TEMP(32, 1), STORE_TEMP(0, 2), STORE_TEMP(32, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_new_stadium, [STORE_TEMP(32, 1), STORE_TEMP(0, 2), STORE_TEMP(8, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Hotel */
-switch (FEAT_HOUSES, SELF, switch_recycle_hotel, [STORE_TEMP(18, 1), STORE_TEMP(2, 2), STORE_TEMP(18, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_hotel, [STORE_TEMP(18, 1), STORE_TEMP(2, 2), STORE_TEMP(3, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Cinema */
-switch (FEAT_HOUSES, SELF, switch_recycle_cinema, [STORE_TEMP(5, 1), STORE_TEMP(1, 2), STORE_TEMP(8, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_cinema, [STORE_TEMP(5, 1), STORE_TEMP(1, 2), STORE_TEMP(2, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Theatre */
-switch (FEAT_HOUSES, SELF, switch_recycle_theatre, [STORE_TEMP(5, 1), STORE_TEMP(2, 2), STORE_TEMP(6, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_theatre, [STORE_TEMP(5, 1), STORE_TEMP(2, 2), STORE_TEMP(2, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Market */
-switch (FEAT_HOUSES, SELF, switch_recycle_market, [STORE_TEMP(23, 1), STORE_TEMP(2, 2), STORE_TEMP(32, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_market, [STORE_TEMP(23, 1), STORE_TEMP(2, 2), STORE_TEMP(8, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Warehouse */
-switch (FEAT_HOUSES, SELF, switch_recycle_warehouse, [STORE_TEMP(1, 1), STORE_TEMP(13, 2), STORE_TEMP(8, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_warehouse, [STORE_TEMP(1, 1), STORE_TEMP(13, 2), STORE_TEMP(1, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Stores */
-switch (FEAT_HOUSES, SELF, switch_recycle_stores, [STORE_TEMP(4, 1), STORE_TEMP(1, 2), STORE_TEMP(8, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_stores, [STORE_TEMP(4, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Museum */
-switch (FEAT_HOUSES, SELF, switch_recycle_museum, [STORE_TEMP(32, 1), STORE_TEMP(3, 2), STORE_TEMP(12, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_museum, [STORE_TEMP(32, 1), STORE_TEMP(3, 2), STORE_TEMP(8, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Courthouse */
-switch (FEAT_HOUSES, SELF, switch_recycle_courthouse, [STORE_TEMP(9, 1), STORE_TEMP(9, 2), STORE_TEMP(4, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_courthouse, [STORE_TEMP(9, 1), STORE_TEMP(9, 2), STORE_TEMP(1, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* University */
-switch (FEAT_HOUSES, SELF, switch_recycle_university, [STORE_TEMP(32, 1), STORE_TEMP(9, 2), STORE_TEMP(16, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_university, [STORE_TEMP(32, 1), STORE_TEMP(9, 2), STORE_TEMP(8, 3), 1]) {
 	switch_recycle_enabled;
 }
 
 /* Spa */
-switch (FEAT_HOUSES, SELF, switch_recycle_spa, [STORE_TEMP(11, 1), STORE_TEMP(1, 2), STORE_TEMP(4, 3), 1]) {
+switch (FEAT_HOUSES, SELF, switch_recycle_spa, [STORE_TEMP(11, 1), STORE_TEMP(1, 2), STORE_TEMP(3, 3), 1]) {
 	switch_recycle_enabled;
 }
 
