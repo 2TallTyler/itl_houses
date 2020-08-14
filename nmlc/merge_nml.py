@@ -22,6 +22,11 @@ switches = codecs.open("src/switches.nml",'r','utf8')
 sections.append(switches.read())
 switches.close()
 
+# get the recycling file and append to a list
+recycling = codecs.open("src/recycling.nml",'r','utf8')
+sections.append(recycling.read())
+recycling.close()
+
 # get the residential file and append to a list
 residential = codecs.open("src/residential.nml",'r','utf8')
 sections.append(residential.read())
