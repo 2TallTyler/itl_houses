@@ -706,7 +706,7 @@ The parameter to enable recyclables, as well as the RCYC cargo definition, are i
 Improved Town Industries also has an error message in case Improved Town Layouts is not loaded or too old, or if OpenTTD is not 1.10.0 or better.
 
 No recyclables-related error messages are required or included in Improved Town Layouts (although there are a few other error messages in header.nml).
-
+*/
 
 /* Average monthly production of passengers or mail, based on vanilla population or mail_multiplier properties:
 
@@ -751,6 +751,15 @@ Population       Avg. passengers/month
 281 to 288       -->    36
 289 to 296       -->    37
 */
+
+/* Recycling production per month:
+
+- Residential: 							Min 1 ton, max 1/6 ton per person (rounded up)
+- Commercial (including landmarks):		Min 1 ton, max 1/4 ton per person (rounded up)
+
+*/
+
+
 
 /* Production loop, shared by all houses. Individual production rates stored in temporary registers in the functions below.*/
 switch (FEAT_HOUSES, SELF, switch_alt_production, getbits(extra_callback_info1, 0, 8)) {
