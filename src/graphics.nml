@@ -330,9 +330,6 @@ spritelayout sprite_old_houses_4 {
 spritelayout sprite_cottages {
 	ground		{sprite:1495;}
 	building	{sprite:1496;}}
-
-spritelayout sprite_empty_square {
-	ground		{sprite:1420;}}
 	
 spritelayout sprite_university_n {
 	ground		{sprite:2182;}
