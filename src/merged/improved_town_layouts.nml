@@ -760,8 +760,8 @@ switch (FEAT_HOUSES, SELF, switch_alt_production, getbits(extra_callback_info1, 
 	return CB_RESULT_HOUSE_NO_MORE_PRODUCTION;
 }
 
-/* Check for compatible version of Improved Town Industries, with Waste parameter active. If not, return 0 to use population and mail_multiplier for generation. */
-switch (FEAT_HOUSES, SELF, switch_recycle_enabled, param["TT\04\01", 254] >= 8 && param["TT\04\01", 5] == 1) {
+/* Check for compatible version of Improved Town Industries, with Waste parameter active. Year must be at least 1882, when the Power Plant is invented. If not, return 0 to use population and mail_multiplier for generation. */
+switch (FEAT_HOUSES, SELF, switch_recycle_enabled, param["TT\04\01", 254] >= 8 && param["TT\04\01", 5] == 1 && current_year >= 1882) {
 	1: switch_alt_production; return 0;}
 
 
@@ -1065,7 +1065,6 @@ item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default					:sprite_cottages;
-		cargo_production		:switch_recycle_old_house;
 	}
 }
 
@@ -1087,7 +1086,6 @@ item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default					:random_sprite_old_houses;
-		cargo_production		:switch_recycle_old_house;
 	}
 }
 
