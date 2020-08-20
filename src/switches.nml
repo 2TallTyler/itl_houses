@@ -167,10 +167,6 @@ switch(FEAT_HOUSES,SELF, distance_same_class_cluster_2, nearest_house_matching_c
 // Service check: Cannot demolish if PASS accepted last month
 switch(FEAT_HOUSES,SELF, pass_service_check, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 1; return 0;}
 
-// Service check: Stadiums cannot be demolished if FOOD, BEER, or PASS accepted last month
-switch(FEAT_HOUSES,SELF, stadium_food_service_check, cargo_accepted_nearby_last_month(FOOD) == 1 || cargo_accepted_nearby_this_month(FOOD) == 1) {1: return 1; pass_service_check;}
-switch(FEAT_HOUSES,SELF, stadium_beer_service_check, cargo_accepted_nearby_last_month(BEER) == 1 || cargo_accepted_nearby_this_month(BEER) == 1) {1: return 1; stadium_food_service_check;}
-
 // Service check: Cannot demolish if GOOD accepted last month
 switch(FEAT_HOUSES,SELF, goods_service_check, cargo_accepted_nearby_last_month(GOOD) == 1 || cargo_accepted_nearby_this_month(GOOD) == 1) {1: return 1; return 0;}
 switch(FEAT_HOUSES,SELF, food_service_check, cargo_accepted_nearby_last_month(FOOD) == 1 || cargo_accepted_nearby_this_month(FOOD) == 1) {1: return 1; goods_service_check;}
