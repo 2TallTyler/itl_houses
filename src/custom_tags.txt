@@ -1,2 +1,2 @@
-VERSION			:1.2.0 Beta 3
+VERSION			:1.2.0
 TITLE			:Improved Town Layouts
