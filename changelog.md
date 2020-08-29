@@ -68,3 +68,8 @@
 
 ### 1.1.3
 - Change: Checks for cargos delivered last month (for construction or protection) now also checks this month, expanding the delivery window (closes #12)
+
+### 1.2.0
+- Add: Houses now have construction sprites! Thanks to **jrook1445** for this contribution.
+- Add: Compatibility for Waste & Recycling in Improved Town Industries
+- Change: Landmark houses (Market, University, Stadiums, etc.) now permanently protected from town renewal. Can still be bulldozed by a player.
