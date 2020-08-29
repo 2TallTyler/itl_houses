@@ -4,8 +4,8 @@ grf {
 	grfid: "TT\03\01";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
-	version: 7;
-	min_compatible_version: 4;
+	version: 9;
+	min_compatible_version: 9;
 	url: string(STR_WEBSITE);
 
 param 0 {
@@ -54,7 +54,7 @@ if (climate != CLIMATE_TEMPERATE)
 {error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
-	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD
+	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE,
 }
 
 if (version_openttd(1,10,0,28004) > openttd_version) {

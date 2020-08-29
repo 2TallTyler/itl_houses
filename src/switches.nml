@@ -160,21 +160,12 @@ switch(FEAT_HOUSES,SELF, distance_same_class_within_2, nearest_house_matching_cr
 
 switch(FEAT_HOUSES,SELF, switch_park_flat_terrain, nearby_tile_slope(0,0)) {SLOPE_FLAT: distance_same_class_within_2; return 0;}
 
-switch(FEAT_HOUSES,SELF, distance_same_class_within_1, nearest_house_matching_criterion(1, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
-
-// Distance check: Cannot build within distance 4 of same class (House, Market, Warehouse, Park)
-switch(FEAT_HOUSES,SELF, distance_same_class_within_4, nearest_house_matching_criterion(4, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
-
 // Distance check: Must build within distance 2 of same class (high-rises). No need to cluster if first in town.
 switch(FEAT_HOUSES,SELF, distance_first_in_town, same_class_count_town) {0: return 1; return 0;}
 switch(FEAT_HOUSES,SELF, distance_same_class_cluster_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: distance_first_in_town; return 1;}
 
 // Service check: Cannot demolish if PASS accepted last month
 switch(FEAT_HOUSES,SELF, pass_service_check, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 1; return 0;}
-
-// Service check: Stadiums cannot be demolished if FOOD, BEER, or PASS accepted last month
-switch(FEAT_HOUSES,SELF, stadium_food_service_check, cargo_accepted_nearby_last_month(FOOD) == 1 || cargo_accepted_nearby_this_month(FOOD) == 1) {1: return 1; pass_service_check;}
-switch(FEAT_HOUSES,SELF, stadium_beer_service_check, cargo_accepted_nearby_last_month(BEER) == 1 || cargo_accepted_nearby_this_month(BEER) == 1) {1: return 1; stadium_food_service_check;}
 
 // Service check: Cannot demolish if GOOD accepted last month
 switch(FEAT_HOUSES,SELF, goods_service_check, cargo_accepted_nearby_last_month(GOOD) == 1 || cargo_accepted_nearby_this_month(GOOD) == 1) {1: return 1; return 0;}
@@ -253,7 +244,6 @@ switch(FEAT_HOUSES,SELF, unique_worldwide, same_house_count_map) {0: pop_over_30
 random_switch(FEAT_HOUSES,SELF, random_preservation) {1: return 1; 7: return 0;}
 switch(FEAT_HOUSES,SELF, preservation3, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 0; return 1;}
 switch(FEAT_HOUSES,SELF, preservation2, other_house_count_town(38)) {1: preservation3; random_preservation;}
-switch(FEAT_HOUSES,SELF, preservation1, current_year) {0 .. 1945: return 0; preservation2;}
 
 switch(FEAT_HOUSES,SELF, preservation_1960, current_year) {0 .. 1960: return 0; preservation2;}
 switch(FEAT_HOUSES,SELF, preservation_1955, current_year) {0 .. 1955: return 0; preservation2;}

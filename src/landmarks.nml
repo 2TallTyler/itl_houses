@@ -18,6 +18,7 @@ item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 	graphics {
 		default					:sprite_church;
 		construction_check		:if_road_SE;
+		cargo_production		:switch_recycle_churches;
 	}
 }
 
@@ -41,6 +42,7 @@ item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 		default					:sprite_church;
 		construction_check		:unique_building_town_road_SE;
 		protection				:random_preservation;
+		cargo_production		:switch_recycle_churches;
 	}
 }
 
@@ -64,6 +66,7 @@ item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 		default					:sprite_modern_church_1;
 		construction_check		:unique_building_town_road_SE;
 		protection				:random_preservation;
+		cargo_production		:switch_recycle_churches;
 	}
 }
 
@@ -87,6 +90,7 @@ item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 		default					:sprite_modern_church_2;
 		construction_check		:unique_building_town_road_SW;
 		protection				:random_preservation;
+		cargo_production		:switch_recycle_churches;
 	}
 }
 
@@ -111,6 +115,7 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 		default					:sprite_neomoorish_church;
 		construction_check		:unique_building_town_road_SW;
 		protection				:random_preservation;
+		cargo_production		:switch_recycle_churches;
 	}
 }}
 
@@ -120,6 +125,7 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		substitute				:20;
 		name					:string(STR_NAME_OLD_STADIUM);
 		override				:20;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:65;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
@@ -136,7 +142,7 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		graphics_west			:sprite_old_stadium_W;
 		graphics_south			:sprite_old_stadium_S;
 		construction_check		:old_stadium_prob_1;
-		protection				:stadium_beer_service_check;
+		cargo_production		:switch_recycle_old_stadium;
 	}
 }
 
@@ -146,6 +152,7 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		substitute				:40;
 		name					:string(STR_NAME_NEW_STADIUM);
 		override				:32;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:255;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
@@ -162,7 +169,7 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		graphics_west			:sprite_new_stadium_W;
 		graphics_south			:sprite_new_stadium_S;
 		construction_check		:new_stadium_prob;
-		protection				:stadium_beer_service_check;
+		cargo_production		:switch_recycle_new_stadium;
 	}
 }
 
@@ -191,6 +198,7 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 		graphics_east			:sprite_hotel_E;
 		construction_check		:hotel_check_1;
 		protection				:pass_service_check;
+		cargo_production		:switch_recycle_hotel;
 	}
 }
 
@@ -214,6 +222,7 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 	graphics {
 		default					:sprite_cinema;
 		construction_check		:distance_cinema_4_cinema;
+		cargo_production		:switch_recycle_cinema;
 	}
 }
 
@@ -237,6 +246,7 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 	graphics {
 		default					:sprite_theatre;
 		construction_check		:distance_theatre_4_theatre;
+		cargo_production		:switch_recycle_theatre;
 	}
 }
 
@@ -246,6 +256,7 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		substitute				:40;
 		name					:string(STR_NAME_MARKET);
 		override				:40;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:180;
 		mail_multiplier			:(improved_mail == 1) ? 10 : 5;
 		accepted_cargos			:[[PASS, 8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
@@ -263,7 +274,7 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		graphics_west			:sprite_shopping_mall_W;
 		graphics_south			:sprite_shopping_mall_S;
 		construction_check		:unique_building_town;
-		protection				:food_service_check;
+		cargo_production		:switch_recycle_market;
 	}
 }
 
@@ -290,6 +301,7 @@ item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 		default					:random_sprite_warehouse;
 		construction_check		:distance_same_class_within_2;
 		protection				:goods_service_check;
+		cargo_production		:switch_recycle_warehouse;
 	}
 }} else {
 item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
@@ -312,6 +324,7 @@ item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 		default					:sprite_warehouse;
 		construction_check		:distance_same_class_within_2;
 		protection				:goods_service_check;
+		cargo_production		:switch_recycle_warehouse;
 	}}
 }
 
@@ -385,6 +398,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 		default					:sprite_shop;
 		construction_check		:unique_building_town;
 		protection				:food_service_check;
+		cargo_production		:switch_recycle_stores;
 	}
 }
 
@@ -438,6 +452,7 @@ item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 		substitute				:16;
 		name					:string(STR_NAME_MUSEUM);
 		override				:16;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:255;
 		mail_multiplier			:20;
 		accepted_cargos			:[[PASS, 8],[MAIL, 4]];
@@ -451,7 +466,7 @@ item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 	graphics {
 		default					:sprite_museum;
 		construction_check		:check_museum_shore_SE;
-		protection				:pass_service_check;
+		cargo_production		:switch_recycle_museum;
 	}
 }
 
@@ -462,6 +477,7 @@ item(FEAT_HOUSES, item_courthouse, 104, HOUSE_SIZE_2X1){
 		substitute				:74;
 		name					:string(STR_NAME_COURTHOUSE);
 		override				:74;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:65;
 		mail_multiplier			:70;
 		accepted_cargos			:[[PASS, 8],[MAIL, 8]];
@@ -476,7 +492,7 @@ item(FEAT_HOUSES, item_courthouse, 104, HOUSE_SIZE_2X1){
 		graphics_north			:sprite_courthouse_n;
 		graphics_west			:sprite_courthouse_w;
 		construction_check		:if_road_SE_university;
-		protection				:pass_service_check;
+		cargo_production		:switch_recycle_courthouse;
 	}
 }
 
@@ -485,6 +501,7 @@ item(FEAT_HOUSES, item_university, 106, HOUSE_SIZE_2X1){
 		substitute				:74;
 		name					:string(STR_NAME_UNIVERSITY);
 		override				:74;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:255;
 		mail_multiplier			:70;
 		accepted_cargos			:[[PASS, 8],[MAIL, 8]];
@@ -499,7 +516,7 @@ item(FEAT_HOUSES, item_university, 106, HOUSE_SIZE_2X1){
 		graphics_north			:sprite_university_n;
 		graphics_west			:sprite_university_w;
 		construction_check		:if_road_SE_university;
-		protection				:pass_service_check;
+		cargo_production		:switch_recycle_university;
 	}
 }
 }
@@ -526,6 +543,7 @@ item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
 		graphics_east			:sprite_spa_e;
 		construction_check		:hotel_check_1;
 		protection				:pass_service_check;
+		cargo_production		:switch_recycle_spa;
 	}
 }
 }

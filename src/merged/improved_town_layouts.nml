@@ -4,8 +4,8 @@ grf {
 	grfid: "TT\03\01";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
-	version: 7;
-	min_compatible_version: 4;
+	version: 9;
+	min_compatible_version: 9;
 	url: string(STR_WEBSITE);
 
 param 0 {
@@ -54,7 +54,7 @@ if (climate != CLIMATE_TEMPERATE)
 {error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
-	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD
+	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE,
 }
 
 if (version_openttd(1,10,0,28004) > openttd_version) {
@@ -397,9 +397,6 @@ spritelayout sprite_old_houses_4 {
 spritelayout sprite_cottages {
 	ground		{sprite:1495;}
 	building	{sprite:1496;}}
-
-spritelayout sprite_empty_square {
-	ground		{sprite:1420;}}
 	
 spritelayout sprite_university_n {
 	ground		{sprite:2182;}
@@ -593,21 +590,12 @@ switch(FEAT_HOUSES,SELF, distance_same_class_within_2, nearest_house_matching_cr
 
 switch(FEAT_HOUSES,SELF, switch_park_flat_terrain, nearby_tile_slope(0,0)) {SLOPE_FLAT: distance_same_class_within_2; return 0;}
 
-switch(FEAT_HOUSES,SELF, distance_same_class_within_1, nearest_house_matching_criterion(1, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
-
-// Distance check: Cannot build within distance 4 of same class (House, Market, Warehouse, Park)
-switch(FEAT_HOUSES,SELF, distance_same_class_within_4, nearest_house_matching_criterion(4, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
-
 // Distance check: Must build within distance 2 of same class (high-rises). No need to cluster if first in town.
 switch(FEAT_HOUSES,SELF, distance_first_in_town, same_class_count_town) {0: return 1; return 0;}
 switch(FEAT_HOUSES,SELF, distance_same_class_cluster_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: distance_first_in_town; return 1;}
 
 // Service check: Cannot demolish if PASS accepted last month
 switch(FEAT_HOUSES,SELF, pass_service_check, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 1; return 0;}
-
-// Service check: Stadiums cannot be demolished if FOOD, BEER, or PASS accepted last month
-switch(FEAT_HOUSES,SELF, stadium_food_service_check, cargo_accepted_nearby_last_month(FOOD) == 1 || cargo_accepted_nearby_this_month(FOOD) == 1) {1: return 1; pass_service_check;}
-switch(FEAT_HOUSES,SELF, stadium_beer_service_check, cargo_accepted_nearby_last_month(BEER) == 1 || cargo_accepted_nearby_this_month(BEER) == 1) {1: return 1; stadium_food_service_check;}
 
 // Service check: Cannot demolish if GOOD accepted last month
 switch(FEAT_HOUSES,SELF, goods_service_check, cargo_accepted_nearby_last_month(GOOD) == 1 || cargo_accepted_nearby_this_month(GOOD) == 1) {1: return 1; return 0;}
@@ -686,7 +674,6 @@ switch(FEAT_HOUSES,SELF, unique_worldwide, same_house_count_map) {0: pop_over_30
 random_switch(FEAT_HOUSES,SELF, random_preservation) {1: return 1; 7: return 0;}
 switch(FEAT_HOUSES,SELF, preservation3, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 0; return 1;}
 switch(FEAT_HOUSES,SELF, preservation2, other_house_count_town(38)) {1: preservation3; random_preservation;}
-switch(FEAT_HOUSES,SELF, preservation1, current_year) {0 .. 1945: return 0; preservation2;}
 
 switch(FEAT_HOUSES,SELF, preservation_1960, current_year) {0 .. 1960: return 0; preservation2;}
 switch(FEAT_HOUSES,SELF, preservation_1955, current_year) {0 .. 1955: return 0; preservation2;}
@@ -696,7 +683,226 @@ switch(FEAT_HOUSES,SELF, preservation_1945, current_year) {0 .. 1945: return 0; 
 switch(FEAT_HOUSES, SELF, protection_historic_square, nearby_tile_class(0,-1)) {3: return 1; return 0;}
 
 // End Switches
+// Begin Waste Switches
 
+/* 
+Waste is only active when a supported version (version 8 or later) of Improved Town Industries is active with the Waste & Recyclables parameter active.
+
+The parameter to enable waste, as well as the WSTE and RCYC cargo definitions, are in Improved Town Industries.
+
+Improved Town Industries also has an error message in case Improved Town Layouts is not loaded or too old, or if OpenTTD is not 1.10.0 or better.
+
+No waste-related error messages are required or included in Improved Town Layouts (although there are a few other error messages in header.nml).
+*/
+
+/* Average monthly production of passengers or mail, based on vanilla population or mail_multiplier properties:
+
+--------------------------------------
+Population       Avg. passengers/month
+--------------------------------------
+1 to 8           -->    1
+9 to 16          -->    2
+17 to 24         -->    3
+25 to 32         -->    4
+33 to 40         -->    5
+41 to 48         -->    6
+49 to 56         -->    7
+57 to 64         -->    8
+65 to 72         -->    9
+73 to 80         -->    10
+81 to 88         -->    11
+89 to 96         -->    12
+97 to 104        -->    13
+105 to 112       -->    14
+113 to 120       -->    15
+121 to 128       -->    16
+129 to 136       -->    17
+137 to 144       -->    18
+145 to 152       -->    19
+153 to 160       -->    20
+161 to 168       -->    21
+169 to 176       -->    22
+177 to 184       -->    23
+185 to 192       -->    24
+193 to 200       -->    25
+201 to 208       -->    26
+209 to 216       -->    27
+217 to 224       -->    28
+225 to 232       -->    29
+233 to 240       -->    30
+241 to 248       -->    31
+249 to 256       -->    32
+257 to 264       -->    33
+265 to 272       -->    34
+273 to 280       -->    35
+281 to 288       -->    36
+289 to 296       -->    37
+*/
+
+/* Waste production per month:
+
+- Residential: 							Min 1 ton, max 1/10 ton per person (rounded up)
+- Commercial (including landmarks):		Min 1 ton, max 1/8 ton per person (rounded up)
+
+*/
+
+
+
+/* Production loop, shared by all houses. Individual production rates stored in temporary registers in the functions below.*/
+switch (FEAT_HOUSES, SELF, switch_alt_production, getbits(extra_callback_info1, 0, 8)) {
+	0: (PASS * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(1);
+	1: (MAIL * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(2);
+	2: (WSTE * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(3);
+	return CB_RESULT_HOUSE_NO_MORE_PRODUCTION;
+}
+
+/* Check for compatible version of Improved Town Industries, with Waste parameter active. Year must be at least 1882, when the Power Plant is invented. If not, return 0 to use population and mail_multiplier for generation. */
+switch (FEAT_HOUSES, SELF, switch_recycle_enabled, param["TT\04\01", 254] >= 8 && param["TT\04\01", 5] == 1 && current_year >= 1882) {
+	1: switch_alt_production; return 0;}
+
+
+/* Production levels for each house are set below and stored in temporary registers, to be read by the production loop above. */
+
+/* Residential */
+/* Waste = min 1, max 1/6 per person (rounded up) */
+
+/* House */
+switch (FEAT_HOUSES, SELF, switch_recycle_house, [STORE_TEMP(2, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Old Houses */
+switch (FEAT_HOUSES, SELF, switch_recycle_old_house, [STORE_TEMP(1, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Townhouses */
+switch (FEAT_HOUSES, SELF, switch_recycle_townhouses, [STORE_TEMP(4, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Flats */
+switch (FEAT_HOUSES, SELF, switch_recycle_flats, [STORE_TEMP(13, 1), STORE_TEMP(4, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Small Flats */
+switch (FEAT_HOUSES, SELF, switch_recycle_small_flats, [STORE_TEMP(5, 1), STORE_TEMP(2, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Commercial */
+/* Waste = min 1, max 1/4 per person (rounded up) */
+
+switch (FEAT_HOUSES, SELF, switch_recycle_office_19, [STORE_TEMP(14, 1), STORE_TEMP(9, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+switch (FEAT_HOUSES, SELF, switch_recycle_office_00, [STORE_TEMP(24, 1), STORE_TEMP(10, 2), STORE_TEMP(3, 3), 1]) {
+	switch_recycle_enabled;
+}
+// offices 28, 30, 17 (capsule tower), 52, 50, 90 use the same stats as 00
+
+switch (FEAT_HOUSES, SELF, switch_recycle_office_04, [STORE_TEMP(28, 1), STORE_TEMP(12, 2), STORE_TEMP(3, 3), 1]) {
+	switch_recycle_enabled;
+}
+// offices 54, 74, 87, uses same stats as 04
+
+switch (FEAT_HOUSES, SELF, switch_recycle_office_01, [STORE_TEMP(11, 1), STORE_TEMP(9, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+switch (FEAT_HOUSES, SELF, switch_recycle_office_13, [STORE_TEMP(19, 1), STORE_TEMP(10, 2), STORE_TEMP(3, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Historic Commercial */
+/* Waste = min 1, max 1/4 per person (rounded up) */
+
+switch (FEAT_HOUSES, SELF, switch_recycle_historic_64, [STORE_TEMP(6, 1), STORE_TEMP(6, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+switch (FEAT_HOUSES, SELF, switch_recycle_historic_29, [STORE_TEMP(7, 1), STORE_TEMP(5, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+// historic 16 uses same stats as 29
+
+switch (FEAT_HOUSES, SELF, switch_recycle_historic_14, [STORE_TEMP(4, 1), STORE_TEMP(6, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+// historic 15 uses same stats as 14
+
+/* Landmarks */
+/* Waste = min 1, max 1/4 per person (rounded up) */
+
+/* Churches */
+switch (FEAT_HOUSES, SELF, switch_recycle_churches, [STORE_TEMP(1, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Old Stadium */
+switch (FEAT_HOUSES, SELF, switch_recycle_old_stadium, [STORE_TEMP(9, 1), STORE_TEMP(0, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* New Stadium */
+switch (FEAT_HOUSES, SELF, switch_recycle_new_stadium, [STORE_TEMP(32, 1), STORE_TEMP(0, 2), STORE_TEMP(4, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Hotel */
+switch (FEAT_HOUSES, SELF, switch_recycle_hotel, [STORE_TEMP(18, 1), STORE_TEMP(2, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Cinema */
+switch (FEAT_HOUSES, SELF, switch_recycle_cinema, [STORE_TEMP(5, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Theatre */
+switch (FEAT_HOUSES, SELF, switch_recycle_theatre, [STORE_TEMP(5, 1), STORE_TEMP(2, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Market */
+switch (FEAT_HOUSES, SELF, switch_recycle_market, [STORE_TEMP(23, 1), STORE_TEMP(2, 2), STORE_TEMP(4, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Warehouse */
+switch (FEAT_HOUSES, SELF, switch_recycle_warehouse, [STORE_TEMP(1, 1), STORE_TEMP(13, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Stores */
+switch (FEAT_HOUSES, SELF, switch_recycle_stores, [STORE_TEMP(4, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Museum */
+switch (FEAT_HOUSES, SELF, switch_recycle_museum, [STORE_TEMP(32, 1), STORE_TEMP(3, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Courthouse */
+switch (FEAT_HOUSES, SELF, switch_recycle_courthouse, [STORE_TEMP(9, 1), STORE_TEMP(9, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* University */
+switch (FEAT_HOUSES, SELF, switch_recycle_university, [STORE_TEMP(32, 1), STORE_TEMP(9, 2), STORE_TEMP(3, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Spa */
+switch (FEAT_HOUSES, SELF, switch_recycle_spa, [STORE_TEMP(11, 1), STORE_TEMP(1, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+
+// End Waste Switches
 // Begin Residential
 
 // Houses
@@ -720,6 +926,7 @@ item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 	graphics {
 		default					:house_sprite_sloped;
 		construction_check		:townhouse_office_space_1;
+		cargo_production		:switch_recycle_house;
 	}
 }
 
@@ -741,6 +948,7 @@ item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
 		}
 	graphics {
 		default					:house_sprite_sloped;
+		cargo_production		:switch_recycle_old_house;
 		
 	}
 }
@@ -764,6 +972,7 @@ item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
 	graphics {
 		default					:random_sprite_townhouses;
 		construction_check		:townhouse_office_space_1;
+		cargo_production		:switch_recycle_townhouses;
 	}
 }
 
@@ -784,7 +993,7 @@ item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
 		}
 	graphics {
 		default					:random_sprite_townhouses;
-		
+		cargo_production		:switch_recycle_house;
 	}
 }
 
@@ -795,7 +1004,7 @@ item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 		name					:string(STR_NAME_FLATS);
 		override				:27;
 		population				:100;
-		mail_multiplier			:(improved_mail == 1) ? 3 : 35;
+		mail_multiplier			:(improved_mail == 1) ? 4 : 35;
 		accepted_cargos			:[[PASS, 8],[MAIL, 2]];
 		local_authority_impact	:100;
 		removal_cost_multiplier	:135;
@@ -807,6 +1016,7 @@ item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 	graphics {
 		default					:random_sprite_flats;
 		construction_check		:pass_service_check;
+		cargo_production		:switch_recycle_flats;
 	}
 }
 
@@ -829,6 +1039,7 @@ item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 	graphics {
 		default					:random_sprite_small_flats;
 		construction_check		:flats_office_space_1;
+		cargo_production		:switch_recycle_small_flats;
 	}
 }
 
@@ -850,7 +1061,6 @@ item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default					:sprite_cottages;
-		
 	}
 }
 
@@ -872,7 +1082,6 @@ item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default					:random_sprite_old_houses;
-		
 	}
 }
 
@@ -900,6 +1109,7 @@ item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_19;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_masonry;
+		cargo_production:		switch_recycle_office_19;
 	}
 }
 
@@ -923,6 +1133,7 @@ item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_00;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -946,6 +1157,7 @@ item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_28;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -970,6 +1182,7 @@ item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
 		default					:sprite_large_office_block;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_04;
 	}
 }
 
@@ -993,6 +1206,7 @@ item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
 		default					:sprite_office_block_01;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_masonry;
+		cargo_production:		switch_recycle_office_01;
 	}
 }
 
@@ -1016,6 +1230,7 @@ item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
 		default					:sprite_office_block_13;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_masonry;
+		cargo_production:		switch_recycle_office_13;
 	}
 }
 
@@ -1039,6 +1254,7 @@ item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
 		default					:sprite_shops_and_offices_30;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -1063,6 +1279,7 @@ item(FEAT_HOUSES, item_capsule_tower, 17, HOUSE_SIZE_1X1) {
 		default					:sprite_capsule_tower;
 		construction_check		:unique_worldwide;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -1086,6 +1303,7 @@ item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_52;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -1109,6 +1327,7 @@ item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_50;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -1132,29 +1351,7 @@ item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_54;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
-	}
-}
-
-item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
-	property {
-		substitute				:54;
-		name					:string(STR_NAME_OFFICE_BLOCK);
-		override				:54;
-		population				:210;
-		mail_multiplier			:(improved_mail == 1) ? 90 : 80;
-		accepted_cargos			:[[PASS, 8],[MAIL,8]];
-		local_authority_impact	:140;
-		removal_cost_multiplier	:200;
-		probability				:1;
-		years_available			:[1974,9999];
-		minimum_lifetime		:5;
-		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:2;
-	}
-	graphics {
-		default					:sprite_tall_office_block_54;
-		construction_check		:modern_office_pop_check;
-		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_04;
 	}
 }
 
@@ -1178,6 +1375,7 @@ item(FEAT_HOUSES, item_tall_office_block_90, 90, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_90;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -1203,6 +1401,7 @@ item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
 		graphics_north			:sprite_tall_office_block_74_N;
 		graphics_west			:sprite_tall_office_block_74_W;
 		construction_check		:if_road_SE_office;
+		cargo_production:		switch_recycle_office_04;
 	}
 }
 
@@ -1227,6 +1426,8 @@ item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
 		graphics_north			:sprite_tall_office_block_87_N;
 		graphics_west			:sprite_tall_office_block_87_W;
 		construction_check		:modern_office_pop_check;
+		cargo_production:		switch_recycle_office_04;
+		
 	}
 }
 
@@ -1253,6 +1454,7 @@ item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
 		protection				:preservation_1955;
+		cargo_production		:switch_recycle_historic_64;
 	}
 }
 
@@ -1277,6 +1479,7 @@ item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
 		protection				:preservation_1955;
+		cargo_production		:switch_recycle_historic_29;
 	}
 }
 
@@ -1301,6 +1504,7 @@ item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
 		protection				:preservation_1945;
+		cargo_production		:switch_recycle_historic_14;
 	}
 }
 
@@ -1325,6 +1529,7 @@ item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
 		protection				:preservation_1960;
+		cargo_production		:switch_recycle_historic_14; // share with 15
 	}
 }
 
@@ -1349,6 +1554,7 @@ item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) { // Colorful r
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
 		protection				:preservation_1955;
+		cargo_production		:switch_recycle_historic_29; // share with 29
 	}
 }
 
@@ -1374,6 +1580,7 @@ item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 	graphics {
 		default					:sprite_church;
 		construction_check		:if_road_SE;
+		cargo_production		:switch_recycle_churches;
 	}
 }
 
@@ -1397,6 +1604,7 @@ item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 		default					:sprite_church;
 		construction_check		:unique_building_town_road_SE;
 		protection				:random_preservation;
+		cargo_production		:switch_recycle_churches;
 	}
 }
 
@@ -1420,6 +1628,7 @@ item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 		default					:sprite_modern_church_1;
 		construction_check		:unique_building_town_road_SE;
 		protection				:random_preservation;
+		cargo_production		:switch_recycle_churches;
 	}
 }
 
@@ -1443,6 +1652,7 @@ item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 		default					:sprite_modern_church_2;
 		construction_check		:unique_building_town_road_SW;
 		protection				:random_preservation;
+		cargo_production		:switch_recycle_churches;
 	}
 }
 
@@ -1467,6 +1677,7 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 		default					:sprite_neomoorish_church;
 		construction_check		:unique_building_town_road_SW;
 		protection				:random_preservation;
+		cargo_production		:switch_recycle_churches;
 	}
 }}
 
@@ -1476,6 +1687,7 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		substitute				:20;
 		name					:string(STR_NAME_OLD_STADIUM);
 		override				:20;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:65;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
@@ -1492,7 +1704,7 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		graphics_west			:sprite_old_stadium_W;
 		graphics_south			:sprite_old_stadium_S;
 		construction_check		:old_stadium_prob_1;
-		protection				:stadium_beer_service_check;
+		cargo_production		:switch_recycle_old_stadium;
 	}
 }
 
@@ -1502,6 +1714,7 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		substitute				:40;
 		name					:string(STR_NAME_NEW_STADIUM);
 		override				:32;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:255;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 8],[FOOD, 8],[BEER, 8]];
@@ -1518,7 +1731,7 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		graphics_west			:sprite_new_stadium_W;
 		graphics_south			:sprite_new_stadium_S;
 		construction_check		:new_stadium_prob;
-		protection				:stadium_beer_service_check;
+		cargo_production		:switch_recycle_new_stadium;
 	}
 }
 
@@ -1547,6 +1760,7 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 		graphics_east			:sprite_hotel_E;
 		construction_check		:hotel_check_1;
 		protection				:pass_service_check;
+		cargo_production		:switch_recycle_hotel;
 	}
 }
 
@@ -1570,6 +1784,7 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 	graphics {
 		default					:sprite_cinema;
 		construction_check		:distance_cinema_4_cinema;
+		cargo_production		:switch_recycle_cinema;
 	}
 }
 
@@ -1593,6 +1808,7 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 	graphics {
 		default					:sprite_theatre;
 		construction_check		:distance_theatre_4_theatre;
+		cargo_production		:switch_recycle_theatre;
 	}
 }
 
@@ -1602,6 +1818,7 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		substitute				:40;
 		name					:string(STR_NAME_MARKET);
 		override				:40;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:180;
 		mail_multiplier			:(improved_mail == 1) ? 10 : 5;
 		accepted_cargos			:[[PASS, 8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
@@ -1619,7 +1836,7 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		graphics_west			:sprite_shopping_mall_W;
 		graphics_south			:sprite_shopping_mall_S;
 		construction_check		:unique_building_town;
-		protection				:food_service_check;
+		cargo_production		:switch_recycle_market;
 	}
 }
 
@@ -1646,6 +1863,7 @@ item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 		default					:random_sprite_warehouse;
 		construction_check		:distance_same_class_within_2;
 		protection				:goods_service_check;
+		cargo_production		:switch_recycle_warehouse;
 	}
 }} else {
 item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
@@ -1668,6 +1886,7 @@ item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 		default					:sprite_warehouse;
 		construction_check		:distance_same_class_within_2;
 		protection				:goods_service_check;
+		cargo_production		:switch_recycle_warehouse;
 	}}
 }
 
@@ -1741,6 +1960,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 		default					:sprite_shop;
 		construction_check		:unique_building_town;
 		protection				:food_service_check;
+		cargo_production		:switch_recycle_stores;
 	}
 }
 
@@ -1794,6 +2014,7 @@ item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 		substitute				:16;
 		name					:string(STR_NAME_MUSEUM);
 		override				:16;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:255;
 		mail_multiplier			:20;
 		accepted_cargos			:[[PASS, 8],[MAIL, 4]];
@@ -1807,7 +2028,7 @@ item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 	graphics {
 		default					:sprite_museum;
 		construction_check		:check_museum_shore_SE;
-		protection				:pass_service_check;
+		cargo_production		:switch_recycle_museum;
 	}
 }
 
@@ -1818,6 +2039,7 @@ item(FEAT_HOUSES, item_courthouse, 104, HOUSE_SIZE_2X1){
 		substitute				:74;
 		name					:string(STR_NAME_COURTHOUSE);
 		override				:74;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:65;
 		mail_multiplier			:70;
 		accepted_cargos			:[[PASS, 8],[MAIL, 8]];
@@ -1832,7 +2054,7 @@ item(FEAT_HOUSES, item_courthouse, 104, HOUSE_SIZE_2X1){
 		graphics_north			:sprite_courthouse_n;
 		graphics_west			:sprite_courthouse_w;
 		construction_check		:if_road_SE_university;
-		protection				:pass_service_check;
+		cargo_production		:switch_recycle_courthouse;
 	}
 }
 
@@ -1841,6 +2063,7 @@ item(FEAT_HOUSES, item_university, 106, HOUSE_SIZE_2X1){
 		substitute				:74;
 		name					:string(STR_NAME_UNIVERSITY);
 		override				:74;
+		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:255;
 		mail_multiplier			:70;
 		accepted_cargos			:[[PASS, 8],[MAIL, 8]];
@@ -1855,7 +2078,7 @@ item(FEAT_HOUSES, item_university, 106, HOUSE_SIZE_2X1){
 		graphics_north			:sprite_university_n;
 		graphics_west			:sprite_university_w;
 		construction_check		:if_road_SE_university;
-		protection				:pass_service_check;
+		cargo_production		:switch_recycle_university;
 	}
 }
 }
@@ -1882,6 +2105,7 @@ item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
 		graphics_east			:sprite_spa_e;
 		construction_check		:hotel_check_1;
 		protection				:pass_service_check;
+		cargo_production		:switch_recycle_spa;
 	}
 }
 }

@@ -1,0 +1,220 @@
+// Begin Waste Switches
+
+/* 
+Waste is only active when a supported version (version 8 or later) of Improved Town Industries is active with the Waste & Recyclables parameter active.
+
+The parameter to enable waste, as well as the WSTE and RCYC cargo definitions, are in Improved Town Industries.
+
+Improved Town Industries also has an error message in case Improved Town Layouts is not loaded or too old, or if OpenTTD is not 1.10.0 or better.
+
+No waste-related error messages are required or included in Improved Town Layouts (although there are a few other error messages in header.nml).
+*/
+
+/* Average monthly production of passengers or mail, based on vanilla population or mail_multiplier properties:
+
+--------------------------------------
+Population       Avg. passengers/month
+--------------------------------------
+1 to 8           -->    1
+9 to 16          -->    2
+17 to 24         -->    3
+25 to 32         -->    4
+33 to 40         -->    5
+41 to 48         -->    6
+49 to 56         -->    7
+57 to 64         -->    8
+65 to 72         -->    9
+73 to 80         -->    10
+81 to 88         -->    11
+89 to 96         -->    12
+97 to 104        -->    13
+105 to 112       -->    14
+113 to 120       -->    15
+121 to 128       -->    16
+129 to 136       -->    17
+137 to 144       -->    18
+145 to 152       -->    19
+153 to 160       -->    20
+161 to 168       -->    21
+169 to 176       -->    22
+177 to 184       -->    23
+185 to 192       -->    24
+193 to 200       -->    25
+201 to 208       -->    26
+209 to 216       -->    27
+217 to 224       -->    28
+225 to 232       -->    29
+233 to 240       -->    30
+241 to 248       -->    31
+249 to 256       -->    32
+257 to 264       -->    33
+265 to 272       -->    34
+273 to 280       -->    35
+281 to 288       -->    36
+289 to 296       -->    37
+*/
+
+/* Waste production per month:
+
+- Residential: 							Min 1 ton, max 1/10 ton per person (rounded up)
+- Commercial (including landmarks):		Min 1 ton, max 1/8 ton per person (rounded up)
+
+*/
+
+
+
+/* Production loop, shared by all houses. Individual production rates stored in temporary registers in the functions below.*/
+switch (FEAT_HOUSES, SELF, switch_alt_production, getbits(extra_callback_info1, 0, 8)) {
+	0: (PASS * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(1);
+	1: (MAIL * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(2);
+	2: (WSTE * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(3);
+	return CB_RESULT_HOUSE_NO_MORE_PRODUCTION;
+}
+
+/* Check for compatible version of Improved Town Industries, with Waste parameter active. Year must be at least 1882, when the Power Plant is invented. If not, return 0 to use population and mail_multiplier for generation. */
+switch (FEAT_HOUSES, SELF, switch_recycle_enabled, param["TT\04\01", 254] >= 8 && param["TT\04\01", 5] == 1 && current_year >= 1882) {
+	1: switch_alt_production; return 0;}
+
+
+/* Production levels for each house are set below and stored in temporary registers, to be read by the production loop above. */
+
+/* Residential */
+/* Waste = min 1, max 1/6 per person (rounded up) */
+
+/* House */
+switch (FEAT_HOUSES, SELF, switch_recycle_house, [STORE_TEMP(2, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Old Houses */
+switch (FEAT_HOUSES, SELF, switch_recycle_old_house, [STORE_TEMP(1, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Townhouses */
+switch (FEAT_HOUSES, SELF, switch_recycle_townhouses, [STORE_TEMP(4, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Flats */
+switch (FEAT_HOUSES, SELF, switch_recycle_flats, [STORE_TEMP(13, 1), STORE_TEMP(4, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Small Flats */
+switch (FEAT_HOUSES, SELF, switch_recycle_small_flats, [STORE_TEMP(5, 1), STORE_TEMP(2, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Commercial */
+/* Waste = min 1, max 1/4 per person (rounded up) */
+
+switch (FEAT_HOUSES, SELF, switch_recycle_office_19, [STORE_TEMP(14, 1), STORE_TEMP(9, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+switch (FEAT_HOUSES, SELF, switch_recycle_office_00, [STORE_TEMP(24, 1), STORE_TEMP(10, 2), STORE_TEMP(3, 3), 1]) {
+	switch_recycle_enabled;
+}
+// offices 28, 30, 17 (capsule tower), 52, 50, 90 use the same stats as 00
+
+switch (FEAT_HOUSES, SELF, switch_recycle_office_04, [STORE_TEMP(28, 1), STORE_TEMP(12, 2), STORE_TEMP(3, 3), 1]) {
+	switch_recycle_enabled;
+}
+// offices 54, 74, 87, uses same stats as 04
+
+switch (FEAT_HOUSES, SELF, switch_recycle_office_01, [STORE_TEMP(11, 1), STORE_TEMP(9, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+switch (FEAT_HOUSES, SELF, switch_recycle_office_13, [STORE_TEMP(19, 1), STORE_TEMP(10, 2), STORE_TEMP(3, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Historic Commercial */
+/* Waste = min 1, max 1/4 per person (rounded up) */
+
+switch (FEAT_HOUSES, SELF, switch_recycle_historic_64, [STORE_TEMP(6, 1), STORE_TEMP(6, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+switch (FEAT_HOUSES, SELF, switch_recycle_historic_29, [STORE_TEMP(7, 1), STORE_TEMP(5, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+// historic 16 uses same stats as 29
+
+switch (FEAT_HOUSES, SELF, switch_recycle_historic_14, [STORE_TEMP(4, 1), STORE_TEMP(6, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+// historic 15 uses same stats as 14
+
+/* Landmarks */
+/* Waste = min 1, max 1/4 per person (rounded up) */
+
+/* Churches */
+switch (FEAT_HOUSES, SELF, switch_recycle_churches, [STORE_TEMP(1, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Old Stadium */
+switch (FEAT_HOUSES, SELF, switch_recycle_old_stadium, [STORE_TEMP(9, 1), STORE_TEMP(0, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* New Stadium */
+switch (FEAT_HOUSES, SELF, switch_recycle_new_stadium, [STORE_TEMP(32, 1), STORE_TEMP(0, 2), STORE_TEMP(4, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Hotel */
+switch (FEAT_HOUSES, SELF, switch_recycle_hotel, [STORE_TEMP(18, 1), STORE_TEMP(2, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Cinema */
+switch (FEAT_HOUSES, SELF, switch_recycle_cinema, [STORE_TEMP(5, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Theatre */
+switch (FEAT_HOUSES, SELF, switch_recycle_theatre, [STORE_TEMP(5, 1), STORE_TEMP(2, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Market */
+switch (FEAT_HOUSES, SELF, switch_recycle_market, [STORE_TEMP(23, 1), STORE_TEMP(2, 2), STORE_TEMP(4, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Warehouse */
+switch (FEAT_HOUSES, SELF, switch_recycle_warehouse, [STORE_TEMP(1, 1), STORE_TEMP(13, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Stores */
+switch (FEAT_HOUSES, SELF, switch_recycle_stores, [STORE_TEMP(4, 1), STORE_TEMP(1, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Museum */
+switch (FEAT_HOUSES, SELF, switch_recycle_museum, [STORE_TEMP(32, 1), STORE_TEMP(3, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Courthouse */
+switch (FEAT_HOUSES, SELF, switch_recycle_courthouse, [STORE_TEMP(9, 1), STORE_TEMP(9, 2), STORE_TEMP(1, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* University */
+switch (FEAT_HOUSES, SELF, switch_recycle_university, [STORE_TEMP(32, 1), STORE_TEMP(9, 2), STORE_TEMP(3, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+/* Spa */
+switch (FEAT_HOUSES, SELF, switch_recycle_spa, [STORE_TEMP(11, 1), STORE_TEMP(1, 2), STORE_TEMP(2, 3), 1]) {
+	switch_recycle_enabled;
+}
+
+
+// End Waste Switches

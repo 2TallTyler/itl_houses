@@ -20,6 +20,7 @@ item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_19;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_masonry;
+		cargo_production:		switch_recycle_office_19;
 	}
 }
 
@@ -43,6 +44,7 @@ item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_00;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -66,6 +68,7 @@ item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_28;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -90,6 +93,7 @@ item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
 		default					:sprite_large_office_block;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_04;
 	}
 }
 
@@ -113,6 +117,7 @@ item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
 		default					:sprite_office_block_01;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_masonry;
+		cargo_production:		switch_recycle_office_01;
 	}
 }
 
@@ -136,6 +141,7 @@ item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
 		default					:sprite_office_block_13;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_masonry;
+		cargo_production:		switch_recycle_office_13;
 	}
 }
 
@@ -159,6 +165,7 @@ item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
 		default					:sprite_shops_and_offices_30;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -183,6 +190,7 @@ item(FEAT_HOUSES, item_capsule_tower, 17, HOUSE_SIZE_1X1) {
 		default					:sprite_capsule_tower;
 		construction_check		:unique_worldwide;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -206,6 +214,7 @@ item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_52;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -229,6 +238,7 @@ item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_50;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -252,29 +262,7 @@ item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_54;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
-	}
-}
-
-item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
-	property {
-		substitute				:54;
-		name					:string(STR_NAME_OFFICE_BLOCK);
-		override				:54;
-		population				:210;
-		mail_multiplier			:(improved_mail == 1) ? 90 : 80;
-		accepted_cargos			:[[PASS, 8],[MAIL,8]];
-		local_authority_impact	:140;
-		removal_cost_multiplier	:200;
-		probability				:1;
-		years_available			:[1974,9999];
-		minimum_lifetime		:5;
-		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class			:2;
-	}
-	graphics {
-		default					:sprite_tall_office_block_54;
-		construction_check		:modern_office_pop_check;
-		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_04;
 	}
 }
 
@@ -298,6 +286,7 @@ item(FEAT_HOUSES, item_tall_office_block_90, 90, HOUSE_SIZE_1X1) {
 		default					:sprite_tall_office_block_90;
 		construction_check		:modern_office_pop_check;
 		colour					:random_colour_offices;
+		cargo_production:		switch_recycle_office_00;
 	}
 }
 
@@ -323,6 +312,7 @@ item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
 		graphics_north			:sprite_tall_office_block_74_N;
 		graphics_west			:sprite_tall_office_block_74_W;
 		construction_check		:if_road_SE_office;
+		cargo_production:		switch_recycle_office_04;
 	}
 }
 
@@ -347,6 +337,8 @@ item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
 		graphics_north			:sprite_tall_office_block_87_N;
 		graphics_west			:sprite_tall_office_block_87_W;
 		construction_check		:modern_office_pop_check;
+		cargo_production:		switch_recycle_office_04;
+		
 	}
 }
 
@@ -373,6 +365,7 @@ item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
 		protection				:preservation_1955;
+		cargo_production		:switch_recycle_historic_64;
 	}
 }
 
@@ -397,6 +390,7 @@ item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
 		protection				:preservation_1955;
+		cargo_production		:switch_recycle_historic_29;
 	}
 }
 
@@ -421,6 +415,7 @@ item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
 		protection				:preservation_1945;
+		cargo_production		:switch_recycle_historic_14;
 	}
 }
 
@@ -445,6 +440,7 @@ item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
 		protection				:preservation_1960;
+		cargo_production		:switch_recycle_historic_14; // share with 15
 	}
 }
 
@@ -469,6 +465,7 @@ item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) { // Colorful r
 		construction_check		:old_office_pop_check;
 		colour					:random_colour_masonry;
 		protection				:preservation_1955;
+		cargo_production		:switch_recycle_historic_29; // share with 29
 	}
 }
 
