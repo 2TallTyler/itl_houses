@@ -12,7 +12,7 @@ item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 		local_authority_impact	:230;
 		removal_cost_multiplier	:90;
 		probability				:4;
-		years_available			:[1700,9999];
+		years_available			:[1700,0xFFFF];
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		}
 	graphics {
@@ -35,7 +35,7 @@ item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 		local_authority_impact	:230;
 		removal_cost_multiplier	:90;
 		probability				:6;
-		years_available			:[1700,9999];
+		years_available			:[1700,0xFFFF];
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		}
 	graphics {
@@ -59,7 +59,7 @@ item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 		local_authority_impact	:230;
 		removal_cost_multiplier	:85;
 		probability				:1;
-		years_available			:[1960,9999];
+		years_available			:[1960,0xFFFF];
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		}
 	graphics {
@@ -83,7 +83,7 @@ item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 		local_authority_impact	:230;
 		removal_cost_multiplier	:85;
 		probability				:1;
-		years_available			:[1970,9999];
+		years_available			:[1970,0xFFFF];
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		}
 	graphics {
@@ -132,7 +132,7 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		local_authority_impact	:300;
 		removal_cost_multiplier	:250;
 		probability				:4;
-		years_available			:[1800,9999];
+		years_available			:[1800,0xFFFF];
 		minimum_lifetime		:10;
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		}
@@ -159,7 +159,7 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		local_authority_impact	:300;
 		removal_cost_multiplier	:250;
 		probability				:4;
-		years_available			:[1958,9999];
+		years_available			:[1958,0xFFFF];
 		minimum_lifetime		:20;
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		}
@@ -189,7 +189,7 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 		local_authority_impact	:150;
 		removal_cost_multiplier	:180;
 		probability				:4;
-		years_available			:[1900,9999];
+		years_available			:[1900,0xFFFF];
 		minimum_lifetime		:20;
 		availability_mask		:[bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		}
@@ -215,7 +215,7 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 		local_authority_impact	:230;
 		removal_cost_multiplier	:210;
 		probability				:1;
-		years_available			:[1945,9999];
+		years_available			:[1945,0xFFFF];
 		minimum_lifetime		:20;
 		availability_mask		:[bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		}
@@ -239,7 +239,7 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 		local_authority_impact	:230;
 		removal_cost_multiplier	:220;
 		probability				:1;
-		years_available			:[1900,9999];
+		years_available			:[1900,0xFFFF];
 		minimum_lifetime		:20;
 		availability_mask		:[bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		}
@@ -263,7 +263,7 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		local_authority_impact	:300;
 		removal_cost_multiplier	:250;
 		probability				:1;
-		years_available			:[1900,9999];
+		years_available			:[1900,0xFFFF];
 		minimum_lifetime		:3;
 		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:0;
@@ -292,7 +292,7 @@ item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 		local_authority_impact	:110;
 		removal_cost_multiplier	:145;
 		probability				:1;
-		years_available			:[1930,9999];
+		years_available			:[1930,0xFFFF];
 		minimum_lifetime		:4;
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:0;
@@ -315,7 +315,7 @@ item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 		local_authority_impact	:110;
 		removal_cost_multiplier	:145;
 		probability				:1;
-		years_available			:[1930,9999];
+		years_available			:[1930,0xFFFF];
 		minimum_lifetime		:4;
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:0;
@@ -341,7 +341,7 @@ item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 		local_authority_impact	:50;
 		removal_cost_multiplier	:65;
 		probability				:1;
-		years_available			:[1700,9999];
+		years_available			:[1700,0xFFFF];
 		minimum_lifetime		:20;
 		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:0;
@@ -365,7 +365,7 @@ item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 		local_authority_impact	:50;
 		removal_cost_multiplier	:65;
 		probability				:1;
-		years_available			:[1700,9999];
+		years_available			:[1700,0xFFFF];
 		minimum_lifetime		:20;
 		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:0;
@@ -389,7 +389,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 		local_authority_impact	:80;
 		removal_cost_multiplier	:100;
 		probability				:15;
-		years_available			:[1700,9999];
+		years_available			:[1700,0xFFFF];
 		minimum_lifetime		:5;
 		availability_mask		:[bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:0;
@@ -413,7 +413,7 @@ item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 		local_authority_impact	:75;
 		removal_cost_multiplier	:60;
 		probability				:1;
-		years_available			:[1700,9999];
+		years_available			:[1700,0xFFFF];
 		minimum_lifetime		:5;
 		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:1;
@@ -435,7 +435,7 @@ item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
 		local_authority_impact	:75;
 		removal_cost_multiplier	:60;
 		probability				:2;
-		years_available			:[1700,9999];
+		years_available			:[1700,0xFFFF];
 		minimum_lifetime		:5;
 		availability_mask		:[ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		building_class			:1;
@@ -459,7 +459,7 @@ item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 		local_authority_impact	:250;
 		removal_cost_multiplier	:200;
 		probability				:1;
-		years_available			:[1950,9999];
+		years_available			:[1950,0xFFFF];
 		minimum_lifetime		:10;
 		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 	}
@@ -484,7 +484,7 @@ item(FEAT_HOUSES, item_courthouse, 104, HOUSE_SIZE_2X1){
 		local_authority_impact	:300;
 		removal_cost_multiplier	:250;
 		probability				:1;
-		years_available			:[1850,9999];
+		years_available			:[1850,0xFFFF];
 		minimum_lifetime		:100;
 		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 	}
@@ -508,7 +508,7 @@ item(FEAT_HOUSES, item_university, 106, HOUSE_SIZE_2X1){
 		local_authority_impact	:300;
 		removal_cost_multiplier	:250;
 		probability				:1;
-		years_available			:[1700,9999];
+		years_available			:[1700,0xFFFF];
 		minimum_lifetime		:100;
 		availability_mask		:[bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 	}
@@ -535,7 +535,7 @@ item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
 		local_authority_impact	:200;
 		removal_cost_multiplier	:150;
 		probability				:1;
-		years_available			:[1880,9999];
+		years_available			:[1880,0xFFFF];
 		minimum_lifetime		:10;
 		availability_mask		:[ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 	}
