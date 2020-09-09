@@ -61,6 +61,6 @@ if (version_openttd(1,10,0,28004) > openttd_version) {
 	error(FATAL, string(STR_ERROR_GAME_VERSION));
 }
 
-disable_item(FEAT_HOUSES, 0, 109);
+disable_item(FEAT_HOUSES);
 
 // End Header

@@ -61,7 +61,7 @@ if (version_openttd(1,10,0,28004) > openttd_version) {
 	error(FATAL, string(STR_ERROR_GAME_VERSION));
 }
 
-disable_item(FEAT_HOUSES, 0, 109);
+disable_item(FEAT_HOUSES);
 
 // End Header
 
@@ -920,7 +920,6 @@ item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 	property {
 		substitute				:26;
 		name					:string(STR_NAME_HOUSES);
-		override				:26;
 		population				:13;
 		mail_multiplier			:(improved_mail == 1) ? 1 : 8;
 		accepted_cargos			:[[PASS, 3],[MAIL, 1]];
@@ -944,7 +943,6 @@ item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
 	property {
 		substitute				:26;
 		name					:string(STR_NAME_HOUSES);
-		override				:26;
 		population				:(param_improved_early_houses == 1) ? 6 : 13;
 		mail_multiplier			:(improved_mail == 1) ? 1 : 8;
 		accepted_cargos			:[[PASS, 3],[MAIL, 1],[COAL, 1]];
@@ -968,7 +966,6 @@ item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
 	property {
 		substitute				:06;
 		name					:string(STR_NAME_TOWNHOUSES);
-		override				:06;
 		population				:30;
 		mail_multiplier			:(improved_mail == 1) ? 1 : 12;
 		accepted_cargos			:[[PASS, 4],[MAIL, 2]];
@@ -990,7 +987,6 @@ item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
 	property {
 		substitute				:06;
 		name					:string(STR_NAME_TOWNHOUSES);
-		override				:06;
 		population				:(param_improved_early_houses == 1) ? 15 : 30;
 		mail_multiplier			:(improved_mail == 1) ? 1 : 12;
 		accepted_cargos			:[[PASS, 4],[MAIL, 2],[COAL, 2]];
@@ -1012,7 +1008,6 @@ item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 	property {
 		substitute				:27;
 		name					:string(STR_NAME_FLATS);
-		override				:27;
 		population				:100;
 		mail_multiplier			:(improved_mail == 1) ? 4 : 35;
 		accepted_cargos			:[[PASS, 8],[MAIL, 2]];
@@ -1035,7 +1030,6 @@ item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 	property {
 		substitute				:02;
 		name					:string(STR_NAME_SMALL_FLATS);
-		override				:02;
 		population				:40;
 		mail_multiplier			:(improved_mail == 1) ? 2 : 20;
 		accepted_cargos			:[[PASS, 8],[MAIL, 3]];
@@ -1057,7 +1051,6 @@ item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:25;
 		name					:string(STR_NAME_COTTAGES);
-		override				:25;
 		population				:(param_improved_early_houses == 1) ? 3 : 12;
 		mail_multiplier			:(improved_mail == 1) ? 1 : 7;
 		accepted_cargos			:[[PASS, 2],[MAIL, 2],[COAL, 1],[WOOD, 1]];
@@ -1078,7 +1071,6 @@ item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:24;
 		name					:string(STR_NAME_HOUSES);
-		override				:24;
 		population				:(param_improved_early_houses == 1) ? 4 : 15;
 		mail_multiplier			:(improved_mail == 1) ? 1 : 6;
 		accepted_cargos			:[[PASS, 2],[MAIL, 2],[COAL, 2],[WOOD, 2]];
@@ -1103,7 +1095,6 @@ item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:19;
 		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
-		override				:19;
 		population				:110;
 		mail_multiplier			:(improved_mail == 1) ? 65 : 55;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1127,7 +1118,6 @@ item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:00;
 		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
-		override				:00;
 		population				:187;
 		mail_multiplier			:(improved_mail == 1) ? 80 : 70;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1151,7 +1141,6 @@ item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:28;
 		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
-		override				:28;
 		population				:170;
 		mail_multiplier			:(improved_mail == 1) ? 60 : 50;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1175,7 +1164,6 @@ item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:04;
 		name					:string(STR_NAME_LARGE_OFFICE_BLOCK);
-		override				:04;
 		building_flags			:bitmask(HOUSE_FLAG_ANIMATE);
 		population				:220;
 		mail_multiplier			:(improved_mail == 1) ? 95 : 85;
@@ -1200,7 +1188,6 @@ item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:01;
 		name					:string(STR_NAME_OFFICE_BLOCK);
-		override				:01;
 		population				:85;
 		mail_multiplier			:(improved_mail == 1) ? 65 : 55;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1224,7 +1211,6 @@ item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:13;
 		name					:string(STR_NAME_OFFICE_BLOCK);
-		override				:13;
 		population				:150;
 		mail_multiplier			:(improved_mail == 1) ? 75 : 65;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1248,7 +1234,6 @@ item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:30;
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
-		override				:30;
 		population				:180;
 		mail_multiplier			:(improved_mail == 1) ? 74 : 64;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
@@ -1273,7 +1258,6 @@ item(FEAT_HOUSES, item_capsule_tower, 17, HOUSE_SIZE_1X1) {
 		substitute				:17;
 		name					:string(STR_NAME_CAPSULE_TOWER);
 		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
-		override				:17;
 		population				:130;
 		mail_multiplier			:(improved_mail == 1) ? 60 : 50;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1297,7 +1281,6 @@ item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:52;
 		name					:string(STR_NAME_OFFICE_BLOCK);
-		override				:52;
 		population				:170;
 		mail_multiplier			:(improved_mail == 1) ? 80 : 70;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1321,7 +1304,6 @@ item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:50;
 		name					:string(STR_NAME_OFFICE_BLOCK);
-		override				:50;
 		population				:135;
 		mail_multiplier			:(improved_mail == 1) ? 70 : 60;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1345,7 +1327,6 @@ item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:54;
 		name					:string(STR_NAME_OFFICE_BLOCK);
-		override				:54;
 		population				:210;
 		mail_multiplier			:(improved_mail == 1) ? 90 : 80;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1369,7 +1350,6 @@ item(FEAT_HOUSES, item_tall_office_block_90, 90, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:90;
 		name					:string(STR_NAME_OFFICE_BLOCK);
-		override				:90;
 		population				:180;
 		mail_multiplier			:(improved_mail == 1) ? 100 : 90;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1394,8 +1374,6 @@ item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
 	property {
 		substitute				:74;
 		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
-		override				:74;
-		override				:76;
 		population				:250;
 		mail_multiplier			:(improved_mail == 1) ? 70 : 60;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1420,7 +1398,6 @@ item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
 	property {
 		substitute				:87;
 		name					:string(STR_NAME_TALL_OFFICE_BLOCK);
-		override				:87;
 		population				:250;
 		mail_multiplier			:(improved_mail == 1) ? 90 : 80;
 		accepted_cargos			:[[PASS, 8],[MAIL,8]];
@@ -1447,7 +1424,6 @@ item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:64;
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
-		override				:64;
 		population				:(param_improved_early_houses == 1) ? 45 : 90;
 		mail_multiplier			:45;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
@@ -1472,7 +1448,6 @@ item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:29;
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
-		override				:29;
 		population				:(param_improved_early_houses == 1) ? 50 : 100;
 		mail_multiplier			:40;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
@@ -1497,7 +1472,6 @@ item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:14;
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
-		override				:14;
 		population				:(param_improved_early_houses == 1) ? 30 : 95;
 		mail_multiplier			:48;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
@@ -1522,7 +1496,6 @@ item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:15;
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
-		override				:15;
 		population				:(param_improved_early_houses == 1) ? 30 : 95;
 		mail_multiplier			:48;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
@@ -1547,7 +1520,6 @@ item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) { // Colorful r
 	property {
 		substitute				:16;
 		name					:string(STR_NAME_SHOPS_AND_OFFICES);
-		override				:16;
 		population				:(param_improved_early_houses == 1) ? 45 : 95;
 		mail_multiplier			:48;
 		accepted_cargos			:[[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
@@ -1599,7 +1571,6 @@ item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 	property {
 		substitute				:03;
 		name					:string(STR_NAME_OLD_CHURCH);
-		override				:03;
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED,HOUSE_FLAG_CHURCH);
 		population				:5;
 		mail_multiplier			:2;
@@ -1623,7 +1594,6 @@ item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 	property {
 		substitute				:60;
 		name					:string(STR_NAME_MODERN_CHURCH);
-		override				:60;
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:6;
 		mail_multiplier			:2;
@@ -1647,7 +1617,6 @@ item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 	property {
 		substitute				:58;
 		name					:string(STR_NAME_MODERN_CHURCH);
-		override				:58;
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:8;
 		mail_multiplier			:2;
@@ -1672,7 +1641,6 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 	property {
 		substitute				:83;
 		name					:string(STR_NAME_NEOMOORISH_CHURCH);
-		override				:83;
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED, HOUSE_FLAG_PROTECTED);
 		population				:8;
 		mail_multiplier			:2;
@@ -1696,7 +1664,6 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 	property {
 		substitute				:20;
 		name					:string(STR_NAME_OLD_STADIUM);
-		override				:20;
 		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:65;
 		mail_multiplier			:0;
@@ -1723,7 +1690,6 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 	property {
 		substitute				:40;
 		name					:string(STR_NAME_NEW_STADIUM);
-		override				:32;
 		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:255;
 		mail_multiplier			:0;
@@ -1750,10 +1716,6 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 	property {
 		substitute				:07;
 		name					:string(STR_NAME_HOTEL);
-		override				:07;
-		
-		override				:66;
-		override				:68;
 		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:140;
 		mail_multiplier			:(improved_mail == 1) ? 4 : 22;
@@ -1779,7 +1741,6 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 	property {
 		substitute				:39;
 		name					:string(STR_NAME_CINEMA);
-		override				:39;
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:35;
 		mail_multiplier			:(improved_mail == 1) ? 4 : 23;
@@ -1803,7 +1764,6 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 	property {
 		substitute				:31;
 		name					:string(STR_NAME_THEATRE);
-		override				:31;
 		building_flags			:bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population				:35;
 		mail_multiplier			:(improved_mail == 1) ? 8 : 23;
@@ -1827,7 +1787,6 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 	property {
 		substitute				:40;
 		name					:string(STR_NAME_MARKET);
-		override				:40;
 		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:180;
 		mail_multiplier			:(improved_mail == 1) ? 10 : 5;
@@ -1857,7 +1816,6 @@ item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:18;
 		name					:string(STR_NAME_WAREHOUSE);
-		override				:18;
 		population				:6;
 		mail_multiplier			:(improved_mail == 1) ? 100 : 10;
 		accepted_cargos			:[[MAIL, 3],[GOOD, 8]];
@@ -1880,7 +1838,6 @@ item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:18;
 		name					:string(STR_NAME_WAREHOUSE);
-		override				:18;
 		population				:6;
 		mail_multiplier			:(improved_mail == 1) ? 100 : 10;
 		accepted_cargos			:[[MAIL, 3],[GOOD, 8]];
@@ -1906,7 +1863,6 @@ item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:10;
 		name					:string(STR_NAME_FOUNTAIN);
-		override				:10;
 		population				:0;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 2]];
@@ -1930,7 +1886,6 @@ item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:09;
 		name					:string(STR_NAME_STATUE);
-		override				:09;
 		population				:0;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 2]];
@@ -1954,7 +1909,6 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:46;
 		name					:string(STR_NAME_SHOP);
-		override				:46;
 		population				:25;
 		mail_multiplier			:(improved_mail == 1) ? 4 : 20;
 		accepted_cargos			:[[PASS, 2], [GOOD, 8],[FOOD, 8],[BEER, 8]];
@@ -1978,7 +1932,6 @@ item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:11;
 		name					:string(STR_NAME_PARK);
-		override				:11;
 		population				:2;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 2]];
@@ -2000,7 +1953,6 @@ item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
 	property {
 		substitute				:12;
 		name					:string(STR_NAME_PARK);
-		override				:12;
 		population				:2;
 		mail_multiplier			:0;
 		accepted_cargos			:[[PASS, 2]];
@@ -2023,7 +1975,6 @@ item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 	property {
 		substitute				:16;
 		name					:string(STR_NAME_MUSEUM);
-		override				:16;
 		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:255;
 		mail_multiplier			:20;
@@ -2048,7 +1999,6 @@ item(FEAT_HOUSES, item_courthouse, 104, HOUSE_SIZE_2X1){
 	property {
 		substitute				:74;
 		name					:string(STR_NAME_COURTHOUSE);
-		override				:74;
 		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:65;
 		mail_multiplier			:70;
@@ -2072,7 +2022,6 @@ item(FEAT_HOUSES, item_university, 106, HOUSE_SIZE_2X1){
 	property {
 		substitute				:74;
 		name					:string(STR_NAME_UNIVERSITY);
-		override				:74;
 		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:255;
 		mail_multiplier			:70;
@@ -2099,7 +2048,6 @@ item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
 	property {
 		substitute				:07;
 		name					:string(STR_NAME_SPA);
-		override				:07;
 		building_flags			:bitmask(HOUSE_FLAG_PROTECTED);
 		population				:85;
 		mail_multiplier			:(improved_mail == 1) ? 4 : 30;
