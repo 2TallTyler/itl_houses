@@ -73,3 +73,7 @@
 - Add: Houses now have construction sprites! Thanks to **jrook1445** for this contribution.
 - Add: Compatibility for Waste & Recycling in Improved Town Industries
 - Change: Landmark houses (Market, University, Stadiums, etc.) now permanently protected from town renewal. Can still be bulldozed by a player.
+
+### Unreleased
+- Change: Buildings which are available forever now end at 65535 instead of 9999
+- Change: Reformat NML code
