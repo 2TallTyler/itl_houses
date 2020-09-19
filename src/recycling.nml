@@ -61,10 +61,15 @@ Population       Avg. passengers/month
 
 */
 
+/* Production loop, shared by all houses. Used when Waste is not active. Individual production rates stored in temporary registers in the functions below.*/
+switch (FEAT_HOUSES, SELF, switch_alt_production_no_waste, getbits(extra_callback_info1, 0, 8)) {
+	0: (PASS * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(1);
+	1: (MAIL * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(2);
+	return CB_RESULT_HOUSE_NO_MORE_PRODUCTION;
+}
 
-
-/* Production loop, shared by all houses. Individual production rates stored in temporary registers in the functions below.*/
-switch (FEAT_HOUSES, SELF, switch_alt_production, getbits(extra_callback_info1, 0, 8)) {
+/* Production loop, shared by all houses. Used when Waste is active. Individual production rates stored in temporary registers in the functions below.*/
+switch (FEAT_HOUSES, SELF, switch_alt_production_waste, getbits(extra_callback_info1, 0, 8)) {
 	0: (PASS * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(1);
 	1: (MAIL * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(2);
 	2: (WSTE * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(3);
@@ -73,7 +78,7 @@ switch (FEAT_HOUSES, SELF, switch_alt_production, getbits(extra_callback_info1, 
 
 /* Check for compatible version of Improved Town Industries, with Waste parameter active. Year must be at least 1882, when the Power Plant is invented. If not, return 0 to use population and mail_multiplier for generation. */
 switch (FEAT_HOUSES, SELF, switch_recycle_enabled, param["TT\04\01", 254] >= 8 && param["TT\04\01", 5] == 1 && current_year >= 1882) {
-	1: switch_alt_production; return 0;}
+	1: switch_alt_production_waste; switch_alt_production_no_waste;}
 
 
 /* Production levels for each house are set below and stored in temporary registers, to be read by the production loop above. */

@@ -74,6 +74,7 @@
 - Add: Compatibility for Waste & Recycling in Improved Town Industries
 - Change: Landmark houses (Market, University, Stadiums, etc.) now permanently protected from town renewal. Can still be bulldozed by a player.
 
-### Unreleased
-- Change: Buildings which are available forever now end at 65535 instead of 9999
+### 1.2.1
+- Fix: Houses produce passengers and mail properly
+- Change: Buildings which are available forever now end at year 65535 instead of 9999
 - Change: Reformat NML code
