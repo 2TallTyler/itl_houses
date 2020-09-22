@@ -609,7 +609,6 @@ switch(FEAT_HOUSES,SELF, pass_service_check, cargo_accepted_nearby_last_month(PA
 
 // Service check: Cannot demolish if GOOD accepted last month
 switch(FEAT_HOUSES,SELF, goods_service_check, cargo_accepted_nearby_last_month(GOOD) == 1 || cargo_accepted_nearby_this_month(GOOD) == 1) {1: return 1; return 0;}
-switch(FEAT_HOUSES,SELF, food_service_check, cargo_accepted_nearby_last_month(FOOD) == 1 || cargo_accepted_nearby_this_month(FOOD) == 1) {1: return 1; goods_service_check;}
 
 // Service check: Offices only build when PASS accepted last month, and in cluster distance 2
 switch(FEAT_HOUSES,SELF, pass_service_check_offices, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: distance_same_class_cluster_2; return 0;}
@@ -1659,7 +1658,6 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 	graphics {
 		default: sprite_neomoorish_church;
 		construction_check: unique_building_town_road_SW;
-		protection: random_preservation;
 		cargo_production: switch_recycle_churches;
 	}
 }}
@@ -1736,7 +1734,6 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 		graphics_north: sprite_hotel_N;
 		graphics_east: sprite_hotel_E;
 		construction_check: hotel_check_1;
-		protection: pass_service_check;
 		cargo_production: switch_recycle_hotel;
 	}
 }
@@ -1914,6 +1911,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 46;
 		name: string(STR_NAME_SHOP);
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 25;
 		mail_multiplier: (improved_mail == 1) ? 4 : 20;
 		accepted_cargos: [[PASS, 2], [GOOD, 8],[FOOD, 8],[BEER, 8]];
@@ -1928,7 +1926,6 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 	graphics {
 		default: sprite_shop;
 		construction_check: unique_building_town;
-		protection: food_service_check;
 		cargo_production: switch_recycle_stores;
 	}
 }
@@ -2068,7 +2065,6 @@ item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
 		graphics_north: sprite_spa_n;
 		graphics_east: sprite_spa_e;
 		construction_check: hotel_check_1;
-		protection: pass_service_check;
 		cargo_production: switch_recycle_spa;
 	}
 }
