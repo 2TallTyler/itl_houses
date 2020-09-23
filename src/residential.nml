@@ -7,7 +7,7 @@ item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 		substitute: 26;
 		name: string(STR_NAME_HOUSES);
 		population: 13;
-		mail_multiplier: (improved_mail == 1) ? 1 : 8;
+		mail_multiplier: 1;
 		accepted_cargos: [[PASS, 3],[MAIL, 1]];
 		local_authority_impact: 75;
 		removal_cost_multiplier: 71;
@@ -29,8 +29,8 @@ item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
 	property {
 		substitute: 26;
 		name: string(STR_NAME_HOUSES);
-		population: (param_improved_early_houses == 1) ? 6 : 13;
-		mail_multiplier: (improved_mail == 1) ? 1 : 8;
+		population: 6;
+		mail_multiplier: 1;
 		accepted_cargos: [[PASS, 3],[MAIL, 1],[COAL, 1]];
 		local_authority_impact: 75;
 		removal_cost_multiplier: 71;
@@ -51,7 +51,7 @@ item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
 		substitute: 06;
 		name: string(STR_NAME_TOWNHOUSES);
 		population: 30;
-		mail_multiplier: (improved_mail == 1) ? 1 : 12;
+		mail_multiplier: 1;
 		accepted_cargos: [[PASS, 4],[MAIL, 2]];
 		local_authority_impact: 80;
 		removal_cost_multiplier: 80;
@@ -71,8 +71,8 @@ item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
 	property {
 		substitute: 06;
 		name: string(STR_NAME_TOWNHOUSES);
-		population: (param_improved_early_houses == 1) ? 15 : 30;
-		mail_multiplier: (improved_mail == 1) ? 1 : 12;
+		population: 15;
+		mail_multiplier: 1;
 		accepted_cargos: [[PASS, 4],[MAIL, 2],[COAL, 2]];
 		local_authority_impact: 80;
 		removal_cost_multiplier: 80;
@@ -92,7 +92,7 @@ item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 		substitute: 27;
 		name: string(STR_NAME_FLATS);
 		population: 100;
-		mail_multiplier: (improved_mail == 1) ? 4 : 35;
+		mail_multiplier: 4;
 		accepted_cargos: [[PASS, 8],[MAIL, 2]];
 		local_authority_impact: 100;
 		removal_cost_multiplier: 135;
@@ -114,7 +114,7 @@ item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 		substitute: 02;
 		name: string(STR_NAME_SMALL_FLATS);
 		population: 40;
-		mail_multiplier: (improved_mail == 1) ? 2 : 20;
+		mail_multiplier: 2;
 		accepted_cargos: [[PASS, 8],[MAIL, 3]];
 		local_authority_impact: 90;
 		removal_cost_multiplier: 100;
@@ -134,8 +134,8 @@ item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 25;
 		name: string(STR_NAME_COTTAGES);
-		population: (param_improved_early_houses == 1) ? 3 : 12;
-		mail_multiplier: (improved_mail == 1) ? 1 : 7;
+		population: 3;
+		mail_multiplier: 1;
 		accepted_cargos: [[PASS, 2],[MAIL, 2],[COAL, 1],[WOOD, 1]];
 		local_authority_impact: 60;
 		removal_cost_multiplier: 60;
@@ -154,8 +154,8 @@ item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 24;
 		name: string(STR_NAME_HOUSES);
-		population: (param_improved_early_houses == 1) ? 4 : 15;
-		mail_multiplier: (improved_mail == 1) ? 1 : 6;
+		population: 4;
+		mail_multiplier: 1;
 		accepted_cargos: [[PASS, 2],[MAIL, 2],[COAL, 2],[WOOD, 2]];
 		local_authority_impact: 75;
 		removal_cost_multiplier: 70;

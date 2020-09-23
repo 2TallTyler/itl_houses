@@ -173,7 +173,7 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 		name: string(STR_NAME_HOTEL);
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 140;
-		mail_multiplier: (improved_mail == 1) ? 4 : 22;
+		mail_multiplier: 4;
 		accepted_cargos: [[PASS, 6],[MAIL, 2]];
 		local_authority_impact: 150;
 		removal_cost_multiplier: 180;
@@ -196,7 +196,7 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 		name: string(STR_NAME_CINEMA);
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population: 35;
-		mail_multiplier: (improved_mail == 1) ? 4 : 23;
+		mail_multiplier: 4;
 		accepted_cargos: [[PASS, 2],[MAIL, 2]];
 		local_authority_impact: 230;
 		removal_cost_multiplier: 210;
@@ -218,7 +218,7 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 		name: string(STR_NAME_THEATRE);
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population: 35;
-		mail_multiplier: (improved_mail == 1) ? 8 : 23;
+		mail_multiplier: 8;
 		accepted_cargos: [[PASS, 2],[MAIL, 2]];
 		local_authority_impact: 230;
 		removal_cost_multiplier: 220;
@@ -241,7 +241,7 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		name: string(STR_NAME_MARKET);
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 180;
-		mail_multiplier: (improved_mail == 1) ? 10 : 5;
+		mail_multiplier: 10;
 		accepted_cargos: [[PASS, 8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
 		local_authority_impact: 300;
 		removal_cost_multiplier: 250;
@@ -359,7 +359,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 		name: string(STR_NAME_SHOP);
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 25;
-		mail_multiplier: (improved_mail == 1) ? 4 : 20;
+		mail_multiplier: 4;
 		accepted_cargos: [[PASS, 2], [GOOD, 8],[FOOD, 8],[BEER, 8]];
 		local_authority_impact: 80;
 		removal_cost_multiplier: 100;
@@ -500,7 +500,7 @@ if (extra_hotel == 1) {
 			name: string(STR_NAME_SPA);
 			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 			population: 85;
-			mail_multiplier: (improved_mail == 1) ? 4 : 30;
+			mail_multiplier: 4;
 			accepted_cargos: [[PASS, 8],[MAIL, 4]];
 			local_authority_impact: 200;
 			removal_cost_multiplier: 150;

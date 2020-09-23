@@ -6,7 +6,7 @@ item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 		substitute: 19;
 		name: string(STR_NAME_TALL_OFFICE_BLOCK);
 		population: 110;
-		mail_multiplier: (improved_mail == 1) ? 65 : 55;
+		mail_multiplier: 65;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 110;
 		removal_cost_multiplier: 155;
@@ -29,7 +29,7 @@ item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
 		substitute: 00;
 		name: string(STR_NAME_TALL_OFFICE_BLOCK);
 		population: 187;
-		mail_multiplier: (improved_mail == 1) ? 80 : 70;
+		mail_multiplier: 80;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 140;
 		removal_cost_multiplier: 150;
@@ -52,7 +52,7 @@ item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
 		substitute: 28;
 		name: string(STR_NAME_TALL_OFFICE_BLOCK);
 		population: 170;
-		mail_multiplier: (improved_mail == 1) ? 60 : 50;
+		mail_multiplier: 50;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 170;
 		removal_cost_multiplier: 145;
@@ -76,7 +76,7 @@ item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
 		name: string(STR_NAME_LARGE_OFFICE_BLOCK);
 		building_flags: bitmask(HOUSE_FLAG_ANIMATE);
 		population: 220;
-		mail_multiplier: (improved_mail == 1) ? 95 : 85;
+		mail_multiplier: 85;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 160;
 		removal_cost_multiplier: 160;
@@ -99,7 +99,7 @@ item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
 		substitute: 01;
 		name: string(STR_NAME_OFFICE_BLOCK);
 		population: 85;
-		mail_multiplier: (improved_mail == 1) ? 65 : 55;
+		mail_multiplier: 65;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 130;
 		removal_cost_multiplier: 140;
@@ -122,7 +122,7 @@ item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
 		substitute: 13;
 		name: string(STR_NAME_OFFICE_BLOCK);
 		population: 150;
-		mail_multiplier: (improved_mail == 1) ? 75 : 65;
+		mail_multiplier: 75;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 110;
 		removal_cost_multiplier: 130;
@@ -145,7 +145,7 @@ item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
 		substitute: 30;
 		name: string(STR_NAME_SHOPS_AND_OFFICES);
 		population: 180;
-		mail_multiplier: (improved_mail == 1) ? 74 : 64;
+		mail_multiplier: 75;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
 		local_authority_impact: 180;
 		removal_cost_multiplier: 155;
@@ -169,7 +169,7 @@ item(FEAT_HOUSES, item_capsule_tower, 17, HOUSE_SIZE_1X1) {
 		name: string(STR_NAME_CAPSULE_TOWER);
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 130;
-		mail_multiplier: (improved_mail == 1) ? 60 : 50;
+		mail_multiplier: 60;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 150;
 		removal_cost_multiplier: 200;
@@ -192,7 +192,7 @@ item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
 		substitute: 52;
 		name: string(STR_NAME_OFFICE_BLOCK);
 		population: 170;
-		mail_multiplier: (improved_mail == 1) ? 80 : 70;
+		mail_multiplier: 80;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 130;
 		removal_cost_multiplier: 170;
@@ -215,7 +215,7 @@ item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
 		substitute: 50;
 		name: string(STR_NAME_OFFICE_BLOCK);
 		population: 135;
-		mail_multiplier: (improved_mail == 1) ? 70 : 60;
+		mail_multiplier: 70;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 120;
 		removal_cost_multiplier: 150;
@@ -238,7 +238,7 @@ item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 		substitute: 54;
 		name: string(STR_NAME_OFFICE_BLOCK);
 		population: 210;
-		mail_multiplier: (improved_mail == 1) ? 90 : 80;
+		mail_multiplier: 80;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 140;
 		removal_cost_multiplier: 200;
@@ -261,7 +261,7 @@ item(FEAT_HOUSES, item_tall_office_block_90, 90, HOUSE_SIZE_1X1) {
 		substitute: 90;
 		name: string(STR_NAME_OFFICE_BLOCK);
 		population: 180;
-		mail_multiplier: (improved_mail == 1) ? 100 : 90;
+		mail_multiplier: 90;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 150;
 		removal_cost_multiplier: 180;
@@ -285,7 +285,7 @@ item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
 		substitute: 74;
 		name: string(STR_NAME_TALL_OFFICE_BLOCK);
 		population: 250;
-		mail_multiplier: (improved_mail == 1) ? 70 : 60;
+		mail_multiplier: 60;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 200;
 		removal_cost_multiplier: 140;
@@ -309,7 +309,7 @@ item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
 		substitute: 87;
 		name: string(STR_NAME_TALL_OFFICE_BLOCK);
 		population: 250;
-		mail_multiplier: (improved_mail == 1) ? 90 : 80;
+		mail_multiplier: 80;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
 		local_authority_impact: 140;
 		removal_cost_multiplier: 190;
@@ -334,7 +334,7 @@ item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 64;
 		name: string(STR_NAME_SHOPS_AND_OFFICES);
-		population: (param_improved_early_houses == 1) ? 45 : 90;
+		population: 45;
 		mail_multiplier: 45;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
 		local_authority_impact: 110;
@@ -358,7 +358,7 @@ item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 29;
 		name: string(STR_NAME_SHOPS_AND_OFFICES);
-		population: (param_improved_early_houses == 1) ? 50 : 100;
+		population: 50;
 		mail_multiplier: 40;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
 		local_authority_impact: 135;
@@ -382,7 +382,7 @@ item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 14;
 		name: string(STR_NAME_SHOPS_AND_OFFICES);
-		population: (param_improved_early_houses == 1) ? 30 : 95;
+		population: 30;
 		mail_multiplier: 48;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
 		local_authority_impact: 100;
@@ -406,7 +406,7 @@ item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 15;
 		name: string(STR_NAME_SHOPS_AND_OFFICES);
-		population: (param_improved_early_houses == 1) ? 30 : 95;
+		population: 30;
 		mail_multiplier: 48;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
 		local_authority_impact: 100;
@@ -430,7 +430,7 @@ item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) { // Colorful r
 	property {
 		substitute: 16;
 		name: string(STR_NAME_SHOPS_AND_OFFICES);
-		population: (param_improved_early_houses == 1) ? 45 : 95;
+		population: 45;
 		mail_multiplier: 48;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
 		local_authority_impact: 100;
