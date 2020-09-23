@@ -725,8 +725,8 @@ switch (FEAT_HOUSES, SELF, switch_alt_production_waste, getbits(extra_callback_i
 	return CB_RESULT_HOUSE_NO_MORE_PRODUCTION;
 }
 
-/* Check for compatible version of Improved Town Industries, with Waste parameter active. Year must be at least 1882, when the Power Plant is invented. If not, return 0 to use population and mail_multiplier for generation. */
-switch (FEAT_HOUSES, SELF, switch_recycle_enabled, param["TT\04\01", 254] >= 8 && param["TT\04\01", 5] == 1 && current_year >= 1882) {
+/* Check for compatible version of Improved Town Industries (>= 1.6.0) */
+switch (FEAT_HOUSES, SELF, switch_recycle_enabled, param["TT\04\01", 254] >= 10) {
 	1: switch_alt_production_waste; switch_alt_production_no_waste;}
 
 
