@@ -1,6 +1,7 @@
-// Begin Graphics
 
-// Houses
+/* *** Begin Graphics *** */
+
+/* Houses */
 spritelayout houses1 {
 	ground	 	{ sprite: 1499;}
 	building 	{ sprite: (construction_state==0 ? 1497 : construction_state==3 ? 1500 : 1498); }}
@@ -17,7 +18,7 @@ spritelayout houses4 {
 	ground 		{ sprite: (construction_state==0 ? 1507 : construction_state==3 ? 1511 : 1509); }
 	building 	{ sprite: (construction_state==0 ? 1508 : construction_state==3 ? 1512 : 1510); }}
 
-// Town Houses
+/* Town Houses */
 spritelayout townhouses1 {
 	ground 		{ sprite: (construction_state==0 ? 1501 : construction_state==3 ? 1505 : 1503); }
 	building 	{ sprite: (construction_state==0 ? 1502 : construction_state==3 ? 1506 : 1504); }}
@@ -26,27 +27,24 @@ spritelayout townhouses2 {
 	ground	 	{ sprite: (construction_state==0 ? 3924 : 1447);}
 	building 	{ sprite: (construction_state==0 ? 1444 : construction_state==3 ? 1446 : 1445); }}
 
-// Old Church
+
 spritelayout sprite_church {
 	ground	 	{ sprite: 1437; }
 	building 	{ sprite: (construction_state==0 ? 1434 : construction_state==3 ? 1436 : 1435); }}
 
-// Modern Church 1
 spritelayout sprite_modern_church_1 {
 	ground	 	{ sprite: 4462; }
 	building	{ sprite: (construction_state<2 ? 4463 : construction_state==2 ? 4464 : 4465); }}
 
-// Modern Church 2
 spritelayout sprite_modern_church_2 {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: (construction_state==0 ? 4459 : construction_state==3 ? 4461 : 4460); }}
 
-// Neo-Moorish Church
 spritelayout sprite_neomoorish_church {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: 4604; }}
 
-// Old Stadium
+/* Old Stadium */
 spritelayout sprite_old_stadium_N {
 	ground	 	{ sprite: 1479; }
 	building 	{ sprite: 1483; }}
@@ -60,7 +58,7 @@ spritelayout sprite_old_stadium_S {
 	ground	 	{ sprite: 1482; }
 	building 	{ sprite: 1486; }}
 
-// New Stadium
+/* New Stadium */
 spritelayout sprite_new_stadium_N {
 	ground		{ sprite: 1554; }
 	building 	{ sprite: 1558; }}
@@ -74,7 +72,7 @@ spritelayout sprite_new_stadium_S {
 	ground	 	{ sprite: 1557; }
 	building 	{ sprite: 1561; }}
 
-// Shopping Center
+/* Shopping Center */
 spritelayout sprite_shopping_mall_N {
 	ground	 	{ sprite: 4406; }
 	building 	{ sprite: 4411; }
@@ -95,7 +93,7 @@ spritelayout sprite_shopping_mall_S {
 	building 	{ sprite: 4417; }
 }
 
-// Hotel
+
 spritelayout sprite_hotel_N {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: construction_state==0 ? 1448 : construction_state == 3 ? 1450 : 1449; }
@@ -106,25 +104,21 @@ spritelayout sprite_hotel_E {
 	building 	{ sprite: construction_state==0 ? 1451 : construction_state == 3 ? 1453 : 1452; }
 }
 
-// Cinema
 spritelayout sprite_cinema {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: 4405; }
 }
 
-//Theatre
 spritelayout sprite_theatre {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: 1553; }
 }
 
-//Warehouse
 spritelayout sprite_warehouse {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: construction_state==0 ? 1473 : construction_state == 3 ? 1475 : 1474; }
 }
 
-// Fountain
 spritelayout sprite_fountain {
 	ground	 	 {sprite: 1420; }
 	building {
@@ -133,7 +127,6 @@ spritelayout sprite_fountain {
 		xoffset: 3;
 		}}
 
-// Statue
 spritelayout sprite_statue {
 	ground	 	{ sprite: 1420; }
 	building {
@@ -142,83 +135,75 @@ spritelayout sprite_statue {
 		xoffset: 6;
 		}}
 
-// Shop
 spritelayout sprite_shop {
 	ground 		{ sprite: 4418; }
 	building 	{ sprite: construction_state==0 ? 4424 : construction_state == 3 ? 4426 : 4425; }
 }
 
-// Park, Pond
 spritelayout sprite_park_pond {
 	ground	 	{ sprite: 3981; }
 	building 	{ sprite: 1456; }}
 
-// Park, Alley
 spritelayout sprite_park_alley {
 	ground		{ sprite: 3981; }
 	building 	{ sprite: 1457; }}
 
-// Tall office block, spiral staircase
+/* Tall office block, spiral staircase */
 spritelayout sprite_tall_office_block_19 {
  	ground 		{ sprite: 1420; }
  	building 	{ sprite: construction_state==0 ? 1421 : construction_state==3 ? 1425 : 1422; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
-// Tall office block, 00
 spritelayout sprite_tall_office_block_00 {
 	ground	 	{ sprite: (construction_state==3 ? 1550 : 3924); }
 	building 	{ sprite: construction_state==0 ? 1547 : construction_state==3 ? 1551 : 1549; }
 }
 
-// Tall office block, 28
 spritelayout sprite_tall_office_block_28 {
 	ground	 	{ sprite: (construction_state==3 ? 1534 : 3924); }
 	building 	{ sprite: construction_state==0 ? 1531 : construction_state==3 ? 1535 : 1533; }
 }
 
-// Large office block, with elevator
 spritelayout sprite_large_office_block {
 	ground	 	{sprite: 1420; }
  	building 	{ sprite: construction_state==0 ? 1440 : construction_state==3 ? 1442 : 1441; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
-// Office block 01
 spritelayout sprite_office_block_01 {
  	ground 		{ sprite: 1420; }
  	building 	{ sprite: construction_state==0 ? 1426 : construction_state==3 ? 1428 : 1427; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
-// Office block 13
 spritelayout sprite_office_block_13 {
 	ground	 	{ sprite: 1420; }
  	building 	{ sprite: construction_state==0 ? 1458 : construction_state==3 ? 1460 : 1459; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
-// Shops and offices 30 - modern bulge
+/* Shops and offices 30 - modern bulge */
 spritelayout sprite_shops_and_offices_30 {
 	ground	 	{ sprite: (construction_state==3 ? 1544 : 3924); }
 	building 	{ sprite: construction_state==0 ? 1541 : construction_state==3 ? 1545 : 1543; }
 }
 
-// Capsule tower
+/* Capsule tower */
 spritelayout sprite_capsule_tower {
 	ground	 	{ sprite: 1420; }
  	building 	{ sprite: construction_state==0 ? 1470 : construction_state==3 ? 1472 : 1471; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
-// Small Flats 2
+/* Small Flats 2 */
 spritelayout sprite_small_flats {
 	ground	 	{ sprite: (construction_state==3 ? 1433 : 3924); }
 	building 	{ sprite: construction_state==0 ? 1430 : construction_state==3 ? 1432 : 1431; }
 }
 
-// Flats 1
+/* Flats 1 */
 spritelayout sprite_flats_1 {
 	ground 		{ sprite: construction_state==0 ? 1524 : construction_state==3 ? 1528 : 1526; }
 	building 	{ sprite: construction_state==0 ? 1525 : construction_state==3 ? 1529 : 1527; }
 }
 
-// Flats 2
+/* Flats 2 */
 spritelayout sprite_small_flats_2 {
 	ground 		{ sprite: construction_state==0 ? 3924 : construction_state==3 ? 1522 : 1520; }
 	building 	{ sprite: construction_state==0 ? 1519 : construction_state==3 ? 1523 : 1521; }
@@ -370,4 +355,4 @@ spritelayout sprite_spa_e {
 	building 	{ sprite: construction_state==0 ? 4472 : construction_state==3 ? 4476 : 4474; }
 }
 
-// End Graphics
+/* *** End Graphics *** */

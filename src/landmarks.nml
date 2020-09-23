@@ -1,6 +1,7 @@
-// Begin Landmarks
 
-// Historic District Church
+/* *** Begin Landmarks *** */
+
+/* Towns with this church will value historic preservation of their commercial buildings (historic districts will be protected). Both this and the regular church below have the church flag, allowing only one per town. */
 item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 	property {
 		substitute: 03;
@@ -17,17 +18,17 @@ item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_church;
-		construction_check: if_road_SE;
+		construction_check: (nearby_tile_class(0,1) == TILE_CLASS_ROAD) ? 1 : 0; // Road in SE tile
 		cargo_production: switch_recycle_churches;
 	}
 }
 
-// Old Church
+/* Towns with this church won't value preservation (random preservation only). Onward to the future! Both this and the above historic church have the church flag, allowing only one per town. */
 item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 	property {
 		substitute: 03;
 		name: string(STR_NAME_OLD_CHURCH);
-		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED,HOUSE_FLAG_CHURCH);
+		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED,HOUSE_FLAG_CHURCH, HOUSE_FLAG_PROTECTED);
 		population: 5;
 		mail_multiplier: 2;
 		accepted_cargos: [[PASS, 2],[MAIL, 2]];
@@ -39,13 +40,13 @@ item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_church;
-		construction_check: unique_building_town_road_SE;
-		protection: random_preservation;
+		construction_check: (nearby_tile_class(0,1) == TILE_CLASS_ROAD) ? 1 : 0; // Road in SE tile
 		cargo_production: switch_recycle_churches;
 	}
 }
 
-// Modern Church 1
+/* Other churches don't affect preservation and don't have the church flag, allowing more than one type (although only one of each is allowed) */
+
 item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 	property {
 		substitute: 60;
@@ -62,13 +63,12 @@ item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_modern_church_1;
-		construction_check: unique_building_town_road_SE;
+		construction_check: (nearby_tile_class(0,1) == TILE_CLASS_ROAD && same_house_count_town == 0) ? 1 : 0; // Road in SE tile and only modern church in town
 		protection: random_preservation;
 		cargo_production: switch_recycle_churches;
 	}
 }
 
-// Modern Church 2
 item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 	property {
 		substitute: 58;
@@ -85,13 +85,13 @@ item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_modern_church_2;
-		construction_check: unique_building_town_road_SW;
+		construction_check: (nearby_tile_class(1,0) == TILE_CLASS_ROAD && same_house_count_town == 0) ? 1 : 0; // Road in SW tile and only modern church in town
 		protection: random_preservation;
 		cargo_production: switch_recycle_churches;
 	}
 }
 
-// Neo-Moorish Church
+/* This Neo-Moorish style church is a cool landmark, only active if the extra sub-tropic sprites parameter is enabled. */
 if (extra_tropic == 1){
 item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 	property {
@@ -109,12 +109,12 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_neomoorish_church;
-		construction_check: unique_building_town_road_SW;
+		construction_check: (nearby_tile_class(1,0) == TILE_CLASS_ROAD && same_house_count_town == 0) ? 1 : 0; // Road in SW tile and only neomoorish church in town
 		cargo_production: switch_recycle_churches;
 	}
 }}
 
-// Old Stadium
+/* Old stadium requires a population of at least 500. */
 item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 	property {
 		substitute: 20;
@@ -135,12 +135,12 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		graphics_east: sprite_old_stadium_E;
 		graphics_west: sprite_old_stadium_W;
 		graphics_south: sprite_old_stadium_S;
-		construction_check: old_stadium_prob_1;
+		construction_check: switch_population_500;
 		cargo_production: switch_recycle_old_stadium;
 	}
 }
 
-// Modern Stadium
+/* Modern stadium requires a population of at least 10,000. */
 item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 	property {
 		substitute: 40;
@@ -161,12 +161,12 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		graphics_east: sprite_new_stadium_E;
 		graphics_west: sprite_new_stadium_W;
 		graphics_south: sprite_new_stadium_S;
-		construction_check: new_stadium_prob;
+		construction_check: switch_population_10k;
 		cargo_production: switch_recycle_new_stadium;
 	}
 }
 
-// Hotel
+/* Hotels are only built in cities. */
 item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 	property {
 		substitute: 07;
@@ -185,12 +185,11 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 	graphics {
 		graphics_north: sprite_hotel_N;
 		graphics_east: sprite_hotel_E;
-		construction_check: hotel_check_1;
+		construction_check: switch_hotel_check_1;
 		cargo_production: switch_recycle_hotel;
 	}
 }
 
-// Cinema
 item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 	property {
 		substitute: 39;
@@ -208,12 +207,11 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_cinema;
-		construction_check: distance_cinema_4_cinema;
+		construction_check: (nearest_house_matching_criterion(10, SEARCH_HOUSE_BY_TYPE) == 0 && nearby_tile_class(0,1) == TILE_CLASS_ROAD) ? 1 : 0; // No cinemas within 10 tiles, require road in SE tile
 		cargo_production: switch_recycle_cinema;
 	}
 }
 
-// Theatre
 item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 	property {
 		substitute: 31;
@@ -231,12 +229,12 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_theatre;
-		construction_check: distance_theatre_4_theatre;
+		construction_check: (nearest_house_matching_criterion(10, SEARCH_HOUSE_BY_TYPE) == 0 && nearby_tile_class(1,0) == TILE_CLASS_ROAD) ? 1 : 0; // No theatres within 10 tiles, require road in SW tile
 		cargo_production: switch_recycle_theatre;
 	}
 }
 
-// Market
+/* The Market is 2x2 tiles and accepts a variety of commercial goods. */
 item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 	property {
 		substitute: 40;
@@ -258,61 +256,58 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		graphics_east: sprite_shopping_mall_E;
 		graphics_west: sprite_shopping_mall_W;
 		graphics_south: sprite_shopping_mall_S;
-		construction_check: unique_building_town;
+		construction_check: (same_house_count_town == 0) ? 1 : 0; // Only one per town
 		cargo_production: switch_recycle_market;
 	}
 }
 
-// Warehouse
+/* The Warehouse sprite selection depends on the extra sub-tropic sprite parameter. I don't remember why there are two item definitions based on the parameter, but I assume there's a good reason. */
 
 if (extra_tropic == 1){
-item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
-	property {
-		substitute: 18;
-		name: string(STR_NAME_WAREHOUSE);
-		population: 6;
-		mail_multiplier: (improved_mail == 1) ? 100 : 10;
-		accepted_cargos: [[MAIL, 3],[GOOD, 8]];
-		local_authority_impact: 110;
-		removal_cost_multiplier: 145;
-		probability: 1;
-		years_available: [1930,0xFFFF];
-		minimum_lifetime: 4;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class: 0;
-	}
-	graphics {
-		default: random_sprite_warehouse;
-		construction_check: distance_same_class_within_2;
-		protection: goods_service_check;
-		cargo_production: switch_recycle_warehouse;
+	item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
+		property {
+			substitute: 18;
+			name: string(STR_NAME_WAREHOUSE);
+			population: 6;
+			mail_multiplier: 10;
+			accepted_cargos: [[MAIL, 3],[GOOD, 8]];
+			local_authority_impact: 110;
+			removal_cost_multiplier: 145;
+			probability: 1;
+			years_available: [1930,0xFFFF];
+			minimum_lifetime: 4;
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+			building_class: 0;
+		}
+		graphics {
+			default: random_sprite_warehouse;
+			construction_check: (nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Cannot build within 2 tiles of another class 0 house
+			cargo_production: switch_recycle_warehouse;
 	}
 }} else {
-item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
-	property {
-		substitute: 18;
-		name: string(STR_NAME_WAREHOUSE);
-		population: 6;
-		mail_multiplier: (improved_mail == 1) ? 100 : 10;
-		accepted_cargos: [[MAIL, 3],[GOOD, 8]];
-		local_authority_impact: 110;
-		removal_cost_multiplier: 145;
-		probability: 1;
-		years_available: [1930,0xFFFF];
-		minimum_lifetime: 4;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class: 0;
-	}
-	graphics {
-		default: sprite_warehouse;
-		construction_check: distance_same_class_within_2;
-		protection: goods_service_check;
-		cargo_production: switch_recycle_warehouse;
-	}}
+	item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
+		property {
+			substitute: 18;
+			name: string(STR_NAME_WAREHOUSE);
+			population: 6;
+			mail_multiplier: 10;
+			accepted_cargos: [[MAIL, 3],[GOOD, 8]];
+			local_authority_impact: 110;
+			removal_cost_multiplier: 145;
+			probability: 1;
+			years_available: [1930,0xFFFF];
+			minimum_lifetime: 4;
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+			building_class: 0;
+		}
+		graphics {
+			default: sprite_warehouse;
+			construction_check: (nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Cannot build within 2 tiles of another class 0 house
+			cargo_production: switch_recycle_warehouse;
+		}}
 }
 
 
-// Fountain
 item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 10;
@@ -330,12 +325,11 @@ item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_fountain;
-		construction_check: switch_park_flat_terrain;
-		protection: protection_historic_square;
+		construction_check: (nearby_tile_slope(0,0) == SLOPE_FLAT && nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Can only build on flat terrain, cannot build within 2 tiles of another class 0 house
+		protection: (nearby_tile_class(0,-1) == 3) ? 1 : 0; // Protect if historic building is nearby (for eye-candy)
 	}
 }
 
-// Statue
 item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 09;
@@ -353,12 +347,12 @@ item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_statue;
-		construction_check: switch_park_flat_terrain;
-		protection: protection_historic_square;
+		construction_check: (nearby_tile_slope(0,0) == SLOPE_FLAT && nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Can only build on flat terrain, cannot build within 2 tiles of another class 0 house
+		protection: (nearby_tile_class(0,-1) == 3) ? 1 : 0; // Protect if historic building is nearby (for eye-candy)
 	}
 }
 
-// Stores (SubArctic)
+/* This shop has the maximum probability and is always available, giving nearly every town acceptance of Food and Goods. This is important for Game Scripts which require these cargos for a town to grow. */
 item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 46;
@@ -377,7 +371,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_shop;
-		construction_check: unique_building_town;
+		construction_check: (same_house_count_town == 0) ? 1 : 0; // Only one per town
 		cargo_production: switch_recycle_stores;
 	}
 }
@@ -399,8 +393,8 @@ item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_park_pond;
-		construction_check: switch_park_flat_terrain;
-	}
+		construction_check: (nearby_tile_slope(0,0) == SLOPE_FLAT && nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Can only build on flat terrain, cannot build within 2 tiles of another class 0 house
+		}
 }
 
 item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
@@ -420,7 +414,7 @@ item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_park_alley;
-		construction_check: switch_park_flat_terrain;
+		construction_check: (nearby_tile_slope(0,0) == SLOPE_FLAT && nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Can only build on flat terrain, cannot build within 2 tiles of another class 0 house
 	}
 }
 
@@ -442,84 +436,86 @@ item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_museum;
-		construction_check: check_museum_shore_SE;
+		construction_check: switch_museum_shore_SE;
 		cargo_production: switch_recycle_museum;
 	}
 }
 
+/* If the extra bank sprites parameter is active, bank sprites from the sub-arctic/sub-tropic and temperate climates become a Courthouse and University, respectively. */
+
 if (extra_bank == 1) {
+	item(FEAT_HOUSES, item_courthouse, 104, HOUSE_SIZE_2X1){
+		property {
+			substitute: 74;
+			name: string(STR_NAME_COURTHOUSE);
+			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			population: 65;
+			mail_multiplier: 70;
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			local_authority_impact: 300;
+			removal_cost_multiplier: 250;
+			probability: 1;
+			years_available: [1850,0xFFFF];
+			minimum_lifetime: 100;
+			availability_mask: [bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+		graphics {
+			graphics_north: sprite_courthouse_n;
+			graphics_west: sprite_courthouse_w;
+			construction_check: switch_university_check;
+			cargo_production: switch_recycle_courthouse;
+		}
+	}
 
-item(FEAT_HOUSES, item_courthouse, 104, HOUSE_SIZE_2X1){
-	property {
-		substitute: 74;
-		name: string(STR_NAME_COURTHOUSE);
-		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
-		population: 65;
-		mail_multiplier: 70;
-		accepted_cargos: [[PASS, 8],[MAIL, 8]];
-		local_authority_impact: 300;
-		removal_cost_multiplier: 250;
-		probability: 1;
-		years_available: [1850,0xFFFF];
-		minimum_lifetime: 100;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-	}
-	graphics {
-		graphics_north: sprite_courthouse_n;
-		graphics_west: sprite_courthouse_w;
-		construction_check: if_road_SE_university;
-		cargo_production: switch_recycle_courthouse;
+	item(FEAT_HOUSES, item_university, 106, HOUSE_SIZE_2X1){
+		property {
+			substitute: 74;
+			name: string(STR_NAME_UNIVERSITY);
+			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			population: 255;
+			mail_multiplier: 70;
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			local_authority_impact: 300;
+			removal_cost_multiplier: 250;
+			probability: 1;
+			years_available: [1700,0xFFFF];
+			minimum_lifetime: 100;
+			availability_mask: [bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+		graphics {
+			graphics_north: sprite_university_n;
+			graphics_west: sprite_university_w;
+			construction_check: switch_university_check;
+			cargo_production: switch_recycle_university;
+		}
 	}
 }
 
-item(FEAT_HOUSES, item_university, 106, HOUSE_SIZE_2X1){
-	property {
-		substitute: 74;
-		name: string(STR_NAME_UNIVERSITY);
-		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
-		population: 255;
-		mail_multiplier: 70;
-		accepted_cargos: [[PASS, 8],[MAIL, 8]];
-		local_authority_impact: 300;
-		removal_cost_multiplier: 250;
-		probability: 1;
-		years_available: [1700,0xFFFF];
-		minimum_lifetime: 100;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-	}
-	graphics {
-		graphics_north: sprite_university_n;
-		graphics_west: sprite_university_w;
-		construction_check: if_road_SE_university;
-		cargo_production: switch_recycle_university;
-	}
-}
-}
+/* Spas use the sub-arctic hotel sprite, but only if the parameter is active -- FIRS uses this sprite for its hotel industry. */
 
 if (extra_hotel == 1) {
-
-item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
-	property {
-		substitute: 07;
-		name: string(STR_NAME_SPA);
-		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
-		population: 85;
-		mail_multiplier: (improved_mail == 1) ? 4 : 30;
-		accepted_cargos: [[PASS, 8],[MAIL, 4]];
-		local_authority_impact: 200;
-		removal_cost_multiplier: 150;
-		probability: 1;
-		years_available: [1880,0xFFFF];
-		minimum_lifetime: 10;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-	}
-	graphics {
-		graphics_north: sprite_spa_n;
-		graphics_east: sprite_spa_e;
-		construction_check: hotel_check_1;
-		cargo_production: switch_recycle_spa;
+	item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
+		property {
+			substitute: 07;
+			name: string(STR_NAME_SPA);
+			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			population: 85;
+			mail_multiplier: (improved_mail == 1) ? 4 : 30;
+			accepted_cargos: [[PASS, 8],[MAIL, 4]];
+			local_authority_impact: 200;
+			removal_cost_multiplier: 150;
+			probability: 1;
+			years_available: [1880,0xFFFF];
+			minimum_lifetime: 10;
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+		graphics {
+			graphics_north: sprite_spa_n;
+			graphics_east: sprite_spa_e;
+			construction_check: switch_hotel_check_1;
+			cargo_production: switch_recycle_spa;
+		}
 	}
 }
-}
 
-// End Landmarks
+/* *** End Landmarks *** */

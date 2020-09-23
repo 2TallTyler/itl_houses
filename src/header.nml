@@ -1,4 +1,8 @@
-// Begin Header
+/* *** Begin Header *** */
+
+/*
+*	Welcome to Improved Town Layouts!
+*/
 
 grf {
 	grfid: "TT\03\01";
@@ -63,4 +67,4 @@ if (version_openttd(1,10,0,28004) > openttd_version) {
 
 disable_item(FEAT_HOUSES);
 
-// End Header
+/* *** End Header *** */

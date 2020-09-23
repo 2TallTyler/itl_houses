@@ -1,4 +1,8 @@
-// Begin Header
+/* *** Begin Header *** */
+
+/*
+*	Welcome to Improved Town Layouts!
+*/
 
 grf {
 	grfid: "TT\03\01";
@@ -63,11 +67,12 @@ if (version_openttd(1,10,0,28004) > openttd_version) {
 
 disable_item(FEAT_HOUSES);
 
-// End Header
+/* *** End Header *** */
 
-// Begin Graphics
 
-// Houses
+/* *** Begin Graphics *** */
+
+/* Houses */
 spritelayout houses1 {
 	ground	 	{ sprite: 1499;}
 	building 	{ sprite: (construction_state==0 ? 1497 : construction_state==3 ? 1500 : 1498); }}
@@ -84,7 +89,7 @@ spritelayout houses4 {
 	ground 		{ sprite: (construction_state==0 ? 1507 : construction_state==3 ? 1511 : 1509); }
 	building 	{ sprite: (construction_state==0 ? 1508 : construction_state==3 ? 1512 : 1510); }}
 
-// Town Houses
+/* Town Houses */
 spritelayout townhouses1 {
 	ground 		{ sprite: (construction_state==0 ? 1501 : construction_state==3 ? 1505 : 1503); }
 	building 	{ sprite: (construction_state==0 ? 1502 : construction_state==3 ? 1506 : 1504); }}
@@ -93,27 +98,24 @@ spritelayout townhouses2 {
 	ground	 	{ sprite: (construction_state==0 ? 3924 : 1447);}
 	building 	{ sprite: (construction_state==0 ? 1444 : construction_state==3 ? 1446 : 1445); }}
 
-// Old Church
+
 spritelayout sprite_church {
 	ground	 	{ sprite: 1437; }
 	building 	{ sprite: (construction_state==0 ? 1434 : construction_state==3 ? 1436 : 1435); }}
 
-// Modern Church 1
 spritelayout sprite_modern_church_1 {
 	ground	 	{ sprite: 4462; }
 	building	{ sprite: (construction_state<2 ? 4463 : construction_state==2 ? 4464 : 4465); }}
 
-// Modern Church 2
 spritelayout sprite_modern_church_2 {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: (construction_state==0 ? 4459 : construction_state==3 ? 4461 : 4460); }}
 
-// Neo-Moorish Church
 spritelayout sprite_neomoorish_church {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: 4604; }}
 
-// Old Stadium
+/* Old Stadium */
 spritelayout sprite_old_stadium_N {
 	ground	 	{ sprite: 1479; }
 	building 	{ sprite: 1483; }}
@@ -127,7 +129,7 @@ spritelayout sprite_old_stadium_S {
 	ground	 	{ sprite: 1482; }
 	building 	{ sprite: 1486; }}
 
-// New Stadium
+/* New Stadium */
 spritelayout sprite_new_stadium_N {
 	ground		{ sprite: 1554; }
 	building 	{ sprite: 1558; }}
@@ -141,7 +143,7 @@ spritelayout sprite_new_stadium_S {
 	ground	 	{ sprite: 1557; }
 	building 	{ sprite: 1561; }}
 
-// Shopping Center
+/* Shopping Center */
 spritelayout sprite_shopping_mall_N {
 	ground	 	{ sprite: 4406; }
 	building 	{ sprite: 4411; }
@@ -162,7 +164,7 @@ spritelayout sprite_shopping_mall_S {
 	building 	{ sprite: 4417; }
 }
 
-// Hotel
+
 spritelayout sprite_hotel_N {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: construction_state==0 ? 1448 : construction_state == 3 ? 1450 : 1449; }
@@ -173,25 +175,21 @@ spritelayout sprite_hotel_E {
 	building 	{ sprite: construction_state==0 ? 1451 : construction_state == 3 ? 1453 : 1452; }
 }
 
-// Cinema
 spritelayout sprite_cinema {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: 4405; }
 }
 
-//Theatre
 spritelayout sprite_theatre {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: 1553; }
 }
 
-//Warehouse
 spritelayout sprite_warehouse {
 	ground	 	{ sprite: 1420; }
 	building 	{ sprite: construction_state==0 ? 1473 : construction_state == 3 ? 1475 : 1474; }
 }
 
-// Fountain
 spritelayout sprite_fountain {
 	ground	 	 {sprite: 1420; }
 	building {
@@ -200,7 +198,6 @@ spritelayout sprite_fountain {
 		xoffset: 3;
 		}}
 
-// Statue
 spritelayout sprite_statue {
 	ground	 	{ sprite: 1420; }
 	building {
@@ -209,83 +206,75 @@ spritelayout sprite_statue {
 		xoffset: 6;
 		}}
 
-// Shop
 spritelayout sprite_shop {
 	ground 		{ sprite: 4418; }
 	building 	{ sprite: construction_state==0 ? 4424 : construction_state == 3 ? 4426 : 4425; }
 }
 
-// Park, Pond
 spritelayout sprite_park_pond {
 	ground	 	{ sprite: 3981; }
 	building 	{ sprite: 1456; }}
 
-// Park, Alley
 spritelayout sprite_park_alley {
 	ground		{ sprite: 3981; }
 	building 	{ sprite: 1457; }}
 
-// Tall office block, spiral staircase
+/* Tall office block, spiral staircase */
 spritelayout sprite_tall_office_block_19 {
  	ground 		{ sprite: 1420; }
  	building 	{ sprite: construction_state==0 ? 1421 : construction_state==3 ? 1425 : 1422; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
-// Tall office block, 00
 spritelayout sprite_tall_office_block_00 {
 	ground	 	{ sprite: (construction_state==3 ? 1550 : 3924); }
 	building 	{ sprite: construction_state==0 ? 1547 : construction_state==3 ? 1551 : 1549; }
 }
 
-// Tall office block, 28
 spritelayout sprite_tall_office_block_28 {
 	ground	 	{ sprite: (construction_state==3 ? 1534 : 3924); }
 	building 	{ sprite: construction_state==0 ? 1531 : construction_state==3 ? 1535 : 1533; }
 }
 
-// Large office block, with elevator
 spritelayout sprite_large_office_block {
 	ground	 	{sprite: 1420; }
  	building 	{ sprite: construction_state==0 ? 1440 : construction_state==3 ? 1442 : 1441; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
-// Office block 01
 spritelayout sprite_office_block_01 {
  	ground 		{ sprite: 1420; }
  	building 	{ sprite: construction_state==0 ? 1426 : construction_state==3 ? 1428 : 1427; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
-// Office block 13
 spritelayout sprite_office_block_13 {
 	ground	 	{ sprite: 1420; }
  	building 	{ sprite: construction_state==0 ? 1458 : construction_state==3 ? 1460 : 1459; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
-// Shops and offices 30 - modern bulge
+/* Shops and offices 30 - modern bulge */
 spritelayout sprite_shops_and_offices_30 {
 	ground	 	{ sprite: (construction_state==3 ? 1544 : 3924); }
 	building 	{ sprite: construction_state==0 ? 1541 : construction_state==3 ? 1545 : 1543; }
 }
 
-// Capsule tower
+/* Capsule tower */
 spritelayout sprite_capsule_tower {
 	ground	 	{ sprite: 1420; }
  	building 	{ sprite: construction_state==0 ? 1470 : construction_state==3 ? 1472 : 1471; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
-// Small Flats 2
+/* Small Flats 2 */
 spritelayout sprite_small_flats {
 	ground	 	{ sprite: (construction_state==3 ? 1433 : 3924); }
 	building 	{ sprite: construction_state==0 ? 1430 : construction_state==3 ? 1432 : 1431; }
 }
 
-// Flats 1
+/* Flats 1 */
 spritelayout sprite_flats_1 {
 	ground 		{ sprite: construction_state==0 ? 1524 : construction_state==3 ? 1528 : 1526; }
 	building 	{ sprite: construction_state==0 ? 1525 : construction_state==3 ? 1529 : 1527; }
 }
 
-// Flats 2
+/* Flats 2 */
 spritelayout sprite_small_flats_2 {
 	ground 		{ sprite: construction_state==0 ? 3924 : construction_state==3 ? 1522 : 1520; }
 	building 	{ sprite: construction_state==0 ? 1519 : construction_state==3 ? 1523 : 1521; }
@@ -437,262 +426,244 @@ spritelayout sprite_spa_e {
 	building 	{ sprite: construction_state==0 ? 4472 : construction_state==3 ? 4476 : 4474; }
 }
 
-// End Graphics
-// Begin Switches
+/* *** End Graphics *** */
+
+/* *** Begin Switches *** */
 
 /* Building Classes
-
-Class 0
-Buildings in class: House, Market, Warehouse, Fountain, Statue
-
-Class 1
-Parks cannot be within 2 tiles of another park
-
-Class 2
-Skyscrapers/office towers can only build within 5 tiles of another skyscraper/office towers
-Buildings in class: skyscrapers, office towers
-
-Class 3
-Historic shops and Historic Church (which sets if city has preservation or not)
-
-Class 4
-Old houses (must be within 2 tiles of another old house, to prevent sparse town growth with house limit)
-
+*
+*	Class 0
+*	Buildings in class: House, Market, Warehouse, Fountain, Statue
+*
+*	Class 1
+*	Parks cannot be within 2 tiles of another park
+*
+*	Class 2
+*	Skyscrapers/office towers can only build within 5 tiles of another skyscraper/office towers
+*	Buildings in class: skyscrapers, office towers
+*
+*	Class 3
+*	Historic shops and Historic Church (which sets if city has preservation or not)
+*
+*	Class 4
+*	Old houses (must be within 2 tiles of another old house, to prevent sparse town growth with house limit)
+*
 */
 
 random_switch (FEAT_HOUSES, SELF, random_sprite_townhouses) {
-1: townhouses1;
-1: townhouses2;
+	1: townhouses1;
+	1: townhouses2;
 }
 
 random_switch (FEAT_HOUSES, SELF, random_sprite_houses_any) {
-1: houses1;
-1: houses4;
+	1: houses1;
+	1: houses4;
 }
 
 random_switch (FEAT_HOUSES, SELF, random_sprite_houses_SW) {
-1: houses1;
-1: houses4;
+	1: houses1;
+	1: houses4;
 }
 
 random_switch (FEAT_HOUSES, SELF, random_sprite_houses_SE) {
-1: houses1;
-2: houses2;
-2: houses3;
-1: houses4;
-1: sprite_houses_62;
+	1: houses1;
+	2: houses2;
+	2: houses3;
+	1: houses4;
+	1: sprite_houses_62;
 }
 
 random_switch (FEAT_HOUSES, SELF, random_sprite_small_flats) {
-1: sprite_small_flats;
-1: sprite_small_flats_2;
-1: sprite_small_flats_44;
+	1: sprite_small_flats;
+	1: sprite_small_flats_2;
+	1: sprite_small_flats_44;
 }
 
 random_switch (FEAT_HOUSES, SELF, random_sprite_flats) {
-3: sprite_flats_1;
-1: sprite_flats_82; //blue balconies
-1: sprite_flats_85; //big boxes
+	3: sprite_flats_1;
+	1: sprite_flats_82; //blue balconies
+	1: sprite_flats_85; //big boxes
 }
 
 random_switch (FEAT_HOUSES, SELF, random_sprite_shops_and_offices_15) {
-1: sprite_shops_and_offices_15a;
-1: sprite_shops_and_offices_15b;
+	1: sprite_shops_and_offices_15a;
+	1: sprite_shops_and_offices_15b;
 }
 
 random_switch (FEAT_HOUSES, SELF, random_sprite_old_houses) {
-1:	sprite_old_houses_1;
-1:	sprite_old_houses_2;
-1:	sprite_old_houses_3;
-1:	sprite_old_houses_4;
+	1:	sprite_old_houses_1;
+	1:	sprite_old_houses_2;
+	1:	sprite_old_houses_3;
+	1:	sprite_old_houses_4;
 }
 
 random_switch (FEAT_HOUSES, SELF, random_sprite_warehouse) {
-4:	sprite_warehouse;
-1:	sprite_warehouse_89;
+	4:	sprite_warehouse;
+	1:	sprite_warehouse_89;
 }
 
 random_switch (FEAT_HOUSES, SELF, random_colour_offices) {
-1:	return PALETTE_CC_DARK_BLUE;
-1:	return PALETTE_CC_GREY;
-1:	return PALETTE_CC_BROWN;
-1:	return PALETTE_CC_MAUVE;
-1:	return PALETTE_CC_WHITE;
-1:	return PALETTE_CC_DARK_GREEN;
+	1:	return PALETTE_CC_DARK_BLUE;
+	1:	return PALETTE_CC_GREY;
+	1:	return PALETTE_CC_BROWN;
+	1:	return PALETTE_CC_MAUVE;
+	1:	return PALETTE_CC_WHITE;
+	1:	return PALETTE_CC_DARK_GREEN;
 }
 
 random_switch (FEAT_HOUSES,SELF, random_colour_masonry) {
-1:	return PALETTE_STRUCT_CONCRETE;
-1:	return PALETTE_STRUCT_WHITE;
-1:	return PALETTE_STRUCT_BROWN;
-1:	return PALETTE_USE_DEFAULT;
+	1:	return PALETTE_STRUCT_CONCRETE;
+	1:	return PALETTE_STRUCT_WHITE;
+	1:	return PALETTE_STRUCT_BROWN;
+	1:	return PALETTE_USE_DEFAULT;
 }
 
-// House Sprite Orientation
-switch(FEAT_HOUSES,SELF, house_sprite_orientation_SE, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: random_sprite_houses_SE; random_sprite_houses_any;}
-switch(FEAT_HOUSES,SELF, house_sprite_orientation_SW, nearby_tile_class(1,0)) {TILE_CLASS_ROAD: random_sprite_houses_SW; house_sprite_orientation_SE;}
-switch(FEAT_HOUSES,SELF, house_sprite_sloped, nearby_tile_slope(0,0)) {0: house_sprite_orientation_SW; random_sprite_houses_any;}
+/* House sprite selection depends on roads and slopes */
+switch(FEAT_HOUSES, SELF, house_sprite_orientation_SE, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: random_sprite_houses_SE; random_sprite_houses_any;}
+switch(FEAT_HOUSES, SELF, house_sprite_orientation_SW, nearby_tile_class(1,0)) {TILE_CLASS_ROAD: random_sprite_houses_SW; house_sprite_orientation_SE;}
+switch(FEAT_HOUSES, SELF, house_sprite_sloped, nearby_tile_slope(0,0)) {0: house_sprite_orientation_SW; random_sprite_houses_any;}
 
-// Cannot build next to office building (class 2)
+/* Unique buildings require population and no duplicates */
+switch(FEAT_HOUSES, SELF, switch_unique_house, same_house_count_town == 0) {1: return 1; return 0;}
+switch (FEAT_HOUSES, PARENT, switch_population_500, population >= 500) {1: switch_unique_house; return 0;} // Old stadium
+switch (FEAT_HOUSES, PARENT, switch_population_10k, population >= 10000) {1: switch_unique_house; return 0;} // New stadium
 
-switch(FEAT_HOUSES,SELF, office_gap, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 0; return 1;}
-switch(FEAT_HOUSES,SELF, small_flats_pass, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 1; return 0;}
+/* Coast check for Museum */
+switch(FEAT_HOUSES, SELF, switch_museum_shore_SE, nearby_tile_is_water(0,1)) {1: switch_population_10k; return 0;}
 
-switch(FEAT_HOUSES,SELF, flats_office_space_8, nearby_tile_house_class(-1,-1)){258: office_gap; small_flats_pass;}
-switch(FEAT_HOUSES,SELF, flats_office_space_7, nearby_tile_house_class(-1,1)) {258: office_gap;flats_office_space_8;}
-switch(FEAT_HOUSES,SELF, flats_office_space_6, nearby_tile_house_class(-1,0)) {258: office_gap;flats_office_space_7;}
-switch(FEAT_HOUSES,SELF, flats_office_space_5, nearby_tile_house_class(1,-1))	{258: office_gap;flats_office_space_6;}
-switch(FEAT_HOUSES,SELF, flats_office_space_4, nearby_tile_house_class(1,1))	{258: office_gap;flats_office_space_5;}
-switch(FEAT_HOUSES,SELF, flats_office_space_3, nearby_tile_house_class(1,0))	{258: office_gap;flats_office_space_4;}
-switch(FEAT_HOUSES,SELF, flats_office_space_2, nearby_tile_house_class(0,-1))	{258: office_gap;flats_office_space_3;}
-switch(FEAT_HOUSES,SELF, flats_office_space_1, nearby_tile_house_class(0,1))	{258: office_gap;flats_office_space_2;}
+/* Road check for University and Courthouse */
+switch(FEAT_HOUSES, SELF, switch_university_check, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: switch_population_10k; return 0;}
 
-
-
-switch(FEAT_HOUSES,SELF, townhouse_office_space_24, nearby_tile_house_class(2,2))	{258: return 0;return 1;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_23, nearby_tile_house_class(2,1))	{258: return 0;townhouse_office_space_24;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_22, nearby_tile_house_class(2,0))	{258: return 0;townhouse_office_space_23;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_21, nearby_tile_house_class(2,-1))	{258: return 0;townhouse_office_space_22;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_20, nearby_tile_house_class(2,-2))	{258: return 0;townhouse_office_space_21;}
-
-switch(FEAT_HOUSES,SELF, townhouse_office_space_19, nearby_tile_house_class(1,-2))	{258: return 0;townhouse_office_space_20;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_18, nearby_tile_house_class(1,-2))	{258: return 0;townhouse_office_space_19;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_17, nearby_tile_house_class(0,-2))	{258: return 0;townhouse_office_space_18;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_16, nearby_tile_house_class(0,-2))	{258: return 0;townhouse_office_space_17;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_15, nearby_tile_house_class(-1,2))	{258: return 0;townhouse_office_space_16;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_14, nearby_tile_house_class(-1,-2))	{258: return 0;townhouse_office_space_15;}
-
-switch(FEAT_HOUSES,SELF, townhouse_office_space_13, nearby_tile_house_class(-2,2))	{258: return 0;townhouse_office_space_14;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_12, nearby_tile_house_class(-2,1))	{258: return 0;townhouse_office_space_13;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_11, nearby_tile_house_class(-2,0))	{258: return 0;townhouse_office_space_12;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_10, nearby_tile_house_class(-2,-1))	{258: return 0;townhouse_office_space_11;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_9, nearby_tile_house_class(-2,-2))	{258: return 0;townhouse_office_space_10;}
-
-switch(FEAT_HOUSES,SELF, townhouse_office_space_8, nearby_tile_house_class(-1,-1)){258: return 0;townhouse_office_space_9;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_7, nearby_tile_house_class(-1,1)) {258: return 0;townhouse_office_space_8;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_6, nearby_tile_house_class(-1,0)) {258: return 0;townhouse_office_space_7;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_5, nearby_tile_house_class(1,-1))	{258: return 0;townhouse_office_space_6;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_4, nearby_tile_house_class(1,1))	{258: return 0;townhouse_office_space_5;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_3, nearby_tile_house_class(1,0))	{258: return 0;townhouse_office_space_4;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_2, nearby_tile_house_class(0,-1))	{258: return 0;townhouse_office_space_3;}
-switch(FEAT_HOUSES,SELF, townhouse_office_space_1, nearby_tile_house_class(0,1))	{258: return 0;townhouse_office_space_2;}
+/* Distance check: Hotel cannot build within 30 tiles of another Hotel and must have a road to SW */
+switch(FEAT_HOUSES, PARENT, switch_hotel_check_2, is_city == 1) {1: return 1; return 0;}
+switch(FEAT_HOUSES, SELF, switch_hotel_check_1, nearest_house_matching_criterion(30, SEARCH_HOUSE_BY_TYPE) == 0 && nearby_tile_class(1,0) == TILE_CLASS_ROAD) {1: switch_hotel_check_2; return 0;}
 
 
+/* Houses and Town Houses cannot build within 2 tiles of a modern office building*/
+switch(FEAT_HOUSES, SELF, switch_house_office_gap,
+	nearby_tile_house_class(0,1) == 258 ||
+	nearby_tile_house_class(0,-1) == 258 ||
+	nearby_tile_house_class(1,0) == 258 ||
+	nearby_tile_house_class(1,1) == 258 ||
+	nearby_tile_house_class(1,-1) == 258 ||
+	nearby_tile_house_class(-1,0) == 258 ||
+	nearby_tile_house_class(-1,1) == 258 ||
+	nearby_tile_house_class(-1,-1) == 258 ||
+	nearby_tile_house_class(-2,-2) == 258 ||
+	nearby_tile_house_class(-2,-1) == 258 ||
+	nearby_tile_house_class(-2,0) == 258 ||
+	nearby_tile_house_class(-2,1) == 258 ||
+	nearby_tile_house_class(-2,2) == 258 ||
+	nearby_tile_house_class(-1,-2) == 258 ||
+	nearby_tile_house_class(-1,2) == 258 ||
+	nearby_tile_house_class(0,-2) == 258 ||
+	nearby_tile_house_class(0,-2) == 258 ||
+	nearby_tile_house_class(1,-2) == 258 ||
+	nearby_tile_house_class(1,-2) == 258 ||
+	nearby_tile_house_class(2,-2) == 258 ||
+	nearby_tile_house_class(2,-1) == 258 ||
+	nearby_tile_house_class(2,0) == 258 ||
+	nearby_tile_house_class(2,1) == 258 ||
+	nearby_tile_house_class(2,2) == 258)
+		{1: return 0; return 1;}
+		
+		
+/* Small Flats cannot build within 1 tile of a modern office building unless no passenger service is provided to the tile */
+switch(FEAT_HOUSES, SELF, switch_small_flats_check_2a, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 0; return 1;}
+switch(FEAT_HOUSES, SELF, switch_small_flats_check_2b, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 1; return 0;}
 
-// Road is SE of tile (Cinema)
-switch(FEAT_HOUSES,SELF, if_road_SE, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: return 1; return 0;}
+switch(FEAT_HOUSES, SELF, switch_small_flats_check_1,
+	nearby_tile_house_class(0,1) == 258 ||
+	nearby_tile_house_class(0,-1) == 258 ||
+	nearby_tile_house_class(1,0) == 258 ||
+	nearby_tile_house_class(1,1) == 258 ||
+	nearby_tile_house_class(1,-1) == 258 ||
+	nearby_tile_house_class(-1,0) == 258 ||
+	nearby_tile_house_class(-1,1) == 258 ||
+	nearby_tile_house_class(-1,-1) == 258)
+		{1: switch_small_flats_check_2a; switch_small_flats_check_2b;}
 
-// Road is SW of tile (Hotel, Theatre)
-switch(FEAT_HOUSES,SELF, if_road_SW, nearby_tile_class(1,0)) {TILE_CLASS_ROAD: return 1; return 0;}
 
-// Distance check: Hotel cannot build within 30 tiles of another Hotel
-switch(FEAT_HOUSES,PARENT, hotel_check_2, is_city) {1: if_road_SW; return 0;}
-switch(FEAT_HOUSES,SELF, hotel_check_1, nearest_house_matching_criterion(30, SEARCH_HOUSE_BY_TYPE)) {0: hotel_check_2; return 0;}
+/* Offices (new and modern) must build within distance 2 of same class (high-rises). No need to cluster if first in town. */
+switch(FEAT_HOUSES,SELF, switch_office_cluster_3, same_class_count_town) {0: return 1; return 0;}
+switch(FEAT_HOUSES,SELF, switch_office_cluster_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: switch_office_cluster_3; return 1;}
 
-// Distance check: Cinema cannot build within 4 tiles of another Cinema
-switch(FEAT_HOUSES,SELF, distance_cinema_4_cinema, nearest_house_matching_criterion(10, SEARCH_HOUSE_BY_TYPE)) {0: if_road_SE; return 0;}
+/* Office clusters (both old and new) require passenger service */
+switch(FEAT_HOUSES, SELF, switch_office_cluster_1, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1)
+	{1: switch_office_cluster_2; return 0;} 
 
-// Distance check: Theatre cannot build within 4 tiles of another Theatre
-switch(FEAT_HOUSES,SELF, distance_theatre_4_theatre, nearest_house_matching_criterion(10, SEARCH_HOUSE_BY_TYPE)) {0: if_road_SW; return 0;}
 
-// Distance check: Cannot build within distance 2 of same class (House, Market, Warehouse, Park)
-switch(FEAT_HOUSES,SELF, distance_same_class_within_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 1; return 0;}
+/* Modern office buildings need residential population */
+switch(FEAT_HOUSES, SELF, switch_modern_office_pop_check, 
+	[
+		// Add up population of residential buildings
+		STORE_TEMP( 
+			(other_house_count_town(25)*1)+ // Cottages
+			(other_house_count_town(24)*1)+ // Old houses
+			(other_house_count_town(108)*2)+ // Pre-1945 Houses
+			(other_house_count_town(26)*2)+ // Houses
+			(other_house_count_town(109)*3)+ // Pre-1945 Townhouses
+			(other_house_count_town(06)*3)+ // Townhouses
+			(other_house_count_town(27)*10)+ // Flats
+			(other_house_count_town(02)*5) // Small flats
+			, 1),
+		
+		// Calculate minimum population needed to construct this building
+		STORE_TEMP(other_class_count_town(3) * 30, 2),		// population already used by older buildings
+		STORE_TEMP((1 + same_class_count_town) * 60, 3), 	// minimum population needed for this building
+		STORE_TEMP(LOAD_TEMP(2) + LOAD_TEMP(3), 4),
 
-switch(FEAT_HOUSES,SELF, switch_park_flat_terrain, nearby_tile_slope(0,0)) {SLOPE_FLAT: distance_same_class_within_2; return 0;}
+		LOAD_TEMP(1) > LOAD_TEMP(4),						// Check if population is greater than minimum population needed
+	])
+		{1: switch_office_cluster_1; return 0;}		// If true, proceed to passenger service check, else don't allow construction
 
-// Distance check: Must build within distance 2 of same class (high-rises). No need to cluster if first in town.
-switch(FEAT_HOUSES,SELF, distance_first_in_town, same_class_count_town) {0: return 1; return 0;}
-switch(FEAT_HOUSES,SELF, distance_same_class_cluster_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: distance_first_in_town; return 1;}
 
-// Service check: Cannot demolish if PASS accepted last month
-switch(FEAT_HOUSES,SELF, pass_service_check, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 1; return 0;}
-
-// Service check: Cannot demolish if GOOD accepted last month
-switch(FEAT_HOUSES,SELF, goods_service_check, cargo_accepted_nearby_last_month(GOOD) == 1 || cargo_accepted_nearby_this_month(GOOD) == 1) {1: return 1; return 0;}
-
-// Service check: Offices only build when PASS accepted last month, and in cluster distance 2
-switch(FEAT_HOUSES,SELF, pass_service_check_offices, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: distance_same_class_cluster_2; return 0;}
-
-// Unique check: Only one in town, must have road SW
-switch(FEAT_HOUSES,SELF, unique_building_town_road_SW, same_house_count_town) {0: if_road_SW; return 0;}
-switch(FEAT_HOUSES,SELF, unique_building_town_road_SE, same_house_count_town) {0: if_road_SE; return 0;}
-switch(FEAT_HOUSES,SELF, unique_building_town, same_house_count_town) {0: return 1; return 0;}
-
-// Population check for stadiums
-switch(FEAT_HOUSES,PARENT, new_stadium_prob, population) {0 .. 10000: return 0; unique_building_town;}
-switch(FEAT_HOUSES,PARENT, old_stadium_prob_reducedpop, population) {0 .. 500: return 0; unique_building_town;}
-switch(FEAT_HOUSES,PARENT, old_stadium_prob_fullpop, population) {0 .. 1000: return 0; unique_building_town;}
-switch(FEAT_HOUSES,SELF, old_stadium_prob_1, param_improved_early_houses) {1: old_stadium_prob_reducedpop; old_stadium_prob_fullpop;}
-// Road check for University and Courthouse
-switch(FEAT_HOUSES,SELF, if_road_SE_university, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: new_stadium_prob; return 0;}
-
-// Coast check for Museum
-switch(FEAT_HOUSES,SELF, check_museum_shore_SE, nearby_tile_is_water(0,1)) {1: new_stadium_prob; return 0;}
-
-// Construction check for enough residential population to build post-1945 office buildings
-switch(FEAT_HOUSES,SELF, modern_office_pop_check, 
-[
-	// Add up population of residential buildings
-	STORE_TEMP( 
-	(other_house_count_town(25)*1)+ // Cottages
-	(other_house_count_town(24)*1)+ // Old houses
-	(other_house_count_town(108)*2)+ // Pre-1945 Houses
-	(other_house_count_town(26)*2)+ // Houses
-	(other_house_count_town(109)*3)+ // Pre-1945 Townhouses
-	(other_house_count_town(06)*3)+ // Townhouses
-	(other_house_count_town(27)*10)+ // Flats
-	(other_house_count_town(02)*5) // Small flats
-	, 1),
-	
-	// Calculate minimum population needed to construct this building
-	STORE_TEMP(other_class_count_town(3) * 30, 2),		// population already used by older buildings
-	STORE_TEMP((1 + same_class_count_town) * 60, 3), 	// minimum population needed for this building
-	STORE_TEMP(LOAD_TEMP(2) + LOAD_TEMP(3), 4),
-
-	LOAD_TEMP(1) > LOAD_TEMP(4),						// Check if population is greater than minimum population needed
-	]){1: pass_service_check_offices; return 0;}		// If true, proceed to passenger service check, else don't allow construction
-
-// Construction check for enough residential population to build pre-1945 office buildings
-switch(FEAT_HOUSES,SELF, old_office_pop_check, 
+/* Old office buildings need residential population */
+switch(FEAT_HOUSES, SELF, switch_old_office_pop_check, 
 	[ 
-	// Add up population of residential buildings
-	STORE_TEMP( 
-	(other_house_count_town(25)*1)+ // Cottages
-	(other_house_count_town(24)*1)+ // Old houses
-	(other_house_count_town(108)*2)+ // Pre-1945 Houses
-	(other_house_count_town(26)*2)+ // Houses
-	(other_house_count_town(109)*3)+ // Pre-1945 Townhouses
-	(other_house_count_town(06)*3)+ // Townhouses
-	(other_house_count_town(27)*10)+ // Flats
-	(other_house_count_town(02)*4) // Small flats
-	, 1),
-	
-	// Calculate minimum population needed to construct this building
-	STORE_TEMP((1 + same_class_count_town) * 30, 2),	// Calculate minimum population needed for this building
-	LOAD_TEMP(1) > LOAD_TEMP(2),						// Check if population is greater than minimum population needed
-	]){1: pass_service_check_offices; return 0;}		// If true, proceed to passenger service check, else don't allow construction
+		// Add up population of residential buildings
+		STORE_TEMP( 
+			(other_house_count_town(25)*1)+ // Cottages
+			(other_house_count_town(24)*1)+ // Old houses
+			(other_house_count_town(108)*2)+ // Pre-1945 Houses
+			(other_house_count_town(26)*2)+ // Houses
+			(other_house_count_town(109)*3)+ // Pre-1945 Townhouses
+			(other_house_count_town(06)*3)+ // Townhouses
+			(other_house_count_town(27)*10)+ // Flats
+			(other_house_count_town(02)*4) // Small flats
+			, 1),
+		
+		// Calculate minimum population needed to construct this building
+		STORE_TEMP((1 + same_class_count_town) * 30, 2),	// Calculate minimum population needed for this building
+		LOAD_TEMP(1) > LOAD_TEMP(2),						// Check if population is greater than minimum population needed
+	])
+		{1: switch_office_cluster_1; return 0;}		// If true, proceed to passenger service check, else don't allow construction
 
-// Road is SE of tile (office)
-switch(FEAT_HOUSES,SELF, if_road_SE_office, nearby_tile_class(0,1)) {TILE_CLASS_ROAD: modern_office_pop_check; return 0;}
 
-// Unique check: Only one in world, must follow office building rules
-switch(FEAT_HOUSES,PARENT, pop_over_30k, population) {0 .. 30000: return 0; pass_service_check_offices;}
+/* One office building requires a road in the SE tile */
+switch(FEAT_HOUSES,SELF, switch_office_road_SE, nearby_tile_class(0,1) == TILE_CLASS_ROAD) {1: switch_modern_office_pop_check; return 0;}
+
+
+/* Unique office building (capsule tower) only allows one on the map in a city with population >= 30k */
+switch(FEAT_HOUSES,PARENT, pop_over_30k, population) {0 .. 30000: return 0; switch_office_cluster_1;}
 switch(FEAT_HOUSES,SELF, unique_worldwide, same_house_count_map) {0: pop_over_30k; return 0;}
 
-// Preservation check for historic buildings
+/* 	Historic buildings are preserved if they are in a town with a Historic Church (acting as a random toggle for a town's attitude toward preservation)
+*	and are within 2 tiles of another historic building.
+*	Otherwise, they use a random 1/8th chance preservation check.
+*/
 random_switch(FEAT_HOUSES,SELF, random_preservation) {1: return 1; 7: return 0;}
-switch(FEAT_HOUSES,SELF, preservation3, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 0; return 1;}
-switch(FEAT_HOUSES,SELF, preservation2, other_house_count_town(38)) {1: preservation3; random_preservation;}
+switch(FEAT_HOUSES,SELF, switch_preservation_3, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 0; return 1;}
+switch(FEAT_HOUSES,SELF, switch_preservation_2, other_house_count_town(38)) {1: switch_preservation_3; random_preservation;}
 
-switch(FEAT_HOUSES,SELF, preservation_1960, current_year) {0 .. 1960: return 0; preservation2;}
-switch(FEAT_HOUSES,SELF, preservation_1955, current_year) {0 .. 1955: return 0; preservation2;}
-switch(FEAT_HOUSES,SELF, preservation_1945, current_year) {0 .. 1945: return 0; preservation2;}
+switch(FEAT_HOUSES,SELF, switch_preservation_1960, current_year) {0 .. 1960: return 0; switch_preservation_2;}
+switch(FEAT_HOUSES,SELF, switch_preservation_1955, current_year) {0 .. 1955: return 0; switch_preservation_2;}
+switch(FEAT_HOUSES,SELF, switch_preservation_1945, current_year) {0 .. 1945: return 0; switch_preservation_2;}
 
-// Preservation check for fountain or statue next to historic buildings
-switch(FEAT_HOUSES, SELF, protection_historic_square, nearby_tile_class(0,-1)) {3: return 1; return 0;}
+/* *** End Switches *** */
 
-// End Switches
-// Begin Waste Switches
+
+/* *** Begin Waste Switches *** */
 
 /* 
 Waste is only active when a supported version (version 8 or later) of Improved Town Industries is active with the Waste & Recyclables parameter active.
@@ -916,10 +887,12 @@ switch (FEAT_HOUSES, SELF, switch_recycle_spa, [STORE_TEMP(11, 1), STORE_TEMP(1,
 }
 
 
-// End Waste Switches
-// Begin Residential
+/* *** End Waste Switches *** */
 
-// Houses
+/* Begin Residential */
+
+/* Houses with _old suffixes are available earlier, with lesser population to allow older, smaller vehicles to keep up. They also accept wood and/or coal as fuel. */
+
 item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 	property {
 		substitute: 26;
@@ -938,7 +911,7 @@ item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 		}
 	graphics {
 		default: house_sprite_sloped;
-		construction_check: townhouse_office_space_1;
+		construction_check: switch_house_office_gap;
 		cargo_production: switch_recycle_house;
 	}
 }
@@ -961,11 +934,9 @@ item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
 	graphics {
 		default: house_sprite_sloped;
 		cargo_production: switch_recycle_old_house;
-		
 	}
 }
 
-// Townhouses
 item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
 	property {
 		substitute: 06;
@@ -982,7 +953,7 @@ item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
 		}
 	graphics {
 		default: random_sprite_townhouses;
-		construction_check: townhouse_office_space_1;
+		construction_check: switch_house_office_gap;
 		cargo_production: switch_recycle_townhouses;
 	}
 }
@@ -1007,7 +978,6 @@ item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
 	}
 }
 
-// Flats
 item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 	property {
 		substitute: 27;
@@ -1024,12 +994,12 @@ item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 		}
 	graphics {
 		default: random_sprite_flats;
-		construction_check: pass_service_check;
+		construction_check: (cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) ? 1 : 0; 	
+			// Only build within the catchment area of a station which received passengers this month or last month
 		cargo_production: switch_recycle_flats;
 	}
 }
 
-// Small Flats
 item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 	property {
 		substitute: 02;
@@ -1046,7 +1016,7 @@ item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 		}
 	graphics {
 		default: random_sprite_small_flats;
-		construction_check: flats_office_space_1;
+		construction_check: switch_small_flats_check_1;
 		cargo_production: switch_recycle_small_flats;
 	}
 }
@@ -1091,9 +1061,10 @@ item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 	}
 }
 
-// End Residential
+/* *** End Residential *** */
 
-// Begin Commercial Buildings
+
+/* *** Begin Commercial Buildings *** */
 
 item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 	property {
@@ -1112,7 +1083,7 @@ item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_tall_office_block_19;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		colour: random_colour_masonry;
 		cargo_production: switch_recycle_office_19;
 	}
@@ -1135,7 +1106,7 @@ item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_tall_office_block_00;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		colour: random_colour_offices;
 		cargo_production: switch_recycle_office_00;
 	}
@@ -1158,7 +1129,7 @@ item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_tall_office_block_28;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		colour: random_colour_offices;
 		cargo_production: switch_recycle_office_00;
 	}
@@ -1182,7 +1153,7 @@ item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_large_office_block;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		colour: random_colour_offices;
 		cargo_production: switch_recycle_office_04;
 	}
@@ -1205,7 +1176,7 @@ item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_office_block_01;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		colour: random_colour_masonry;
 		cargo_production: switch_recycle_office_01;
 	}
@@ -1228,7 +1199,7 @@ item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_office_block_13;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		colour: random_colour_masonry;
 		cargo_production: switch_recycle_office_13;
 	}
@@ -1251,7 +1222,7 @@ item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_shops_and_offices_30;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		colour: random_colour_offices;
 		cargo_production: switch_recycle_office_00;
 	}
@@ -1298,7 +1269,7 @@ item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_tall_office_block_52;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		colour: random_colour_offices;
 		cargo_production: switch_recycle_office_00;
 	}
@@ -1321,7 +1292,7 @@ item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_tall_office_block_50;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		colour: random_colour_offices;
 		cargo_production: switch_recycle_office_00;
 	}
@@ -1344,7 +1315,7 @@ item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_tall_office_block_54;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		colour: random_colour_offices;
 		cargo_production: switch_recycle_office_04;
 	}
@@ -1367,7 +1338,7 @@ item(FEAT_HOUSES, item_tall_office_block_90, 90, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_tall_office_block_90;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		colour: random_colour_offices;
 		cargo_production: switch_recycle_office_00;
 	}
@@ -1392,7 +1363,7 @@ item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
 	graphics {
 		graphics_north: sprite_tall_office_block_74_N;
 		graphics_west: sprite_tall_office_block_74_W;
-		construction_check: if_road_SE_office;
+		construction_check: switch_office_road_SE;
 		cargo_production: switch_recycle_office_04;
 	}
 }
@@ -1416,7 +1387,7 @@ item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
 	graphics {
 		graphics_north: sprite_tall_office_block_87_N;
 		graphics_west: sprite_tall_office_block_87_W;
-		construction_check: modern_office_pop_check;
+		construction_check: switch_modern_office_pop_check;
 		cargo_production: switch_recycle_office_04;
 		
 	}
@@ -1441,9 +1412,9 @@ item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_shops_and_offices_64;
-		construction_check: old_office_pop_check;
+		construction_check: switch_old_office_pop_check;
 		colour: random_colour_masonry;
-		protection: preservation_1955;
+		protection: switch_preservation_1955;
 		cargo_production: switch_recycle_historic_64;
 	}
 }
@@ -1465,9 +1436,9 @@ item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_shops_and_offices_29;
-		construction_check: old_office_pop_check;
+		construction_check: switch_old_office_pop_check;
 		colour: random_colour_masonry;
-		protection: preservation_1955;
+		protection: switch_preservation_1955;
 		cargo_production: switch_recycle_historic_29;
 	}
 }
@@ -1489,9 +1460,9 @@ item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_shops_and_offices_14;
-		construction_check: old_office_pop_check;
+		construction_check: switch_old_office_pop_check;
 		colour: random_colour_masonry;
-		protection: preservation_1945;
+		protection: switch_preservation_1945;
 		cargo_production: switch_recycle_historic_14;
 	 }
 }
@@ -1513,9 +1484,9 @@ item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: random_sprite_shops_and_offices_15;
-		construction_check: old_office_pop_check;
+		construction_check: switch_old_office_pop_check;
 		colour: random_colour_masonry;
-		protection: preservation_1960;
+		protection: switch_preservation_1960;
 		cargo_production: switch_recycle_historic_14; // share with 15
 	}
 }
@@ -1537,18 +1508,19 @@ item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) { // Colorful r
 	}
 	graphics {
 		default: sprite_shops_and_offices_16;
-		construction_check: old_office_pop_check;
+		construction_check: switch_old_office_pop_check;
 		colour: random_colour_masonry;
-		protection: preservation_1955;
+		protection: switch_preservation_1955;
 		cargo_production: switch_recycle_historic_29; // share with 29
 	}
 }
 
-// End Commercial
+/* *** End Commercial *** */
 
-// Begin Landmarks
 
-// Historic District Church
+/* *** Begin Landmarks *** */
+
+/* Towns with this church will value historic preservation of their commercial buildings (historic districts will be protected). Both this and the regular church below have the church flag, allowing only one per town. */
 item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 	property {
 		substitute: 03;
@@ -1565,17 +1537,17 @@ item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_church;
-		construction_check: if_road_SE;
+		construction_check: (nearby_tile_class(0,1) == TILE_CLASS_ROAD) ? 1 : 0; // Road in SE tile
 		cargo_production: switch_recycle_churches;
 	}
 }
 
-// Old Church
+/* Towns with this church won't value preservation (random preservation only). Onward to the future! Both this and the above historic church have the church flag, allowing only one per town. */
 item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 	property {
 		substitute: 03;
 		name: string(STR_NAME_OLD_CHURCH);
-		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED,HOUSE_FLAG_CHURCH);
+		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED,HOUSE_FLAG_CHURCH, HOUSE_FLAG_PROTECTED);
 		population: 5;
 		mail_multiplier: 2;
 		accepted_cargos: [[PASS, 2],[MAIL, 2]];
@@ -1587,13 +1559,13 @@ item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_church;
-		construction_check: unique_building_town_road_SE;
-		protection: random_preservation;
+		construction_check: (nearby_tile_class(0,1) == TILE_CLASS_ROAD) ? 1 : 0; // Road in SE tile
 		cargo_production: switch_recycle_churches;
 	}
 }
 
-// Modern Church 1
+/* Other churches don't affect preservation and don't have the church flag, allowing more than one type (although only one of each is allowed) */
+
 item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 	property {
 		substitute: 60;
@@ -1610,13 +1582,12 @@ item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_modern_church_1;
-		construction_check: unique_building_town_road_SE;
+		construction_check: (nearby_tile_class(0,1) == TILE_CLASS_ROAD && same_house_count_town == 0) ? 1 : 0; // Road in SE tile and only modern church in town
 		protection: random_preservation;
 		cargo_production: switch_recycle_churches;
 	}
 }
 
-// Modern Church 2
 item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 	property {
 		substitute: 58;
@@ -1633,13 +1604,13 @@ item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_modern_church_2;
-		construction_check: unique_building_town_road_SW;
+		construction_check: (nearby_tile_class(1,0) == TILE_CLASS_ROAD && same_house_count_town == 0) ? 1 : 0; // Road in SW tile and only modern church in town
 		protection: random_preservation;
 		cargo_production: switch_recycle_churches;
 	}
 }
 
-// Neo-Moorish Church
+/* This Neo-Moorish style church is a cool landmark, only active if the extra sub-tropic sprites parameter is enabled. */
 if (extra_tropic == 1){
 item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 	property {
@@ -1657,12 +1628,12 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_neomoorish_church;
-		construction_check: unique_building_town_road_SW;
+		construction_check: (nearby_tile_class(1,0) == TILE_CLASS_ROAD && same_house_count_town == 0) ? 1 : 0; // Road in SW tile and only neomoorish church in town
 		cargo_production: switch_recycle_churches;
 	}
 }}
 
-// Old Stadium
+/* Old stadium requires a population of at least 500. */
 item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 	property {
 		substitute: 20;
@@ -1683,12 +1654,12 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		graphics_east: sprite_old_stadium_E;
 		graphics_west: sprite_old_stadium_W;
 		graphics_south: sprite_old_stadium_S;
-		construction_check: old_stadium_prob_1;
+		construction_check: switch_population_500;
 		cargo_production: switch_recycle_old_stadium;
 	}
 }
 
-// Modern Stadium
+/* Modern stadium requires a population of at least 10,000. */
 item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 	property {
 		substitute: 40;
@@ -1709,12 +1680,12 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		graphics_east: sprite_new_stadium_E;
 		graphics_west: sprite_new_stadium_W;
 		graphics_south: sprite_new_stadium_S;
-		construction_check: new_stadium_prob;
+		construction_check: switch_population_10k;
 		cargo_production: switch_recycle_new_stadium;
 	}
 }
 
-// Hotel
+/* Hotels are only built in cities. */
 item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 	property {
 		substitute: 07;
@@ -1733,12 +1704,11 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 	graphics {
 		graphics_north: sprite_hotel_N;
 		graphics_east: sprite_hotel_E;
-		construction_check: hotel_check_1;
+		construction_check: switch_hotel_check_1;
 		cargo_production: switch_recycle_hotel;
 	}
 }
 
-// Cinema
 item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 	property {
 		substitute: 39;
@@ -1756,12 +1726,11 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_cinema;
-		construction_check: distance_cinema_4_cinema;
+		construction_check: (nearest_house_matching_criterion(10, SEARCH_HOUSE_BY_TYPE) == 0 && nearby_tile_class(0,1) == TILE_CLASS_ROAD) ? 1 : 0; // No cinemas within 10 tiles, require road in SE tile
 		cargo_production: switch_recycle_cinema;
 	}
 }
 
-// Theatre
 item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 	property {
 		substitute: 31;
@@ -1779,12 +1748,12 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_theatre;
-		construction_check: distance_theatre_4_theatre;
+		construction_check: (nearest_house_matching_criterion(10, SEARCH_HOUSE_BY_TYPE) == 0 && nearby_tile_class(1,0) == TILE_CLASS_ROAD) ? 1 : 0; // No theatres within 10 tiles, require road in SW tile
 		cargo_production: switch_recycle_theatre;
 	}
 }
 
-// Market
+/* The Market is 2x2 tiles and accepts a variety of commercial goods. */
 item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 	property {
 		substitute: 40;
@@ -1806,61 +1775,58 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		graphics_east: sprite_shopping_mall_E;
 		graphics_west: sprite_shopping_mall_W;
 		graphics_south: sprite_shopping_mall_S;
-		construction_check: unique_building_town;
+		construction_check: (same_house_count_town == 0) ? 1 : 0; // Only one per town
 		cargo_production: switch_recycle_market;
 	}
 }
 
-// Warehouse
+/* The Warehouse sprite selection depends on the extra sub-tropic sprite parameter. I don't remember why there are two item definitions based on the parameter, but I assume there's a good reason. */
 
 if (extra_tropic == 1){
-item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
-	property {
-		substitute: 18;
-		name: string(STR_NAME_WAREHOUSE);
-		population: 6;
-		mail_multiplier: (improved_mail == 1) ? 100 : 10;
-		accepted_cargos: [[MAIL, 3],[GOOD, 8]];
-		local_authority_impact: 110;
-		removal_cost_multiplier: 145;
-		probability: 1;
-		years_available: [1930,0xFFFF];
-		minimum_lifetime: 4;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class: 0;
-	}
-	graphics {
-		default: random_sprite_warehouse;
-		construction_check: distance_same_class_within_2;
-		protection: goods_service_check;
-		cargo_production: switch_recycle_warehouse;
+	item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
+		property {
+			substitute: 18;
+			name: string(STR_NAME_WAREHOUSE);
+			population: 6;
+			mail_multiplier: 10;
+			accepted_cargos: [[MAIL, 3],[GOOD, 8]];
+			local_authority_impact: 110;
+			removal_cost_multiplier: 145;
+			probability: 1;
+			years_available: [1930,0xFFFF];
+			minimum_lifetime: 4;
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+			building_class: 0;
+		}
+		graphics {
+			default: random_sprite_warehouse;
+			construction_check: (nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Cannot build within 2 tiles of another class 0 house
+			cargo_production: switch_recycle_warehouse;
 	}
 }} else {
-item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
-	property {
-		substitute: 18;
-		name: string(STR_NAME_WAREHOUSE);
-		population: 6;
-		mail_multiplier: (improved_mail == 1) ? 100 : 10;
-		accepted_cargos: [[MAIL, 3],[GOOD, 8]];
-		local_authority_impact: 110;
-		removal_cost_multiplier: 145;
-		probability: 1;
-		years_available: [1930,0xFFFF];
-		minimum_lifetime: 4;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class: 0;
-	}
-	graphics {
-		default: sprite_warehouse;
-		construction_check: distance_same_class_within_2;
-		protection: goods_service_check;
-		cargo_production: switch_recycle_warehouse;
-	}}
+	item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
+		property {
+			substitute: 18;
+			name: string(STR_NAME_WAREHOUSE);
+			population: 6;
+			mail_multiplier: 10;
+			accepted_cargos: [[MAIL, 3],[GOOD, 8]];
+			local_authority_impact: 110;
+			removal_cost_multiplier: 145;
+			probability: 1;
+			years_available: [1930,0xFFFF];
+			minimum_lifetime: 4;
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+			building_class: 0;
+		}
+		graphics {
+			default: sprite_warehouse;
+			construction_check: (nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Cannot build within 2 tiles of another class 0 house
+			cargo_production: switch_recycle_warehouse;
+		}}
 }
 
 
-// Fountain
 item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 10;
@@ -1878,12 +1844,11 @@ item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_fountain;
-		construction_check: switch_park_flat_terrain;
-		protection: protection_historic_square;
+		construction_check: (nearby_tile_slope(0,0) == SLOPE_FLAT && nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Can only build on flat terrain, cannot build within 2 tiles of another class 0 house
+		protection: (nearby_tile_class(0,-1) == 3) ? 1 : 0; // Protect if historic building is nearby (for eye-candy)
 	}
 }
 
-// Statue
 item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 09;
@@ -1901,12 +1866,12 @@ item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_statue;
-		construction_check: switch_park_flat_terrain;
-		protection: protection_historic_square;
+		construction_check: (nearby_tile_slope(0,0) == SLOPE_FLAT && nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Can only build on flat terrain, cannot build within 2 tiles of another class 0 house
+		protection: (nearby_tile_class(0,-1) == 3) ? 1 : 0; // Protect if historic building is nearby (for eye-candy)
 	}
 }
 
-// Stores (SubArctic)
+/* This shop has the maximum probability and is always available, giving nearly every town acceptance of Food and Goods. This is important for Game Scripts which require these cargos for a town to grow. */
 item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 46;
@@ -1925,7 +1890,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_shop;
-		construction_check: unique_building_town;
+		construction_check: (same_house_count_town == 0) ? 1 : 0; // Only one per town
 		cargo_production: switch_recycle_stores;
 	}
 }
@@ -1947,8 +1912,8 @@ item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_park_pond;
-		construction_check: switch_park_flat_terrain;
-	}
+		construction_check: (nearby_tile_slope(0,0) == SLOPE_FLAT && nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Can only build on flat terrain, cannot build within 2 tiles of another class 0 house
+		}
 }
 
 item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
@@ -1968,7 +1933,7 @@ item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_park_alley;
-		construction_check: switch_park_flat_terrain;
+		construction_check: (nearby_tile_slope(0,0) == SLOPE_FLAT && nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS) == 0) ? 1 : 0; // Can only build on flat terrain, cannot build within 2 tiles of another class 0 house
 	}
 }
 
@@ -1990,84 +1955,86 @@ item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 	}
 	graphics {
 		default: sprite_museum;
-		construction_check: check_museum_shore_SE;
+		construction_check: switch_museum_shore_SE;
 		cargo_production: switch_recycle_museum;
 	}
 }
 
+/* If the extra bank sprites parameter is active, bank sprites from the sub-arctic/sub-tropic and temperate climates become a Courthouse and University, respectively. */
+
 if (extra_bank == 1) {
+	item(FEAT_HOUSES, item_courthouse, 104, HOUSE_SIZE_2X1){
+		property {
+			substitute: 74;
+			name: string(STR_NAME_COURTHOUSE);
+			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			population: 65;
+			mail_multiplier: 70;
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			local_authority_impact: 300;
+			removal_cost_multiplier: 250;
+			probability: 1;
+			years_available: [1850,0xFFFF];
+			minimum_lifetime: 100;
+			availability_mask: [bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+		graphics {
+			graphics_north: sprite_courthouse_n;
+			graphics_west: sprite_courthouse_w;
+			construction_check: switch_university_check;
+			cargo_production: switch_recycle_courthouse;
+		}
+	}
 
-item(FEAT_HOUSES, item_courthouse, 104, HOUSE_SIZE_2X1){
-	property {
-		substitute: 74;
-		name: string(STR_NAME_COURTHOUSE);
-		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
-		population: 65;
-		mail_multiplier: 70;
-		accepted_cargos: [[PASS, 8],[MAIL, 8]];
-		local_authority_impact: 300;
-		removal_cost_multiplier: 250;
-		probability: 1;
-		years_available: [1850,0xFFFF];
-		minimum_lifetime: 100;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-	}
-	graphics {
-		graphics_north: sprite_courthouse_n;
-		graphics_west: sprite_courthouse_w;
-		construction_check: if_road_SE_university;
-		cargo_production: switch_recycle_courthouse;
+	item(FEAT_HOUSES, item_university, 106, HOUSE_SIZE_2X1){
+		property {
+			substitute: 74;
+			name: string(STR_NAME_UNIVERSITY);
+			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			population: 255;
+			mail_multiplier: 70;
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			local_authority_impact: 300;
+			removal_cost_multiplier: 250;
+			probability: 1;
+			years_available: [1700,0xFFFF];
+			minimum_lifetime: 100;
+			availability_mask: [bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+		graphics {
+			graphics_north: sprite_university_n;
+			graphics_west: sprite_university_w;
+			construction_check: switch_university_check;
+			cargo_production: switch_recycle_university;
+		}
 	}
 }
 
-item(FEAT_HOUSES, item_university, 106, HOUSE_SIZE_2X1){
-	property {
-		substitute: 74;
-		name: string(STR_NAME_UNIVERSITY);
-		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
-		population: 255;
-		mail_multiplier: 70;
-		accepted_cargos: [[PASS, 8],[MAIL, 8]];
-		local_authority_impact: 300;
-		removal_cost_multiplier: 250;
-		probability: 1;
-		years_available: [1700,0xFFFF];
-		minimum_lifetime: 100;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-	}
-	graphics {
-		graphics_north: sprite_university_n;
-		graphics_west: sprite_university_w;
-		construction_check: if_road_SE_university;
-		cargo_production: switch_recycle_university;
-	}
-}
-}
+/* Spas use the sub-arctic hotel sprite, but only if the parameter is active -- FIRS uses this sprite for its hotel industry. */
 
 if (extra_hotel == 1) {
-
-item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
-	property {
-		substitute: 07;
-		name: string(STR_NAME_SPA);
-		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
-		population: 85;
-		mail_multiplier: (improved_mail == 1) ? 4 : 30;
-		accepted_cargos: [[PASS, 8],[MAIL, 4]];
-		local_authority_impact: 200;
-		removal_cost_multiplier: 150;
-		probability: 1;
-		years_available: [1880,0xFFFF];
-		minimum_lifetime: 10;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-	}
-	graphics {
-		graphics_north: sprite_spa_n;
-		graphics_east: sprite_spa_e;
-		construction_check: hotel_check_1;
-		cargo_production: switch_recycle_spa;
+	item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
+		property {
+			substitute: 07;
+			name: string(STR_NAME_SPA);
+			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			population: 85;
+			mail_multiplier: (improved_mail == 1) ? 4 : 30;
+			accepted_cargos: [[PASS, 8],[MAIL, 4]];
+			local_authority_impact: 200;
+			removal_cost_multiplier: 150;
+			probability: 1;
+			years_available: [1880,0xFFFF];
+			minimum_lifetime: 10;
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+		graphics {
+			graphics_north: sprite_spa_n;
+			graphics_east: sprite_spa_e;
+			construction_check: switch_hotel_check_1;
+			cargo_production: switch_recycle_spa;
+		}
 	}
 }
-}
 
-// End Landmarks
+/* *** End Landmarks *** */

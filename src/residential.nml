@@ -1,6 +1,7 @@
-// Begin Residential
+/* Begin Residential */
 
-// Houses
+/* Houses with _old suffixes are available earlier, with lesser population to allow older, smaller vehicles to keep up. They also accept wood and/or coal as fuel. */
+
 item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 	property {
 		substitute: 26;
@@ -19,7 +20,7 @@ item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 		}
 	graphics {
 		default: house_sprite_sloped;
-		construction_check: townhouse_office_space_1;
+		construction_check: switch_house_office_gap;
 		cargo_production: switch_recycle_house;
 	}
 }
@@ -42,11 +43,9 @@ item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
 	graphics {
 		default: house_sprite_sloped;
 		cargo_production: switch_recycle_old_house;
-		
 	}
 }
 
-// Townhouses
 item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
 	property {
 		substitute: 06;
@@ -63,7 +62,7 @@ item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
 		}
 	graphics {
 		default: random_sprite_townhouses;
-		construction_check: townhouse_office_space_1;
+		construction_check: switch_house_office_gap;
 		cargo_production: switch_recycle_townhouses;
 	}
 }
@@ -88,7 +87,6 @@ item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
 	}
 }
 
-// Flats
 item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 	property {
 		substitute: 27;
@@ -105,12 +103,12 @@ item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 		}
 	graphics {
 		default: random_sprite_flats;
-		construction_check: pass_service_check;
+		construction_check: (cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) ? 1 : 0; 	
+			// Only build within the catchment area of a station which received passengers this month or last month
 		cargo_production: switch_recycle_flats;
 	}
 }
 
-// Small Flats
 item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 	property {
 		substitute: 02;
@@ -127,7 +125,7 @@ item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 		}
 	graphics {
 		default: random_sprite_small_flats;
-		construction_check: flats_office_space_1;
+		construction_check: switch_small_flats_check_1;
 		cargo_production: switch_recycle_small_flats;
 	}
 }
@@ -172,4 +170,4 @@ item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 	}
 }
 
-// End Residential
+/* *** End Residential *** */

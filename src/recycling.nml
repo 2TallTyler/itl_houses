@@ -1,4 +1,5 @@
-// Begin Waste Switches
+
+/* *** Begin Waste Switches *** */
 
 /* 
 Waste is only active when a supported version (version 8 or later) of Improved Town Industries is active with the Waste & Recyclables parameter active.
@@ -222,4 +223,4 @@ switch (FEAT_HOUSES, SELF, switch_recycle_spa, [STORE_TEMP(11, 1), STORE_TEMP(1,
 }
 
 
-// End Waste Switches
+/* *** End Waste Switches *** */
