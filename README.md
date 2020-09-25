@@ -1,5 +1,8 @@
 # Improved Town Layouts
 
+![Photo credit: Kale on Discord](docs/itl_kale.png)
+_Photo credit: Kale on Discord_
+
 A house replacement set using default graphics with new rules and features.
 
 ## Features
