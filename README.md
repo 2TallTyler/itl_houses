@@ -1,5 +1,8 @@
 # Improved Town Layouts
 
+![Photo credit: Kale on Discord](docs/itl_kale.png)
+_Photo credit: Kale on Discord_
+
 A house replacement set using default graphics with new rules and features.
 
 ## Features
@@ -39,7 +42,7 @@ A house replacement set using default graphics with new rules and features.
 - Requires OpenTTD version 1.10.0, JGR version 0.34, or better.
 
 ## Parameters
-### Additional graphics (default off)
+Use additional sprites. Default off.
 - Use Bank sprites
   - Adds the Bank sprites as a University (temperate bank sprite) and a Courthouse (sub-arctic bank sprite)
   - Not recommended if playing with an industry set which includes banks
@@ -49,17 +52,6 @@ A house replacement set using default graphics with new rules and features.
 - Use sub-tropical sprites
   - Adds the sub-tropical church sprite as an additional Church type
   - Adds one of the flats sprites as a random sprite of the Warehouse
-### Changed house stats (default on)
-- Improved Mail
-  - Residential buildings produce almost no mail
-  - Commercial buildings produce slightly more
-  - Asymmetric cargo distribution for mail recommended
-  - Creates a more interesting mail distribution network and makes keeping up with mail more viable, even with the typically small mail trucks in most NewGRF vehicle sets
-- Improved Early Population
-  - Early buildings have less population, for balance with smaller and slower early vehicles
-    - 1700-1850: 1/4 population
-    - 1850-1950: 1/2 population
-  - May create excess sprawl with some Game Scripts
 
 ## Limitations / Not in Scope
 - This is a house replacement set. It does not improve the behavior of other NewGRF houses, how towns build roads, or [town growth](https://wiki.openttd.org/Towns#Town_Growth)
