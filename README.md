@@ -54,5 +54,5 @@ Use additional sprites. Default off.
   - Adds one of the flats sprites as a random sprite of the Warehouse
 
 ## Limitations / Not in Scope
-- This is a house replacement set. It does not improve the behavior of other NewGRF houses, how towns build roads, or [town growth](https://wiki.openttd.org/Towns#Town_Growth)
+- This is a house replacement set. It does not improve the behavior of other NewGRF houses, how towns build roads, or [town growth](https://wiki.openttd.org/en/Manual/Towns#town-growth)
 - This set is intended for the Temperate climate. It does not include snow-aware sprites, because they do not exist for most buildings.
