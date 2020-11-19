@@ -78,3 +78,10 @@
 - Fix: Houses produce passengers and mail properly
 - Change: Buildings which are available forever now end at year 65535 instead of 9999
 - Change: Reformat NML code
+
+### 1.3.0
+- Add: Compatibility with Improved Town Industries 1.6.0
+- Add: Future compatibility with Yankee Industries
+- Codechange: Refactor switches
+- Codechange: Remove unnecessary/broken parameters
+- Codechange: Remove unnecessary Protection callbacks
