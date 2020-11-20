@@ -1,0 +1,56 @@
+##grflangid 0x02
+
+STR_GRF_NAME							:{TITLE} {VERSION}
+STR_GRF_DESC							:{ORANGE}Alte Häuser, neue Regeln.{}{}{BLACK}Durch das Transportwesen bestimmte Innenstädte, sich ausdehnende Vorstädte, historisch geschützte Gebäude, und vieles mehr.{}{}Startet im Jahr 1700. Kooperiert mit allen Basisgrafik-Sets. {SILVER}Nicht kompatibel mit anderen Gebäude-NewGRFs.{}{}{ORANGE}Besuchen Sie die Website für mehr Informationen.{}{}{BLACK}Programmiert von 2TallTyler.
+STR_WEBSITE								:https://github.com/2TallTyler/improved_town_layouts/blob/master/README.md
+
+STR_ERROR_REQUIRE_TEMPERATE				:Improved Town Layouts ist erstellt für gemäßigtes Klima. Gebäude haben keine Schnee-Sprites.
+
+STR_ERROR_GAME_VERSION					:Braucht OpenTTD-Version 1.10.0, JGR-Version 0.34, oder neuer.
+
+STR_PARAM_NAME_EXTRA_BANK				:Aktiviere Bank-Sprites
+STR_PARAM_DESC_EXTRA_BANK				:Fügt Bank-Sprites als {SILVER}Universität{BLACK} (gemäßigtes Klima) und {SILVER}Justizgebäude{BLACK} (subarktisches Klima) hinzu.{}{}{ORANGE}Nicht empfehlenswert{BLACK} mit einem einem Industrie-Set zu spielen, welches Banken enthält. 
+
+STR_PARAM_NAME_EXTRA_HOTEL				:Aktiviere FIRS Hotel-Sprites
+STR_PARAM_DESC_EXTRA_HOTEL				:Fügt einen subarktischen Hotel-Sprite als {SILVER}Spa{BLACK} hinzu. {}{}{ORANGE}Nicht empfehlenswert{BLACK}, wenn mit FIRS gespielt wird, da FIRS diesen Sprite ebenfalls benützt.
+
+STR_PARAM_NAME_EXTRA_TROPIC				:Aktiviere subtropische Sprites
+STR_PARAM_DESC_EXTRA_TROPIC				:Fügt einen subtropischen Kirchen-Sprite als zusätzlichen {SILVER}Kirchen{BLACK}-Typ hinzu. Fügt einen der Wohnungs-Sprites als zufälligen Sprite des {SILVER}Warenhauses{BLACK} hinzu.
+
+STR_PARAM_NAME_IMPROVED_MAIL			:Verbesserte Post-Strukturen
+STR_PARAM_DESC_IMPROVED_MAIL			:Wohngebäude produzieren fast keine Post. Geschäftsgebäude leicht mehr.{}{}{SILVER}Asymmetrische Warenverteilung{BLACK} ist für Post empfohlen.
+
+STR_PARAM_NAME_IMPROVED_EARLY_HOUSES	:Verbesserte frühe Bevölkerung
+STR_PARAM_DESC_IMPROVED_EARLY_HOUSES	:{SILVER}Frühe Gebäude {BLACK}haben weniger Einwohner, um für eine Balance zwischen frühen kleinen und langsamen Fahrzeugen und neueren effizienteren Fahrzeugen zu sorgen.{}{}* 1700-1850: 1/4 Bevölkerung{}* 1850-1950: 1/2 Bevölkerung{}{}{ORANGE}Mit gewissen Skripts kann es zu massiver Ausdehnung kommen.
+
+STR_NAME_HISTORIC_CHURCH				:Historische Kirche
+STR_NAME_OLD_CHURCH						:Kirche
+STR_NAME_MODERN_CHURCH					:Kirche
+STR_NAME_NEOMOORISH_CHURCH				:Neu-orientalische Kirche
+STR_NAME_OLD_STADIUM					:Stadion
+STR_NAME_NEW_STADIUM					:Modernes Stadion
+STR_NAME_CINEMA							:Kino
+STR_NAME_THEATRE						:Theater
+STR_NAME_HOTEL							:Hotel
+STR_NAME_MARKET							:Markt
+STR_NAME_WAREHOUSE						:Warenhaus
+STR_NAME_STATUE							:Statue
+STR_NAME_FOUNTAIN						:Fontäne
+STR_NAME_HOUSES							:Häuser
+STR_NAME_TOWNHOUSES						:Stadthäuser
+STR_NAME_SHOP							:Geschäft
+STR_NAME_PARK							:Park
+STR_NAME_TALL_OFFICE_BLOCK				:Hoher Büroblock
+STR_NAME_LARGE_OFFICE_BLOCK				:Großer Büroblock
+STR_NAME_OFFICE_BLOCK					:Büroblock
+STR_NAME_SHOPS_AND_OFFICES				:Geschäfte und Büros
+STR_NAME_OFFICES						:Büros
+STR_NAME_CAPSULE_TOWER					:Nakagin Capsule Tower
+STR_NAME_FLATS							:Wohnungen
+STR_NAME_SMALL_FLATS					:Kleiner Wohnblock
+STR_NAME_COTTAGES						:Hütten
+STR_NAME_SQUARE							:Platz
+STR_NAME_UNIVERSITY						:Universität
+STR_NAME_COURTHOUSE						:Justizgebäude
+STR_NAME_MUSEUM							:Museum
+STR_NAME_SPA							:Spa
