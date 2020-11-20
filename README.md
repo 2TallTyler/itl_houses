@@ -53,6 +53,18 @@ Use additional sprites. Default off.
   - Adds the sub-tropical church sprite as an additional Church type
   - Adds one of the flats sprites as a random sprite of the Warehouse
 
+## Code Reference
+All code is commented and is organized into several .nml files which are combined by a simple Python script into a merged .nml file for compiling into the .grf. All of these files are in /src/.
+
+If you have any questions, please feel free to contact me and I will do my best to help.
+
+## Translations
+Currently available in:
+- English
+- German (WoelfiVW)
+
+Please feel free to translate into your language and submit a Pull Request.
+
 ## Limitations / Not in Scope
 - This is a house replacement set. It does not improve the behavior of other NewGRF houses, how towns build roads, or [town growth](https://wiki.openttd.org/en/Manual/Towns#town-growth)
 - This set is intended for the Temperate climate. It does not include snow-aware sprites, because they do not exist for most buildings.

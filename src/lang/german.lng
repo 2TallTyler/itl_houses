@@ -17,12 +17,6 @@ STR_PARAM_DESC_EXTRA_HOTEL				:Fügt einen subarktischen Hotel-Sprite als {SILVE
 STR_PARAM_NAME_EXTRA_TROPIC				:Aktiviere subtropische Sprites
 STR_PARAM_DESC_EXTRA_TROPIC				:Fügt einen subtropischen Kirchen-Sprite als zusätzlichen {SILVER}Kirchen{BLACK}-Typ hinzu. Fügt einen der Wohnungs-Sprites als zufälligen Sprite des {SILVER}Warenhauses{BLACK} hinzu.
 
-STR_PARAM_NAME_IMPROVED_MAIL			:Verbesserte Post-Strukturen
-STR_PARAM_DESC_IMPROVED_MAIL			:Wohngebäude produzieren fast keine Post. Geschäftsgebäude leicht mehr.{}{}{SILVER}Asymmetrische Warenverteilung{BLACK} ist für Post empfohlen.
-
-STR_PARAM_NAME_IMPROVED_EARLY_HOUSES	:Verbesserte frühe Bevölkerung
-STR_PARAM_DESC_IMPROVED_EARLY_HOUSES	:{SILVER}Frühe Gebäude {BLACK}haben weniger Einwohner, um für eine Balance zwischen frühen kleinen und langsamen Fahrzeugen und neueren effizienteren Fahrzeugen zu sorgen.{}{}* 1700-1850: 1/4 Bevölkerung{}* 1850-1950: 1/2 Bevölkerung{}{}{ORANGE}Mit gewissen Skripts kann es zu massiver Ausdehnung kommen.
-
 STR_NAME_HISTORIC_CHURCH				:Historische Kirche
 STR_NAME_OLD_CHURCH						:Kirche
 STR_NAME_MODERN_CHURCH					:Kirche

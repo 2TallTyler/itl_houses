@@ -85,3 +85,7 @@
 - Codechange: Refactor switches
 - Codechange: Remove unnecessary/broken parameters
 - Codechange: Remove unnecessary Protection callbacks
+
+### 1.3.1
+- Add: German translation by WoelfiVW
+- Codechange: Remove unused strings from depreciated parameters
