@@ -89,3 +89,6 @@
 ### 1.3.1
 - Add: German translation by WoelfiVW
 - Codechange: Remove unused strings from depreciated parameters
+
+### 1.3.2
+- Add: French translation by arikover
