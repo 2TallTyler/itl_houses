@@ -1,4 +1,4 @@
-##grflangid 0x01
+##grflangid 0x03
 
 STR_GRF_NAME							:{TITLE} {VERSION}
 STR_GRF_DESC							:{ORANGE}Mêmes maisons, nouvelles règles.{}{}{BLACK}Centre-ville déterminé par le trafic passager, banlieues tentaculaires, bâtiments préservés, et plus encore.{}{}À partir de 1700. Compatible avec tous les graphismes de base. {SILVER}Incompatible avec les autres NewGRFs de maisons.{}{}{ORANGE}Visiter le site pour le manuel.{}{}{BLACK}Codé par 2TallTyler.
