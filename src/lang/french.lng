@@ -1,0 +1,50 @@
+##grflangid 0x03
+
+STR_GRF_NAME							:{TITLE} {VERSION}
+STR_GRF_DESC							:{ORANGE}Mêmes maisons, nouvelles règles.{}{}{BLACK}Centre-ville déterminé par le trafic passager, banlieues tentaculaires, bâtiments préservés, et plus encore.{}{}À partir de 1700. Compatible avec tous les graphismes de base. {SILVER}Incompatible avec les autres NewGRFs de maisons.{}{}{ORANGE}Visiter le site pour le manuel.{}{}{BLACK}Codé par 2TallTyler.
+STR_WEBSITE								:https://github.com/2TallTyler/improved_town_layouts/blob/master/README.md
+
+STR_ERROR_REQUIRE_TEMPERATE				:Improved Town Layouts (Plans urbains améliorés) est conçu pour le climat tempéré. Les bâtiments n'ont pas de version enneigée.
+
+STR_ERROR_GAME_VERSION					:Improved Town Layouts (Plans urbains améliorés) requiert OpenTTD 1.10.0, JGR 0.34, ou des versions ultérieures
+
+STR_PARAM_NAME_EXTRA_BANK				:Utiliser les graphismes des banques
+STR_PARAM_DESC_EXTRA_BANK				:Les graphismes des banques servent comme {SILVER}Université{BLACK} (banque tempérée) et comme {SILVER}Tribunal{BLACK} (banque arctique).{}{}{ORANGE}Déconseillé{BLACK} avec des NewGRFs incluant des banques. 
+
+STR_PARAM_NAME_EXTRA_HOTEL				:Utiliser les graphismes de l'hôtel FIRS
+STR_PARAM_DESC_EXTRA_HOTEL				:Les graphismes de l'hôtel arctique servent comme {SILVER}Spa{BLACK}. {}{}{ORANGE}Déconseillé{BLACK} avec FIRS qui emploie également ces graphismes.
+
+STR_PARAM_NAME_EXTRA_TROPIC				:Utiliser les graphismes tropicaux
+STR_PARAM_DESC_EXTRA_TROPIC				:L'église sub-tropicale sert comme un autre type d'{SILVER}église{BLACK}. Des immeubles sub-tropicaux peuvent servir comme {SILVER}entrepôt{BLACK}.
+
+STR_NAME_HISTORIC_CHURCH				:Église historique
+STR_NAME_OLD_CHURCH						:Église
+STR_NAME_MODERN_CHURCH					:Église
+STR_NAME_NEOMOORISH_CHURCH				:Église néo-mauresque
+STR_NAME_OLD_STADIUM					:Stade
+STR_NAME_NEW_STADIUM					:Stade moderne
+STR_NAME_CINEMA							:Cinéma
+STR_NAME_THEATRE						:Théâtre
+STR_NAME_HOTEL							:Hôtel
+STR_NAME_MARKET							:Marché
+STR_NAME_WAREHOUSE						:Entrepôt
+STR_NAME_STATUE							:Statue
+STR_NAME_FOUNTAIN						:Fontaine
+STR_NAME_HOUSES							:Maisons
+STR_NAME_TOWNHOUSES						:Maisons de ville
+STR_NAME_SHOP							:Magasin
+STR_NAME_PARK							:Parc
+STR_NAME_TALL_OFFICE_BLOCK				:Très grand immeuble de bureaux
+STR_NAME_LARGE_OFFICE_BLOCK				:Grand immeuble de bureaux
+STR_NAME_OFFICE_BLOCK					:Immeuble de bureaux
+STR_NAME_SHOPS_AND_OFFICES				:Commerces et bureaux
+STR_NAME_OFFICES						:Bureaux
+STR_NAME_CAPSULE_TOWER					:Nakagin Capsule Tower
+STR_NAME_FLATS							:Appartements
+STR_NAME_SMALL_FLATS					:Immeuble résidentiel
+STR_NAME_COTTAGES						:Pavillon
+STR_NAME_SQUARE							:Square
+STR_NAME_UNIVERSITY						:Université
+STR_NAME_COURTHOUSE						:Tribunal
+STR_NAME_MUSEUM							:Musée
+STR_NAME_SPA							:Spa
