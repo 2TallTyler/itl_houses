@@ -1,0 +1,17 @@
+
+/* Begin Functions */
+
+switch(FEAT_HOUSES, SELF, func_pass_service, (cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1)) {return;}
+
+switch(FEAT_HOUSES, SELF, func_population_adder, 
+		(other_house_count_town(25)*1)+ // Cottages
+		(other_house_count_town(24)*1)+ // Old houses
+		(other_house_count_town(108)*2)+ // Pre-1945 Houses
+		(other_house_count_town(26)*2)+ // Houses
+		(other_house_count_town(109)*3)+ // Pre-1945 Townhouses
+		(other_house_count_town(06)*3)+ // Townhouses
+		(other_house_count_town(27)*10)+ // Flats
+		(other_house_count_town(02)*4) // Small flats
+	) {return;}
+
+/* End Functions */

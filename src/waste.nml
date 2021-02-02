@@ -1,0 +1,95 @@
+
+/* *** Begin Waste *** */
+
+/* 
+Waste is only active when a supported version (version 8 or later) of Improved Town Industries is active with the Waste & Recyclables parameter active.
+
+The parameter to enable waste, as well as the WSTE and RCYC cargo definitions, are in Improved Town Industries.
+
+Improved Town Industries also has an error message in case Improved Town Layouts is not loaded or too old, or if OpenTTD is not 1.10.0 or better.
+
+No waste-related error messages are required or included in Improved Town Layouts (although there are a few other error messages in header.nml).
+*/
+
+/* Average monthly production of passengers or mail, based on vanilla population or mail_multiplier properties:
+
+--------------------------------------
+Population       Avg. passengers/month
+--------------------------------------
+1 to 8           -->    1
+9 to 16          -->    2
+17 to 24         -->    3
+25 to 32         -->    4
+33 to 40         -->    5
+41 to 48         -->    6
+49 to 56         -->    7
+57 to 64         -->    8
+65 to 72         -->    9
+73 to 80         -->    10
+81 to 88         -->    11
+89 to 96         -->    12
+97 to 104        -->    13
+105 to 112       -->    14
+113 to 120       -->    15
+121 to 128       -->    16
+129 to 136       -->    17
+137 to 144       -->    18
+145 to 152       -->    19
+153 to 160       -->    20
+161 to 168       -->    21
+169 to 176       -->    22
+177 to 184       -->    23
+185 to 192       -->    24
+193 to 200       -->    25
+201 to 208       -->    26
+209 to 216       -->    27
+217 to 224       -->    28
+225 to 232       -->    29
+233 to 240       -->    30
+241 to 248       -->    31
+249 to 256       -->    32
+257 to 264       -->    33
+265 to 272       -->    34
+273 to 280       -->    35
+281 to 288       -->    36
+289 to 296       -->    37
+*/
+
+/* Waste production per month:
+
+- Residential: 							Min 1 ton, max 1/10 ton per person (rounded up)
+- Commercial (including landmarks):		Min 1 ton, max 1/8 ton per person (rounded up)
+
+*/
+
+/* Production loop, shared by all houses. Used when Waste is not active. Individual production rates stored in temporary registers in the functions below.*/
+switch (FEAT_HOUSES, SELF, switch_alt_production_no_waste, getbits(extra_callback_info1, 0, 8)) {
+	0: (PASS * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(1);
+	1: (MAIL * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(2);
+	return CB_RESULT_HOUSE_NO_MORE_PRODUCTION;
+}
+
+/* Production loop, shared by all houses. Used when Waste is active. Individual production rates stored in temporary registers in the functions below.*/
+switch (FEAT_HOUSES, SELF, switch_alt_production_waste, getbits(extra_callback_info1, 0, 8)) {
+	0: (PASS * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(1);
+	1: (MAIL * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(2);
+	2: (WSTE * 256) + (abs(extra_callback_info2 % 8) == 0) * LOAD_TEMP(3);
+	return CB_RESULT_HOUSE_NO_MORE_PRODUCTION;
+}
+
+/* Check for compatible version of Improved Town Industries (>= 1.6.0) or Yankee Industries */
+switch (FEAT_HOUSES, SELF, switch_recycle_enabled, (param["TT\04\01", 254] >= 10) || (param["TT12", 254] >= 0)) {
+	1: switch_alt_production_waste; switch_alt_production_no_waste;}
+
+/* Production levels for passengers, mail, and waste are passed as arguments to this function for use in the production loop. */
+switch (FEAT_HOUSES, SELF, func_produce, pass, mail, waste, [STORE_TEMP(pass, 1), STORE_TEMP(mail, 2), STORE_TEMP(waste, 3)] ) {switch_recycle_enabled;}
+
+/* 
+Waste production levels:
+* Residential = min 1, max 1/6 per person (rounded up)
+* Commercial = min 1, max 1/4 per person (rounded up) 
+* Historic Commercial = min 1, max 1/4 per person (rounded up)
+* Landmarks = min 1, max 1/4 per person (rounded up), or otherwise as decided for gameplay reasons. For example, stadiums make a lot of waste.
+*/
+
+/* *** End Waste *** */

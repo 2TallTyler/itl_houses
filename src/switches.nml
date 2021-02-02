@@ -140,8 +140,8 @@ switch(FEAT_HOUSES, SELF, switch_house_office_gap,
 		
 		
 /* Small Flats cannot build within 1 tile of a modern office building unless no passenger service is provided to the tile */
-switch(FEAT_HOUSES, SELF, switch_small_flats_check_2a, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 0; return 1;}
-switch(FEAT_HOUSES, SELF, switch_small_flats_check_2b, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) {1: return 1; return 0;}
+switch(FEAT_HOUSES, SELF, switch_small_flats_check_2a, func_pass_service()) {1: return 0; return 1;}
+switch(FEAT_HOUSES, SELF, switch_small_flats_check_2b, func_pass_service()) {1: return 1; return 0;}
 
 switch(FEAT_HOUSES, SELF, switch_small_flats_check_1,
 	nearby_tile_house_class(0,1) == 258 ||
@@ -160,55 +160,18 @@ switch(FEAT_HOUSES,SELF, switch_office_cluster_3, same_class_count_town) {0: ret
 switch(FEAT_HOUSES,SELF, switch_office_cluster_2, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: switch_office_cluster_3; return 1;}
 
 /* Office clusters (both old and new) require passenger service */
-switch(FEAT_HOUSES, SELF, switch_office_cluster_1, cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1)
+switch(FEAT_HOUSES, SELF, switch_office_cluster_1, func_pass_service())
 	{1: switch_office_cluster_2; return 0;} 
 
 
 /* Modern office buildings need residential population */
-switch(FEAT_HOUSES, SELF, switch_modern_office_pop_check, 
-	[
-		// Add up population of residential buildings
-		STORE_TEMP( 
-			(other_house_count_town(25)*1)+ // Cottages
-			(other_house_count_town(24)*1)+ // Old houses
-			(other_house_count_town(108)*2)+ // Pre-1945 Houses
-			(other_house_count_town(26)*2)+ // Houses
-			(other_house_count_town(109)*3)+ // Pre-1945 Townhouses
-			(other_house_count_town(06)*3)+ // Townhouses
-			(other_house_count_town(27)*10)+ // Flats
-			(other_house_count_town(02)*5) // Small flats
-			, 1),
-		
-		// Calculate minimum population needed to construct this building
-		STORE_TEMP(other_class_count_town(3) * 30, 2),		// population already used by older buildings
-		STORE_TEMP((1 + same_class_count_town) * 60, 3), 	// minimum population needed for this building
-		STORE_TEMP(LOAD_TEMP(2) + LOAD_TEMP(3), 4),
-
-		LOAD_TEMP(1) > LOAD_TEMP(4),						// Check if population is greater than minimum population needed
-	])
-		{1: switch_office_cluster_1; return 0;}		// If true, proceed to passenger service check, else don't allow construction
+switch(FEAT_HOUSES, SELF, switch_modern_office_pop_check, (func_population_adder() > ( (other_class_count_town(3) * 30) + ((1 + same_class_count_town) * 60) ) ) )
+	{1: switch_office_cluster_1; return 0;}
 
 
 /* Old office buildings need residential population */
-switch(FEAT_HOUSES, SELF, switch_old_office_pop_check, 
-	[ 
-		// Add up population of residential buildings
-		STORE_TEMP( 
-			(other_house_count_town(25)*1)+ // Cottages
-			(other_house_count_town(24)*1)+ // Old houses
-			(other_house_count_town(108)*2)+ // Pre-1945 Houses
-			(other_house_count_town(26)*2)+ // Houses
-			(other_house_count_town(109)*3)+ // Pre-1945 Townhouses
-			(other_house_count_town(06)*3)+ // Townhouses
-			(other_house_count_town(27)*10)+ // Flats
-			(other_house_count_town(02)*4) // Small flats
-			, 1),
-		
-		// Calculate minimum population needed to construct this building
-		STORE_TEMP((1 + same_class_count_town) * 30, 2),	// Calculate minimum population needed for this building
-		LOAD_TEMP(1) > LOAD_TEMP(2),						// Check if population is greater than minimum population needed
-	])
-		{1: switch_office_cluster_1; return 0;}		// If true, proceed to passenger service check, else don't allow construction
+switch(FEAT_HOUSES, SELF, switch_old_office_pop_check, (func_population_adder() > (1 + same_class_count_town) * 30) )
+	{1: switch_office_cluster_1; return 0;}
 
 
 /* One office building requires a road in the SE tile */
@@ -226,9 +189,6 @@ switch(FEAT_HOUSES,SELF, unique_worldwide, same_house_count_map) {0: pop_over_30
 random_switch(FEAT_HOUSES,SELF, random_preservation) {1: return 1; 7: return 0;}
 switch(FEAT_HOUSES,SELF, switch_preservation_3, nearest_house_matching_criterion(2, SEARCH_HOUSE_BY_CLASS)) {0: return 0; return 1;}
 switch(FEAT_HOUSES,SELF, switch_preservation_2, other_house_count_town(38)) {1: switch_preservation_3; random_preservation;}
-
-switch(FEAT_HOUSES,SELF, switch_preservation_1960, current_year) {0 .. 1960: return 0; switch_preservation_2;}
-switch(FEAT_HOUSES,SELF, switch_preservation_1955, current_year) {0 .. 1955: return 0; switch_preservation_2;}
-switch(FEAT_HOUSES,SELF, switch_preservation_1945, current_year) {0 .. 1945: return 0; switch_preservation_2;}
+switch(FEAT_HOUSES,SELF, func_preservation_year, cutoff, (current_year < cutoff)) {0: return 0; switch_preservation_2;}
 
 /* *** End Switches *** */

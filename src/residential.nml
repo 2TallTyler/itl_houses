@@ -15,7 +15,7 @@ item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 	graphics {
 		default: house_sprite_sloped;
 		construction_check: switch_house_office_gap;
-		cargo_production: switch_recycle_house;
+		cargo_production: func_produce(2,1,1);
 	}
 }
 
@@ -31,7 +31,7 @@ item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
 		}
 	graphics {
 		default: house_sprite_sloped;
-		cargo_production: switch_recycle_old_house;
+		cargo_production: func_produce(1,1,1);
 	}
 }
 
@@ -46,7 +46,7 @@ item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
 	graphics {
 		default: random_sprite_townhouses;
 		construction_check: switch_house_office_gap;
-		cargo_production: switch_recycle_townhouses;
+		cargo_production: func_produce(4,1,1);
 	}
 }
 
@@ -61,8 +61,8 @@ item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
 		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
 		}
 	graphics {
-		default					:random_sprite_townhouses;
-		cargo_production		:switch_recycle_house;
+		default: random_sprite_townhouses;
+		cargo_production: func_produce(2,1,1);
 	}
 }
 
@@ -78,7 +78,7 @@ item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 		default: random_sprite_flats;
 		construction_check: (cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) ? 1 : 0; 	
 			// Only build within the catchment area of a station which received passengers this month or last month
-		cargo_production: switch_recycle_flats;
+		cargo_production: func_produce(13,4,2);
 	}
 }
 
@@ -93,7 +93,7 @@ item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 	graphics {
 		default: random_sprite_small_flats;
 		construction_check: switch_small_flats_check_1;
-		cargo_production: switch_recycle_small_flats;
+		cargo_production: func_produce(5,2,1);
 	}
 }
 
@@ -111,6 +111,7 @@ item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: sprite_cottages;
+		cargo_production: func_produce(1,1,1);
 	}
 }
 
@@ -128,6 +129,7 @@ item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 	}
 	graphics {
 		default: random_sprite_old_houses;
+		cargo_production: func_produce(1,1,1);
 	}
 }
 

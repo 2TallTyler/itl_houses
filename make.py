@@ -6,7 +6,7 @@
 newgrf_name = "improved_town_layouts"
 
 # Files which should be first, in order (header, cargotable, etc)
-header_stuff = ["header", "graphics", "switches", "recycling"]
+header_stuff = ["header", "graphics", "functions", "switches", "waste"]
 
 # Files to place in alphabetical order below
 unordered_stuff = ["residential", "commercial", "landmarks"]
