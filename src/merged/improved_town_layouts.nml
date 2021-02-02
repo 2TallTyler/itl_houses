@@ -873,180 +873,6 @@ switch (FEAT_HOUSES, SELF, switch_recycle_spa, [STORE_TEMP(11, 1), STORE_TEMP(1,
 
 /* *** End Waste Switches *** */
 
-/* Begin Residential */
-
-/* Houses with _old suffixes are available earlier, with lesser population to allow older, smaller vehicles to keep up. They also accept wood and/or coal as fuel. */
-
-item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
-	property {
-		substitute: 26;
-		name: string(STR_NAME_HOUSES);
-		population: 13;
-		mail_multiplier: 1;
-		accepted_cargos: [[PASS, 3],[MAIL, 1]];
-		local_authority_impact: 75;
-		removal_cost_multiplier: 71;
-		probability: 4;
-		years_available: [1945,0xFFFF];
-		minimum_lifetime: 2;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class: 0;
-		
-		}
-	graphics {
-		default: house_sprite_sloped;
-		construction_check: switch_house_office_gap;
-		cargo_production: switch_recycle_house;
-	}
-}
-
-item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
-	property {
-		substitute: 26;
-		name: string(STR_NAME_HOUSES);
-		population: 6;
-		mail_multiplier: 1;
-		accepted_cargos: [[PASS, 3],[MAIL, 1],[COAL, 1]];
-		local_authority_impact: 75;
-		removal_cost_multiplier: 71;
-		probability: 4;
-		years_available: [1850,1950];
-		minimum_lifetime: 1;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class: 0;
-		}
-	graphics {
-		default: house_sprite_sloped;
-		cargo_production: switch_recycle_old_house;
-	}
-}
-
-item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
-	property {
-		substitute: 06;
-		name: string(STR_NAME_TOWNHOUSES);
-		population: 30;
-		mail_multiplier: 1;
-		accepted_cargos: [[PASS, 4],[MAIL, 2]];
-		local_authority_impact: 80;
-		removal_cost_multiplier: 80;
-		probability: 1;
-		years_available: [1945,0xFFFF];
-		minimum_lifetime: 2;
-		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		default: random_sprite_townhouses;
-		construction_check: switch_house_office_gap;
-		cargo_production: switch_recycle_townhouses;
-	}
-}
-
-item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
-	property {
-		substitute: 06;
-		name: string(STR_NAME_TOWNHOUSES);
-		population: 15;
-		mail_multiplier: 1;
-		accepted_cargos: [[PASS, 4],[MAIL, 2],[COAL, 2]];
-		local_authority_impact: 80;
-		removal_cost_multiplier: 80;
-		probability: 1;
-		years_available: [1850,1950];
-		minimum_lifetime: 2;
-		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		default					:random_sprite_townhouses;
-		cargo_production		:switch_recycle_house;
-	}
-}
-
-item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
-	property {
-		substitute: 27;
-		name: string(STR_NAME_FLATS);
-		population: 100;
-		mail_multiplier: 4;
-		accepted_cargos: [[PASS, 8],[MAIL, 2]];
-		local_authority_impact: 100;
-		removal_cost_multiplier: 135;
-		probability: 1;
-		years_available: [1945,0xFFFF];
-		minimum_lifetime: 5;
-		availability_mask: [ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		default: random_sprite_flats;
-		construction_check: (cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) ? 1 : 0; 	
-			// Only build within the catchment area of a station which received passengers this month or last month
-		cargo_production: switch_recycle_flats;
-	}
-}
-
-item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
-	property {
-		substitute: 02;
-		name: string(STR_NAME_SMALL_FLATS);
-		population: 40;
-		mail_multiplier: 2;
-		accepted_cargos: [[PASS, 8],[MAIL, 3]];
-		local_authority_impact: 90;
-		removal_cost_multiplier: 100;
-		probability: 1;
-		years_available: [1945,0xFFFF];
-		minimum_lifetime: 4;
-		availability_mask: [ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		}
-	graphics {
-		default: random_sprite_small_flats;
-		construction_check: switch_small_flats_check_1;
-		cargo_production: switch_recycle_small_flats;
-	}
-}
-
-item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
-	property {
-		substitute: 25;
-		name: string(STR_NAME_COTTAGES);
-		population: 3;
-		mail_multiplier: 1;
-		accepted_cargos: [[PASS, 2],[MAIL, 2],[COAL, 1],[WOOD, 1]];
-		local_authority_impact: 60;
-		removal_cost_multiplier: 60;
-		probability: 1;
-		years_available: [1700,1900];
-		minimum_lifetime: 2;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class: 4;
-	}
-	graphics {
-		default: sprite_cottages;
-	}
-}
-
-item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
-	property {
-		substitute: 24;
-		name: string(STR_NAME_HOUSES);
-		population: 4;
-		mail_multiplier: 1;
-		accepted_cargos: [[PASS, 2],[MAIL, 2],[COAL, 2],[WOOD, 2]];
-		local_authority_impact: 75;
-		removal_cost_multiplier: 70;
-		probability: 1;
-		years_available: [1700,1880];
-		minimum_lifetime: 2;
-		availability_mask: [ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
-		building_class: 4;
-	}
-	graphics {
-		default: random_sprite_old_houses;
-	}
-}
-
-/* *** End Residential *** */
-
 
 /* *** Begin Commercial Buildings *** */
 
@@ -2022,3 +1848,177 @@ if (extra_hotel == 1) {
 }
 
 /* *** End Landmarks *** */
+
+/* Begin Residential */
+
+/* Houses with _old suffixes are available earlier, with lesser population to allow older, smaller vehicles to keep up. They also accept wood and/or coal as fuel. */
+
+item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
+	property {
+		substitute: 26;
+		name: string(STR_NAME_HOUSES);
+		population: 13;
+		mail_multiplier: 1;
+		accepted_cargos: [[PASS, 3],[MAIL, 1]];
+		local_authority_impact: 75;
+		removal_cost_multiplier: 71;
+		probability: 4;
+		years_available: [1945,0xFFFF];
+		minimum_lifetime: 2;
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class: 0;
+		
+		}
+	graphics {
+		default: house_sprite_sloped;
+		construction_check: switch_house_office_gap;
+		cargo_production: switch_recycle_house;
+	}
+}
+
+item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
+	property {
+		substitute: 26;
+		name: string(STR_NAME_HOUSES);
+		population: 6;
+		mail_multiplier: 1;
+		accepted_cargos: [[PASS, 3],[MAIL, 1],[COAL, 1]];
+		local_authority_impact: 75;
+		removal_cost_multiplier: 71;
+		probability: 4;
+		years_available: [1850,1950];
+		minimum_lifetime: 1;
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class: 0;
+		}
+	graphics {
+		default: house_sprite_sloped;
+		cargo_production: switch_recycle_old_house;
+	}
+}
+
+item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
+	property {
+		substitute: 06;
+		name: string(STR_NAME_TOWNHOUSES);
+		population: 30;
+		mail_multiplier: 1;
+		accepted_cargos: [[PASS, 4],[MAIL, 2]];
+		local_authority_impact: 80;
+		removal_cost_multiplier: 80;
+		probability: 1;
+		years_available: [1945,0xFFFF];
+		minimum_lifetime: 2;
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		default: random_sprite_townhouses;
+		construction_check: switch_house_office_gap;
+		cargo_production: switch_recycle_townhouses;
+	}
+}
+
+item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
+	property {
+		substitute: 06;
+		name: string(STR_NAME_TOWNHOUSES);
+		population: 15;
+		mail_multiplier: 1;
+		accepted_cargos: [[PASS, 4],[MAIL, 2],[COAL, 2]];
+		local_authority_impact: 80;
+		removal_cost_multiplier: 80;
+		probability: 1;
+		years_available: [1850,1950];
+		minimum_lifetime: 2;
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		default					:random_sprite_townhouses;
+		cargo_production		:switch_recycle_house;
+	}
+}
+
+item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
+	property {
+		substitute: 27;
+		name: string(STR_NAME_FLATS);
+		population: 100;
+		mail_multiplier: 4;
+		accepted_cargos: [[PASS, 8],[MAIL, 2]];
+		local_authority_impact: 100;
+		removal_cost_multiplier: 135;
+		probability: 1;
+		years_available: [1945,0xFFFF];
+		minimum_lifetime: 5;
+		availability_mask: [ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		default: random_sprite_flats;
+		construction_check: (cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) ? 1 : 0; 	
+			// Only build within the catchment area of a station which received passengers this month or last month
+		cargo_production: switch_recycle_flats;
+	}
+}
+
+item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
+	property {
+		substitute: 02;
+		name: string(STR_NAME_SMALL_FLATS);
+		population: 40;
+		mail_multiplier: 2;
+		accepted_cargos: [[PASS, 8],[MAIL, 3]];
+		local_authority_impact: 90;
+		removal_cost_multiplier: 100;
+		probability: 1;
+		years_available: [1945,0xFFFF];
+		minimum_lifetime: 4;
+		availability_mask: [ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		}
+	graphics {
+		default: random_sprite_small_flats;
+		construction_check: switch_small_flats_check_1;
+		cargo_production: switch_recycle_small_flats;
+	}
+}
+
+item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
+	property {
+		substitute: 25;
+		name: string(STR_NAME_COTTAGES);
+		population: 3;
+		mail_multiplier: 1;
+		accepted_cargos: [[PASS, 2],[MAIL, 2],[COAL, 1],[WOOD, 1]];
+		local_authority_impact: 60;
+		removal_cost_multiplier: 60;
+		probability: 1;
+		years_available: [1700,1900];
+		minimum_lifetime: 2;
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class: 4;
+	}
+	graphics {
+		default: sprite_cottages;
+	}
+}
+
+item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
+	property {
+		substitute: 24;
+		name: string(STR_NAME_HOUSES);
+		population: 4;
+		mail_multiplier: 1;
+		accepted_cargos: [[PASS, 2],[MAIL, 2],[COAL, 2],[WOOD, 2]];
+		local_authority_impact: 75;
+		removal_cost_multiplier: 70;
+		probability: 1;
+		years_available: [1700,1880];
+		minimum_lifetime: 2;
+		availability_mask: [ALL_TOWNZONES, ALL_CLIMATES | bitmask(ABOVE_SNOWLINE)];
+		building_class: 4;
+	}
+	graphics {
+		default: random_sprite_old_houses;
+	}
+}
+
+/* *** End Residential *** */
