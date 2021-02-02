@@ -9,7 +9,7 @@ item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED, HOUSE_FLAG_CHURCH, HOUSE_FLAG_PROTECTED);
 		population: 5;
 		mail_multiplier: 2;
-		accepted_cargos: [[PASS, 2],[MAIL, 2]];
+		accepted_cargos: [[PASS, 4],[MAIL, 2]];
 		local_authority_impact: 230;
 		removal_cost_multiplier: 90;
 		probability: 4;
@@ -31,7 +31,7 @@ item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED,HOUSE_FLAG_CHURCH, HOUSE_FLAG_PROTECTED);
 		population: 5;
 		mail_multiplier: 2;
-		accepted_cargos: [[PASS, 2],[MAIL, 2]];
+		accepted_cargos: [[PASS, 4],[MAIL, 2]];
 		local_authority_impact: 230;
 		removal_cost_multiplier: 90;
 		probability: 6;
@@ -54,7 +54,7 @@ item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population: 6;
 		mail_multiplier: 2;
-		accepted_cargos: [[PASS, 2],[MAIL, 2]];
+		accepted_cargos: [[PASS, 4],[MAIL, 2]];
 		local_authority_impact: 230;
 		removal_cost_multiplier: 85;
 		probability: 1;
@@ -76,7 +76,7 @@ item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population: 8;
 		mail_multiplier: 2;
-		accepted_cargos: [[PASS, 3],[MAIL, 2]];
+		accepted_cargos: [[PASS, 4],[MAIL, 2]];
 		local_authority_impact: 230;
 		removal_cost_multiplier: 85;
 		probability: 1;
@@ -100,7 +100,7 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED, HOUSE_FLAG_PROTECTED);
 		population: 8;
 		mail_multiplier: 2;
-		accepted_cargos: [[PASS, 3],[MAIL, 2]];
+		accepted_cargos: [[PASS, 4],[MAIL, 2]];
 		local_authority_impact: 230;
 		removal_cost_multiplier: 85;
 		probability: 1;
@@ -174,7 +174,7 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 140;
 		mail_multiplier: 4;
-		accepted_cargos: [[PASS, 6],[MAIL, 2]];
+		accepted_cargos: [[PASS, 8],[FOOD, 8],[BEER, 8],[MAIL, 8]];
 		local_authority_impact: 150;
 		removal_cost_multiplier: 180;
 		probability: 4;
@@ -197,7 +197,7 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population: 35;
 		mail_multiplier: 4;
-		accepted_cargos: [[PASS, 2],[MAIL, 2]];
+		accepted_cargos: [[PASS, 4],[MAIL, 2]];
 		local_authority_impact: 230;
 		removal_cost_multiplier: 210;
 		probability: 1;
@@ -219,7 +219,7 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population: 35;
 		mail_multiplier: 8;
-		accepted_cargos: [[PASS, 2],[MAIL, 2]];
+		accepted_cargos: [[PASS, 4],[MAIL, 2]];
 		local_authority_impact: 230;
 		removal_cost_multiplier: 220;
 		probability: 1;
@@ -270,7 +270,7 @@ if (extra_tropic == 1){
 			name: string(STR_NAME_WAREHOUSE);
 			population: 6;
 			mail_multiplier: 10;
-			accepted_cargos: [[MAIL, 3],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 3],[GOOD, 8],[PASS, 2]];
 			local_authority_impact: 110;
 			removal_cost_multiplier: 145;
 			probability: 1;
@@ -291,7 +291,7 @@ if (extra_tropic == 1){
 			name: string(STR_NAME_WAREHOUSE);
 			population: 6;
 			mail_multiplier: 10;
-			accepted_cargos: [[MAIL, 3],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 3],[GOOD, 8],[PASS, 2]];
 			local_authority_impact: 110;
 			removal_cost_multiplier: 145;
 			probability: 1;
@@ -360,7 +360,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 25;
 		mail_multiplier: 4;
-		accepted_cargos: [[PASS, 2], [GOOD, 8],[FOOD, 8],[BEER, 8]];
+		accepted_cargos: [[PASS, 8], [GOOD, 8],[FOOD, 8],[BEER, 8]];
 		local_authority_impact: 80;
 		removal_cost_multiplier: 100;
 		probability: 15;
