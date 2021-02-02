@@ -92,3 +92,10 @@
 
 ### 1.3.2
 - Add: French translation by arikover
+
+### 1.3.3
+- Change: More landmarks accept Food and Alcohol
+- Codechange: Use default TTD strings where available
+- Codechange: Inherit properties from default houses where possible
+- Codechange: Convert switches to functions where possible (will require building with a newer version of NML than 0.5)
+- Codechange: Use Python make script
