@@ -18,32 +18,7 @@ STR_PARAM_NAME_EXTRA_TROPIC				:Use sub-tropical sprites
 STR_PARAM_DESC_EXTRA_TROPIC				:Adds the sub-tropical Church sprite as an additional {SILVER}Church{BLACK} type. Adds one of the Flats sprites as a random sprite of the {SILVER}Warehouse{BLACK}.
 
 STR_NAME_HISTORIC_CHURCH				:Historic Church
-STR_NAME_OLD_CHURCH						:Church
-STR_NAME_MODERN_CHURCH					:Church
-STR_NAME_NEOMOORISH_CHURCH				:Neo-Moorish Church
-STR_NAME_OLD_STADIUM					:Stadium
-STR_NAME_NEW_STADIUM					:Modern Stadium
-STR_NAME_CINEMA							:Cinema
-STR_NAME_THEATRE						:Theatre
-STR_NAME_HOTEL							:Hotel
-STR_NAME_MARKET							:Market
-STR_NAME_WAREHOUSE						:Warehouse
-STR_NAME_STATUE							:Statue
-STR_NAME_FOUNTAIN						:Fountain
-STR_NAME_HOUSES							:Houses
-STR_NAME_TOWNHOUSES						:Town Houses
 STR_NAME_SHOP							:Shop
-STR_NAME_PARK							:Park
-STR_NAME_TALL_OFFICE_BLOCK				:Tall Office Block
-STR_NAME_LARGE_OFFICE_BLOCK				:Large Office Block
-STR_NAME_OFFICE_BLOCK					:Office Block
-STR_NAME_SHOPS_AND_OFFICES				:Shops and offices
-STR_NAME_OFFICES						:Offices
-STR_NAME_CAPSULE_TOWER					:Nakagin Capsule Tower
-STR_NAME_FLATS							:Flats
-STR_NAME_SMALL_FLATS					:Small block of flats
-STR_NAME_COTTAGES						:Cottages
-STR_NAME_SQUARE							:Square
 STR_NAME_UNIVERSITY						:University
 STR_NAME_COURTHOUSE						:Courthouse
 STR_NAME_MUSEUM							:Museum

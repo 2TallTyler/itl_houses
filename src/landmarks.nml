@@ -27,7 +27,7 @@ item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 	property {
 		substitute: 03;
-		name: string(STR_NAME_OLD_CHURCH);
+		name: TTD_STR_TOWN_BUILDING_NAME_CHURCH_1;
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED,HOUSE_FLAG_CHURCH, HOUSE_FLAG_PROTECTED);
 		population: 5;
 		mail_multiplier: 2;
@@ -50,7 +50,7 @@ item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 	property {
 		substitute: 60;
-		name: string(STR_NAME_MODERN_CHURCH);
+		name: TTD_STR_TOWN_BUILDING_NAME_CHURCH_1;
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population: 6;
 		mail_multiplier: 2;
@@ -72,7 +72,7 @@ item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 	property {
 		substitute: 58;
-		name: string(STR_NAME_MODERN_CHURCH);
+		name: TTD_STR_TOWN_BUILDING_NAME_CHURCH_1;
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population: 8;
 		mail_multiplier: 2;
@@ -96,7 +96,7 @@ if (extra_tropic == 1){
 item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 	property {
 		substitute: 83;
-		name: string(STR_NAME_NEOMOORISH_CHURCH);
+		name: TTD_STR_TOWN_BUILDING_NAME_CHURCH_1;
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED, HOUSE_FLAG_PROTECTED);
 		population: 8;
 		mail_multiplier: 2;
@@ -118,7 +118,7 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 	property {
 		substitute: 20;
-		name: string(STR_NAME_OLD_STADIUM);
+		name: TTD_STR_TOWN_BUILDING_NAME_STADIUM_1;
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 65;
 		mail_multiplier: 0;
@@ -144,7 +144,7 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 	property {
 		substitute: 40;
-		name: string(STR_NAME_NEW_STADIUM);
+		name: TTD_STR_TOWN_BUILDING_NAME_STADIUM_1;
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 255;
 		mail_multiplier: 0;
@@ -170,7 +170,7 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 	property {
 		substitute: 07;
-		name: string(STR_NAME_HOTEL);
+		name: TTD_STR_TOWN_BUILDING_NAME_HOTEL_1;
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 140;
 		mail_multiplier: 4;
@@ -193,7 +193,7 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 	property {
 		substitute: 39;
-		name: string(STR_NAME_CINEMA);
+		name: TTD_STR_TOWN_BUILDING_NAME_CINEMA_1;
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population: 35;
 		mail_multiplier: 4;
@@ -215,7 +215,7 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 	property {
 		substitute: 31;
-		name: string(STR_NAME_THEATRE);
+		name: TTD_STR_TOWN_BUILDING_NAME_THEATER_1;
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		population: 35;
 		mail_multiplier: 8;
@@ -238,7 +238,7 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 	property {
 		substitute: 40;
-		name: string(STR_NAME_MARKET);
+		name: TTD_STR_TOWN_BUILDING_NAME_SHOPPING_MALL_1;
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 180;
 		mail_multiplier: 10;
@@ -267,7 +267,7 @@ if (extra_tropic == 1){
 	item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 		property {
 			substitute: 18;
-			name: string(STR_NAME_WAREHOUSE);
+			name: TTD_STR_TOWN_BUILDING_NAME_WAREHOUSE_1;
 			population: 6;
 			mail_multiplier: 10;
 			accepted_cargos: [[MAIL, 3],[GOOD, 8],[PASS, 2]];
@@ -288,7 +288,7 @@ if (extra_tropic == 1){
 	item(FEAT_HOUSES, item_warehouse, 18, HOUSE_SIZE_1X1) {
 		property {
 			substitute: 18;
-			name: string(STR_NAME_WAREHOUSE);
+			name: TTD_STR_TOWN_BUILDING_NAME_WAREHOUSE_1;
 			population: 6;
 			mail_multiplier: 10;
 			accepted_cargos: [[MAIL, 3],[GOOD, 8],[PASS, 2]];
@@ -311,7 +311,7 @@ if (extra_tropic == 1){
 item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 10;
-		name: string(STR_NAME_FOUNTAIN);
+		name: TTD_STR_TOWN_BUILDING_NAME_FOUNTAIN_1;
 		population: 0;
 		mail_multiplier: 0;
 		accepted_cargos: [[PASS, 2]];
@@ -333,7 +333,7 @@ item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 09;
-		name: string(STR_NAME_STATUE);
+		name: TTD_STR_TOWN_BUILDING_NAME_STATUE_1;
 		population: 0;
 		mail_multiplier: 0;
 		accepted_cargos: [[PASS, 2]];
@@ -379,7 +379,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 11;
-		name: string(STR_NAME_PARK);
+		name: TTD_STR_TOWN_BUILDING_NAME_PARK_1;
 		population: 2;
 		mail_multiplier: 0;
 		accepted_cargos: [[PASS, 2]];
@@ -400,7 +400,7 @@ item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 12;
-		name: string(STR_NAME_PARK);
+		name: TTD_STR_TOWN_BUILDING_NAME_PARK_1;
 		population: 2;
 		mail_multiplier: 0;
 		accepted_cargos: [[PASS, 2]];

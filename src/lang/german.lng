@@ -18,32 +18,7 @@ STR_PARAM_NAME_EXTRA_TROPIC				:Aktiviere subtropische Sprites
 STR_PARAM_DESC_EXTRA_TROPIC				:Fügt einen subtropischen Kirchen-Sprite als zusätzlichen {SILVER}Kirchen{BLACK}-Typ hinzu. Fügt einen der Wohnungs-Sprites als zufälligen Sprite des {SILVER}Warenhauses{BLACK} hinzu.
 
 STR_NAME_HISTORIC_CHURCH				:Historische Kirche
-STR_NAME_OLD_CHURCH						:Kirche
-STR_NAME_MODERN_CHURCH					:Kirche
-STR_NAME_NEOMOORISH_CHURCH				:Neu-orientalische Kirche
-STR_NAME_OLD_STADIUM					:Stadion
-STR_NAME_NEW_STADIUM					:Modernes Stadion
-STR_NAME_CINEMA							:Kino
-STR_NAME_THEATRE						:Theater
-STR_NAME_HOTEL							:Hotel
-STR_NAME_MARKET							:Markt
-STR_NAME_WAREHOUSE						:Warenhaus
-STR_NAME_STATUE							:Statue
-STR_NAME_FOUNTAIN						:Fontäne
-STR_NAME_HOUSES							:Häuser
-STR_NAME_TOWNHOUSES						:Stadthäuser
 STR_NAME_SHOP							:Geschäft
-STR_NAME_PARK							:Park
-STR_NAME_TALL_OFFICE_BLOCK				:Hoher Büroblock
-STR_NAME_LARGE_OFFICE_BLOCK				:Großer Büroblock
-STR_NAME_OFFICE_BLOCK					:Büroblock
-STR_NAME_SHOPS_AND_OFFICES				:Geschäfte und Büros
-STR_NAME_OFFICES						:Büros
-STR_NAME_CAPSULE_TOWER					:Nakagin Capsule Tower
-STR_NAME_FLATS							:Wohnungen
-STR_NAME_SMALL_FLATS					:Kleiner Wohnblock
-STR_NAME_COTTAGES						:Hütten
-STR_NAME_SQUARE							:Platz
 STR_NAME_UNIVERSITY						:Universität
 STR_NAME_COURTHOUSE						:Justizgebäude
 STR_NAME_MUSEUM							:Museum

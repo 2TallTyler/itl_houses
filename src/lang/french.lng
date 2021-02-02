@@ -18,32 +18,7 @@ STR_PARAM_NAME_EXTRA_TROPIC				:Utiliser les graphismes tropicaux
 STR_PARAM_DESC_EXTRA_TROPIC				:L'église sub-tropicale sert comme un autre type d'{SILVER}église{BLACK}. Des immeubles sub-tropicaux peuvent servir comme {SILVER}entrepôt{BLACK}.
 
 STR_NAME_HISTORIC_CHURCH				:Église historique
-STR_NAME_OLD_CHURCH						:Église
-STR_NAME_MODERN_CHURCH					:Église
-STR_NAME_NEOMOORISH_CHURCH				:Église néo-mauresque
-STR_NAME_OLD_STADIUM					:Stade
-STR_NAME_NEW_STADIUM					:Stade moderne
-STR_NAME_CINEMA							:Cinéma
-STR_NAME_THEATRE						:Théâtre
-STR_NAME_HOTEL							:Hôtel
-STR_NAME_MARKET							:Marché
-STR_NAME_WAREHOUSE						:Entrepôt
-STR_NAME_STATUE							:Statue
-STR_NAME_FOUNTAIN						:Fontaine
-STR_NAME_HOUSES							:Maisons
-STR_NAME_TOWNHOUSES						:Maisons de ville
 STR_NAME_SHOP							:Magasin
-STR_NAME_PARK							:Parc
-STR_NAME_TALL_OFFICE_BLOCK				:Très grand immeuble de bureaux
-STR_NAME_LARGE_OFFICE_BLOCK				:Grand immeuble de bureaux
-STR_NAME_OFFICE_BLOCK					:Immeuble de bureaux
-STR_NAME_SHOPS_AND_OFFICES				:Commerces et bureaux
-STR_NAME_OFFICES						:Bureaux
-STR_NAME_CAPSULE_TOWER					:Nakagin Capsule Tower
-STR_NAME_FLATS							:Appartements
-STR_NAME_SMALL_FLATS					:Immeuble résidentiel
-STR_NAME_COTTAGES						:Pavillon
-STR_NAME_SQUARE							:Square
 STR_NAME_UNIVERSITY						:Université
 STR_NAME_COURTHOUSE						:Tribunal
 STR_NAME_MUSEUM							:Musée

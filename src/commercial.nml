@@ -4,7 +4,7 @@
 item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 19;
-		name: string(STR_NAME_TALL_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_TALL_OFFICE_BLOCK_1;
 		population: 110;
 		mail_multiplier: 65;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
@@ -27,7 +27,7 @@ item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 00;
-		name: string(STR_NAME_TALL_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_TALL_OFFICE_BLOCK_1;
 		population: 187;
 		mail_multiplier: 80;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
@@ -50,7 +50,7 @@ item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 28;
-		name: string(STR_NAME_TALL_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_TALL_OFFICE_BLOCK_1;
 		population: 170;
 		mail_multiplier: 50;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
@@ -73,7 +73,7 @@ item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 04;
-		name: string(STR_NAME_LARGE_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_LARGE_OFFICE_BLOCK_1;
 		building_flags: bitmask(HOUSE_FLAG_ANIMATE);
 		population: 220;
 		mail_multiplier: 85;
@@ -97,7 +97,7 @@ item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 01;
-		name: string(STR_NAME_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_OFFICE_BLOCK_1;
 		population: 85;
 		mail_multiplier: 65;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
@@ -120,7 +120,7 @@ item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 13;
-		name: string(STR_NAME_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_OFFICE_BLOCK_1;
 		population: 150;
 		mail_multiplier: 75;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
@@ -143,7 +143,7 @@ item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 30;
-		name: string(STR_NAME_SHOPS_AND_OFFICES);
+		name: TTD_STR_TOWN_BUILDING_NAME_SHOPS_AND_OFFICES_1;
 		population: 180;
 		mail_multiplier: 75;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8]];
@@ -166,7 +166,7 @@ item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_capsule_tower, 17, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 17;
-		name: string(STR_NAME_CAPSULE_TOWER);
+		name: TTD_STR_TOWN_BUILDING_NAME_MODERN_OFFICE_BUILDING_1;
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		population: 130;
 		mail_multiplier: 60;
@@ -190,7 +190,7 @@ item(FEAT_HOUSES, item_capsule_tower, 17, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 52;
-		name: string(STR_NAME_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_OFFICE_BLOCK_1;
 		population: 170;
 		mail_multiplier: 80;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
@@ -213,7 +213,7 @@ item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 50;
-		name: string(STR_NAME_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_OFFICE_BLOCK_1;
 		population: 135;
 		mail_multiplier: 70;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
@@ -236,7 +236,7 @@ item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 54;
-		name: string(STR_NAME_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_OFFICE_BLOCK_1;
 		population: 210;
 		mail_multiplier: 80;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
@@ -259,7 +259,7 @@ item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_tall_office_block_90, 90, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 90;
-		name: string(STR_NAME_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_OFFICE_BLOCK_1;
 		population: 180;
 		mail_multiplier: 90;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
@@ -283,7 +283,7 @@ item(FEAT_HOUSES, item_tall_office_block_90, 90, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
 	property {
 		substitute: 74;
-		name: string(STR_NAME_TALL_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_TALL_OFFICE_BLOCK_1;
 		population: 250;
 		mail_multiplier: 60;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
@@ -307,7 +307,7 @@ item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
 item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
 	property {
 		substitute: 87;
-		name: string(STR_NAME_TALL_OFFICE_BLOCK);
+		name: TTD_STR_TOWN_BUILDING_NAME_TALL_OFFICE_BLOCK_1;
 		population: 250;
 		mail_multiplier: 80;
 		accepted_cargos: [[PASS, 8],[MAIL,8]];
@@ -333,7 +333,7 @@ item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
 item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 64;
-		name: string(STR_NAME_SHOPS_AND_OFFICES);
+		name: TTD_STR_TOWN_BUILDING_NAME_SHOPS_AND_OFFICES_1;
 		population: 45;
 		mail_multiplier: 45;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
@@ -357,7 +357,7 @@ item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 29;
-		name: string(STR_NAME_SHOPS_AND_OFFICES);
+		name: TTD_STR_TOWN_BUILDING_NAME_SHOPS_AND_OFFICES_1;
 		population: 50;
 		mail_multiplier: 40;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
@@ -381,7 +381,7 @@ item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 14;
-		name: string(STR_NAME_SHOPS_AND_OFFICES);
+		name: TTD_STR_TOWN_BUILDING_NAME_SHOPS_AND_OFFICES_1;
 		population: 30;
 		mail_multiplier: 48;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
@@ -405,7 +405,7 @@ item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 15;
-		name: string(STR_NAME_SHOPS_AND_OFFICES);
+		name: TTD_STR_TOWN_BUILDING_NAME_SHOPS_AND_OFFICES_1;
 		population: 30;
 		mail_multiplier: 48;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
@@ -429,7 +429,7 @@ item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) { // Colorful roof
 	property {
 		substitute: 16;
-		name: string(STR_NAME_SHOPS_AND_OFFICES);
+		name: TTD_STR_TOWN_BUILDING_NAME_SHOPS_AND_OFFICES_1;
 		population: 45;
 		mail_multiplier: 48;
 		accepted_cargos: [[PASS, 8],[MAIL,8],[GOOD, 8],[FOOD, 8],[BEER, 8],[COAL, 3]];
