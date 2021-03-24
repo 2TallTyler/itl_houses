@@ -9,7 +9,7 @@ grf {
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
 	version: 15;
-	min_compatible_version: 9;
+	min_compatible_version: 15;
 	url: string(STR_WEBSITE);
 
 param 0 {
@@ -38,11 +38,11 @@ param 2 {
 
 }
 
-if (climate != CLIMATE_TEMPERATE)
+if (climate == CLIMATE_ARCTIC)
 {error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
-	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE,
+	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE, WATR, VEHI
 }
 
 if (version_openttd(1,10,0,28004) > openttd_version) {
@@ -50,5 +50,8 @@ if (version_openttd(1,10,0,28004) > openttd_version) {
 }
 
 disable_item(FEAT_HOUSES);
+
+/* Use sidewalks on desert roads, as in Temperate. */
+desert_paved_roads = 1;
 
 /* *** End Header *** */

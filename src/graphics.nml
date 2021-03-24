@@ -151,7 +151,7 @@ spritelayout sprite_park_alley {
 /* Tall office block, spiral staircase */
 spritelayout sprite_tall_office_block_19 {
  	ground 		{ sprite: 1420; }
- 	building 	{ sprite: construction_state==0 ? 1421 : construction_state==3 ? 1425 : 1422; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
+ 	building 	{ sprite: construction_state==0 ? 1421 : construction_state==3 ? 1423 : 1422; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
 spritelayout sprite_tall_office_block_00 {
@@ -217,6 +217,11 @@ spritelayout sprite_tall_office_block_52 {
 spritelayout sprite_tall_office_block_50 {
 	ground		{ sprite:4483; }
  	building 	{ sprite: construction_state==0 ? 4480 : construction_state==3 ? 4484 : 4482; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
+}
+
+spritelayout sprite_tall_office_block_50b {
+	ground		{ sprite: 4438; }
+	building	{ sprite: construction_state==0 ? 4439 : construction_state==3 ? 4441 : 4440; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
 spritelayout sprite_tall_office_block_54 {
@@ -353,6 +358,87 @@ spritelayout sprite_spa_n {
 spritelayout sprite_spa_e {
 	ground		{ sprite:1420; }
 	building 	{ sprite: construction_state==0 ? 4472 : construction_state==3 ? 4476 : 4474; }
+}
+
+/* Subtropic houses */
+
+spritelayout sprite_tropic_shacks_1 {
+	ground		{ sprite: 3924; }
+	building	{ sprite: construction_state == 0 ? 3924 : 4597; }
+}
+
+spritelayout sprite_tropic_shacks_2 {
+	ground		{ sprite: 3924; }
+	building	{ sprite: construction_state == 0 ? 3924 : 4598; }
+}
+
+spritelayout sprite_tropic_shacks_3 {
+	ground		{ sprite: 3924; }
+	building	{ sprite: construction_state == 0 ? 3924 : 4599; }
+}
+
+spritelayout sprite_tropic_shacks_4 {
+	ground		{ sprite: 3924; }
+	building	{ sprite: construction_state == 0 ? 3924 : 4600; }
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_shacks) {
+	1: sprite_tropic_shacks_1;
+	1: sprite_tropic_shacks_2;
+	1: sprite_tropic_shacks_3;
+	1: sprite_tropic_shacks_4;
+}
+
+spritelayout sprite_suburb_houses {
+	ground		{ sprite: 3924; }
+	building 	{ sprite: construction_state == 0 ? 4594 : construction_state == 3 ? 4596 : 4595; }
+}
+
+spritelayout sprite_nice_houses_se {
+	ground		{ sprite: 3924; }
+	building 	{ sprite: construction_state == 0 ? 4591 : construction_state == 3 ? 4593 : 4592; }
+}
+
+spritelayout sprite_nice_houses_sw_1 {
+	ground		{ sprite: 3924; }
+	building 	{ sprite: construction_state == 0 ? 4588 : construction_state == 3 ? 4590 : 4589; }
+}
+
+spritelayout sprite_nice_houses_sw_2 {
+	ground		{ sprite: 3924; }
+	building 	{ sprite: construction_state == 0 ? 4605 : construction_state == 3 ? 4607 : 4606; }
+}
+
+random_switch (FEAT_HOUSES, SELF, random_sprite_nice_houses_sw) {
+	1: sprite_nice_houses_sw_1;
+	1: sprite_nice_houses_sw_2;
+}
+
+spritelayout sprite_tropic_82_flats {
+	ground		{ sprite: 3924; }
+	building { 
+		sprite: construction_state == 0 ? 4611 : construction_state == 3 ? 4613 : 4612;
+		recolour_mode: RECOLOUR_REMAP;
+		palette: PALETTE_USE_DEFAULT; 
+	}
+}
+
+spritelayout sprite_tropic_85_flats {
+	ground		{ sprite: 3924; }
+	building { 
+		sprite: construction_state == 0 ? 4608 : construction_state == 3 ? 4610 : 4609;
+		recolour_mode: RECOLOUR_REMAP;
+		palette: PALETTE_USE_DEFAULT; }
+}
+
+spritelayout sprite_tropic_86_flats {
+	ground		{ sprite: 3924; }
+	building 	{ sprite: construction_state == 0 ? 4601 : construction_state == 3 ? 4603 : 4602; }
+}
+
+spritelayout sprite_tropic_89_flats {
+	ground		{ sprite: 3924; }
+	building 	{ sprite: construction_state == 0 ? 4620 : construction_state == 3 ? 4622 : 4621; }
 }
 
 /* *** End Graphics *** */

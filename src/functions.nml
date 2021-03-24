@@ -14,4 +14,145 @@ switch(FEAT_HOUSES, SELF, func_population_adder,
 		(other_house_count_town(02)*4) // Small flats
 	) {return;}
 
+/* Land value helper functions */
+
+switch (FEAT_HOUSES, SELF, IsAdjacentToWater,
+	nearby_tile_is_water(1,0) ||
+	nearby_tile_is_water(1,1) ||
+	nearby_tile_is_water(1,-1) ||
+	nearby_tile_is_water(0,1) ||
+	nearby_tile_is_water(0,-1) ||
+	nearby_tile_is_water(-1,0) ||
+	nearby_tile_is_water(-1,1) ||
+	nearby_tile_is_water(-1,-1) )
+	{return;}
+
+/* Note: Per NML specs, returns 256+X (X = 0..255) if the house has been defined by this NewGRF with building_class X */
+switch (FEAT_HOUSES, SELF, IsTileHouseClass, x, y, class_num, nearby_tile_house_class(x,y) == 256 + class_num) {return;}
+
+switch (FEAT_HOUSES, SELF, IsAdjacentToHouseClass, class_num,
+	IsTileHouseClass(1,0, class_num) ||
+	IsTileHouseClass(1,1, class_num) ||
+	IsTileHouseClass(1,-1, class_num) ||
+	IsTileHouseClass(0,1, class_num) ||
+	IsTileHouseClass(0,-1, class_num) ||
+	IsTileHouseClass(-1,0, class_num) ||
+	IsTileHouseClass(-1,1, class_num) ||
+	IsTileHouseClass(-1,-1, class_num) )
+	{return;}
+
+switch (FEAT_HOUSES, PARENT, IsCity, is_city == 1) {return;}
+
+/* Note: Check population is inaccurate when generating towns. This will only work properly when growing towns in-game. */
+switch (FEAT_HOUSES, PARENT, HasPopulation, required, population >= required) {return;}
+
+switch (FEAT_HOUSES, SELF, IsNotDesertTile, terrain_type != TILETYPE_DESERT) {return;}
+
+switch (FEAT_HOUSES, SELF, HasRoadAdjacentSW, nearby_tile_class(1,0) == TILE_CLASS_ROAD || nearby_tile_class(1,0) == TILE_CLASS_STATION) {return;}
+switch (FEAT_HOUSES, SELF, HasRoadAdjacentNE, nearby_tile_class(-1,0) == TILE_CLASS_ROAD || nearby_tile_class(-1,0) == TILE_CLASS_STATION) {return;}
+switch (FEAT_HOUSES, SELF, HasRoadAdjacentSE, nearby_tile_class(0,1) == TILE_CLASS_ROAD || nearby_tile_class(0,1) == TILE_CLASS_STATION) {return;}
+switch (FEAT_HOUSES, SELF, HasRoadAdjacentNW, nearby_tile_class(0,-1) == TILE_CLASS_ROAD || nearby_tile_class(0,-1) == TILE_CLASS_STATION) {return;}
+
+switch (FEAT_HOUSES, SELF, IsUniqueHouse, same_house_count_town == 0) {return;}
+switch (FEAT_HOUSES, SELF, IsUniqueInRadius, radius, nearest_house_matching_criterion(radius, SEARCH_HOUSE_BY_TYPE) == 0) {return;}
+
+switch (FEAT_HOUSES, SELF, HasSameClassNearby, radius, nearest_house_matching_criterion(radius, SEARCH_HOUSE_BY_CLASS) ) {0: return 0; return 1;}
+
+switch (FEAT_HOUSES, SELF, IsFirstHouseOfClass, same_class_count_town == 0) {return;}
+
+/* Land value calculations */
+
+switch (FEAT_HOUSES, SELF, AddValueWater, IsAdjacentToWater() ) {
+	1: return 1;
+	return 0;
+}
+
+switch (FEAT_HOUSES, SELF, AddValueCity, IsCity() ) {
+	1: return 1;
+	return 0;
+}
+
+switch (FEAT_HOUSES, SELF, AddValueTownZone, town_zone) {
+	TOWNZONE_EDGE: return 0;
+	TOWNZONE_OUTSKIRT: return 0;
+	TOWNZONE_OUTER_SUBURB: return 1;
+	TOWNZONE_INNER_SUBURB: return 1;
+	TOWNZONE_CENTRE: return 2;
+}
+
+switch (FEAT_HOUSES, SELF, AddValueNotDesert, IsNotDesertTile() ) {
+	1: return 1;
+	return 0;
+}
+
+switch (FEAT_HOUSES, SELF, AddValueFountainNearby, IsAdjacentToHouseClass(5) ) {
+	1: return 1;
+	return 0;
+}
+
+switch (FEAT_HOUSES, SELF, AddValuePassService, (cargo_accepted_nearby_last_month(PASS) == 1 || cargo_accepted_nearby_this_month(PASS) == 1) ) {
+	1: return 2;
+	return 0;
+}
+
+switch (FEAT_HOUSES, SELF, AddValueMailService, (cargo_accepted_nearby_last_month(MAIL) == 1 || cargo_accepted_nearby_this_month(MAIL) == 1) ) {
+	1: return 2;
+	return 0;
+}
+
+switch (FEAT_HOUSES, SELF, AddValueWaterService, (cargo_accepted_nearby_last_month(WATR) == 1 || cargo_accepted_nearby_this_month(WATR) == 1) ) {
+	1: return 2;
+	return 0;
+}
+
+switch (FEAT_HOUSES, SELF, AddValueFoodService, (cargo_accepted_nearby_last_month(FOOD) == 1 || cargo_accepted_nearby_this_month(FOOD) == 1) ) {
+	1: return 3;
+	return 0;
+}
+
+switch (FEAT_HOUSES, SELF, AddValueGoodsService, (cargo_accepted_nearby_last_month(GOOD) == 1 || cargo_accepted_nearby_this_month(GOOD) == 1) ) {
+	1: return 3;
+	return 0;
+}
+
+
+switch (FEAT_HOUSES, SELF, AddValueVehiclesService, (cargo_accepted_nearby_last_month(VEHI) == 1 || cargo_accepted_nearby_this_month(VEHI) == 1) ) {
+	1: return 3;
+	return 0;
+}
+
+/* Build/no-build decisions */
+
+/* Building ID 80 is shacks, which is class 1 (low-density residential) */
+switch (FEAT_HOUSES, SELF, CheckFlatsSprawl, other_class_count_town(80) > (same_class_count_town * 10) ) {return;}
+
+switch (FEAT_HOUSES, SELF, CheckOfficeSprawl, required, HasPopulation((same_class_count_town + 1) * required) ) {return;}
+
+switch (FEAT_HOUSES, SELF, CalculateValue,
+	AddValueWater() + 
+	AddValueCity() + 
+	AddValueTownZone() +
+	AddValueNotDesert() +
+	AddValueFountainNearby() +
+	AddValuePassService() +
+	AddValueMailService() +
+	AddValueGoodsService() +
+	AddValueWaterService() +
+	AddValueFoodService() +
+	AddValueVehiclesService()
+	) {return;}
+
+switch (FEAT_HOUSES, SELF, CheckValue, lower_bound, upper_bound, [STORE_TEMP(CalculateValue(), 1), LOAD_TEMP(1) >= lower_bound && LOAD_TEMP(1) <= upper_bound]) {1: return 1; return 0;}
+
+/* Recolour 1CC buildings based on land value */
+switch (FEAT_HOUSES, SELF, RecolourByLandValue, CalculateValue()) {
+	4..6: return PALETTE_CC_RED;
+	7..9: return PALETTE_CC_YELLOW;
+	10..12: return PALETTE_CC_GREEN;
+	13..15: return PALETTE_CC_BLUE;
+	16..18: return PALETTE_CC_PURPLE;
+	19..255: return PALETTE_CC_PINK;
+	return PALETTE_CC_GREY;
+}
+
 /* End Functions */
