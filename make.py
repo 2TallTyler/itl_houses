@@ -9,7 +9,7 @@ newgrf_name = "improved_town_layouts"
 header_stuff = ["header", "graphics", "functions", "switches", "waste"]
 
 # Files to place in alphabetical order below
-unordered_stuff = ["residential", "commercial", "landmarks"]
+unordered_stuff = ["residential", "commercial", "landmarks", "tropic"]
 
 # Do you want to copy the completed NewGRF to your OpenTTD folder? (True/False)
 copy_bool = True

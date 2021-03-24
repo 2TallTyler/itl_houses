@@ -1,0 +1,641 @@
+
+/* Begin Sub-Tropic */
+
+/* Building Classes
+ * 1: Low-density residential
+ * 2: Flats
+ * 3: Office buildings
+ * 4: Old office buildings
+ * 5: Parks, fountains, and other value adds
+*/
+
+/* === Residential === */
+
+switch (FEAT_HOUSES, SELF, switch_tropic_nice_houses_sw, CheckValue(2,8) && (HasRoadAdjacentSW() || HasRoadAdjacentNE())) {return;}
+item (FEAT_HOUSES, item_tropic_nice_houses_sw, -1) {
+	property {
+		substitute: 78;
+		accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TROPIC)];
+		years_available: [1700,0xFFFF];
+		building_class: 1;
+		probability: 15;
+	}
+	graphics {
+		default: random_sprite_nice_houses_sw;
+		construction_check: switch_tropic_nice_houses_sw;
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_nice_houses_se, CheckValue(2,8) && (HasRoadAdjacentSE() || HasRoadAdjacentNW())) {return;}
+item (FEAT_HOUSES, item_tropic_nice_houses_se, -1) {
+	property {
+		substitute: 79;
+		accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TROPIC)];
+		years_available: [1700,0xFFFF];
+		building_class: 1;
+		probability: 8;
+	}
+	graphics {
+		default: sprite_nice_houses_se;
+		construction_check: switch_tropic_nice_houses_se;
+	}
+}
+
+item (FEAT_HOUSES, item_tropic_80_shacks, 80) {
+	property {
+		substitute: 80;
+		accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1700,0xFFFF];
+		building_class: 1;
+	}
+	graphics {
+		default: random_sprite_shacks;
+		construction_check: CheckValue(0,255);
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_suburb_houses, CheckValue(0,255) && IsNotDesertTile()) {return;}
+item (FEAT_HOUSES, item_tropic_suburb_houses, -1) {
+	property {
+		substitute: 81;
+		accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1800,0xFFFF];
+		building_class: 1;
+	}
+	graphics { 
+		default: sprite_suburb_houses;
+		construction_check: switch_tropic_suburb_houses;
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_82_flats, CheckValue(4,255) && CheckFlatsSprawl() ) {return;}
+item (FEAT_HOUSES, item_tropic_82_flats_fence, -1) {
+	property {
+		substitute: 82;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1930,0xFFFF];
+		building_class: 2;
+		minimum_lifetime: 8;
+	}
+	graphics {
+		default: sprite_tropic_82_flats;
+		construction_check: switch_tropic_82_flats;
+		colour: RecolourByLandValue();
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_85_flats, CheckValue(5,255) && CheckFlatsSprawl() ) {return;}
+item (FEAT_HOUSES, item_tropic_85_flats_balconies, -1) {
+	property {
+		substitute: 85;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1930,0xFFFF];
+		building_class: 2;
+		minimum_lifetime: 8;
+	}
+	graphics {
+		default: sprite_tropic_85_flats;
+		construction_check: switch_tropic_85_flats;
+		colour: RecolourByLandValue();
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_86_flats, CheckValue(6,255) && CheckFlatsSprawl() ) {return;}
+item (FEAT_HOUSES, item_tropic_86_flats_tower, -1) {
+	property {
+		substitute: 86;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1930,0xFFFF];
+		building_class: 2;
+		minimum_lifetime: 10;
+	}
+	graphics {
+		default: sprite_tropic_86_flats;
+		construction_check: switch_tropic_86_flats;
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_89_flats, CheckValue(3,4) && CheckFlatsSprawl() ) {return;}
+item (FEAT_HOUSES, item_tropic_89_flats_dirty, -1) {
+	property {
+		substitute: 89;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1930,0xFFFF];
+		building_class: 2;
+		minimum_lifetime: 5;
+	}
+	graphics {
+		default: sprite_tropic_89_flats;
+		construction_check: switch_tropic_89_flats;
+	}
+}
+
+/* === Landmarks === */
+
+/* This shop has the maximum probability and is always available, giving nearly every town acceptance of Food and Goods. This is important for town growth mechanics. */
+item(FEAT_HOUSES, item_shop, -1) {
+	property {
+		substitute: 46;
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+		population: 25;
+		mail_multiplier: 4;
+		accepted_cargos: [[PASS, 8], [GOOD, 8], [FOOD, 8]];
+		years_available: [1700,0xFFFF];
+		probability: 15;
+		availability_mask: [bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), bitmask(CLIMATE_TROPIC)];
+	}
+	graphics {
+		default: sprite_shop;
+		construction_check: IsUniqueHouse();
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_03_church, CheckValue(2,255) && IsUniqueHouse() && HasRoadAdjacentSE()) {return;}
+item (FEAT_HOUSES, item_tropic_03_church, -1) {
+	property {
+		substitute: 03;
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+		accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TROPIC)];
+		years_available: [1700,0xFFFF];
+	}
+	graphics {
+		default: sprite_church;
+		construction_check: switch_tropic_03_church;
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_83_church, CheckValue(2,255) && IsUniqueHouse() && HasRoadAdjacentSW()) {return;}
+item (FEAT_HOUSES, item_tropic_83_church, -1) {
+	property {
+		substitute: 83;
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+		accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1700,0xFFFF];
+	}
+	graphics {
+		default: sprite_neomoorish_church;
+		construction_check: switch_tropic_83_church;
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_hotel, CheckValue(6,255) && HasRoadAdjacentSW() && IsUniqueHouse()) {return;}
+item (FEAT_HOUSES, item_tropic_hotel, -1, HOUSE_SIZE_1X2) {
+	property {
+		substitute: 07;
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1850,0xFFFF];
+	}
+	graphics {
+		graphics_north: sprite_hotel_N;
+		graphics_east: sprite_hotel_E;
+		construction_check: switch_tropic_hotel;
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_statue, CheckValue(4,255) && IsUniqueInRadius(10)) {return;}
+item (FEAT_HOUSES, item_tropic_statue, -1) {
+	property {
+		substitute: 09;
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+		accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1700,0xFFFF];
+		building_class: 5;
+	}
+	graphics {
+		default: sprite_statue;
+		construction_check: switch_tropic_statue;
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_fountain, CheckValue(4,255) && IsUniqueInRadius(10)) {return;}
+item (FEAT_HOUSES, item_tropic_fountain, -1) {
+	property {
+		substitute: 10;
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+		accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1700,0xFFFF];
+		building_class: 5;
+	}
+	graphics {
+		default: sprite_fountain;
+		construction_check: switch_tropic_fountain;
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_theatre, CheckValue(5,255) && HasRoadAdjacentSW() && IsUniqueInRadius(10)) {return;}
+item (FEAT_HOUSES, item_tropic_31_theatre, -1) {
+	property {
+		substitute: 31;
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+		accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1850,0xFFFF];
+	}
+	graphics {
+		default: sprite_theatre;
+		construction_check: switch_tropic_theatre;
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_cinema, CheckValue(3,255) && HasRoadAdjacentSE() && IsUniqueInRadius(10)) {return;}
+item(FEAT_HOUSES, item_tropic_39_cinema, -1) {
+	property {
+		substitute: 39;
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+		accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1900,0xFFFF];
+	}
+	graphics {
+		default: sprite_cinema;
+		construction_check: switch_tropic_cinema;
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_32_stadium, -1, HOUSE_SIZE_2X2) {
+	property {
+		substitute: 32;
+		building_flags: bitmask(HOUSE_FLAG_STADIUM, HOUSE_FLAG_PROTECTED);
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		population: 255;
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1940,0xFFFF];
+	}
+	graphics {
+		graphics_north: sprite_new_stadium_N;
+		graphics_east: sprite_new_stadium_E;
+		graphics_west: sprite_new_stadium_W;
+		graphics_south: sprite_new_stadium_S;
+		construction_check: HasPopulation(5000);
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_tropic_museum, CheckValue(6,255) && IsAdjacentToWater() ) {return;}
+item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
+	property {
+		substitute: 16;
+		name: string(STR_NAME_MUSEUM);
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+		population: 255;
+		mail_multiplier: 20;
+		accepted_cargos: [[PASS, 8],[MAIL, 4]];
+		local_authority_impact: 250;
+		removal_cost_multiplier: 200;
+		years_available: [1950,0xFFFF];
+		minimum_lifetime: 15;
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+	}
+	graphics {
+		default: sprite_museum;
+		construction_check: switch_tropic_museum;
+	}
+}
+
+/* If the extra bank sprites parameter is active, bank sprites from the sub-arctic/sub-tropic and temperate climates become a Courthouse and University, respectively. */
+
+switch (FEAT_HOUSES, SELF, switch_tropic_courthouse, CheckValue(6,255) && HasRoadAdjacentSE() && IsUniqueHouse()) {return;}
+if (extra_bank == 1) {
+	item(FEAT_HOUSES, item_courthouse, -1, HOUSE_SIZE_2X1){
+		property {
+			substitute: 74;
+			name: string(STR_NAME_COURTHOUSE);
+			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			population: 65;
+			mail_multiplier: 70;
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			local_authority_impact: 300;
+			removal_cost_multiplier: 250;
+			years_available: [1850,0xFFFF];
+			availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		}
+		graphics {
+			graphics_north: sprite_courthouse_n;
+			graphics_west: sprite_courthouse_w;
+			construction_check: switch_tropic_courthouse;
+		}
+	}
+
+	item(FEAT_HOUSES, item_university, -1, HOUSE_SIZE_2X1){
+		property {
+			substitute: 74;
+			name: string(STR_NAME_UNIVERSITY);
+			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			population: 255;
+			mail_multiplier: 70;
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			local_authority_impact: 300;
+			removal_cost_multiplier: 250;
+			years_available: [1700,0xFFFF];
+			availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		}
+		graphics {
+			graphics_north: sprite_university_n;
+			graphics_west: sprite_university_w;
+			construction_check: switch_tropic_courthouse;
+		}
+	}
+}
+
+/* Spas use the sub-arctic hotel sprite, but only if the parameter is active -- FIRS uses this sprite for its hotel industry. */
+
+switch (FEAT_HOUSES, SELF, switch_tropic_spa, CheckValue(6,255) && HasRoadAdjacentSW() && IsUniqueHouse()) {return;}
+if (extra_hotel == 1) {
+	item(FEAT_HOUSES, item_spa, 101, HOUSE_SIZE_1X2){
+		property {
+			substitute: 07;
+			name: string(STR_NAME_SPA);
+			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			population: 85;
+			mail_multiplier: 4;
+			accepted_cargos: [[PASS, 8],[MAIL, 4]];
+			local_authority_impact: 200;
+			removal_cost_multiplier: 150;
+			years_available: [1880,0xFFFF];
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		}
+		graphics {
+			graphics_north: sprite_spa_n;
+			graphics_east: sprite_spa_e;
+			construction_check: switch_tropic_spa;
+		}
+	}
+}
+
+/* === Office Blocks === */
+
+switch (FEAT_HOUSES, SELF, switch_tropic_offices, CheckOfficeSprawl(1000) && CheckValue(7,255) && (HasSameClassNearby(2) || IsFirstHouseOfClass()) ) {return;}
+
+item(FEAT_HOUSES, item_tropic_01_office_block, -1) {
+	property {
+		substitute: 01;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		default: sprite_office_block_01;
+		construction_check: switch_tropic_offices();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_04_large_office_block, -1) {
+	property {
+		substitute: 04;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		default: sprite_large_office_block;
+		construction_check: switch_tropic_offices();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_13_office_block, -1) {
+	property {
+		substitute: 13;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		default: sprite_office_block_13;
+		construction_check: switch_tropic_offices();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_14_old_shops_1, -1) {
+	property {
+		substitute: 14;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1700, 0xFFFF];
+		minimum_lifetime: 15;
+		building_class: 4;
+	}
+	graphics {
+		default: sprite_shops_and_offices_14;
+		construction_check: switch_tropic_offices();
+		colour: random_colour_masonry();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_15a_old_shops_2, -1) {
+	property {
+		substitute: 15;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1700, 0xFFFF];
+		minimum_lifetime: 15;
+		building_class: 4;
+	}
+	graphics {
+		default: sprite_shops_and_offices_15a;
+		construction_check: switch_tropic_offices();
+		colour: random_colour_masonry();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_15b_old_shops_2b, -1) {
+	property {
+		substitute: 15;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1700, 0xFFFF];
+		minimum_lifetime: 15;
+		building_class: 4;
+	}
+	graphics {
+		default: sprite_shops_and_offices_15b;
+		construction_check: switch_tropic_offices();
+		colour: random_colour_masonry();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_16_old_shops_3, -1) {
+	property {
+		substitute: 16;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1700, 0xFFFF];
+		minimum_lifetime: 15;
+		building_class: 4;
+	}
+	graphics {
+		default: sprite_shops_and_offices_16;
+		construction_check: switch_tropic_offices();
+		colour: random_colour_masonry();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_29_shops_offices_1, -1) {
+	property {
+		substitute: 29;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		years_available: [1700, 0xFFFF];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		default: sprite_shops_and_offices_29;
+		construction_check: switch_tropic_offices();
+		colour: random_colour_masonry();
+	}
+}
+
+// modern bulge office
+item(FEAT_HOUSES, item_tropic_30_shops_offices_2, -1) {
+	property {
+		substitute: 30;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		default: sprite_shops_and_offices_30;
+		construction_check: switch_tropic_offices();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_19_office_block_spiral_stairway, -1) {
+	property {
+		substitute: 19;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		default: sprite_tall_office_block_19;
+		construction_check: switch_tropic_offices();
+		colour: random_colour_masonry();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_50_tall_office_block, -1) {
+	property {
+		substitute: 50;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		default: sprite_tall_office_block_50;
+		construction_check: switch_tropic_offices();
+		colour: RecolourByLandValue();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_50b_tall_office_block, -1) {
+	property {
+		substitute: 50;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		default: sprite_tall_office_block_50b;
+		construction_check: switch_tropic_offices();
+		colour: RecolourByLandValue();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_52_tall_office_block, -1) {
+	property {
+		substitute: 52;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		default: sprite_tall_office_block_52;
+		construction_check: switch_tropic_offices();
+		colour: RecolourByLandValue();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_54_tall_office_block, -1) {
+	property {
+		substitute: 54;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		default: sprite_tall_office_block_54;
+		construction_check: switch_tropic_offices();
+		colour: RecolourByLandValue();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_74_tall_office_block, -1, HOUSE_SIZE_2X1) {
+	property {
+		substitute: 74;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		graphics_north: sprite_tall_office_block_74_N;
+		graphics_west: sprite_tall_office_block_74_W;
+		construction_check: switch_tropic_offices();
+	}
+}
+
+item(FEAT_HOUSES, item_tropic_87_tall_office_block, -1, HOUSE_SIZE_2X1) {
+	property {
+		substitute: 87;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		graphics_north: sprite_tall_office_block_87_N;
+		graphics_west: sprite_tall_office_block_87_W;
+		construction_check: switch_tropic_offices();
+	}
+}
+
+item(FEAT_HOUSES, item_tall_office_block_90, -1, HOUSE_SIZE_1X1) {
+	property {
+		substitute: 90;
+		accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		minimum_lifetime: 15;
+		building_class: 3;
+	}
+	graphics {
+		default: sprite_tall_office_block_90;
+		construction_check: switch_tropic_offices();
+		colour: RecolourByLandValue();
+	}
+}
+
+/* End Sub-Tropic */

@@ -4,7 +4,7 @@ STR_GRF_NAME							:{TITLE} {VERSION}
 STR_GRF_DESC							:{ORANGE}Default houses, new rules.{}{}{BLACK}Downtowns defined by passenger service, sprawling suburbs, historic preservation, and more.{}{}Starts in 1700. Works with all base graphic sets. {SILVER}Incompatible with other NewGRF houses.{}{}{ORANGE}Visit website for instructions.{}{}{BLACK}Coded by 2TallTyler.
 STR_WEBSITE								:https://github.com/2TallTyler/improved_town_layouts/blob/master/README.md
 
-STR_ERROR_REQUIRE_TEMPERATE				:Improved Town Layouts is designed for Temperate climate. Buildings do not have snow sprites.
+STR_ERROR_REQUIRE_TEMPERATE				:Improved Town Layouts is designed for the Temperate or Sub-tropic climates. Buildings do not have snow sprites.
 
 STR_ERROR_GAME_VERSION					:Improved Town Layouts requires OpenTTD version 1.10.0, JGR version 0.34, or better
 
@@ -14,8 +14,8 @@ STR_PARAM_DESC_EXTRA_BANK				:Adds the Bank sprites as a {SILVER}University{BLAC
 STR_PARAM_NAME_EXTRA_HOTEL				:Use FIRS Hotel sprites
 STR_PARAM_DESC_EXTRA_HOTEL				:Adds the sub-arctic Hotel sprite as a {SILVER}Spa{BLACK}. {}{}{ORANGE}Not recommended{BLACK} if playing with FIRS, which also uses this sprite.
 
-STR_PARAM_NAME_EXTRA_TROPIC				:Use sub-tropical sprites
-STR_PARAM_DESC_EXTRA_TROPIC				:Adds the sub-tropical Church sprite as an additional {SILVER}Church{BLACK} type. Adds one of the Flats sprites as a random sprite of the {SILVER}Warehouse{BLACK}.
+STR_PARAM_NAME_EXTRA_TROPIC				:Use sub-tropical sprites in Temperate
+STR_PARAM_DESC_EXTRA_TROPIC				:Adds the sub-tropical Church sprite as an additional {SILVER}Church{BLACK} type in Temperate. Adds one of the Flats sprites as a random sprite of the {SILVER}Warehouse{BLACK}.
 
 STR_NAME_HISTORIC_CHURCH				:Historic Church
 STR_NAME_SHOP							:Shop
