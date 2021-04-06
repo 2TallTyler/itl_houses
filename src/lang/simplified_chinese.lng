@@ -1,4 +1,4 @@
-##grflangid 0x01
+##grflangid 0x56
 
 STR_GRF_NAME							:{TITLE} {VERSION}
 STR_GRF_DESC							:{ORANGE}原版房屋,新的规则.{} {} {BLACK}由旅客服务定义的市区,郊区,历史遗迹等等.{}{}最低于1700年开始.适用于所有基本图形集.{SILVER}与其他NewGRF房子不兼容.{}{}{ORANGE}访问网站以获取详细说明.{}{}{BLACK}Coded by 2TallTyler.
