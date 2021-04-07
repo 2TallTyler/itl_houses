@@ -99,3 +99,6 @@
 - Codechange: Inherit properties from default houses where possible
 - Codechange: Convert switches to functions where possible (will require building with a newer version of NML than 0.5)
 - Codechange: Use Python make script
+
+### 1.3.4
+- Add: Simplified Chinese translation (SuperCirno)
