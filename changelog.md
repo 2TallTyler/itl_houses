@@ -102,3 +102,7 @@
 
 ### 1.3.4
 - Add: Simplified Chinese translation (SuperCirno)
+=======
+### 1.4.0 beta 1
+- Add: Tropic climate
+- Change: Houses no longer generate above the snowline (allowing houses from other sets to spawn, if loaded)
