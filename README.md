@@ -3,9 +3,32 @@
 ![Photo credit: Kale on Discord](docs/itl_kale.png)
 _Photo credit: Kale on Discord_
 
-A house replacement set using default graphics with new rules and features.
+A house replacement set using default graphics with new rules and features, for **Temperate** and **Subtropic**.
 
-## Features
+## Subtropic Features (currently in 1.4.0 beta)
+### Better downtowns and suburbs
+- Flats are capped at 1 per every 10 houses
+- Each office building requires 1000 population
+- Office buildings cluster together into a commercial district
+- Landmarks (theatre, cinema, etc) and office buildings added from other climates for greater variety
+
+### Houses selected by land value
+- Land value is added by:
+  - Water nearby
+  - Being close to a town center
+  - Being in a city
+  - Not being in desert
+  - Having a fountain or statue nearby
+  - Being in the catchment of a station receiving passengers, mail, goods, water, food, or vehicles (FIRS)
+- Houses with accent colours are recoloured based on the land value:
+  - 4..6: Red
+  - 7..9: Yellow
+  - 10..12: Green
+  - 13-15: Blue
+  - 16-18: Purple
+  - 19+: Pink
+
+## Temperate Features
 ### Better downtowns and suburbs
 - High-density residential and commercial buildings only grow within the coverage area of a passenger station
 - Downtown buildings cluster together
@@ -68,5 +91,5 @@ Currently available in:
 Please feel free to translate into your language and submit a Pull Request.
 
 ## Limitations / Not in Scope
-- This is a house replacement set. It does not improve the behavior of other NewGRF houses, how towns build roads, or [town growth](https://wiki.openttd.org/en/Manual/Towns#town-growth)
-- This set is intended for the Temperate climate. It does not include snow-aware sprites, because they do not exist for most buildings.
+- This is a house replacement set. It does not improve the behavior of other NewGRF houses, how towns build roads, or [town growth](https://wiki.openttd.org/en/Manual/Towns#town-growth).
+- This set is intended for the Temperate and Subtropic climates. It does not include snow-aware sprites, because they do not exist for most buildings.
