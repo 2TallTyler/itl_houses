@@ -286,7 +286,7 @@ item(FEAT_HOUSES, item_tropic_32_stadium, -1, HOUSE_SIZE_2X2) {
 	}
 }
 
-switch (FEAT_HOUSES, SELF, switch_tropic_museum, CheckValue(6,255) && IsAdjacentToWater() ) {return;}
+switch (FEAT_HOUSES, SELF, switch_tropic_museum, IsUniqueHouse() && CheckValue(6,255) && IsAdjacentToWater() ) {return;}
 item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 	property {
 		substitute: 16;
