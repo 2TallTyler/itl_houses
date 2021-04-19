@@ -8,8 +8,8 @@ grf {
 	grfid: "TT\03\01";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
-	version: 15;
-	min_compatible_version: 15;
+	version: 16;
+	min_compatible_version: 16;
 	url: string(STR_WEBSITE);
 
 param 0 {
