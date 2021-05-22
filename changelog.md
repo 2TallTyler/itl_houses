@@ -106,3 +106,6 @@
 ### 1.4.0 beta 1
 - Add: Tropic climate
 - Change: Houses no longer generate above the snowline (allowing houses from other sets to spawn, if loaded)
+
+### 1.4.0 beta 2
+- Fix: Shop didn't generate outside subtropic climate
