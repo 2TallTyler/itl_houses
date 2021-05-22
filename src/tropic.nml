@@ -143,7 +143,7 @@ item (FEAT_HOUSES, item_tropic_89_flats_dirty, -1) {
 /* === Landmarks === */
 
 /* This shop has the maximum probability and is always available, giving nearly every town acceptance of Food and Goods. This is important for town growth mechanics. */
-item(FEAT_HOUSES, item_shop, -1) {
+item(FEAT_HOUSES, item_tropic_shop, -1) {
 	property {
 		substitute: 46;
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
@@ -159,6 +159,7 @@ item(FEAT_HOUSES, item_shop, -1) {
 		construction_check: IsUniqueHouse();
 	}
 }
+
 
 switch (FEAT_HOUSES, SELF, switch_tropic_03_church, CheckValue(2,255) && IsUniqueHouse() && HasRoadAdjacentSE()) {return;}
 item (FEAT_HOUSES, item_tropic_03_church, -1) {
