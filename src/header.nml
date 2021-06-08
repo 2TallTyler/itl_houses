@@ -42,7 +42,7 @@ if (climate == CLIMATE_ARCTIC)
 {error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
-	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE, WATR, VEHI
+	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE, WATR, VEHI, TOUR
 }
 
 if (version_openttd(1,10,0,28004) > openttd_version) {
