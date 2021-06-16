@@ -304,7 +304,7 @@ item (FEAT_HOUSES, item_tropic_hotel, -1, HOUSE_SIZE_1X2) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[TOUR, 8]];
+			accepted_cargos: [[MAIL, 8],[FOOD, 8]];
 		}
 	} else {
 		property {
@@ -427,7 +427,7 @@ item(FEAT_HOUSES, item_tropic_32_stadium, -1, HOUSE_SIZE_2X2) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[TOUR, 8]];
+			accepted_cargos: [[MAIL, 8],[FOOD, 8]];
 		}
 	} else {
 		property {

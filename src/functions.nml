@@ -110,11 +110,6 @@ switch (FEAT_HOUSES, SELF, AddValueFoodService, (cargo_accepted_nearby_last_mont
 	return 0;
 }
 
-switch (FEAT_HOUSES, SELF, AddValueTouristService, (cargo_accepted_nearby_last_month(TOUR) == 1 || cargo_accepted_nearby_this_month(TOUR) == 1) ) {
-	1: return 3;
-	return 0;
-}
-
 switch (FEAT_HOUSES, SELF, AddValueGoodsService, (cargo_accepted_nearby_last_month(GOOD) == 1 || cargo_accepted_nearby_this_month(GOOD) == 1) ) {
 	1: return 3;
 	return 0;
@@ -144,7 +139,6 @@ switch (FEAT_HOUSES, SELF, CalculateValue,
 	AddValueGoodsService() +
 	AddValueWaterService() +
 	AddValueFoodService() +
-	AddValueTouristService() +
 	AddValueVehiclesService()
 	) {return;}
 
