@@ -11,7 +11,7 @@
 
 /* === Residential === */
 
-switch (FEAT_HOUSES, SELF, switch_tropic_nice_houses_sw, CheckValue(2,8) && (HasRoadAdjacentSW() || HasRoadAdjacentNE())) {return;}
+switch (FEAT_HOUSES, SELF, switch_tropic_nice_houses_sw, CheckValue(2,255) && (HasRoadAdjacentSW() || HasRoadAdjacentNE())) {return;}
 item (FEAT_HOUSES, item_tropic_nice_houses_sw, -1) {
 	property {
 		substitute: 78;
@@ -37,7 +37,7 @@ item (FEAT_HOUSES, item_tropic_nice_houses_sw, -1) {
 	}
 }
 
-switch (FEAT_HOUSES, SELF, switch_tropic_nice_houses_se, CheckValue(2,8) && (HasRoadAdjacentSE() || HasRoadAdjacentNW())) {return;}
+switch (FEAT_HOUSES, SELF, switch_tropic_nice_houses_se, CheckValue(2,255) && (HasRoadAdjacentSE() || HasRoadAdjacentNW())) {return;}
 item (FEAT_HOUSES, item_tropic_nice_houses_se, -1) {
 		property {
 		substitute: 79;
