@@ -2162,7 +2162,7 @@ item (FEAT_HOUSES, item_tropic_85_flats_balconies, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2188,7 +2188,7 @@ item (FEAT_HOUSES, item_tropic_86_flats_tower, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2214,7 +2214,7 @@ item (FEAT_HOUSES, item_tropic_89_flats_dirty, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2244,7 +2244,7 @@ item(FEAT_HOUSES, item_tropic_shop, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2269,7 +2269,7 @@ item (FEAT_HOUSES, item_tropic_03_church, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2293,7 +2293,7 @@ item (FEAT_HOUSES, item_tropic_83_church, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2317,7 +2317,7 @@ item (FEAT_HOUSES, item_tropic_hotel, -1, HOUSE_SIZE_1X2) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2440,7 +2440,7 @@ item(FEAT_HOUSES, item_tropic_32_stadium, -1, HOUSE_SIZE_2X2) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2597,7 +2597,7 @@ item(FEAT_HOUSES, item_tropic_01_office_block, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2620,7 +2620,7 @@ item(FEAT_HOUSES, item_tropic_04_large_office_block, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2643,7 +2643,7 @@ item(FEAT_HOUSES, item_tropic_13_office_block, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2667,7 +2667,7 @@ item(FEAT_HOUSES, item_tropic_14_old_shops_1, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2692,7 +2692,7 @@ item(FEAT_HOUSES, item_tropic_15a_old_shops_2, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2717,7 +2717,7 @@ item(FEAT_HOUSES, item_tropic_15b_old_shops_2b, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2742,7 +2742,7 @@ item(FEAT_HOUSES, item_tropic_16_old_shops_3, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2767,7 +2767,7 @@ item(FEAT_HOUSES, item_tropic_29_shops_offices_1, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2792,7 +2792,7 @@ item(FEAT_HOUSES, item_tropic_30_shops_offices_2, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2815,7 +2815,7 @@ item(FEAT_HOUSES, item_tropic_19_office_block_spiral_stairway, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2839,7 +2839,7 @@ item(FEAT_HOUSES, item_tropic_50_tall_office_block, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2863,7 +2863,7 @@ item(FEAT_HOUSES, item_tropic_50b_tall_office_block, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2887,7 +2887,7 @@ item(FEAT_HOUSES, item_tropic_52_tall_office_block, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2911,7 +2911,7 @@ item(FEAT_HOUSES, item_tropic_54_tall_office_block, -1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2935,7 +2935,7 @@ item(FEAT_HOUSES, item_tropic_74_tall_office_block, -1, HOUSE_SIZE_2X1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2959,7 +2959,7 @@ item(FEAT_HOUSES, item_tropic_87_tall_office_block, -1, HOUSE_SIZE_2X1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
@@ -2983,7 +2983,7 @@ item(FEAT_HOUSES, item_tall_office_block_90, -1, HOUSE_SIZE_1X1) {
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
 		property {
-			accepted_cargos: [[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[MAIL, 8]];
 		}
 	} else {
 		property {
