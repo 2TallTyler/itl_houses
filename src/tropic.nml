@@ -132,7 +132,7 @@ item (FEAT_HOUSES, item_tropic_82_flats_fence, -1) {
 	}
 	graphics {
 		default: sprite_tropic_82_flats;
-		construction_check: switch_tropic_82_flats;
+		construction_check: IsHighriseAllowed();
 		colour: RecolourByLandValue();
 	}
 }
@@ -158,7 +158,7 @@ item (FEAT_HOUSES, item_tropic_85_flats_balconies, -1) {
 	}
 	graphics {
 		default: sprite_tropic_85_flats;
-		construction_check: switch_tropic_85_flats;
+		construction_check: IsHighriseAllowed();
 		colour: RecolourByLandValue();
 	}
 }
@@ -185,7 +185,7 @@ item (FEAT_HOUSES, item_tropic_86_flats_tower, -1) {
 	
 	graphics {
 		default: sprite_tropic_86_flats;
-		construction_check: switch_tropic_86_flats;
+		construction_check: IsHighriseAllowed();
 	}
 }
 
@@ -211,7 +211,7 @@ item (FEAT_HOUSES, item_tropic_89_flats_dirty, -1) {
 	
 	graphics {
 		default: sprite_tropic_89_flats;
-		construction_check: switch_tropic_89_flats;
+		construction_check: IsHighriseAllowed();
 	}
 }
 

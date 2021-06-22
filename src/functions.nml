@@ -155,4 +155,13 @@ switch (FEAT_HOUSES, SELF, RecolourByLandValue, CalculateValue()) {
 	return PALETTE_CC_GREY;
 }
 
+/**
+ * Check if high rise buildings are allowed in this town, based on FIRS' town types
+ * return 1 if allowed, otherwise 0.
+ */
+switch (FEAT_HOUSES, SELF, IsHighriseAllowed, (!(grf_future_status("\F1%\00\08"))) // true if FIRS 4 is not loaded
+	|| ( (param["\F1%\00\08", 254] >= 6454) && (var[41, 0, 0xFFFF] % 3 == 0) ) // true if FIRS version >= 6454 (4.1.0) && town_index % 3 == 0
+) {return;}
+
+
 /* End Functions */

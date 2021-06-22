@@ -8,7 +8,7 @@ grf {
 	grfid: "TT\03\01";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
-	version: 19;
+	version: 20;
 	min_compatible_version: 17;
 	url: string(STR_WEBSITE);
 
@@ -656,6 +656,15 @@ switch (FEAT_HOUSES, SELF, RecolourByLandValue, CalculateValue()) {
 	19..255: return PALETTE_CC_PINK;
 	return PALETTE_CC_GREY;
 }
+
+/**
+ * Check if high rise buildings are allowed in this town, based on FIRS' town types
+ * return 1 if allowed, otherwise 0.
+ */
+switch (FEAT_HOUSES, SELF, IsHighriseAllowed, (!(grf_future_status("\F1%\00\08"))) // true if FIRS 4 is not loaded
+	|| ( (param["\F1%\00\08", 254] >= 6454) && (var[41, 0, 0xFFFF] % 3 == 0) ) // true if FIRS version >= 6454 (4.1.0) && town_index % 3 == 0
+) {return;}
+
 
 /* End Functions */
 
@@ -2145,7 +2154,7 @@ item (FEAT_HOUSES, item_tropic_82_flats_fence, -1) {
 	}
 	graphics {
 		default: sprite_tropic_82_flats;
-		construction_check: switch_tropic_82_flats;
+		construction_check: IsHighriseAllowed();
 		colour: RecolourByLandValue();
 	}
 }
@@ -2171,7 +2180,7 @@ item (FEAT_HOUSES, item_tropic_85_flats_balconies, -1) {
 	}
 	graphics {
 		default: sprite_tropic_85_flats;
-		construction_check: switch_tropic_85_flats;
+		construction_check: IsHighriseAllowed();
 		colour: RecolourByLandValue();
 	}
 }
@@ -2198,7 +2207,7 @@ item (FEAT_HOUSES, item_tropic_86_flats_tower, -1) {
 	
 	graphics {
 		default: sprite_tropic_86_flats;
-		construction_check: switch_tropic_86_flats;
+		construction_check: IsHighriseAllowed();
 	}
 }
 
@@ -2224,7 +2233,7 @@ item (FEAT_HOUSES, item_tropic_89_flats_dirty, -1) {
 	
 	graphics {
 		default: sprite_tropic_89_flats;
-		construction_check: switch_tropic_89_flats;
+		construction_check: IsHighriseAllowed();
 	}
 }
 
