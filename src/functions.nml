@@ -60,6 +60,33 @@ switch (FEAT_HOUSES, SELF, HasSameClassNearby, radius, nearest_house_matching_cr
 
 switch (FEAT_HOUSES, SELF, IsFirstHouseOfClass, same_class_count_town == 0) {return;}
 
+/* Check for industrial cargos delivered */
+
+/* Industries of the Caribbean - TT20 */
+switch (FEAT_HOUSES, SELF, IsDeliveredSGCN, cargo_accepted_nearby_last_month(SGCN) || cargo_accepted_nearby_this_month(SGCN)) {return;}
+switch (FEAT_HOUSES, SELF, IsDeliveredTBCO, cargo_accepted_nearby_last_month(TBCO) || cargo_accepted_nearby_this_month(TBCO)) {return;}
+switch (FEAT_HOUSES, SELF, IsDeliveredOIL_, cargo_accepted_nearby_last_month(OIL_) || cargo_accepted_nearby_this_month(OIL_)) {return;}
+switch (FEAT_HOUSES, SELF, IsDeliveredNKOR, cargo_accepted_nearby_last_month(NKOR) || cargo_accepted_nearby_this_month(NKOR)) {return;}
+switch (FEAT_HOUSES, SELF, IsDeliveredMOLS, cargo_accepted_nearby_last_month(MOLS) || cargo_accepted_nearby_this_month(MOLS)) {return;}
+switch (FEAT_HOUSES, SELF, IsDeliveredRFPR, cargo_accepted_nearby_last_month(RFPR) || cargo_accepted_nearby_this_month(RFPR)) {return;}
+switch (FEAT_HOUSES, SELF, IsDeliveredFUEL, cargo_accepted_nearby_last_month(FUEL) || cargo_accepted_nearby_this_month(FUEL)) {return;}
+switch (FEAT_HOUSES, SELF, IsDeliveredPIPE, cargo_accepted_nearby_last_month(PIPE) || cargo_accepted_nearby_this_month(PIPE)) {return;}
+switch (FEAT_HOUSES, SELF, IsDeliveredENSP, cargo_accepted_nearby_last_month(ENSP) || cargo_accepted_nearby_this_month(ENSP)) {return;}
+
+switch (FEAT_HOUSES, SELF, CheckIOTCIndustrialCargos,
+	!IsDeliveredSGCN() *
+	!IsDeliveredTBCO() *
+	!IsDeliveredOIL_() *
+	!IsDeliveredNKOR() *
+	!IsDeliveredMOLS() *
+	!IsDeliveredRFPR() *
+	!IsDeliveredFUEL() *
+	!IsDeliveredPIPE() *
+	!IsDeliveredENSP()
+) {return;}
+
+switch (FEAT_HOUSES, SELF, CheckIndustrialCargos, grf_future_status("TT20")) {1: return CheckIOTCIndustrialCargos; return 1;}
+
 /* Land value calculations */
 
 switch (FEAT_HOUSES, SELF, AddValueWater, IsAdjacentToWater() ) {
@@ -131,6 +158,7 @@ switch (FEAT_HOUSES, SELF, CheckFlatsSprawl, ((other_class_count_town(80) > (sam
 switch (FEAT_HOUSES, SELF, CheckOfficeSprawl, required, HasPopulation((same_class_count_town + 1) * required) ) {return;}
 
 switch (FEAT_HOUSES, SELF, CalculateValue,
+	(
 	AddValueWater() + 
 	AddValueCity() + 
 	AddValueTownZone() +
@@ -142,6 +170,7 @@ switch (FEAT_HOUSES, SELF, CalculateValue,
 	AddValueWaterService() +
 	AddValueFoodService() +
 	AddValueVehiclesService()
+	) * CheckIndustrialCargos() // 1 if no industrial cargos were delivered nearby, else 0 making the entire land value calculation 0.
 	) {return;}
 
 switch (FEAT_HOUSES, SELF, CheckValue, lower_bound, upper_bound, [STORE_TEMP(CalculateValue(), 1), LOAD_TEMP(1) >= lower_bound && LOAD_TEMP(1) <= upper_bound]) {1: return 1; return 0;}

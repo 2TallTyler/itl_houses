@@ -34,6 +34,7 @@ item (FEAT_HOUSES, item_tropic_nice_houses_sw, -1) {
 	graphics {
 		default: random_sprite_nice_houses_sw;
 		construction_check: switch_tropic_nice_houses_sw;
+		destruction: !CheckIndustrialCargos();
 	}
 }
 
@@ -60,13 +61,14 @@ item (FEAT_HOUSES, item_tropic_nice_houses_se, -1) {
 	graphics {
 		default: sprite_nice_houses_se;
 		construction_check: switch_tropic_nice_houses_se;
+		destruction: !CheckIndustrialCargos();
 	}
 }
 
 item (FEAT_HOUSES, item_tropic_80_shacks, 80) {
 	property {
 		substitute: 80;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TROPIC)];
 		years_available: [1700,0xFFFF];
 		building_class: 1;
 	}
@@ -133,6 +135,7 @@ item (FEAT_HOUSES, item_tropic_82_flats_fence, -1) {
 	graphics {
 		default: sprite_tropic_82_flats;
 		construction_check: switch_tropic_82_flats;
+		destruction: !CheckIndustrialCargos();
 		colour: RecolourByLandValue();
 	}
 }
@@ -159,6 +162,7 @@ item (FEAT_HOUSES, item_tropic_85_flats_balconies, -1) {
 	graphics {
 		default: sprite_tropic_85_flats;
 		construction_check: switch_tropic_85_flats;
+		destruction: !CheckIndustrialCargos();
 		colour: RecolourByLandValue();
 	}
 }
@@ -186,6 +190,7 @@ item (FEAT_HOUSES, item_tropic_86_flats_tower, -1) {
 	graphics {
 		default: sprite_tropic_86_flats;
 		construction_check: switch_tropic_86_flats;
+		destruction: !CheckIndustrialCargos();
 	}
 }
 
@@ -212,6 +217,7 @@ item (FEAT_HOUSES, item_tropic_89_flats_dirty, -1) {
 	graphics {
 		default: sprite_tropic_89_flats;
 		construction_check: switch_tropic_89_flats;
+		destruction: !CheckIndustrialCargos();
 	}
 }
 
@@ -594,6 +600,7 @@ item(FEAT_HOUSES, item_tropic_01_office_block, -1) {
 	graphics {
 		default: sprite_office_block_01;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 	}
 }
 
@@ -617,6 +624,7 @@ item(FEAT_HOUSES, item_tropic_04_large_office_block, -1) {
 	graphics {
 		default: sprite_large_office_block;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 	}
 }
 
@@ -640,6 +648,7 @@ item(FEAT_HOUSES, item_tropic_13_office_block, -1) {
 	graphics {
 		default: sprite_office_block_13;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 	}
 }
 
@@ -664,6 +673,7 @@ item(FEAT_HOUSES, item_tropic_14_old_shops_1, -1) {
 	graphics {
 		default: sprite_shops_and_offices_14;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 		colour: random_colour_masonry();
 	}
 }
@@ -689,6 +699,7 @@ item(FEAT_HOUSES, item_tropic_15a_old_shops_2, -1) {
 	graphics {
 		default: sprite_shops_and_offices_15a;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 		colour: random_colour_masonry();
 	}
 }
@@ -714,6 +725,7 @@ item(FEAT_HOUSES, item_tropic_15b_old_shops_2b, -1) {
 	graphics {
 		default: sprite_shops_and_offices_15b;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 		colour: random_colour_masonry();
 	}
 }
@@ -739,6 +751,7 @@ item(FEAT_HOUSES, item_tropic_16_old_shops_3, -1) {
 	graphics {
 		default: sprite_shops_and_offices_16;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 		colour: random_colour_masonry();
 	}
 }
@@ -764,6 +777,7 @@ item(FEAT_HOUSES, item_tropic_29_shops_offices_1, -1) {
 	graphics {
 		default: sprite_shops_and_offices_29;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 		colour: random_colour_masonry();
 	}
 }
@@ -789,6 +803,7 @@ item(FEAT_HOUSES, item_tropic_30_shops_offices_2, -1) {
 	graphics {
 		default: sprite_shops_and_offices_30;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 	}
 }
 
@@ -812,6 +827,7 @@ item(FEAT_HOUSES, item_tropic_19_office_block_spiral_stairway, -1) {
 	graphics {
 		default: sprite_tall_office_block_19;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 		colour: random_colour_masonry();
 	}
 }
@@ -836,6 +852,7 @@ item(FEAT_HOUSES, item_tropic_50_tall_office_block, -1) {
 	graphics {
 		default: sprite_tall_office_block_50;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 		colour: RecolourByLandValue();
 	}
 }
@@ -860,6 +877,7 @@ item(FEAT_HOUSES, item_tropic_50b_tall_office_block, -1) {
 	graphics {
 		default: sprite_tall_office_block_50b;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 		colour: RecolourByLandValue();
 	}
 }
@@ -884,6 +902,7 @@ item(FEAT_HOUSES, item_tropic_52_tall_office_block, -1) {
 	graphics {
 		default: sprite_tall_office_block_52;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 		colour: RecolourByLandValue();
 	}
 }
@@ -908,6 +927,7 @@ item(FEAT_HOUSES, item_tropic_54_tall_office_block, -1) {
 	graphics {
 		default: sprite_tall_office_block_54;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 		colour: RecolourByLandValue();
 	}
 }
@@ -933,6 +953,7 @@ item(FEAT_HOUSES, item_tropic_74_tall_office_block, -1, HOUSE_SIZE_2X1) {
 		graphics_north: sprite_tall_office_block_74_N;
 		graphics_west: sprite_tall_office_block_74_W;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 	}
 }
 
@@ -957,6 +978,7 @@ item(FEAT_HOUSES, item_tropic_87_tall_office_block, -1, HOUSE_SIZE_2X1) {
 		graphics_north: sprite_tall_office_block_87_N;
 		graphics_west: sprite_tall_office_block_87_W;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 	}
 }
 
@@ -981,6 +1003,7 @@ item(FEAT_HOUSES, item_tall_office_block_90, -1, HOUSE_SIZE_1X1) {
 	graphics {
 		default: sprite_tall_office_block_90;
 		construction_check: switch_tropic_offices();
+		destruction: !CheckIndustrialCargos();
 		colour: RecolourByLandValue();
 	}
 }

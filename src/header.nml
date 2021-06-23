@@ -8,7 +8,7 @@ grf {
 	grfid: "TT\03\01";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
-	version: 19;
+	version: 20;
 	min_compatible_version: 17;
 	url: string(STR_WEBSITE);
 
@@ -42,7 +42,10 @@ if (climate == CLIMATE_ARCTIC)
 {error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
-	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE, WATR, VEHI
+	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE, WATR, VEHI,
+	
+	/* IOTC industrial cargos */
+	SGCN, TBCO, OIL_, NKOR, MOLS, RFPR, FUEL, PIPE, ENSP
 }
 
 if (version_openttd(1,10,0,28004) > openttd_version) {
