@@ -656,9 +656,7 @@ switch (FEAT_HOUSES, SELF, AddValueVehiclesService, (cargo_accepted_nearby_last_
 /* Build/no-build decisions */
 
 /* Building ID 80 is shacks, which is class 1 (low-density residential) */
-switch (FEAT_HOUSES, SELF, CheckFlatsSprawl, ((other_class_count_town(80) > (same_class_count_town * 10)) || !IsCity())
-	|| ((other_class_count_town(80) > (same_class_count_town * 5)) || IsCity())
- ) {return;}
+switch (FEAT_HOUSES, SELF, CheckFlatsSprawl, other_class_count_town(80) > (same_class_count_town * 10) ) {return;}
 
 switch (FEAT_HOUSES, SELF, CheckOfficeSprawl, required, HasPopulation((same_class_count_town + 1) * required) ) {return;}
 
