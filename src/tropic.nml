@@ -1,4 +1,3 @@
-
 /* Begin Sub-Tropic */
 
 /* Building Classes
@@ -18,6 +17,7 @@ item (FEAT_HOUSES, item_tropic_nice_houses_sw, -1) {
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TROPIC)];
 		years_available: [1700,0xFFFF];
+		population: 32;
 		building_class: 1;
 		probability: 15;
 	}
@@ -45,6 +45,7 @@ item (FEAT_HOUSES, item_tropic_nice_houses_se, -1) {
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TROPIC)];
 		years_available: [1700,0xFFFF];
+		population: 32;
 		building_class: 1;
 		probability: 8;
 	}
@@ -70,6 +71,7 @@ item (FEAT_HOUSES, item_tropic_80_shacks, 80) {
 		substitute: 80;
 		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TROPIC)];
 		years_available: [1700,0xFFFF];
+		population: 32;
 		building_class: 1;
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
@@ -95,6 +97,7 @@ item (FEAT_HOUSES, item_tropic_suburb_houses, -1) {
 		substitute: 81;
 		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1800,0xFFFF];
+		population: 14;
 		building_class: 1;
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
@@ -119,6 +122,7 @@ item (FEAT_HOUSES, item_tropic_82_flats_fence, -1) {
 		substitute: 82;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1930,0xFFFF];
+		population: 90;
 		building_class: 2;
 		minimum_lifetime: 8;
 	}
@@ -146,6 +150,7 @@ item (FEAT_HOUSES, item_tropic_85_flats_balconies, -1) {
 		substitute: 85;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1930,0xFFFF];
+		population: 180;
 		building_class: 2;
 		minimum_lifetime: 8;
 	}
@@ -173,6 +178,7 @@ item (FEAT_HOUSES, item_tropic_86_flats_tower, -1) {
 		substitute: 86;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1930,0xFFFF];
+		population: 240;
 		building_class: 2;
 		minimum_lifetime: 10;
 	}
@@ -200,6 +206,7 @@ item (FEAT_HOUSES, item_tropic_89_flats_dirty, -1) {
 		substitute: 89;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1930,0xFFFF];
+		population: 160;
 		building_class: 2;
 		minimum_lifetime: 5;
 	}
@@ -306,6 +313,7 @@ item (FEAT_HOUSES, item_tropic_hotel, -1, HOUSE_SIZE_1X2) {
 		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1850,0xFFFF];
+		population: 255;
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
@@ -429,6 +437,7 @@ item(FEAT_HOUSES, item_tropic_32_stadium, -1, HOUSE_SIZE_2X2) {
 		population: 255;
 		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1940,0xFFFF];
+		population: 255;
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
@@ -488,7 +497,7 @@ if (extra_bank == 1) {
 			substitute: 74;
 			name: string(STR_NAME_COURTHOUSE);
 			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
-			population: 65;
+			population: 255;
 			mail_multiplier: 70;
 			local_authority_impact: 300;
 			removal_cost_multiplier: 250;
@@ -584,6 +593,7 @@ item(FEAT_HOUSES, item_tropic_01_office_block, -1) {
 	property {
 		substitute: 01;
 		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
@@ -608,6 +618,7 @@ item(FEAT_HOUSES, item_tropic_04_large_office_block, -1) {
 	property {
 		substitute: 04;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
@@ -632,6 +643,7 @@ item(FEAT_HOUSES, item_tropic_13_office_block, -1) {
 	property {
 		substitute: 13;
 		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
@@ -656,6 +668,7 @@ item(FEAT_HOUSES, item_tropic_14_old_shops_1, -1) {
 	property {
 		substitute: 14;
 		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		years_available: [1700, 0xFFFF];
 		minimum_lifetime: 15;
 		building_class: 4;
@@ -682,6 +695,7 @@ item(FEAT_HOUSES, item_tropic_15a_old_shops_2, -1) {
 	property {
 		substitute: 15;
 		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		years_available: [1700, 0xFFFF];
 		minimum_lifetime: 15;
 		building_class: 4;
@@ -708,6 +722,7 @@ item(FEAT_HOUSES, item_tropic_15b_old_shops_2b, -1) {
 	property {
 		substitute: 15;
 		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		years_available: [1700, 0xFFFF];
 		minimum_lifetime: 15;
 		building_class: 4;
@@ -734,6 +749,7 @@ item(FEAT_HOUSES, item_tropic_16_old_shops_3, -1) {
 	property {
 		substitute: 16;
 		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		years_available: [1700, 0xFFFF];
 		minimum_lifetime: 15;
 		building_class: 4;
@@ -760,6 +776,7 @@ item(FEAT_HOUSES, item_tropic_29_shops_offices_1, -1) {
 	property {
 		substitute: 29;
 		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		years_available: [1700, 0xFFFF];
 		minimum_lifetime: 15;
 		building_class: 3;
@@ -787,6 +804,7 @@ item(FEAT_HOUSES, item_tropic_30_shops_offices_2, -1) {
 	property {
 		substitute: 30;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
@@ -811,6 +829,7 @@ item(FEAT_HOUSES, item_tropic_19_office_block_spiral_stairway, -1) {
 	property {
 		substitute: 19;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
@@ -836,6 +855,7 @@ item(FEAT_HOUSES, item_tropic_50_tall_office_block, -1) {
 	property {
 		substitute: 50;
 		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
@@ -861,6 +881,7 @@ item(FEAT_HOUSES, item_tropic_50b_tall_office_block, -1) {
 	property {
 		substitute: 50;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
@@ -886,6 +907,7 @@ item(FEAT_HOUSES, item_tropic_52_tall_office_block, -1) {
 	property {
 		substitute: 52;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
@@ -911,6 +933,7 @@ item(FEAT_HOUSES, item_tropic_54_tall_office_block, -1) {
 	property {
 		substitute: 54;
 		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
@@ -936,6 +959,7 @@ item(FEAT_HOUSES, item_tropic_74_tall_office_block, -1, HOUSE_SIZE_2X1) {
 	property {
 		substitute: 74;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
@@ -961,6 +985,7 @@ item(FEAT_HOUSES, item_tropic_87_tall_office_block, -1, HOUSE_SIZE_2X1) {
 	property {
 		substitute: 87;
 		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
@@ -986,6 +1011,7 @@ item(FEAT_HOUSES, item_tall_office_block_90, -1, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 90;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		population: 255;
 		minimum_lifetime: 15;
 		building_class: 3;
 	}
