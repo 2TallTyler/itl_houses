@@ -15,7 +15,7 @@ item (FEAT_HOUSES, item_tropic_nice_houses_sw, -1) {
 	property {
 		substitute: 78;
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
-		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TROPIC)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1700,0xFFFF];
 		population: 32;
 		building_class: 1;
