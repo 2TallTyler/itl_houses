@@ -2062,7 +2062,7 @@ item (FEAT_HOUSES, item_tropic_nice_houses_sw, -1) {
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1700,0xFFFF];
-		population: 32;
+		population: 24;
 		building_class: 1;
 		probability: 15;
 	}
@@ -2090,7 +2090,7 @@ item (FEAT_HOUSES, item_tropic_nice_houses_se, -1) {
 		building_flags: bitmask(HOUSE_FLAG_NOT_SLOPED);
 		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TROPIC)];
 		years_available: [1700,0xFFFF];
-		population: 32;
+		population: 24;
 		building_class: 1;
 		probability: 8;
 	}
@@ -2116,7 +2116,7 @@ item (FEAT_HOUSES, item_tropic_80_shacks, 80) {
 		substitute: 80;
 		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TROPIC)];
 		years_available: [1700,0xFFFF];
-		population: 32;
+		population: 24;
 		building_class: 1;
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
@@ -2142,7 +2142,7 @@ item (FEAT_HOUSES, item_tropic_suburb_houses, -1) {
 		substitute: 81;
 		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1800,0xFFFF];
-		population: 14;
+		population: 11;
 		building_class: 1;
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
@@ -2167,7 +2167,7 @@ item (FEAT_HOUSES, item_tropic_82_flats_fence, -1) {
 		substitute: 82;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1930,0xFFFF];
-		population: 90;
+		population: 68;
 		building_class: 2;
 		minimum_lifetime: 8;
 	}
@@ -2195,7 +2195,7 @@ item (FEAT_HOUSES, item_tropic_85_flats_balconies, -1) {
 		substitute: 85;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1930,0xFFFF];
-		population: 180;
+		population: 135;
 		building_class: 2;
 		minimum_lifetime: 8;
 	}
@@ -2223,7 +2223,7 @@ item (FEAT_HOUSES, item_tropic_86_flats_tower, -1) {
 		substitute: 86;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1930,0xFFFF];
-		population: 240;
+		population: 180;
 		building_class: 2;
 		minimum_lifetime: 10;
 	}
@@ -2251,7 +2251,7 @@ item (FEAT_HOUSES, item_tropic_89_flats_dirty, -1) {
 		substitute: 89;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
 		years_available: [1930,0xFFFF];
-		population: 160;
+		population: 120;
 		building_class: 2;
 		minimum_lifetime: 5;
 	}
