@@ -66,6 +66,7 @@ item (FEAT_HOUSES, item_tropic_nice_houses_se, -1) {
 	}
 }
 
+switch (FEAT_HOUSES, SELF, switch_tropic_shacks, CheckValue(0,2) || (!HasRoadAdjacentNE() && !HasRoadAdjacentNW() && !HasRoadAdjacentSE() && !HasRoadAdjacentSW())) {return;}
 item (FEAT_HOUSES, item_tropic_80_shacks, 80) {
 	property {
 		substitute: 80;
@@ -87,7 +88,7 @@ item (FEAT_HOUSES, item_tropic_80_shacks, 80) {
 	
 	graphics {
 		default: random_sprite_shacks;
-		construction_check: CheckValue(0,255);
+		construction_check: switch_tropic_shacks;
 	}
 }
 
@@ -95,7 +96,7 @@ switch (FEAT_HOUSES, SELF, switch_tropic_suburb_houses, CheckValue(0,255) && IsN
 item (FEAT_HOUSES, item_tropic_suburb_houses, -1) {
 	property {
 		substitute: 81;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TROPIC)];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TROPIC)];
 		years_available: [1800,0xFFFF];
 		population: 11;
 		building_class: 1;
