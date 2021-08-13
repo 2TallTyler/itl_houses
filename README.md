@@ -85,6 +85,7 @@ If you have any questions, please feel free to contact me and I will do my best 
 Currently available in:
 - English
 - Simplified Chinese (SuperCirno)
+- Czech (adpro)
 - French (arikover)
 - German (WoelfiVW)
 

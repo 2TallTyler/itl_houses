@@ -1,0 +1,26 @@
+##grflangid 0x15
+# This is the Czech language file
+
+STR_GRF_NAME							:{TITLE} {VERSION}
+STR_GRF_DESC							:{ORANGE}Původní domy, nová pravidla.{}{}{BLACK}Centra měst jsou určována obsluhou cestujících, rozlehlá předměstí, rozšiřování předměstí, historicky chráněné budovy a mnoho dalšího.{}{}Začíná v roce 1700. Funguje se všemi základními grafickými sety. {SILVER}Není kompatibilní s ostatními NewGRF sety pro domy.{}{}{ORANGE}Instrukce najdete na webu.{}{}{BLACK}Autorem kódu je 2TallTyler.
+STR_WEBSITE								:https://github.com/2TallTyler/improved_town_layouts/blob/master/README.md
+
+STR_ERROR_REQUIRE_TEMPERATE				:Improved Town Layouts jsou navrženy pro Krajinu mírného pásma nebo Subtropickou krajinu. Budovy nemají grafický sprite se sněhem.
+
+STR_ERROR_GAME_VERSION					:Improved Town Layouts vyžaduje OpenTTD verze 1.10.0, JGR verze 0.34, nebo vyšší
+
+STR_PARAM_NAME_EXTRA_BANK				:Použít grafiku Banky
+STR_PARAM_DESC_EXTRA_BANK				:Přidá grafický sprite Banky jako {SILVER}Univerzitu{BLACK} (z grafiky banky v krajině mírného pásma) a {SILVER}Soud{BLACK} (z grafiky banky v subarktické krajině).{}{}{ORANGE}Není doporučeno používat,{BLACK} pokud se hraje s průmyslem či NewGRF sety, které obsahují banky. 
+
+STR_PARAM_NAME_EXTRA_HOTEL				:Použít grafiku Hotelu z FIRS
+STR_PARAM_DESC_EXTRA_HOTEL				:Přidává grafiku subarktického Hotelu jako {SILVER}Lázně{BLACK}. {}{}{ORANGE}Není doporučeno,{BLACK} pokud se hraje s FIRS, ktarý také používá tuto grafiku.
+
+STR_PARAM_NAME_EXTRA_TROPIC				:Používat subtropické grafiky v Krajině mírného pásma
+STR_PARAM_DESC_EXTRA_TROPIC				:Přidá grafiku subtropického kostela jako další typ {SILVER}Kostela{BLACK} v Krajině mírného pásma. Přidá jeden z bytových domů jako náhodnou grafiku {SILVER}Skladu{BLACK}.
+
+STR_NAME_HISTORIC_CHURCH				:Historický kostel
+STR_NAME_SHOP							:Obchod
+STR_NAME_UNIVERSITY						:Univerzita
+STR_NAME_COURTHOUSE						:Soud
+STR_NAME_MUSEUM							:Muzeum
+STR_NAME_SPA							:Lázně
