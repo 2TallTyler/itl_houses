@@ -8,8 +8,8 @@ grf {
 	grfid: "TT\03\01";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
-	version: 22;
-	min_compatible_version: 17;
+	version: 23;
+	min_compatible_version: 23;
 	url: string(STR_WEBSITE);
 
 param 0 {
@@ -37,9 +37,6 @@ param 2 {
    }} 
 
 }
-
-if (climate == CLIMATE_ARCTIC)
-{error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
 	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE, WATR, VEHI,

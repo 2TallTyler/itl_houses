@@ -151,7 +151,10 @@ switch (FEAT_HOUSES, SELF, AddValueVehiclesService, (cargo_accepted_nearby_last_
 /* Build/no-build decisions */
 
 /* Building ID 80 is shacks, which is class 1 (low-density residential) */
-switch (FEAT_HOUSES, SELF, CheckFlatsSprawl, other_class_count_town(80) > (same_class_count_town * 10) ) {return;}
+switch (FEAT_HOUSES, SELF, CheckFlatsSprawl, 
+	(other_class_count_town(80) > (same_class_count_town * 10) ) || // Sub-tropic shacks
+	(other_class_count_town(110) > (same_class_count_town * 10) ))  // Sub-arctic houses
+	{return;}
 
 switch (FEAT_HOUSES, SELF, CheckOfficeSprawl, required, HasPopulation((same_class_count_town + 1) * required) ) {return;}
 
@@ -182,6 +185,19 @@ switch (FEAT_HOUSES, SELF, RecolourByLandValue, CalculateValue()) {
 	16..18: return PALETTE_CC_PURPLE;
 	19..255: return PALETTE_CC_PINK;
 	return PALETTE_CC_GREY;
+}
+
+/* Recolour 1CC buildings randomly */
+random_switch (FEAT_HOUSES, SELF, RandomColourArcticHouses) {
+	1: return PALETTE_CC_DARK_BLUE;
+	1: return PALETTE_CC_PALE_GREEN;
+	1: return PALETTE_CC_PINK;
+	1: return PALETTE_CC_LIGHT_BLUE;
+	1: return PALETTE_CC_DARK_GREEN;
+	1: return PALETTE_CC_CREAM;
+	1: return PALETTE_CC_MAUVE;
+	1: return PALETTE_CC_ORANGE;
+	1: return PALETTE_CC_BROWN;
 }
 
 /* End Functions */

@@ -14,7 +14,7 @@ item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 		removal_cost_multiplier: 90;
 		probability: 4;
 		years_available: [1700,0xFFFF];
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_church;
@@ -36,7 +36,7 @@ item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 		removal_cost_multiplier: 90;
 		probability: 6;
 		years_available: [1700,0xFFFF];
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_church;
@@ -59,7 +59,7 @@ item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 		removal_cost_multiplier: 85;
 		probability: 1;
 		years_available: [1960,0xFFFF];
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_modern_church_1;
@@ -81,7 +81,7 @@ item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 		removal_cost_multiplier: 85;
 		probability: 1;
 		years_available: [1970,0xFFFF];
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_modern_church_2;
@@ -105,7 +105,7 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 		removal_cost_multiplier: 85;
 		probability: 1;
 		years_available: [1850,1900];
-		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_neomoorish_church;
@@ -128,7 +128,7 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		probability: 4;
 		years_available: [1800,0xFFFF];
 		minimum_lifetime: 10;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		graphics_north: sprite_old_stadium_N;
@@ -154,7 +154,7 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		probability: 4;
 		years_available: [1958,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		graphics_north: sprite_new_stadium_N;
@@ -176,7 +176,7 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 		probability: 4;
 		years_available: [1900,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		graphics_north: sprite_hotel_N;
@@ -194,7 +194,7 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 		probability: 1;
 		years_available: [1945,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_cinema;
@@ -211,7 +211,7 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 		probability: 1;
 		years_available: [1900,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_theatre;
@@ -230,7 +230,7 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		probability: 1;
 		years_available: [1900,0xFFFF];
 		minimum_lifetime: 3;
-		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 0;
 	}
 	graphics {
@@ -253,7 +253,7 @@ if (extra_tropic == 1){
 			probability: 1;
 			years_available: [1930,0xFFFF];
 			minimum_lifetime: 4;
-			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 			building_class: 0;
 		}
 		graphics {
@@ -269,7 +269,7 @@ if (extra_tropic == 1){
 			probability: 1;
 			years_available: [1930,0xFFFF];
 			minimum_lifetime: 4;
-			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 			building_class: 0;
 		}
 		graphics {
@@ -286,7 +286,7 @@ item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 0;
 	}
 	graphics {
@@ -302,7 +302,7 @@ item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 0;
 	}
 	graphics {
@@ -326,7 +326,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 		probability: 15;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 0;
 	}
 	graphics {
@@ -342,7 +342,7 @@ item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 1;
 	}
 	graphics {
@@ -357,7 +357,7 @@ item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
 		probability: 2;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 1;
 	}
 	graphics {
@@ -380,7 +380,7 @@ item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 		probability: 1;
 		years_available: [1950,0xFFFF];
 		minimum_lifetime: 10;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_museum;
@@ -405,7 +405,7 @@ if (extra_bank == 1) {
 			probability: 1;
 			years_available: [1850,0xFFFF];
 			minimum_lifetime: 100;
-			availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+			availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		}
 		graphics {
 			graphics_north: sprite_courthouse_n;
@@ -428,7 +428,7 @@ if (extra_bank == 1) {
 			probability: 1;
 			years_available: [1700,0xFFFF];
 			minimum_lifetime: 100;
-			availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+			availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		}
 		graphics {
 			graphics_north: sprite_university_n;
@@ -455,7 +455,7 @@ if (extra_hotel == 1) {
 			probability: 1;
 			years_available: [1880,0xFFFF];
 			minimum_lifetime: 10;
-			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		}
 		graphics {
 			graphics_north: sprite_spa_n;

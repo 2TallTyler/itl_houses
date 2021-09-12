@@ -5,8 +5,6 @@ STR_GRF_NAME							:{TITLE} {VERSION}
 STR_GRF_DESC							:{ORANGE}Původní domy, nová pravidla.{}{}{BLACK}Centra měst jsou určována obsluhou cestujících, rozlehlá předměstí, rozšiřování předměstí, historicky chráněné budovy a mnoho dalšího.{}{}Začíná v roce 1700. Funguje se všemi základními grafickými sety. {SILVER}Není kompatibilní s ostatními NewGRF sety pro domy.{}{}{ORANGE}Instrukce najdete na webu.{}{}{BLACK}Autorem kódu je 2TallTyler.
 STR_WEBSITE								:https://github.com/2TallTyler/improved_town_layouts/blob/master/README.md
 
-STR_ERROR_REQUIRE_TEMPERATE				:Improved Town Layouts jsou navrženy pro Krajinu mírného pásma nebo Subtropickou krajinu. Budovy nemají grafický sprite se sněhem.
-
 STR_ERROR_GAME_VERSION					:Improved Town Layouts vyžaduje OpenTTD verze 1.10.0, JGR verze 0.34, nebo vyšší
 
 STR_PARAM_NAME_EXTRA_BANK				:Použít grafiku Banky

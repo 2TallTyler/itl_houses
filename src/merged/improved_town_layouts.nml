@@ -8,8 +8,8 @@ grf {
 	grfid: "TT\03\01";
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
-	version: 22;
-	min_compatible_version: 17;
+	version: 23;
+	min_compatible_version: 23;
 	url: string(STR_WEBSITE);
 
 param 0 {
@@ -37,9 +37,6 @@ param 2 {
    }} 
 
 }
-
-if (climate == CLIMATE_ARCTIC)
-{error(WARNING, string(STR_ERROR_REQUIRE_TEMPERATE));}
 
 cargotable {
 	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE, WATR, VEHI,
@@ -92,14 +89,6 @@ spritelayout townhouses2 {
 spritelayout sprite_church {
 	ground	 	{ sprite: 1437; }
 	building 	{ sprite: (construction_state==0 ? 1434 : construction_state==3 ? 1436 : 1435); }}
-
-spritelayout sprite_modern_church_1 {
-	ground	 	{ sprite: 4462; }
-	building	{ sprite: (construction_state<2 ? 4463 : construction_state==2 ? 4464 : 4465); }}
-
-spritelayout sprite_modern_church_2 {
-	ground	 	{ sprite: 1420; }
-	building 	{ sprite: (construction_state==0 ? 4459 : construction_state==3 ? 4461 : 4460); }}
 
 spritelayout sprite_neomoorish_church {
 	ground	 	{ sprite: 1420; }
@@ -180,27 +169,6 @@ spritelayout sprite_warehouse {
 	building 	{ sprite: construction_state==0 ? 1473 : construction_state == 3 ? 1475 : 1474; }
 }
 
-spritelayout sprite_fountain {
-	ground	 	 {sprite: 1420; }
-	building {
-		sprite: 1455;
-		yoffset: 3;
-		xoffset: 3;
-		}}
-
-spritelayout sprite_statue {
-	ground	 	{ sprite: 1420; }
-	building {
-		sprite: 1454;
-		yoffset: 5;
-		xoffset: 6;
-		}}
-
-spritelayout sprite_shop {
-	ground 		{ sprite: 4418; }
-	building 	{ sprite: construction_state==0 ? 4424 : construction_state == 3 ? 4426 : 4425; }
-}
-
 spritelayout sprite_park_pond {
 	ground	 	{ sprite: 3981; }
 	building 	{ sprite: 1456; }}
@@ -268,51 +236,6 @@ spritelayout sprite_flats_1 {
 spritelayout sprite_small_flats_2 {
 	ground 		{ sprite: construction_state==0 ? 3924 : construction_state==3 ? 1522 : 1520; }
 	building 	{ sprite: construction_state==0 ? 1519 : construction_state==3 ? 1523 : 1521; }
-}
-
-spritelayout sprite_tall_office_block_52 {
-	ground	 	{ sprite:4442; }
- 	building 	{ sprite: construction_state==0 ? 4443 : construction_state==3 ? terrain_type==TILETYPE_SNOW ? 4576 : 4445 : 4444; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
-}
-
-spritelayout sprite_tall_office_block_50 {
-	ground		{ sprite:4483; }
- 	building 	{ sprite: construction_state==0 ? 4480 : construction_state==3 ? 4484 : 4482; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
-}
-
-spritelayout sprite_tall_office_block_50b {
-	ground		{ sprite: 4438; }
-	building	{ sprite: construction_state==0 ? 4439 : construction_state==3 ? 4441 : 4440; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
-}
-
-spritelayout sprite_tall_office_block_54 {
-	ground		{ sprite:(construction_state==3 ? 4434 : 3924); }
- 	building 	{ sprite: construction_state==0 ? 4435 : construction_state==3 ? 4437 : 4436; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
-}
-
-spritelayout sprite_tall_office_block_74_N {
-	ground	 	{ sprite:(construction_state==3 ? 4485 : 3924); }
- 	building 	{ sprite: construction_state==0 ? 4487 : construction_state==3 ? 4491 : 4489; }
-}
-
-spritelayout sprite_tall_office_block_74_W {
-	ground	 	{ sprite: (construction_state==3 ? 4486 : 3924); }
- 	building 	{ sprite: construction_state==0 ? 4488 : construction_state==3 ? 4492 : 4490; }
-}
-
-spritelayout sprite_small_flats_44 {
-	ground 		{ sprite: 4418; }
-	building 	{ sprite: construction_state==0 ? 4420 : construction_state==3 ? 4422 : 4421; }
-}
-
-spritelayout sprite_shops_and_offices_64 {
-	ground		{ sprite:1420; }
-	building    { sprite: 4470; recolour_mode: RECOLOUR_REMAP;	palette: PALETTE_USE_DEFAULT; }
-}
-
-spritelayout sprite_houses_62 {
-    ground		{ sprite:1566; }
-    building	{ sprite:1567; }
 }
 
 spritelayout sprite_tall_office_block_87_N {
@@ -406,21 +329,6 @@ spritelayout sprite_courthouse_w {
 	ground		{ sprite:2185; }
 	building	{ sprite:2187; }}
 
-spritelayout sprite_museum {
-	ground		{ sprite:1420; }
-	building    { sprite: construction_state==0 ? 1476 : construction_state==3 ? 1478 : 1477; }
-}
-
-spritelayout sprite_spa_n {
-	ground		{ sprite:1420; }
-	building 	{ sprite: construction_state==0 ? 4471 : construction_state==3 ? 4475 : 4473; }
-}
-
-spritelayout sprite_spa_e {
-	ground		{ sprite:1420; }
-	building 	{ sprite: construction_state==0 ? 4472 : construction_state==3 ? 4476 : 4474; }
-}
-
 /* Subtropic houses */
 
 spritelayout sprite_tropic_shacks_1 {
@@ -500,6 +408,174 @@ spritelayout sprite_tropic_86_flats {
 spritelayout sprite_tropic_89_flats {
 	ground		{ sprite: 3924; }
 	building 	{ sprite: construction_state == 0 ? 4620 : construction_state == 3 ? 4622 : 4621; }
+}
+
+/* Sub-arctic houses *
+
+/* Residential */
+
+spritelayout sprite_small_flats_44 {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4419 : 4418; }
+	building	{ sprite: (construction_state == 0 ? 4420 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4423 : 4422) : 4421)); }
+}
+
+// Needs road SW or NE
+spritelayout sprite_arctic_48_house {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4429 : 4428; }
+	building	{
+		sprite: (construction_state == 0 ? 4430 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4433 : 4432) : 4431)); 
+		recolour_mode: RECOLOUR_REMAP;
+		palette: PALETTE_USE_DEFAULT;
+	}
+}
+
+// Needs road SE
+spritelayout sprite_houses_62 {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4570 : 1566; }
+	building	{
+		sprite: terrain_type == TILETYPE_SNOW ? 4571 : 1567; 
+		recolour_mode: RECOLOUR_REMAP;
+		palette: PALETTE_USE_DEFAULT;
+	}
+}
+
+// Any road
+spritelayout sprite_houses_62b {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4572 : 1568; }
+	building	{
+		sprite: terrain_type == TILETYPE_SNOW ? 4573 : 1569; 
+		recolour_mode: RECOLOUR_REMAP;
+		palette: PALETTE_USE_DEFAULT;
+	}
+}
+
+// Needs road NW or SE
+spritelayout sprite_houses_62c {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4580 : 4466; }
+	building	{
+		sprite: (construction_state == 0 ? 4467 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4581 : 4469) : 4468)); 
+		recolour_mode: RECOLOUR_REMAP;
+		palette: PALETTE_USE_DEFAULT;
+	}
+}
+
+/* Landmarks */
+
+spritelayout sprite_shop {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4419 : 4418; }
+	building	{ sprite: (construction_state == 0 ? 4424 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4427 : 4426) : 4425)); }
+}
+
+spritelayout sprite_modern_church_1 {
+	ground	 	{ sprite: terrain_type == TILETYPE_SNOW ? 4550 : 4462; }
+	building	{ sprite: (construction_state == 0 ? 4463 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4579 : 4465) : 4464)); }
+}
+
+spritelayout sprite_modern_church_2 {
+	ground	 	{ sprite: terrain_type == TILETYPE_SNOW ? 4550 : 1420; }
+	building 	{ sprite: (construction_state == 0 ? 4459 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4578 : 4461) : 4460)); }
+}
+
+
+spritelayout sprite_spa_n {
+	ground	 	{ sprite: terrain_type == TILETYPE_SNOW ? 4550 : 1420; }
+	building 	{ sprite: (construction_state == 0 ? 4471 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4583 : 4475) : 4473)); }
+}
+
+spritelayout sprite_spa_e {
+	ground	 	{ sprite: terrain_type == TILETYPE_SNOW ? 4550 : 1420; }
+	building 	{ sprite: (construction_state == 0 ? 4472 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4584 : 4476) : 4474)); }
+}
+
+spritelayout sprite_fountain {
+	ground	 	 { sprite: terrain_type == TILETYPE_SNOW ? 4550 : 1420; }
+	building {
+		sprite: 1455;
+		yoffset: 3;
+		xoffset: 3;
+	}
+}
+
+spritelayout sprite_statue {
+	ground	 	{ sprite: terrain_type == TILETYPE_SNOW ? 4550 : 1420; }
+	building {
+		sprite: 1454;
+		yoffset: 5;
+		xoffset: 6;
+	}
+}
+
+spritelayout sprite_museum {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4550 : 1420; }
+	building    { sprite: construction_state==0 ? 1476 : construction_state==3 ? 1478 : 1477; }
+}
+
+/* Offices */
+
+spritelayout sprite_tall_office_block_50 {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4550 : 4483; }
+	building	{
+		sprite: (construction_state == 0 ? 4480 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4585 : 4484) : 4482)); 
+		recolour_mode: RECOLOUR_REMAP;
+		palette: PALETTE_USE_DEFAULT;
+	}
+}
+
+spritelayout sprite_tall_office_block_50b {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4550 : 4438; }
+	building	{
+		sprite: (construction_state == 0 ? 4439 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4575 : 4441) : 4440)); 
+		recolour_mode: RECOLOUR_REMAP;
+		palette: PALETTE_USE_DEFAULT;
+	}
+}
+
+spritelayout sprite_tall_office_block_52 {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4550 : 4442; }
+	building	{
+		sprite: (construction_state == 0 ? 4443 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4576 : 4445) : 4444)); 
+		recolour_mode: RECOLOUR_REMAP;
+		palette: PALETTE_USE_DEFAULT;
+	}
+}
+
+spritelayout sprite_tall_office_block_54 {
+	ground		{ sprite:(construction_state==3 ? (terrain_type == TILETYPE_SNOW ? 4550 : 4434) : 3924); }
+	building	{
+		sprite: (construction_state == 0 ? 4435 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4574 : 4437) : 4446)); 
+		recolour_mode: RECOLOUR_REMAP;
+		palette: PALETTE_USE_DEFAULT;
+	}
+}
+
+spritelayout sprite_tall_office_block_74_N {
+	ground		{ sprite:(construction_state==3 ? (terrain_type == TILETYPE_SNOW ? 4550 : 4485) : 3924); }
+	building	{
+		sprite: (construction_state == 0 ? 4487 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4586 : 4491) : 4489)); 
+	}
+}
+
+spritelayout sprite_tall_office_block_74_W {
+	ground		{ sprite:(construction_state==3 ? (terrain_type == TILETYPE_SNOW ? 4550 : 4486) : 3924); }
+	building	{
+		sprite: (construction_state == 0 ? 4488 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4587 : 4492) : 4490)); 
+	}
+}
+
+/* Old shops and offices */
+
+spritelayout sprite_shops_and_offices_64 {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4550 : 1420; }
+	building	{
+		sprite: terrain_type == TILETYPE_SNOW ? 4582 : 4470; 
+		recolour_mode: RECOLOUR_REMAP;
+		palette: PALETTE_USE_DEFAULT;
+	}
+}
+
+spritelayout sprite_arctic_shops_and_offices_a {
+	ground		{ sprite: terrain_type == TILETYPE_SNOW ? 4550 : 1420; }
+	building	{ sprite: (construction_state == 0 ? 4477 : (construction_state == 3 ? (terrain_type == TILETYPE_SNOW ? 4577 : 4479) : 4478)); }
 }
 
 /* *** End Graphics *** */
@@ -656,7 +732,10 @@ switch (FEAT_HOUSES, SELF, AddValueVehiclesService, (cargo_accepted_nearby_last_
 /* Build/no-build decisions */
 
 /* Building ID 80 is shacks, which is class 1 (low-density residential) */
-switch (FEAT_HOUSES, SELF, CheckFlatsSprawl, other_class_count_town(80) > (same_class_count_town * 10) ) {return;}
+switch (FEAT_HOUSES, SELF, CheckFlatsSprawl, 
+	(other_class_count_town(80) > (same_class_count_town * 10) ) || // Sub-tropic shacks
+	(other_class_count_town(110) > (same_class_count_town * 10) ))  // Sub-arctic houses
+	{return;}
 
 switch (FEAT_HOUSES, SELF, CheckOfficeSprawl, required, HasPopulation((same_class_count_town + 1) * required) ) {return;}
 
@@ -687,6 +766,19 @@ switch (FEAT_HOUSES, SELF, RecolourByLandValue, CalculateValue()) {
 	16..18: return PALETTE_CC_PURPLE;
 	19..255: return PALETTE_CC_PINK;
 	return PALETTE_CC_GREY;
+}
+
+/* Recolour 1CC buildings randomly */
+random_switch (FEAT_HOUSES, SELF, RandomColourArcticHouses) {
+	1: return PALETTE_CC_DARK_BLUE;
+	1: return PALETTE_CC_PALE_GREEN;
+	1: return PALETTE_CC_PINK;
+	1: return PALETTE_CC_LIGHT_BLUE;
+	1: return PALETTE_CC_DARK_GREEN;
+	1: return PALETTE_CC_CREAM;
+	1: return PALETTE_CC_MAUVE;
+	1: return PALETTE_CC_ORANGE;
+	1: return PALETTE_CC_BROWN;
 }
 
 /* End Functions */
@@ -982,6 +1074,476 @@ Waste production levels:
 
 /* *** End Waste *** */
 
+/* Begin Sub-Arctic */
+
+/* Building Classes
+ * 1: Low-density residential
+ * 2: Flats
+ * 3: Office buildings
+ * 4: Old office buildings
+ * 5: Parks, fountains, and other value adds
+*/
+
+/* HOUSES */
+
+/* Has roads to SW or NE */
+switch (FEAT_HOUSES, SELF, switch_arctic_house_a, (HasRoadAdjacentSW() || HasRoadAdjacentNE())) {return;}
+item (FEAT_HOUSES, item_arctic_house_a, 110) {
+	property {
+		substitute: 48;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1700,0xFFFF];
+		population: 14;
+		building_class: 1;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_arctic_48_house;
+		construction_check: switch_arctic_house_a;
+		colour: RandomColourArcticHouses();
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_arctic_house_b, HasRoadAdjacentSE()) {return;}
+item (FEAT_HOUSES, item_arctic_house_b, 111) {
+	property {
+		substitute: 48;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1700,0xFFFF];
+		population: 14;
+		building_class: 1;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_houses_62;
+		construction_check: switch_arctic_house_b;
+		colour: RandomColourArcticHouses();
+	}
+}
+
+item (FEAT_HOUSES, item_arctic_house_c, 112) {
+	property {
+		substitute: 48;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1700,0xFFFF];
+		population: 14;
+		building_class: 1;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_houses_62b;
+		// construction_check: none required; can have road any direction
+		colour: RandomColourArcticHouses();
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_arctic_house_d, (HasRoadAdjacentNW() || HasRoadAdjacentSE())) {return;}
+item (FEAT_HOUSES, item_arctic_house_d, 113) {
+	property {
+		substitute: 48;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1700,0xFFFF];
+		population: 14;
+		building_class: 1;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_houses_62c;
+		construction_check: switch_arctic_house_d;
+		colour: RandomColourArcticHouses();
+	}
+}
+
+/* FLATS */
+
+switch (FEAT_HOUSES, SELF, switch_arctic_44_flats, CheckValue(4,255) && CheckFlatsSprawl() ) {return;}
+item (FEAT_HOUSES, item_arctic_flats_44, 114) {
+	property {
+		substitute: 44;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1930,0xFFFF];
+		population: 80;
+		building_class: 2;
+		minimum_lifetime: 8;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_small_flats_44;
+		construction_check: switch_arctic_44_flats;
+	}
+}
+
+/* COMMERCIAL */
+
+/* This shop has the maximum probability and is always available, giving nearly every town acceptance of Food and Goods. This is important for town growth mechanics. */
+item(FEAT_HOUSES, item_arctic_shop, 115) {
+	property {
+		substitute: 46;
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+		population: 25;
+		mail_multiplier: 4;
+		years_available: [1700,0xFFFF];
+		probability: 15;
+		availability_mask: [bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		}
+	}
+	graphics {
+		default: sprite_shop;
+		construction_check: IsUniqueHouse();
+	}
+}
+
+// Old West building
+switch (FEAT_HOUSES, SELF, switch_arctic_shops_a, (CheckValue(6, 255) && HasRoadAdjacentSW()) ) {return;}
+item (FEAT_HOUSES, item_arctic_shops_a, 120) {
+	property {
+		substitute: 58;
+		population: 25;
+		mail_multiplier: 4;
+		years_available: [1800,0xFFFF];
+		probability: 1;
+		minimum_lifetime: 20;
+		availability_mask: [bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		}
+	}
+	graphics {
+		default: sprite_arctic_shops_and_offices_a;
+		construction_check: switch_arctic_shops_a;
+	}
+}
+
+// Church-looking building
+switch (FEAT_HOUSES, SELF, switch_arctic_shops_b, (CheckValue(8, 255) && (HasRoadAdjacentSW() || HasRoadAdjacentNE()) ) ) {return;}
+item (FEAT_HOUSES, item_arctic_shops_b, 123) {
+	property {
+		substitute: 58;
+		population: 25;
+		mail_multiplier: 4;
+		years_available: [1960,0xFFFF];
+		probability: 1;
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		}
+	}
+	graphics {
+		default: sprite_modern_church_2;
+		construction_check: switch_arctic_shops_b;
+	}
+}
+
+// Large brick square building
+switch (FEAT_HOUSES, SELF, switch_arctic_shops_c, CheckValue(8, 255)) {return;}
+item (FEAT_HOUSES, item_arctic_shops_c, 124) {
+	property {
+		substitute: 70;
+		population: 105;
+		mail_multiplier: 50;
+		years_available: [1800,0xFFFF];
+		probability: 1;
+		minimum_lifetime: 20;
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		}
+	}
+	graphics {
+		default: sprite_shops_and_offices_64;
+		construction_check: switch_arctic_shops_c;
+	}
+}
+
+/* OFFICES */
+
+switch (FEAT_HOUSES, SELF, switch_arctic_offices, CheckOfficeSprawl(1000) && CheckValue(7,255) && (HasSameClassNearby(2) || IsFirstHouseOfClass()) ) {return;}
+
+item (FEAT_HOUSES, item_arctic_offices_50, 116) {
+	property {
+		substitute: 52;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1970,0xFFFF];
+		population: 170;
+		building_class: 3;
+		minimum_lifetime: 15;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_tall_office_block_50;
+		colour: RecolourByLandValue();
+		construction_check: switch_arctic_offices;
+	}
+}
+
+item (FEAT_HOUSES, item_arctic_offices_50b, 117) {
+	property {
+		substitute: 52;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1970,0xFFFF];
+		population: 170;
+		building_class: 3;
+		minimum_lifetime: 15;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_tall_office_block_50b;
+		colour: RecolourByLandValue();
+		construction_check: switch_arctic_offices;
+	}
+}
+
+item (FEAT_HOUSES, item_arctic_offices_52, 125) {
+	property {
+		substitute: 52;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1970,0xFFFF];
+		population: 170;
+		building_class: 3;
+		minimum_lifetime: 15;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_tall_office_block_52;
+		colour: RecolourByLandValue();
+		construction_check: switch_arctic_offices;
+	}
+}
+
+item (FEAT_HOUSES, item_arctic_offices_54, 118) {
+	property {
+		substitute: 52;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1970,0xFFFF];
+		population: 170;
+		building_class: 3;
+		minimum_lifetime: 15;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_tall_office_block_54;
+		colour: RecolourByLandValue();
+		construction_check: switch_arctic_offices;
+	}
+}
+
+item (FEAT_HOUSES, item_arctic_offices_museum, 128) {
+	property {
+		substitute: 19;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1970,0xFFFF];
+		population: 110;
+		building_class: 3;
+		minimum_lifetime: 15;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_museum;
+		construction_check: switch_arctic_offices;
+	}
+}
+
+/* Landmarks */
+
+switch (FEAT_HOUSES, SELF, switch_arctic_church, (HasRoadAdjacentSE() && CheckValue(4, 255))) {return;}
+item (FEAT_HOUSES, item_arctic_church, 119) {
+	property {
+		substitute: 60;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		building_flags: bitmask(HOUSE_FLAG_CHURCH, HOUSE_FLAG_PROTECTED);
+		years_available: [1970,0xFFFF];
+		population: 6;
+		building_class: 5;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_modern_church_1;
+		construction_check: switch_arctic_church;
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_arctic_spa, (CheckValue(6,255) && HasRoadAdjacentSW()) && IsUniqueHouse()) {return;}
+item(FEAT_HOUSES, item_arctic_spa, 121, HOUSE_SIZE_1X2){
+		property {
+			substitute: 07;
+			name: TTD_STR_TOWN_BUILDING_NAME_HOTEL_1;
+			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			population: 85;
+			mail_multiplier: 4;
+			accepted_cargos: [[PASS, 8],[MAIL, 4]];
+			local_authority_impact: 200;
+			removal_cost_multiplier: 150;
+			probability: 1;
+			years_available: [1880,0xFFFF];
+			minimum_lifetime: 10;
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		}
+		graphics {
+			graphics_north: sprite_spa_n;
+			graphics_east: sprite_spa_e;
+			construction_check: switch_arctic_spa;
+		}
+	}
+
+switch (FEAT_HOUSES, SELF, switch_arctic_fountain, (nearby_tile_slope(0,0) == SLOPE_FLAT && !HasSameClassNearby(2))) {return;}
+item(FEAT_HOUSES, item_arctic_fountain, 126) {
+	property {
+		substitute: 10;
+		probability: 1;
+		years_available: [1700,0xFFFF];
+		minimum_lifetime: 20;
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		building_class: 5;
+	}
+	graphics {
+		default: sprite_fountain;
+		construction_check: switch_arctic_fountain;
+		}
+}
+
+item(FEAT_HOUSES, item_arctic_statue, 127) {
+	property {
+		substitute: 09;
+		probability: 1;
+		years_available: [1700,0xFFFF];
+		minimum_lifetime: 20;
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		building_class: 5;
+	}
+	graphics {
+		default: sprite_statue;
+		construction_check: switch_arctic_fountain;
+	}
+}
 
 /* *** Begin Commercial Buildings *** */
 
@@ -997,7 +1559,7 @@ item(FEAT_HOUSES, item_tall_office_block_19, 19, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1952,0xFFFF];
 		minimum_lifetime: 8;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1020,7 +1582,7 @@ item(FEAT_HOUSES, item_tall_office_block_00, 00, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1950,0xFFFF];
 		minimum_lifetime: 8;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1043,7 +1605,7 @@ item(FEAT_HOUSES, item_tall_office_block_28, 28, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1963,0xFFFF];
 		minimum_lifetime: 8;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1067,7 +1629,7 @@ item(FEAT_HOUSES, item_large_office_block, 04, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1960,0xFFFF];
 		minimum_lifetime: 8;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1090,7 +1652,7 @@ item(FEAT_HOUSES, item_office_block_01, 01, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1951,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1113,7 +1675,7 @@ item(FEAT_HOUSES, item_office_block_13, 13, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1955,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1136,7 +1698,7 @@ item(FEAT_HOUSES, item_shops_and_offices_30, 30, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1973,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1160,7 +1722,7 @@ item(FEAT_HOUSES, item_capsule_tower, 17, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1972,0xFFFF];
 		minimum_lifetime: 50;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1183,7 +1745,7 @@ item(FEAT_HOUSES, item_tall_office_block_52, 52, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1970,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1206,7 +1768,7 @@ item(FEAT_HOUSES, item_tall_office_block_50, 50, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1966,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1229,7 +1791,7 @@ item(FEAT_HOUSES, item_tall_office_block_54, 54, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1974,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1252,7 +1814,7 @@ item(FEAT_HOUSES, item_tall_office_block_90, 90, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1993,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 	}
 	graphics {
@@ -1276,7 +1838,7 @@ item(FEAT_HOUSES, item_tall_office_block_74, 74, HOUSE_SIZE_2X1){
 		probability: 2;
 		years_available: [1967,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 		}
 	graphics {
@@ -1300,7 +1862,7 @@ item(FEAT_HOUSES, item_tall_office_block_87, 87, HOUSE_SIZE_2X1){
 		probability: 2;
 		years_available: [1970,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 2;
 		}
 	graphics {
@@ -1326,7 +1888,7 @@ item(FEAT_HOUSES, item_shops_and_offices_64, 64, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1840,1955];
 		minimum_lifetime: 10;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 3;
 	}
 	graphics {
@@ -1350,7 +1912,7 @@ item(FEAT_HOUSES, item_shops_and_offices_29, 29, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1850,1955];
 		minimum_lifetime: 10;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 3;
 	}
 	graphics {
@@ -1374,7 +1936,7 @@ item(FEAT_HOUSES, item_shops_and_offices_14, 14, HOUSE_SIZE_1X1) {
 		probability: 2;
 		years_available: [1700,1945];
 		minimum_lifetime: 10;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 3;
 	}
 	graphics {
@@ -1398,7 +1960,7 @@ item(FEAT_HOUSES, item_shops_and_offices_15, 15, HOUSE_SIZE_1X1) {
 		probability: 2;
 		years_available: [1750,1960];
 		minimum_lifetime: 10;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 3;
 	}
 	graphics {
@@ -1422,7 +1984,7 @@ item(FEAT_HOUSES, item_shops_and_offices_16, 16, HOUSE_SIZE_1X1) { // Colorful r
 		probability: 1;
 		years_available: [1860,1955];
 		minimum_lifetime: 10;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 3;
 	}
 	graphics {
@@ -1452,7 +2014,7 @@ item(FEAT_HOUSES, item_historic_church, 38, HOUSE_SIZE_1X1){
 		removal_cost_multiplier: 90;
 		probability: 4;
 		years_available: [1700,0xFFFF];
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_church;
@@ -1474,7 +2036,7 @@ item(FEAT_HOUSES, item_old_church, 03, HOUSE_SIZE_1X1){
 		removal_cost_multiplier: 90;
 		probability: 6;
 		years_available: [1700,0xFFFF];
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_EDGE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_church;
@@ -1497,7 +2059,7 @@ item(FEAT_HOUSES, item_modern_church_1, 60, HOUSE_SIZE_1X1){
 		removal_cost_multiplier: 85;
 		probability: 1;
 		years_available: [1960,0xFFFF];
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_modern_church_1;
@@ -1519,7 +2081,7 @@ item(FEAT_HOUSES, item_modern_church_2, 58, HOUSE_SIZE_1X1){
 		removal_cost_multiplier: 85;
 		probability: 1;
 		years_available: [1970,0xFFFF];
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_modern_church_2;
@@ -1543,7 +2105,7 @@ item(FEAT_HOUSES, item_neomoorish_church, 83, HOUSE_SIZE_1X1){
 		removal_cost_multiplier: 85;
 		probability: 1;
 		years_available: [1850,1900];
-		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_neomoorish_church;
@@ -1566,7 +2128,7 @@ item(FEAT_HOUSES, item_old_stadium, 20, HOUSE_SIZE_2X2){
 		probability: 4;
 		years_available: [1800,0xFFFF];
 		minimum_lifetime: 10;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		graphics_north: sprite_old_stadium_N;
@@ -1592,7 +2154,7 @@ item(FEAT_HOUSES, item_new_stadium, 32, HOUSE_SIZE_2X2){
 		probability: 4;
 		years_available: [1958,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		graphics_north: sprite_new_stadium_N;
@@ -1614,7 +2176,7 @@ item(FEAT_HOUSES, item_hotel, 07, HOUSE_SIZE_1X2){
 		probability: 4;
 		years_available: [1900,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		graphics_north: sprite_hotel_N;
@@ -1632,7 +2194,7 @@ item(FEAT_HOUSES, item_cinema, 39, HOUSE_SIZE_1X1){
 		probability: 1;
 		years_available: [1945,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB,TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_cinema;
@@ -1649,7 +2211,7 @@ item(FEAT_HOUSES, item_theatre, 31, HOUSE_SIZE_1X1){
 		probability: 1;
 		years_available: [1900,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_theatre;
@@ -1668,7 +2230,7 @@ item(FEAT_HOUSES, item_market, 40, HOUSE_SIZE_2X2){
 		probability: 1;
 		years_available: [1900,0xFFFF];
 		minimum_lifetime: 3;
-		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 0;
 	}
 	graphics {
@@ -1691,7 +2253,7 @@ if (extra_tropic == 1){
 			probability: 1;
 			years_available: [1930,0xFFFF];
 			minimum_lifetime: 4;
-			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 			building_class: 0;
 		}
 		graphics {
@@ -1707,7 +2269,7 @@ if (extra_tropic == 1){
 			probability: 1;
 			years_available: [1930,0xFFFF];
 			minimum_lifetime: 4;
-			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 			building_class: 0;
 		}
 		graphics {
@@ -1724,7 +2286,7 @@ item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 0;
 	}
 	graphics {
@@ -1740,7 +2302,7 @@ item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 20;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 0;
 	}
 	graphics {
@@ -1764,7 +2326,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 		probability: 15;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 0;
 	}
 	graphics {
@@ -1780,7 +2342,7 @@ item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 1;
 	}
 	graphics {
@@ -1795,7 +2357,7 @@ item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
 		probability: 2;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 1;
 	}
 	graphics {
@@ -1818,7 +2380,7 @@ item(FEAT_HOUSES, item_museum, 103, HOUSE_SIZE_1X1){
 		probability: 1;
 		years_available: [1950,0xFFFF];
 		minimum_lifetime: 10;
-		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 	}
 	graphics {
 		default: sprite_museum;
@@ -1843,7 +2405,7 @@ if (extra_bank == 1) {
 			probability: 1;
 			years_available: [1850,0xFFFF];
 			minimum_lifetime: 100;
-			availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+			availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		}
 		graphics {
 			graphics_north: sprite_courthouse_n;
@@ -1866,7 +2428,7 @@ if (extra_bank == 1) {
 			probability: 1;
 			years_available: [1700,0xFFFF];
 			minimum_lifetime: 100;
-			availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+			availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		}
 		graphics {
 			graphics_north: sprite_university_n;
@@ -1893,7 +2455,7 @@ if (extra_hotel == 1) {
 			probability: 1;
 			years_available: [1880,0xFFFF];
 			minimum_lifetime: 10;
-			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		}
 		graphics {
 			graphics_north: sprite_spa_n;
@@ -1916,7 +2478,7 @@ item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 		probability: 4;
 		years_available: [1945,0xFFFF];
 		minimum_lifetime: 2;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 0;
 		
 		}
@@ -1934,7 +2496,7 @@ item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
 		probability: 4;
 		years_available: [1850,1950];
 		minimum_lifetime: 1;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 0;
 		}
 	graphics {
@@ -1949,7 +2511,7 @@ item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
 		probability: 1;
 		years_available: [1945,0xFFFF];
 		minimum_lifetime: 2;
-		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		}
 	graphics {
 		default: random_sprite_townhouses;
@@ -1966,7 +2528,7 @@ item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
 		probability: 1;
 		years_available: [1850,1950];
 		minimum_lifetime: 2;
-		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [bitmask(TOWNZONE_INNER_SUBURB,TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		}
 	graphics {
 		default: random_sprite_townhouses;
@@ -1980,7 +2542,7 @@ item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 		probability: 1;
 		years_available: [1945,0xFFFF];
 		minimum_lifetime: 5;
-		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		}
 	graphics {
 		default: random_sprite_flats;
@@ -1996,7 +2558,7 @@ item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 		probability: 1;
 		years_available: [1945,0xFFFF];
 		minimum_lifetime: 4;
-		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		}
 	graphics {
 		default: random_sprite_small_flats;
@@ -2014,7 +2576,7 @@ item(FEAT_HOUSES, item_cottages, 25, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1700,1900];
 		minimum_lifetime: 2;
-		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 4;
 	}
 	graphics {
@@ -2032,7 +2594,7 @@ item(FEAT_HOUSES, item_old_houses, 24, HOUSE_SIZE_1X1) {
 		probability: 1;
 		years_available: [1700,1880];
 		minimum_lifetime: 2;
-		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TOYLAND)];
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_TEMPERATE, CLIMATE_TOYLAND)];
 		building_class: 4;
 	}
 	graphics {

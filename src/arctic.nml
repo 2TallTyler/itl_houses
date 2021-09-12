@@ -1,0 +1,470 @@
+/* Begin Sub-Arctic */
+
+/* Building Classes
+ * 1: Low-density residential
+ * 2: Flats
+ * 3: Office buildings
+ * 4: Old office buildings
+ * 5: Parks, fountains, and other value adds
+*/
+
+/* HOUSES */
+
+/* Has roads to SW or NE */
+switch (FEAT_HOUSES, SELF, switch_arctic_house_a, (HasRoadAdjacentSW() || HasRoadAdjacentNE())) {return;}
+item (FEAT_HOUSES, item_arctic_house_a, 110) {
+	property {
+		substitute: 48;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1700,0xFFFF];
+		population: 14;
+		building_class: 1;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_arctic_48_house;
+		construction_check: switch_arctic_house_a;
+		colour: RandomColourArcticHouses();
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_arctic_house_b, HasRoadAdjacentSE()) {return;}
+item (FEAT_HOUSES, item_arctic_house_b, 111) {
+	property {
+		substitute: 48;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1700,0xFFFF];
+		population: 14;
+		building_class: 1;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_houses_62;
+		construction_check: switch_arctic_house_b;
+		colour: RandomColourArcticHouses();
+	}
+}
+
+item (FEAT_HOUSES, item_arctic_house_c, 112) {
+	property {
+		substitute: 48;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1700,0xFFFF];
+		population: 14;
+		building_class: 1;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_houses_62b;
+		// construction_check: none required; can have road any direction
+		colour: RandomColourArcticHouses();
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_arctic_house_d, (HasRoadAdjacentNW() || HasRoadAdjacentSE())) {return;}
+item (FEAT_HOUSES, item_arctic_house_d, 113) {
+	property {
+		substitute: 48;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1700,0xFFFF];
+		population: 14;
+		building_class: 1;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_houses_62c;
+		construction_check: switch_arctic_house_d;
+		colour: RandomColourArcticHouses();
+	}
+}
+
+/* FLATS */
+
+switch (FEAT_HOUSES, SELF, switch_arctic_44_flats, CheckValue(4,255) && CheckFlatsSprawl() ) {return;}
+item (FEAT_HOUSES, item_arctic_flats_44, 114) {
+	property {
+		substitute: 44;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1930,0xFFFF];
+		population: 80;
+		building_class: 2;
+		minimum_lifetime: 8;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_small_flats_44;
+		construction_check: switch_arctic_44_flats;
+	}
+}
+
+/* COMMERCIAL */
+
+/* This shop has the maximum probability and is always available, giving nearly every town acceptance of Food and Goods. This is important for town growth mechanics. */
+item(FEAT_HOUSES, item_arctic_shop, 115) {
+	property {
+		substitute: 46;
+		building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+		population: 25;
+		mail_multiplier: 4;
+		years_available: [1700,0xFFFF];
+		probability: 15;
+		availability_mask: [bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		}
+	}
+	graphics {
+		default: sprite_shop;
+		construction_check: IsUniqueHouse();
+	}
+}
+
+// Old West building
+switch (FEAT_HOUSES, SELF, switch_arctic_shops_a, (CheckValue(6, 255) && HasRoadAdjacentSW()) ) {return;}
+item (FEAT_HOUSES, item_arctic_shops_a, 120) {
+	property {
+		substitute: 58;
+		population: 25;
+		mail_multiplier: 4;
+		years_available: [1800,0xFFFF];
+		probability: 1;
+		minimum_lifetime: 20;
+		availability_mask: [bitmask(TOWNZONE_EDGE, TOWNZONE_OUTSKIRT, TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		}
+	}
+	graphics {
+		default: sprite_arctic_shops_and_offices_a;
+		construction_check: switch_arctic_shops_a;
+	}
+}
+
+// Church-looking building
+switch (FEAT_HOUSES, SELF, switch_arctic_shops_b, (CheckValue(8, 255) && (HasRoadAdjacentSW() || HasRoadAdjacentNE()) ) ) {return;}
+item (FEAT_HOUSES, item_arctic_shops_b, 123) {
+	property {
+		substitute: 58;
+		population: 25;
+		mail_multiplier: 4;
+		years_available: [1960,0xFFFF];
+		probability: 1;
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		}
+	}
+	graphics {
+		default: sprite_modern_church_2;
+		construction_check: switch_arctic_shops_b;
+	}
+}
+
+// Large brick square building
+switch (FEAT_HOUSES, SELF, switch_arctic_shops_c, CheckValue(8, 255)) {return;}
+item (FEAT_HOUSES, item_arctic_shops_c, 124) {
+	property {
+		substitute: 70;
+		population: 105;
+		mail_multiplier: 50;
+		years_available: [1800,0xFFFF];
+		probability: 1;
+		minimum_lifetime: 20;
+		availability_mask: [bitmask(TOWNZONE_OUTER_SUBURB, TOWNZONE_INNER_SUBURB, TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+		}
+	}
+	graphics {
+		default: sprite_shops_and_offices_64;
+		construction_check: switch_arctic_shops_c;
+	}
+}
+
+/* OFFICES */
+
+switch (FEAT_HOUSES, SELF, switch_arctic_offices, CheckOfficeSprawl(1000) && CheckValue(7,255) && (HasSameClassNearby(2) || IsFirstHouseOfClass()) ) {return;}
+
+item (FEAT_HOUSES, item_arctic_offices_50, 116) {
+	property {
+		substitute: 52;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1970,0xFFFF];
+		population: 170;
+		building_class: 3;
+		minimum_lifetime: 15;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_tall_office_block_50;
+		colour: RecolourByLandValue();
+		construction_check: switch_arctic_offices;
+	}
+}
+
+item (FEAT_HOUSES, item_arctic_offices_50b, 117) {
+	property {
+		substitute: 52;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1970,0xFFFF];
+		population: 170;
+		building_class: 3;
+		minimum_lifetime: 15;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_tall_office_block_50b;
+		colour: RecolourByLandValue();
+		construction_check: switch_arctic_offices;
+	}
+}
+
+item (FEAT_HOUSES, item_arctic_offices_52, 125) {
+	property {
+		substitute: 52;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1970,0xFFFF];
+		population: 170;
+		building_class: 3;
+		minimum_lifetime: 15;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_tall_office_block_52;
+		colour: RecolourByLandValue();
+		construction_check: switch_arctic_offices;
+	}
+}
+
+item (FEAT_HOUSES, item_arctic_offices_54, 118) {
+	property {
+		substitute: 52;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1970,0xFFFF];
+		population: 170;
+		building_class: 3;
+		minimum_lifetime: 15;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_tall_office_block_54;
+		colour: RecolourByLandValue();
+		construction_check: switch_arctic_offices;
+	}
+}
+
+item (FEAT_HOUSES, item_arctic_offices_museum, 128) {
+	property {
+		substitute: 19;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		years_available: [1970,0xFFFF];
+		population: 110;
+		building_class: 3;
+		minimum_lifetime: 15;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_museum;
+		construction_check: switch_arctic_offices;
+	}
+}
+
+/* Landmarks */
+
+switch (FEAT_HOUSES, SELF, switch_arctic_church, (HasRoadAdjacentSE() && CheckValue(4, 255))) {return;}
+item (FEAT_HOUSES, item_arctic_church, 119) {
+	property {
+		substitute: 60;
+		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		building_flags: bitmask(HOUSE_FLAG_CHURCH, HOUSE_FLAG_PROTECTED);
+		years_available: [1970,0xFFFF];
+		population: 6;
+		building_class: 5;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
+	graphics {
+		default: sprite_modern_church_1;
+		construction_check: switch_arctic_church;
+	}
+}
+
+switch (FEAT_HOUSES, SELF, switch_arctic_spa, (CheckValue(6,255) && HasRoadAdjacentSW()) && IsUniqueHouse()) {return;}
+item(FEAT_HOUSES, item_arctic_spa, 121, HOUSE_SIZE_1X2){
+		property {
+			substitute: 07;
+			name: TTD_STR_TOWN_BUILDING_NAME_HOTEL_1;
+			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			population: 85;
+			mail_multiplier: 4;
+			accepted_cargos: [[PASS, 8],[MAIL, 4]];
+			local_authority_impact: 200;
+			removal_cost_multiplier: 150;
+			probability: 1;
+			years_available: [1880,0xFFFF];
+			minimum_lifetime: 10;
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		}
+		graphics {
+			graphics_north: sprite_spa_n;
+			graphics_east: sprite_spa_e;
+			construction_check: switch_arctic_spa;
+		}
+	}
+
+switch (FEAT_HOUSES, SELF, switch_arctic_fountain, (nearby_tile_slope(0,0) == SLOPE_FLAT && !HasSameClassNearby(2))) {return;}
+item(FEAT_HOUSES, item_arctic_fountain, 126) {
+	property {
+		substitute: 10;
+		probability: 1;
+		years_available: [1700,0xFFFF];
+		minimum_lifetime: 20;
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		building_class: 5;
+	}
+	graphics {
+		default: sprite_fountain;
+		construction_check: switch_arctic_fountain;
+		}
+}
+
+item(FEAT_HOUSES, item_arctic_statue, 127) {
+	property {
+		substitute: 09;
+		probability: 1;
+		years_available: [1700,0xFFFF];
+		minimum_lifetime: 20;
+		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		building_class: 5;
+	}
+	graphics {
+		default: sprite_statue;
+		construction_check: switch_arctic_fountain;
+	}
+}
