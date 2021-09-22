@@ -25,6 +25,11 @@ item (FEAT_HOUSES, item_arctic_house_a, 110) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
 	} else {
 		property {
 			accepted_cargos: [[PASS, 8],[MAIL, 8]];
@@ -48,6 +53,11 @@ item (FEAT_HOUSES, item_arctic_house_b, 111) {
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
@@ -76,6 +86,11 @@ item (FEAT_HOUSES, item_arctic_house_c, 112) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
 	} else {
 		property {
 			accepted_cargos: [[PASS, 8],[MAIL, 8]];
@@ -99,6 +114,11 @@ item (FEAT_HOUSES, item_arctic_house_d, 113) {
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
@@ -131,6 +151,11 @@ item (FEAT_HOUSES, item_arctic_flats_44, 114) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
 	} else {
 		property {
 			accepted_cargos: [[PASS, 8],[MAIL, 8]];
@@ -160,6 +185,11 @@ item(FEAT_HOUSES, item_arctic_shop, 115) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
+		property {
+			accepted_cargos: [[FOOD, 8],[GOOD, 8]];
+		}
 	} else {
 		property {
 			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
@@ -185,6 +215,11 @@ item (FEAT_HOUSES, item_arctic_shops_a, 120) {
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
@@ -215,6 +250,11 @@ item (FEAT_HOUSES, item_arctic_shops_b, 123) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
 	} else {
 		property {
 			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
@@ -240,6 +280,11 @@ item (FEAT_HOUSES, item_arctic_shops_c, 124) {
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
@@ -272,6 +317,11 @@ item (FEAT_HOUSES, item_arctic_offices_50, 116) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
 	} else {
 		property {
 			accepted_cargos: [[PASS, 8],[MAIL, 8]];
@@ -295,6 +345,11 @@ item (FEAT_HOUSES, item_arctic_offices_50b, 117) {
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
@@ -324,6 +379,11 @@ item (FEAT_HOUSES, item_arctic_offices_52, 125) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
 	} else {
 		property {
 			accepted_cargos: [[PASS, 8],[MAIL, 8]];
@@ -347,6 +407,11 @@ item (FEAT_HOUSES, item_arctic_offices_54, 118) {
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
@@ -376,6 +441,11 @@ item (FEAT_HOUSES, item_arctic_offices_museum, 128) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
 	} else {
 		property {
 			accepted_cargos: [[PASS, 8],[MAIL, 8]];
@@ -401,6 +471,11 @@ item (FEAT_HOUSES, item_arctic_church, 119) {
 	}
 	/* Don't accept Passengers if Industries of the Caribbean is loaded */
 	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
 		property {
 			accepted_cargos: [[MAIL, 8]];
 		}
