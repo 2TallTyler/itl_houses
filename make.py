@@ -47,7 +47,7 @@ unordered_stuff.sort()
 for i in unordered_stuff:
     append_code(i)
 
-merged_nml_path = "src/merged/" + newgrf_name + ".nml"
+merged_nml_path = newgrf_name + ".nml"
 grf_name = newgrf_name + ".grf"
 
 # Write the content of 'sections' into a file and save it
