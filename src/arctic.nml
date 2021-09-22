@@ -341,7 +341,7 @@ item (FEAT_HOUSES, item_arctic_offices_54, 118) {
 		substitute: 52;
 		availability_mask: [ALL_TOWNZONES, bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
 		years_available: [1970,0xFFFF];
-		population: 170;
+		population: 210;
 		building_class: 3;
 		minimum_lifetime: 15;
 	}
@@ -421,7 +421,7 @@ item(FEAT_HOUSES, item_arctic_spa, 121, HOUSE_SIZE_1X2){
 			substitute: 07;
 			name: TTD_STR_TOWN_BUILDING_NAME_HOTEL_1;
 			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
-			population: 85;
+			population: 255;
 			mail_multiplier: 4;
 			accepted_cargos: [[PASS, 8],[MAIL, 4]];
 			local_authority_impact: 200;
