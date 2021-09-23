@@ -523,6 +523,21 @@ item(FEAT_HOUSES, item_arctic_fountain, 126) {
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
 		building_class: 5;
 	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
+	}
 	graphics {
 		default: sprite_fountain;
 		construction_check: switch_arctic_fountain;
@@ -537,6 +552,21 @@ item(FEAT_HOUSES, item_arctic_statue, 127) {
 		minimum_lifetime: 20;
 		availability_mask: [bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
 		building_class: 5;
+	}
+	/* Don't accept Passengers if Industries of the Caribbean is loaded */
+	if (grf_future_status("TT20")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	/* Don't accept Passengers if Lumberjack Industries is loaded */
+	} else if (grf_future_status("TT21")) {
+		property {
+			accepted_cargos: [[MAIL, 8]];
+		}
+	} else {
+		property {
+			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+		}
 	}
 	graphics {
 		default: sprite_statue;
