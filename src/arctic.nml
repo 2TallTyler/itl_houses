@@ -496,15 +496,26 @@ item(FEAT_HOUSES, item_arctic_spa, 121, HOUSE_SIZE_1X2){
 			substitute: 07;
 			name: TTD_STR_TOWN_BUILDING_NAME_HOTEL_1;
 			building_flags: bitmask(HOUSE_FLAG_PROTECTED);
+			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
 			population: 255;
 			mail_multiplier: 4;
-			accepted_cargos: [[PASS, 8],[MAIL, 4]];
-			local_authority_impact: 200;
-			removal_cost_multiplier: 150;
-			probability: 1;
 			years_available: [1880,0xFFFF];
 			minimum_lifetime: 10;
-			availability_mask: [ALL_TOWNZONES & ~bitmask(TOWNZONE_CENTRE), bitmask(CLIMATE_ARCTIC, ABOVE_SNOWLINE)];
+		}
+		/* Don't accept Passengers if Industries of the Caribbean is loaded */
+		if (grf_future_status("TT20")) {
+			property {
+				accepted_cargos: [[MAIL, 8]];
+			}
+		/* Don't accept Passengers if Lumberjack Industries is loaded */
+		} else if (grf_future_status("TT21")) {
+			property {
+				accepted_cargos: [[MAIL, 8]];
+			}
+		} else {
+			property {
+				accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			}
 		}
 		graphics {
 			graphics_north: sprite_spa_n;
