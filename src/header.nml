@@ -39,7 +39,7 @@ param 2 {
 }
 
 cargotable {
-	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE, WATR, VEHI,
+	PASS, MAIL, GOOD, FOOD, BEER, COAL, WOOD, RCYC, WSTE, WATR, VEHI, BDMT,
 	
 	/* IOTC industrial cargos */
 	SGCN, TBCO, OIL_, NKOR, MOLS, RFPR, FUEL, PIPE, ENSP

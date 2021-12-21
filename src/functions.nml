@@ -142,6 +142,10 @@ switch (FEAT_HOUSES, SELF, AddValueGoodsService, (cargo_accepted_nearby_last_mon
 	return 0;
 }
 
+switch (FEAT_HOUSES, SELF, AddValueBuildingMaterialsService, (cargo_accepted_nearby_last_month(BDMT) == 1 || cargo_accepted_nearby_this_month(BDMT) == 1) ) {
+	1: return 6;
+	return 0;
+}
 
 switch (FEAT_HOUSES, SELF, AddValueVehiclesService, (cargo_accepted_nearby_last_month(VEHI) == 1 || cargo_accepted_nearby_this_month(VEHI) == 1) ) {
 	1: return 3;
@@ -170,7 +174,8 @@ switch (FEAT_HOUSES, SELF, CalculateValue,
 	AddValueGoodsService() +
 	AddValueWaterService() +
 	AddValueFoodService() +
-	AddValueVehiclesService()
+	AddValueVehiclesService() +
+	AddValueBuildingMaterialsService()
 	) * CheckIndustrialCargos() // 1 if no industrial cargos were delivered nearby, else 0 making the entire land value calculation 0.
 	) {return;}
 
