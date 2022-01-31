@@ -1,11 +1,13 @@
-# Improved Town Layouts
+# ITL Houses
 
 ![Photo credit: Kale on Discord](docs/itl_kale.png)
 _Photo credit: Kale on Discord_
 
-A house replacement set using default graphics with new rules and features, for **Temperate** and **Subtropic**.
+A house replacement set using default graphics with new rules and features, for **Temperate**, **Subarctic**, and **Subtropic**.
 
-## Subtropic Features (currently in 1.4.0 beta)
+Formerly known as `Improved Town Layouts`.
+
+## Subarctic & Subtropic Features
 ### Better downtowns and suburbs
 - Flats are capped at 1 per every 10 houses
 - Each office building requires 1000 population
@@ -72,7 +74,7 @@ Use additional sprites. Default off.
 - Use FIRS Hotel sprites
   - Adds the sub-arctic Hotel sprite as a Spa
   - Not recommended if playing with FIRS, which also uses this sprite
-- Use sub-tropical sprites
+- Use sub-tropical sprites (Temperate climate)
   - Adds the sub-tropical church sprite as an additional Church type
   - Adds one of the flats sprites as a random sprite of the Warehouse
 
@@ -93,4 +95,3 @@ Please feel free to translate into your language and submit a Pull Request.
 
 ## Limitations / Not in Scope
 - This is a house replacement set. It does not improve the behavior of other NewGRF houses, how towns build roads, or [town growth](https://wiki.openttd.org/en/Manual/Towns#town-growth).
-- This set is intended for the Temperate and Subtropic climates. It does not include snow-aware sprites, because they do not exist for most buildings.

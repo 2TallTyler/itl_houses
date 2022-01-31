@@ -2,7 +2,7 @@
 
 STR_GRF_NAME							:{TITLE} {VERSION}
 STR_GRF_DESC							:{ORANGE}Alte Häuser, neue Regeln.{}{}{BLACK}Durch das Transportwesen bestimmte Innenstädte, sich ausdehnende Vorstädte, historisch geschützte Gebäude, und vieles mehr.{}{}Startet im Jahr 1700. Kooperiert mit allen Basisgrafik-Sets. {SILVER}Nicht kompatibel mit anderen Gebäude-NewGRFs.{}{}{ORANGE}Besuchen Sie die Website für mehr Informationen.{}{}{BLACK}Programmiert von 2TallTyler.
-STR_WEBSITE								:https://github.com/2TallTyler/improved_town_layouts/blob/master/README.md
+STR_WEBSITE								:https://github.com/2TallTyler/itl_houses/blob/master/README.md
 
 STR_ERROR_GAME_VERSION					:Braucht OpenTTD-Version 1.10.0, JGR-Version 0.34, oder neuer.
 

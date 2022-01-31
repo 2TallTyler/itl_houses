@@ -3,7 +3,7 @@
 #################################
 
 # Name of NewGRF, as it appears in file names
-newgrf_name = "improved_town_layouts"
+newgrf_name = "itl_houses"
 
 # Files which should be first, in order (header, cargotable, etc)
 header_stuff = ["header", "graphics", "functions", "switches", "waste"]

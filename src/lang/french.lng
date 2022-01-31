@@ -2,7 +2,7 @@
 
 STR_GRF_NAME							:{TITLE} {VERSION}
 STR_GRF_DESC							:{ORANGE}Mêmes maisons, nouvelles règles.{}{}{BLACK}Centre-ville déterminé par le trafic passager, banlieues tentaculaires, bâtiments préservés, et plus encore.{}{}À partir de 1700. Compatible avec tous les graphismes de base. {SILVER}Incompatible avec les autres NewGRFs de maisons.{}{}{ORANGE}Visiter le site pour le manuel.{}{}{BLACK}Codé par 2TallTyler.
-STR_WEBSITE								:https://github.com/2TallTyler/improved_town_layouts/blob/master/README.md
+STR_WEBSITE								:https://github.com/2TallTyler/itl_houses/blob/master/README.md
 
 STR_ERROR_GAME_VERSION					:Improved Town Layouts (Plans urbains améliorés) requiert OpenTTD 1.10.0, JGR 0.34, ou des versions ultérieures
 
