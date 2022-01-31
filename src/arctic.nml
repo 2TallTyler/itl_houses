@@ -192,7 +192,7 @@ item(FEAT_HOUSES, item_arctic_shop, 115) {
 		}
 	} else {
 		property {
-			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
 		}
 	}
 	graphics {
@@ -225,7 +225,7 @@ item (FEAT_HOUSES, item_arctic_shops_a, 120) {
 		}
 	} else {
 		property {
-			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
 		}
 	}
 	graphics {
@@ -257,7 +257,7 @@ item (FEAT_HOUSES, item_arctic_shops_b, 123) {
 		}
 	} else {
 		property {
-			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
 		}
 	}
 	graphics {
@@ -290,7 +290,7 @@ item (FEAT_HOUSES, item_arctic_shops_c, 124) {
 		}
 	} else {
 		property {
-			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
 		}
 	}
 	graphics {
@@ -324,7 +324,7 @@ item (FEAT_HOUSES, item_arctic_offices_50, 116) {
 		}
 	} else {
 		property {
-			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
 		}
 	}
 	graphics {
@@ -355,7 +355,7 @@ item (FEAT_HOUSES, item_arctic_offices_50b, 117) {
 		}
 	} else {
 		property {
-			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
 		}
 	}
 	graphics {
@@ -386,7 +386,7 @@ item (FEAT_HOUSES, item_arctic_offices_52, 125) {
 		}
 	} else {
 		property {
-			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
 		}
 	}
 	graphics {
@@ -417,7 +417,7 @@ item (FEAT_HOUSES, item_arctic_offices_54, 118) {
 		}
 	} else {
 		property {
-			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
 		}
 	}
 	graphics {
@@ -448,7 +448,7 @@ item (FEAT_HOUSES, item_arctic_offices_museum, 128) {
 		}
 	} else {
 		property {
-			accepted_cargos: [[PASS, 8],[MAIL, 8]];
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
 		}
 	}
 	graphics {
@@ -514,7 +514,7 @@ item(FEAT_HOUSES, item_arctic_spa, 121, HOUSE_SIZE_1X2){
 			}
 		} else {
 			property {
-				accepted_cargos: [[PASS, 8],[MAIL, 8]];
+				accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
 			}
 		}
 		graphics {
