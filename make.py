@@ -6,7 +6,7 @@
 newgrf_name = "itl_houses"
 
 # Files which should be first, in order (header, cargotable, etc)
-header_stuff = ["header", "graphics", "functions", "switches", "waste"]
+header_stuff = ["header", "graphics", "functions", "switches"]
 
 # Files to place in alphabetical order below
 unordered_stuff = ["residential", "commercial", "landmarks", "tropic", "arctic"]

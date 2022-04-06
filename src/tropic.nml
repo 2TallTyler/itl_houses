@@ -249,7 +249,7 @@ item(FEAT_HOUSES, item_tropic_shop, -1) {
 		}
 	} else {
 		property {
-			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8]];
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[BDMT, 8]];
 		}
 	}
 	graphics {

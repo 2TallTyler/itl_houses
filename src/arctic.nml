@@ -192,7 +192,7 @@ item(FEAT_HOUSES, item_arctic_shop, 115) {
 		}
 	} else {
 		property {
-			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8]];
+			accepted_cargos: [[PASS, 8],[MAIL, 8],[FOOD, 8],[GOOD, 8],[BDMT, 8]];
 		}
 	}
 	graphics {
