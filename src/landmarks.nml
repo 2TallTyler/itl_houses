@@ -270,6 +270,7 @@ if (extra_tropic == 1){
 item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 10;
+        accepted_cargos: [[PASS, 8], [MAIL, 8]];
 		probability: 1;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 20;
@@ -286,6 +287,7 @@ item(FEAT_HOUSES, item_fountain, 10, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_statue, 09, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 09;
+        accepted_cargos: [[PASS, 8], [MAIL, 8]];
 		probability: 1;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 20;
@@ -325,6 +327,7 @@ item(FEAT_HOUSES, item_shop, 46, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 11;
+        accepted_cargos: [[PASS, 8], [MAIL, 8]];
 		probability: 1;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 5;
@@ -340,6 +343,7 @@ item(FEAT_HOUSES, item_park_pond, 11, HOUSE_SIZE_1X1) {
 item(FEAT_HOUSES, item_park_alley, 12, HOUSE_SIZE_1X1) {
 	property {
 		substitute: 12;
+        accepted_cargos: [[PASS, 8], [MAIL, 8]];
 		probability: 2;
 		years_available: [1700,0xFFFF];
 		minimum_lifetime: 5;

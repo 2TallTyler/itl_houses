@@ -5,6 +5,7 @@
 item(FEAT_HOUSES, item_houses, 26, HOUSE_SIZE_1X1){
 	property {
 		substitute: 26;
+        accepted_cargos: [[PASS, 8], [MAIL, 8]];
 		probability: 4;
 		years_available: [1945,0xFFFF];
 		minimum_lifetime: 2;
@@ -36,6 +37,7 @@ item(FEAT_HOUSES, item_houses_old, 108, HOUSE_SIZE_1X1){
 item(FEAT_HOUSES, item_townhouses, 06, HOUSE_SIZE_1X1){
 	property {
 		substitute: 06;
+        accepted_cargos: [[PASS, 8], [MAIL, 8]];
 		probability: 1;
 		years_available: [1945,0xFFFF];
 		minimum_lifetime: 2;
@@ -65,6 +67,7 @@ item(FEAT_HOUSES, item_townhouses_old, 109, HOUSE_SIZE_1X1){
 item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 	property {
 		substitute: 27;
+        accepted_cargos: [[PASS, 8], [MAIL, 8]];
 		probability: 1;
 		years_available: [1945,0xFFFF];
 		minimum_lifetime: 5;
@@ -80,6 +83,7 @@ item(FEAT_HOUSES, item_flats, 27, HOUSE_SIZE_1X1){
 item(FEAT_HOUSES, item_small_flats, 02, HOUSE_SIZE_1X1){
 	property {
 		substitute: 02;
+        accepted_cargos: [[PASS, 8], [MAIL, 8]];
 		probability: 1;
 		years_available: [1945,0xFFFF];
 		minimum_lifetime: 4;
