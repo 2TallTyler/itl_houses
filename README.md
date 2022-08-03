@@ -30,7 +30,9 @@ Formerly known as `Improved Town Layouts`.
   - 16-18: Purple
   - 19+: Pink
 
-## Temperate Features
+## Temperate Features 
+(Legacy features, to be changed to match Subarctic and Subtropic)
+
 ### Better downtowns and suburbs
 - High-density residential and commercial buildings only grow within the coverage area of a passenger station
 - Downtown buildings cluster together
@@ -56,10 +58,6 @@ Formerly known as `Improved Town Layouts`.
 - Early buildings have reduced population to allow older, slower vehicles to keep up with demand
   - 1700-1850: 1/4 population
   - 1850-1950: 1/2 population
-
-### Supports Waste & Recycling
-**Requires Improved Town Industries**
-- When used with Improved Town Industries, houses generate Waste
 
 ## Compatibilities
 - Compatible with all industry sets and GameScripts (please report any problems)
