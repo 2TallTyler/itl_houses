@@ -1,0 +1,22 @@
+##grflangid 0x39
+
+STR_GRF_NAME							:{TITLE} {VERSION}
+STR_GRF_DESC							:{ORANGE}同じ建物、新しいルール。{}{}{BLACK}交通機関による都心の繁栄、広がる郊外、風土保存など。{}{}1700年始まり。すべての基本グラフィックセットに対応。{SILVER}他のNewGRF建造物取替と非両立。{}{}{LTBLUE}旧「Improved Town Layouts」。{}{}{ORANGE}使用説明はウェブサイトを参照ください。{}{}{BLACK}2TallTylerによって作成されました。
+
+STR_ERROR_GAME_VERSION					:Improved Town LayoutsはOpenTTDバージョン1.10.0以降か、JGRバージョン0.34以降が必要です。
+
+STR_PARAM_NAME_EXTRA_BANK				:銀行スプライトを使用
+STR_PARAM_DESC_EXTRA_BANK				:銀行スプライトを{SILVER}大学{BLACK}(温帯)か{SILVER}裁判所{BLACK}(亜寒帯)として再利用します。{}{}銀行を含む産業セットを使う場合、{ORANGE}推奨しません{BLACK}。
+
+STR_PARAM_NAME_EXTRA_HOTEL				:FIRSホテルスプライトを使用
+STR_PARAM_DESC_EXTRA_HOTEL				:亜寒帯のホテルスプライトを{SILVER}温泉{BLACK}として再利用します。{}{}FIRSのような、このスプライトを利用する産業セットを使う場合、{ORANGE}推奨しません{BLACK}。
+
+STR_PARAM_NAME_EXTRA_TROPIC				:亜熱帯スプライトを温帯に使用
+STR_PARAM_DESC_EXTRA_TROPIC				:亜熱帯の教会スプライトを温帯のもう一種の{SILVER}教会{BLACK}として再利用します。アパートスプライトの一つを{SILVER}倉庫{BLACK}のランダムスプライトに追加します。
+
+STR_NAME_HISTORIC_CHURCH				:歴史ある教会
+STR_NAME_SHOP							:商店
+STR_NAME_UNIVERSITY						:大学
+STR_NAME_COURTHOUSE						:裁判所
+STR_NAME_MUSEUM							:博物館
+STR_NAME_SPA							:温泉
