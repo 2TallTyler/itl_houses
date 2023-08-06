@@ -1,0 +1,23 @@
+##grflangid 0x0c
+
+STR_GRF_NAME							:{TITLE} {VERSION}
+STR_GRF_DESC							:{ORANGE}原版房屋，新的規則。{} {} {BLACK}市區是由乘客服務、廣闊郊區、歷史遺跡等等來定義。{}{}最低從1700年開始。適用於所有基本圖形集。{SILVER}與其它 NewGRF 房屋不相容。{}{}{ORANGE}造訪網站來獲取詳細說明。{}{}{BLACK}Coded by 2TallTyler.
+STR_WEBSITE								:https://github.com/2TallTyler/itl_houses/blob/master/README.md
+
+STR_ERROR_GAME_VERSION					:改進的城鎮佈局需要 OpenTTD 1.10.0、JGR 0.34 或更新版本。
+
+STR_PARAM_NAME_EXTRA_BANK				:使用銀行圖形
+STR_PARAM_DESC_EXTRA_BANK				:添加銀行圖形來作為{SILVER}大學{BLACK}（溫帶銀行圖案）和{SILVER}法院{BLACK}（寒帶銀行圖形）。{}{}{ORANGE}不推薦{BLACK}同時使用包含銀行的工業擴展集。 
+
+STR_PARAM_NAME_EXTRA_HOTEL				:使用 FIRS 旅館圖形
+STR_PARAM_DESC_EXTRA_HOTEL				:添加寒帶的旅館圖形作為{SILVER}水療館{BLACK}。{}{}{ORANGE}不推薦{BLACK}與 FIRS 一同使用，因它也有使用到該圖形。
+
+STR_PARAM_NAME_EXTRA_TROPIC				:使用熱帶圖形
+STR_PARAM_DESC_EXTRA_TROPIC				:添加熱帶的教堂圖形來作為{SILVER}教堂{BLACK}。添加熱帶公寓貼圖來作為隨機的{SILVER}倉庫{BLACK}貼圖。
+
+STR_NAME_HISTORIC_CHURCH				:歷史悠久的教堂
+STR_NAME_SHOP							:商店
+STR_NAME_UNIVERSITY						:大學
+STR_NAME_COURTHOUSE						:法院
+STR_NAME_MUSEUM							:博物館
+STR_NAME_SPA							:水療館
