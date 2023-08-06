@@ -89,6 +89,7 @@ Currently available in:
 - Czech (adpro)
 - French (arikover)
 - German (WoelfiVW)
+- Japanese (fmang)
 
 Please feel free to translate into your language and submit a Pull Request.
 
