@@ -84,7 +84,7 @@ If you have any questions, please feel free to contact me and I will do my best 
 ## Translations
 Currently available in:
 - English
-- Simplified Chinese (SuperCirno)
+- Simplified Chinese (SuperCirno and WenSimEHRP)
 - Traditional Chinese (jjyao88)
 - Czech (adpro)
 - French (arikover)
